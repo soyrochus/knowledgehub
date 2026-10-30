@@ -2,33 +2,32 @@ schema: spec-driven
 githubCopilot:
   cloudAgent: false
 
-# Project context (optional)
-# Add only constraints that should guide OpenSpec artifacts and workflows.
-# Include constraints an agent cannot infer by reading the code.
-# Keep general project documentation and discoverable codebase facts out.
-# Example:
-#   context: |
-#     Designs and tasks must cover Windows, macOS, and Linux
-#     Write all artifacts in Spanish
+context: |
+  The requirements and design baseline is source/system-definition-ontology-proposal.md,
+  draft 0.2 dated 30 October 2026. Section 21 defines the proposed knowledgehub Rust
+  library; sections 19 and 20 define the adoption sequence and unresolved decisions.
+  This is currently preparation and planning only. Do not implement or generate
+  code, add dependencies, or create modules, tests, examples or adapters until the
+  user explicitly authorises implementation. Planning does not imply adoption,
+  implementation, verification or acceptance.
+  The first implementation is one embedded Rust library crate with a default file
+  backend using Markdown, graph JSON and versioned artifacts. Public contracts must
+  remain storage-independent and use asynchronous I/O, snapshot-bound reads,
+  guarded atomic changes, revision conflicts, idempotent retries and recovery.
+  Preserve semantic identities, immutable revisions, provenance, exact baselines
+  and explicit document/graph authority. MongoDB/PostgreSQL adapters, HTTP services,
+  remote SDKs, FFI and publication remain deferred.
 
-# Per-artifact rules (optional)
-# Add custom rules for specific artifacts.
-# Example:
-#   rules:
-#     proposal:
-#       - Keep proposals under 500 words
-#       - Always state what is out of scope
-#     tasks:
-#       - Break tasks into chunks of max 2 hours
-
-# Per-operation guidance (optional)
-# Add advisory guidance for how apply and archive work should be conducted.
-# This is separate from artifact rules above.
-# Example:
-#   operations:
-#     apply:
-#       guidance:
-#         - Keep test summaries concise
-#     archive:
-#       guidance:
-#         - Summarize the archive outcome before finishing
+rules:
+  proposal:
+    - Trace the proposed outcome to specific sections of the source proposal.
+    - State the bounded scope, exclusions, unresolved decisions and acceptance criteria.
+  specs:
+    - Define observable behaviour and failure outcomes without assuming an implemented API.
+    - Keep storage-independent guarantees distinct from file-backend mechanisms.
+  design:
+    - Record authority, initial profile, toolchain/executor and filesystem/durability decisions where relevant; do not silently settle unresolved decisions from the source proposal.
+    - Preserve the dependency boundaries and commit, query and interchange contracts in section 21.
+  tasks:
+    - Plan small demonstrable outcomes with verification traceable to section 21.10.
+    - Keep proposed work unchecked until implementation and the corresponding evidence exist.

@@ -38,3 +38,16 @@ MongoDB and PostgreSQL adapters, an HTTP service, remote SDKs, FFI and crate pub
 Use sections 19–21 of the proposal to define a small, coherent first outcome and its acceptance criteria. Resolve the initial ontology profile, document/graph authority and authoring route, review policy, portable query semantics, interchange rules, and file publication/recovery contract. Record the Rust edition, minimum supported Rust version, executor policy and supported host/filesystem profiles; the scaffold currently declares edition 2024, while the other toolchain decisions remain open.
 
 Capture bounded implementation work through the existing OpenSpec workflow when requested. The source proposal and planning artifacts describe intended behaviour; actual library support requires the working operations and evidence specified in section 21.10.
+
+
+## Principles of Participation
+
+Everyone is invited and welcome to contribute: open issues, propose pull requests, share ideas, or help improve documentation. Participation is open to all, regardless of background or viewpoint. 
+
+This project follows the [FOSS Pluralism Manifesto](./FOSS_PLURALISM_MANIFESTO.md), which affirms respect for people, freedom to critique ideas, and space for diverse perspectives. 
+
+## License and Copyright
+
+Copyright (c) 2026, Iwan van der Kleijn
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.

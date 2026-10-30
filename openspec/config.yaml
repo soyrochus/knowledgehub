@@ -6,6 +6,16 @@ context: |
   The requirements and design baseline is source/system-definition-ontology-proposal.md,
   draft 0.2 dated 30 October 2026. Section 21 defines the proposed knowledgehub Rust
   library; sections 19 and 20 define the adoption sequence and unresolved decisions.
+  source/practical-design-manual.md supplies the practical DDD, journey, story-map,
+  slice and specification method. Its Memento examples are not product requirements.
+  Follow domain analysis -> outcome slices -> behavioural specs -> authorised
+  implementation and verification -> review. design/domain-analysis.md owns the
+  working domain rules; delivery/slice-plan.md owns outcome order and dependencies;
+  design/self-hosting-plan.md owns bootstrap authority and the decision register.
+  Distinguish the domain model of the library from the ontology it stores. Begin
+  with documents and a small self-description seed, then progressively use the
+  implemented Hub to govern its own definition. Authority handover is explicit
+  per field/scope/baseline; derived specs must identify exact model revisions.
   This is currently preparation and planning only. Do not implement or generate
   code, add dependencies, or create modules, tests, examples or adapters until the
   user explicitly authorises implementation. Planning does not imply adoption,
@@ -22,9 +32,11 @@ rules:
   proposal:
     - Trace the proposed outcome to specific sections of the source proposal.
     - State the bounded scope, exclusions, unresolved decisions and acceptance criteria.
+    - Identify the outcome slice and its actor, completion condition and hard prerequisites; deepen later scope progressively.
   specs:
     - Define observable behaviour and failure outcomes without assuming an implemented API.
     - Keep storage-independent guarantees distinct from file-backend mechanisms.
+    - Trace behavioural contracts to the owning domain rules and slice stories; do not treat imported requirements as implementation evidence.
   design:
     - Record authority, initial profile, toolchain/executor and filesystem/durability decisions where relevant; do not silently settle unresolved decisions from the source proposal.
     - Preserve the dependency boundaries and commit, query and interchange contracts in section 21.

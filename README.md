@@ -2,13 +2,22 @@
 
 This workspace is dedicated to `knowledgehub`, a proposed Rust library for representing, validating, changing, reviewing and exchanging system-definition knowledge through explicit, versioned relationships.
 
-The requirements and design baseline is [A Proposal for a System Definition Ontology for the Knowledge Hub](source/system-definition-ontology-proposal.md), draft 0.2 dated 30 October 2026. [Section 21](source/system-definition-ontology-proposal.md#21-proposed-rust-library-knowledgehub) defines the proposed Rust library and its first implementation criteria.
+The requirements and target model come from [A Proposal for a System Definition Ontology for the Knowledge Hub](source/system-definition-ontology-proposal.md), draft 0.2 dated 30 October 2026. [Section 21](source/system-definition-ontology-proposal.md#21-proposed-rust-library-knowledgehub) defines the proposed Rust library and its first implementation criteria. The [Practical Design Manual](source/practical-design-manual.md) supplies the method for domain analysis, journeys, story maps, outcome slices and behavioural specifications.
 
 ## Current status
 
-Workspace preparation and planning. Library implementation has not been authorised or started. The source proposal remains a draft, and unresolved decisions must be recorded before implementation.
+Domain analysis, slice planning and specification. The initial planning set is drafted for review. Library implementation has not been authorised or started; source and planning documents remain proposals, and open adoption/platform choices are recorded explicitly.
 
 The Cargo package is named `knowledgehub` and currently retains the original `src/main.rs` starter placeholder. It does not yet expose a library API. Library targets, dependencies, modules, tests and examples will be introduced only after implementation is authorised.
+
+## Read the development model
+
+1. [Domain analysis](design/domain-analysis.md): concrete situation, shared language, context map, aggregate responsibilities, invariants, operations and counterexamples.
+2. [Journeys and slice plan](delivery/slice-plan.md): story map, six outcome slices, hard prerequisites, release work packages and progressive specification order.
+3. [Self-hosting plan](design/self-hosting-plan.md): begin with documents, retain a small model of KnowledgeHub through the working library, then progressively govern its own definition inside the Hub.
+4. [First OpenSpec change](openspec/changes/retain-first-self-definition/proposal.md): KH-SL-001, retaining and reopening one sourced self-definition, with three behavioural deltas, a proposed design and unchecked tasks.
+
+The method is domain analysis → slices → specifications → authorised implementation → evidence and review. The full self-model grows after the first complete path works. An explicit authority handover prevents repository documents and Hub records from becoming competing definitions; stored requirements remain distinct from actual implementation and run evidence.
 
 ## First implementation scope
 
@@ -26,18 +35,21 @@ MongoDB and PostgreSQL adapters, an HTTP service, remote SDKs, FFI and crate pub
 | --- | --- |
 | `source/system-definition-ontology-proposal.md` | Requirements and design proposal, including open decisions and verification criteria. |
 | `source/system-definition-ontology-proposal.pdf` | Accompanying source document. |
+| `source/practical-design-manual.md` | Practical design method; Memento material is illustrative. |
+| `design/` | Library domain analysis and self-description/authority plan. |
+| `delivery/slice-plan.md` | Journeys, stories and ordered demonstrable outcomes. |
 | `AGENTS.md` | Project guidance and the current preparation-only boundary. |
 | `openspec/config.yaml` | Project context and rules for future specification work. |
 | `openspec/specs/` | Main specifications; currently empty. |
-| `openspec/changes/` | Bounded change proposals and their archive; currently no changes. |
+| `openspec/changes/` | Bounded change proposals and their archive; the first slice is drafted. |
 | `Cargo.toml` | Rust package metadata; no dependencies selected. |
 | `src/main.rs` | Original Cargo starter placeholder, pending the library implementation. |
 
 ## Before implementation
 
-Use sections 19–21 of the proposal to define a small, coherent first outcome and its acceptance criteria. Resolve the initial ontology profile, document/graph authority and authoring route, review policy, portable query semantics, interchange rules, and file publication/recovery contract. Record the Rust edition, minimum supported Rust version, executor policy and supported host/filesystem profiles; the scaffold currently declares edition 2024, while the other toolchain decisions remain open.
+Review the domain model and slice cuts, then resolve the first-slice gate in the [decision register](design/self-hosting-plan.md#decisions-to-resolve): initial profile/authority, Rust toolchain/executor, file support/durability, host policy and canonical format/operation-history choices. Broader query, review and interchange decisions are needed before their respective later slices.
 
-Capture bounded implementation work through the existing OpenSpec workflow when requested. The source proposal and planning artifacts describe intended behaviour; actual library support requires the working operations and evidence specified in section 21.10.
+The first change's planning artifacts are complete as documents; that status does not adopt the open decisions or authorise apply. Actual library support requires working operations and the scoped evidence specified in section 21.10.
 
 
 ## Principles of Participation

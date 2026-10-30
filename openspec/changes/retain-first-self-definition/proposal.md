@@ -1,6 +1,6 @@
 # Proposal
 
-Planning draft · 30 October 2026 · KH-SL-001; implementation is not authorised.
+Planning draft · 30 October 2026 · KH-SL-001; first-slice recommendations adopted, implementation not authorised.
 
 ## Why
 
@@ -32,6 +32,6 @@ None. The main-spec inventory is empty.
 
 ## Impact
 
-Future implementation would convert the unchanged binary starter to one library crate, add owned asynchronous public contracts and the model, use-case, storage-port and file-adapter responsibilities needed for this path. No code or dependency is changed by this proposal. Concrete Rust, executor, format and durability selections remain open in KH-D-01–06 of the [self-hosting decision register](../../../design/self-hosting-plan.md#decisions-to-resolve).
+Future implementation would convert the unchanged binary starter to one library crate, add owned asynchronous public contracts and the model, use-case, storage-port and file-adapter responsibilities needed for this path. No code or dependency is changed by this proposal. KH-D-01–06 of the [self-hosting decision register](../../../design/self-hosting-plan.md#decisions-to-resolve) record the adopted seed/authority contract, Rust 2024 with Rust 1.85 minimum, host-owned Tokio, initial Linux x86_64/local ext4 support target, current host policy and versioned canonical fingerprints with lifetime committed-receipt retention. These are selected design targets awaiting verification; later-slice choices remain open.
 
 Acceptance requires a public-contract walkthrough of seed creation, exact-source reads and reopen, plus denied/invalid changes, same-base writer races, exact retries, changed-fingerprint rejection, interruption at publication phases and recovery after a lost acknowledgement. Record build/toolchain and tested host/filesystem boundaries. These are future evidence obligations, not results of specification validation.

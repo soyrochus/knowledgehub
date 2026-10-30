@@ -48,7 +48,7 @@ All six slices are proposals. The ordering below distinguishes hard capability p
 - **Safeguards:** invalid types/anchors/endpoints and denied requests preserve the accepted head; same-base writer races yield an explicit conflict; exact retries recover the receipt; reuse for different intent is rejected; staged/incomplete content cannot become the accepted model.
 - **Evidence target:** normal, denied, malformed, concurrent, replay, changed-fingerprint, interrupted-publication and lost-response examples through public contracts on a declared host/filesystem profile. Capture the build/toolchain and inspected content hashes. These are future checks.
 - **Source/rules:** ontology §§5, 8, 17, 21.2–21.7, 21.10; KH-DR-01–12 and KH-DR-15 as applicable to the fixed seed profile.
-- **Dependencies:** no prior product slice. Implementation needs the decisions listed under the self-hosting plan's first-slice gate. The need for those decisions is a prerequisite, not a claim they are already settled.
+- **Dependencies:** no prior product slice. KH-D-01–06 have adopted selections in the self-hosting plan; explicit implementation authorisation and subsequent verification remain required.
 - **Deferred:** arbitrary profile expansion, broad search/traversal, review workflow, portable bundle exchange and the complete self-model. Low-level constraints needed for this seed are included; graph-wide constraints for later profiles arrive with those profiles.
 - **Stories/specification:** KH-US-01–05; first bounded OpenSpec change `retain-first-self-definition`.
 
@@ -112,7 +112,7 @@ These establish supported boundaries rather than inventing additional user outco
 1. Review the domain distinctions, context map and rule ownership with the user. This authored draft is available for that review; no approval is implied.
 2. Keep all six outcome cuts visible and reassess their dependencies when the first path exposes a mistake.
 3. Prepare the first change's proposal, behavioural deltas, design and unchecked tasks. Its scope is KH-SL-001, including its applicable safeguards.
-4. Resolve the [first-slice decisions](../design/self-hosting-plan.md#decisions-to-resolve), then obtain implementation authorisation. Complete artifacts and passing OpenSpec validation do not supply either decision adoption or working-library evidence.
+4. Use the adopted [first-slice decisions](../design/self-hosting-plan.md#decisions-to-resolve), reconcile the contracts and obtain explicit implementation authorisation. User adoption is recorded there; complete artifacts and passing OpenSpec validation do not supply implementation authorisation or working-library evidence.
 5. Implement and verify the selected change only when requested. Use the result to deepen the next ready slice and its specifications.
 6. Progress from a small self-description seed to the explicit authority handover in KH-SL-006. Keep code and native run evidence in their owning tools with exact Hub references.
 

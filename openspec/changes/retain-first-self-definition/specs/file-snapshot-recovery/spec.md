@@ -7,7 +7,7 @@ Preserve the library's coherent commit and exact-read contract in a portable fil
 ## ADDED Requirements
 
 ### Requirement: Declared and checked file-backend support profile
-The file backend SHALL declare its supported host/local-filesystem profile, writer-coordination assumptions, format version and tested durability boundary. It SHALL coordinate all supported writers and reject unsupported or incompatible stores explicitly. It SHALL not claim arbitrary multi-host shared-folder writes or untested durability guarantees.
+The file backend SHALL declare its supported host/local-filesystem profile, writer-coordination assumptions, format version and tested durability boundary. The initial target SHALL be Linux x86_64 with ordinary files on local ext4 and staging/generations/references on one filesystem. It SHALL use stable branch lock files with nonblocking exclusive OS advisory locks, including coordination between processes and separately opened same-process instances. Scope creation SHALL be coordinated and exclusive. Busy locks SHALL return an explicit retryable busy result, distinct from stale-head conflict once a new operation reaches admission. It SHALL coordinate all supported writers and reject detected unsupported or incompatible stores explicitly. The host SHALL declare the support profile; a path alone SHALL not be treated as proof of hardware durability or the absence of unsupported external writers. It SHALL not claim arbitrary multi-host shared-folder writes or untested durability guarantees.
 
 #### Scenario: Supported local scope is opened
 - **WHEN** the host opens a compatible store under the declared supported profile
@@ -20,6 +20,11 @@ The file backend SHALL declare its supported host/local-filesystem profile, writ
 #### Scenario: Unsupported format or writer arrangement
 - **WHEN** the store format or requested writer arrangement falls outside the declared supported profile
 - **THEN** the backend refuses that unsupported operation and preserves the existing accepted store rather than advertising broader support
+
+#### Scenario: Writer lock is busy
+- **GIVEN** another supported writer owns the branch publication lock
+- **WHEN** a writer attempts nonblocking acquisition
+- **THEN** it receives a retryable busy outcome without changing the head or consuming a blocking worker indefinitely waiting for the lock
 
 ### Requirement: Readers observe complete immutable snapshots
 The file backend SHALL expose only complete accepted snapshots whose manifests resolve all required model, document, provenance and receipt content. A read SHALL remain bound to its selected immutable snapshot. Staging content and incomplete generations SHALL never be treated as accepted content, and reopening SHALL not create a new empty model over damaged metadata.
@@ -37,8 +42,13 @@ The file backend SHALL expose only complete accepted snapshots whose manifests r
 - **WHEN** a required object of the accepted manifest is missing or fails its integrity check
 - **THEN** opening or reading reports the integrity/recovery failure explicitly without inventing an empty scope or silently accepting unrelated staging content
 
+#### Scenario: Damaged store is not recreated
+- **GIVEN** existing Hub metadata or its accepted generation fails integrity checks
+- **WHEN** a host attempts create/open at that location
+- **THEN** the adapter reports the incompatibility/integrity failure and does not overwrite it with an empty store
+
 ### Requirement: Durable acknowledgement covers content and receipt
-Within the declared supported durability profile, the file backend SHALL acknowledge success only after the complete snapshot, original operation result and branch publication meet its specified persistence protocol. File replacement alone SHALL not be presented as proof of multi-file durability. Acknowledged content and its receipt SHALL be recoverable together.
+Within the declared supported durability profile, the file backend SHALL acknowledge success only after the complete snapshot, original operation result and branch publication meet its specified persistence protocol. File replacement alone SHALL not be presented as proof of multi-file durability. Acknowledged content and its receipt SHALL be recoverable together. Under adopted KH-D-04 the adapter SHALL persist candidate files, manifests, artifacts, receipt and containing directories before publishing the reference; sync its temporary reference; atomically replace the head on the same filesystem; and sync the reference directory before acknowledgement. A failure after replacement SHALL report uncertainty unless the authoritative outcome is established. `knowledgehub-files/1`, exact profile and fingerprint versions SHALL be persisted separately and checked on open. The initial required failure evidence SHALL cover process termination and lost responses; it SHALL not establish power-loss, kernel-crash or hardware-corruption guarantees.
 
 #### Scenario: Reopen after acknowledged commit
 - **GIVEN** the host received a success receipt for B
@@ -48,6 +58,11 @@ Within the declared supported durability profile, the file backend SHALL acknowl
 #### Scenario: Persistence fails before a successful acknowledgement
 - **WHEN** the required persistence protocol cannot establish a durable outcome
 - **THEN** the caller receives no confirmed durable success, and the backend reports the established prior state or an uncertain outcome suitable for original-operation lookup
+
+#### Scenario: Persistence fails after head replacement
+- **GIVEN** the new complete generation and receipt were persisted and the reference replacement occurred
+- **WHEN** the reference-directory sync fails before acknowledgement
+- **THEN** no durable success or confirmed non-commit is reported, and the caller is directed to resolve the original operation after authoritative recovery
 
 ### Requirement: Publication interruption preserves an established outcome
 Within its supported failure profile, the file backend SHALL recover interruption at staging, content persistence, head publication and acknowledgement into a complete prior or new snapshot without mixed content. A recovered new head SHALL resolve its complete content and original receipt. Damage outside that guarantee SHALL be reported explicitly and SHALL not count as successful recovery evidence.

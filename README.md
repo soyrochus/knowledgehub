@@ -6,7 +6,7 @@ The requirements and target model come from [A Proposal for a System Definition 
 
 ## Current status
 
-Domain analysis, slice planning and specification. The initial planning set is drafted for review. Library implementation has not been authorised or started; source and planning documents remain proposals, and open adoption/platform choices are recorded explicitly.
+Domain analysis, slice planning and specification. The initial planning set is drafted for review. The user has adopted the first-slice recommendations KH-D-01–06, including the toolchain/executor and initial file support profile. Library implementation has not been authorised or started; later decisions and verification remain pending.
 
 The Cargo package is named `knowledgehub` and currently retains the original `src/main.rs` starter placeholder. It does not yet expose a library API. Library targets, dependencies, modules, tests and examples will be introduced only after implementation is authorised.
 
@@ -45,11 +45,11 @@ MongoDB and PostgreSQL adapters, an HTTP service, remote SDKs, FFI and crate pub
 | `Cargo.toml` | Rust package metadata; no dependencies selected. |
 | `src/main.rs` | Original Cargo starter placeholder, pending the library implementation. |
 
-## Before implementation
+## Implementation gate
 
-Review the domain model and slice cuts, then resolve the first-slice gate in the [decision register](design/self-hosting-plan.md#decisions-to-resolve): initial profile/authority, Rust toolchain/executor, file support/durability, host policy and canonical format/operation-history choices. Broader query, review and interchange decisions are needed before their respective later slices.
+The [decision register](design/self-hosting-plan.md#decisions-to-resolve) records adopted KH-D-01–06: the small sourced seed and field ownership, Rust 2024 / minimum Rust 1.85, host-owned Tokio with bounded blocking work, Linux x86_64/local ext4 with coordinated immutable publication, host policy, and versioned canonical fingerprints with retained receipts. These are planned support targets awaiting implementation and evidence. Broader query, review, interchange and full self-model details remain open for their later slices.
 
-The first change's planning artifacts are complete as documents; that status does not adopt the open decisions or authorise apply. Actual library support requires working operations and the scoped evidence specified in section 21.10.
+Explicit implementation authorisation is still required. Complete planning artifacts and adopted decisions do not establish actual library support; that requires working operations and the scoped evidence specified in section 21.10.
 
 
 ## Principles of Participation

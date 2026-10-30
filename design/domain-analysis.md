@@ -171,6 +171,6 @@ Candidate, committed and reviewed are separate dimensions. An uncertain response
 
 ## 9. Review boundary and next work
 
-The current result is an authored analysis grounded in the two supplied documents and repository inspection. The context map, aggregate responsibilities and first profile require review against the selected slice. No interviews, library operations, durability tests or acceptance walkthroughs have occurred.
+The current result is an authored analysis grounded in the two supplied documents and repository inspection. The user has adopted the first-slice recommendations KH-D-01–06; the context map and aggregate responsibilities remain hypotheses to challenge against the selected slice. No interviews, library operations, durability tests or acceptance walkthroughs have occurred.
 
 Use the [slice plan](../delivery/slice-plan.md) to test the boundaries through one complete path. The [self-hosting plan](self-hosting-plan.md#decisions-to-resolve) owns open adoption and implementation decisions, including bootstrap authority. Expand the profile only when a selected outcome needs the additional types and obligations.

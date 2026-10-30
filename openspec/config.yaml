@@ -18,8 +18,10 @@ context: |
   per field/scope/baseline; derived specs must identify exact model revisions.
   This is currently preparation and planning only. Do not implement or generate
   code, add dependencies, or create modules, tests, examples or adapters until the
-  user explicitly authorises implementation. Planning does not imply adoption,
-  implementation, verification or acceptance.
+  user explicitly authorises implementation. Planning alone does not imply adoption,
+  implementation, verification or acceptance. The user adopted KH-D-01–06 on
+  30 October 2026; design/self-hosting-plan.md owns those selections. Later
+  decisions remain progressive; implementation authorisation is still pending.
   The first implementation is one embedded Rust library crate with a default file
   backend using Markdown, graph JSON and versioned artifacts. Public contracts must
   remain storage-independent and use asynchronous I/O, snapshot-bound reads,

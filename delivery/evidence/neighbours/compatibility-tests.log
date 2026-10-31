@@ -1,0 +1,68 @@
+   Compiling knowledgehub v0.1.0 (/home/iwk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.74s
+     Running tests/ontology_contract.rs (target/debug/deps/ontology_contract-f2b6fdb1d5ae1275)
+
+running 25 tests
+test frozen_files1_generations_hashes_and_original_receipt_are_unchanged ... ok
+test every_declared_signature_rejects_wrong_direction_and_targets ... ok
+test every_family_has_a_complete_connected_typed_specimen ... ok
+test nested_owner_paths_distinguish_literal_slashes_and_tildes ... ok
+test damaged_typed_binary_is_integrity_failure_and_never_operation_absence ... ok
+test kernel_codecs_are_closed_and_missing_catalogue_family_is_reported ... ok
+test retained_definitions_do_not_hide_a_missing_active_family ... ok
+test full_catalogue_registration_reopen_and_original_receipt ... ok
+test native_decision_tables_remain_exact_and_definitions_do_not_become_observations ... ok
+test every_declared_property_has_independent_missing_and_invalid_evidence ... ok
+test binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes ... ok
+test invalid_baseline_closures_and_competing_ownership_are_rejected ... ok
+test each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity ... ok
+test registration_is_atomic_recursive_guarded_and_currently_authorised ... ok
+test scalar_encodings_closed_requests_and_revision_tokens_are_lossless ... ok
+test selection_restores_exact_history_and_refuses_a_second_origin ... ok
+test cycles_process_membership_transformation_kinds_and_contracts ... ok
+test all_families_and_kernel_relationships_commit_and_reopen ... ok
+test specialised_integrity_draft_gaps_and_native_roles ... ok
+test baseline_comparison_reports_unicode_additions_removals_and_stable_order ... ok
+test bounded_navigation_cursors_policy_and_selection_binding ... ok
+test directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact ... ok
+test typed_same_base_root_and_baseline_race_has_one_winner ... ok
+test coherent_successors_baselines_and_replay_current_thread has been running for over 60 seconds
+test coherent_successors_baselines_and_replay_multithreaded has been running for over 60 seconds
+test coherent_successors_baselines_and_replay_current_thread ... ok
+test coherent_successors_baselines_and_replay_multithreaded ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 61.77s
+
+     Running tests/public_contract.rs (target/debug/deps/public_contract-9889b2477244b4b2)
+
+running 12 tests
+test file_adapter_requires_the_host_runtime_and_creates_none ... ok
+test refuses_unsupported_profile_and_detected_filesystem ... ok
+test coordinated_exclusive_scope_creation ... ok
+test recheck_policy_inside_publication_lock ... ok
+test incompatible_and_damaged_stores_are_not_recreated ... ok
+test default_denial_revocation_and_policy_failure ... ok
+test separately_opened_instances_race_and_later_stale_conflict ... ok
+test explicit_revision_and_absence_guards ... ok
+test canonical_retries_bytes_actor_and_operation_order ... ok
+test invalid_seed_examples_preserve_head_independently ... ok
+test public_walkthrough_current_thread ... ok
+test public_walkthrough_multithreaded ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.69s
+
+     Running tests/shared_storage.rs (target/debug/deps/shared_storage-bc8c061d1ebf2e60)
+
+running 1 test
+shared_storage: committed catalogue
+shared_storage: committed specimens
+shared_storage: baselines A/B and exact retry verified
+shared_storage: exact reopen, historical reads and bytes verified; scrubbing
+shared_storage: full retained-history scrub verified
+test: packing
+test: packed; comparing state
+test public_shared_walkthrough_pack_reindex_and_materialise has been running for over 60 seconds
+test public_shared_walkthrough_pack_reindex_and_materialise ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 89.68s
+

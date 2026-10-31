@@ -1,6 +1,6 @@
 # KnowledgeHub domain analysis
 
-Draft 0.3 · Updated 31 October 2026 · Full ontology/self-model evidence exists; shared storage and generic indexed-neighbour/query refinements are proposed. Domain boundaries and practitioner acceptance remain under review.
+Draft 0.4 · Updated 31 October 2026 · Full ontology/self-model, shared storage and exact indexed-neighbour evidence exists; deterministic impact-query refinements remain proposed. Domain boundaries and practitioner acceptance remain under review.
 
 This document owns the working domain vocabulary, responsibility boundaries and invariant catalogue for the `knowledgehub` library. The [ontology proposal](../source/system-definition-ontology-proposal.md) supplies the requirements and target ontology. The [Practical Design Manual](../source/practical-design-manual.md) supplies the design method. Its Memento examples are examples, not KnowledgeHub requirements.
 
@@ -220,12 +220,12 @@ limit. It does not change the domain rule that exact source/history/receipts sur
 Broad query algebra, mandatory review policy, interchange and routine authority
 handover remain with the residual slices. No original source material was revised.
 
-## 11. Storage and local-neighbour refinement — proposed
+## 11. Storage and local-neighbour refinement — observed boundary and next scope
 
 The measured full-generation storage cost motivates [file-storage draft 0.3](../source/file-storage-proposal.md), not a new domain context. For the new planning sequence, distinguish **snapshot** (one consistent readable state), **baseline** (an exact model selection) and **generation** (the accepted storage transition recording roots and original receipt). Earlier files/1–2 documents retain their historical terminology and implemented boundary.
 
 The user selected generic local association lookup: index actual incoming/outgoing neighbours and compose routes only when queried. An association may be inserted long after either endpoint. Schema-declared reference fields and first-class assertions retain distinct origins; provenance and baseline membership do not silently become ordinary impact links. The same exact view governs retrieval, traversal and evidence projection. No agent decides which relationships exist or what a change means.
 
-KH-DR-20–23 state the proposed refinements. KH-SL-009–012 in the slice plan own the next outcomes; they do not close residual managed-authoring, review, broad interchange or authority-handover scope.
+KH-DR-20–23 distinguish these refinements. KH-SL-009/010 now have bounded implementation/technical evidence for shared storage and actual one-hop facts; [neighbour evidence](../delivery/evidence/neighbours/README.md) preserves the distinction between selected assertion endpoint guards, historical property/closure pins and explicit old selections. KH-SL-011/012 remain proposed in the slice plan. These outcomes do not close residual managed-authoring, review, broad interchange or authority-handover scope.
 
 The user replaced canonical migration with explicit deletion/regeneration plus the complete native suite and public checks. KH-DR-23 separates that host demonstration lifecycle from immutable updates within a retained Hub. General conversion/recovery backup remains deferred; no planning edit deletes the current data.

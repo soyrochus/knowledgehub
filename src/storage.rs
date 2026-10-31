@@ -88,6 +88,7 @@ impl FileBackend {
                 format: FILE_VERSION,
                 support: options.support,
                 work: shared::Counters::default(),
+                loose_budget: None,
                 #[cfg(test)]
                 hook: std::sync::Mutex::new(None),
             }),
@@ -138,6 +139,24 @@ pub(crate) trait Storage: Send + Sync {
     }
 }
 pub(crate) trait BranchStorage {
+    fn prepare_neighbours(
+        &self,
+        _request: &crate::ontology::Neighbours,
+        _force: bool,
+    ) -> Result<crate::ontology::NeighbourWork, Error> {
+        Err(Error::Incompatible(
+            "neighbours require files/3 capability".into(),
+        ))
+    }
+    fn neighbours(
+        &self,
+        _request: &crate::ontology::Neighbours,
+        _position: &crate::ontology::neighbours::Position,
+    ) -> Result<crate::ontology::neighbours::Slice, Error> {
+        Err(Error::Incompatible(
+            "neighbours require files/3 capability".into(),
+        ))
+    }
     fn recover(&self) -> Result<History, Error>;
     fn publish(&self, plan: ValidatedPlan, parent: HeadRef) -> Result<Receipt, Error>;
     fn current(&self) -> Result<Stored, Error> {
@@ -267,6 +286,7 @@ pub(crate) struct FileStore {
     format: &'static str,
     support: FileSupport,
     work: shared::Counters,
+    loose_budget: Option<std::sync::atomic::AtomicU64>,
     #[cfg(test)]
     hook: std::sync::Mutex<Option<Hook>>,
 }

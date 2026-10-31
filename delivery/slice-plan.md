@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.5 · 31 October 2026 · Full ontology/self-model and shared immutable storage technically verified at their recorded boundaries; deterministic indexed navigation is next. Human acceptance remains separate.
+Draft 0.6 · 31 October 2026 · Full ontology/self-model, shared immutable storage and exact indexed neighbours technically verified at their recorded boundaries; deterministic impact queries are next. Human acceptance remains separate.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -209,7 +209,7 @@ handover. These earlier slices are not automatically marked complete or archived
 
 ## Next sequence: compact persistence and deterministic local navigation
 
-The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. “Implement the first open change” subsequently authorised KH-SL-009, now implemented and technically verified. KH-SL-010–012 remain planning artifacts; no canonical deletion has executed. KH-SL-012 follows verified shared storage and both indexed query outcomes.
+The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. The user subsequently authorised KH-SL-009 and then explicitly continued with KH-SL-010; both are implemented and technically verified at their recorded boundaries. KH-SL-011/012 remain planned. These implementations did not execute the canonical reset/rebuild; KH-SL-012 follows both indexed query outcomes.
 
 | Journey / story | Need and completion |
 | --- | --- |
@@ -233,6 +233,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Hard prerequisite:** KH-SL-009 root-bound point reads, immutable maps and read coordination; deriving all selected records through files/2 on every lookup would defeat the outcome.
 - **Stories/rules:** KH-US-27; KH-DR-03/04/07/12/15/17/19/21. [Change](../openspec/changes/index-ontology-neighbours/proposal.md).
 - **Acceptance:** scan-equivalent results, exact old/new views, rebuild/corruption behaviour and measured lookup work independent of unrelated edges except tree height. No transitive closure cache or per-question index.
+- **Observed delivery:** [KH-SL-010 evidence](evidence/neighbours/README.md) records owned batch operations, generic extraction, incremental indexes, selective reads, finite cursors, legacy equivalence, 81 native tests plus one doctest and public examples. Adding 3,000 unrelated assertions left the fixed neighbourhood at seven required records/three examined candidates with zero full-state materialisations; index reads rose from eight to nine. Cache allocation and cold-build costs are explicitly reported. Human acceptance and KH-SL-011 impact/search remain separate.
 
 ### KH-SL-011 — Answer bounded trace questions in one deterministic read
 

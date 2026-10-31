@@ -5,6 +5,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 mod content;
 mod generation;
 mod maintenance;
+mod neighbours;
 mod objects;
 mod projection;
 #[cfg(test)]
@@ -25,6 +26,8 @@ pub struct FileWork {
     pub index_rebuilds: u64,
     pub payload_bytes_written: u64,
     pub structural_bytes_written: u64,
+    pub state_materialisations: u64,
+    pub neighbour_cache_failures: u64,
 }
 
 /// File-adapter diagnostics; these counts do not establish model completeness or acceptance.
@@ -62,6 +65,8 @@ pub(super) struct Counters {
     locations: std::sync::Mutex<Option<objects::LocationCache>>,
     payload_writes: AtomicU64,
     structural_writes: AtomicU64,
+    materialisations: AtomicU64,
+    neighbour_failures: AtomicU64,
 }
 impl Counters {
     fn snapshot(&self) -> FileWork {
@@ -74,6 +79,8 @@ impl Counters {
             index_rebuilds: self.rebuilds.load(Ordering::Relaxed),
             payload_bytes_written: self.payload_writes.load(Ordering::Relaxed),
             structural_bytes_written: self.structural_writes.load(Ordering::Relaxed),
+            state_materialisations: self.materialisations.load(Ordering::Relaxed),
+            neighbour_cache_failures: self.neighbour_failures.load(Ordering::Relaxed),
         }
     }
 }
@@ -87,6 +94,26 @@ fn number(s: &str) -> Result<u64, Error> {
         return Err(integrity("invalid canonical decimal"));
     }
     s.parse().map_err(|_| integrity("decimal out of range"))
+}
+
+fn reserve_file(store: &FileStore, bytes: usize) -> Result<(), Error> {
+    if let Some(budget) = &store.loose_budget {
+        let allocated = (bytes as u64).div_ceil(4096) * 4096;
+        let mut remaining = budget.load(Ordering::Relaxed);
+        loop {
+            let next = remaining.checked_sub(allocated).ok_or(Error::Capacity)?;
+            match budget.compare_exchange_weak(
+                remaining,
+                next,
+                Ordering::Relaxed,
+                Ordering::Relaxed,
+            ) {
+                Ok(_) => break,
+                Err(actual) => remaining = actual,
+            }
+        }
+    }
+    Ok(())
 }
 
 #[cfg(test)]

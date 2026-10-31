@@ -1,0 +1,147 @@
+{
+  "native_tests": 81,
+  "doctests": 1,
+  "commands": [
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--lib",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "internal-tests.log",
+      "passed": 37
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--test",
+        "neighbours",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "public-tests.log",
+      "passed": 6
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--test",
+        "ontology_contract",
+        "--test",
+        "public_contract",
+        "--test",
+        "shared_storage",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "log": "compatibility-tests.log",
+      "passed": 38
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "log": "doctests.log",
+      "passed": 1
+    },
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "format.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--example",
+        "neighbours",
+        "--example",
+        "neighbour_benchmark"
+      ],
+      "exit_code": 0,
+      "log": "release-build.log"
+    },
+    {
+      "argv": [
+        "openspec",
+        "validate",
+        "index-ontology-neighbours",
+        "--strict",
+        "--json"
+      ],
+      "exit_code": 0,
+      "log": "openspec-validation.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/neighbours",
+        "/home/iwk/src/knowledgehub/target/neighbour-evidence/public-demo-current"
+      ],
+      "exit_code": 0,
+      "log": "public-example.log"
+    },
+    {
+      "argv": [
+        "target/release/examples/neighbour_benchmark",
+        "/home/iwk/src/knowledgehub/target/neighbour-evidence/benchmark-current"
+      ],
+      "exit_code": 0,
+      "log": "benchmark.json"
+    }
+  ],
+  "benchmark_invariants": "fixed results/record reads, zero full-state reads, linear two-posting facts and eight unrelated-generation cases checked",
+  "canonical_inventory": "canonical-inventory.json",
+  "human_acceptance": "not established",
+  "impact_search_and_canonical_rebuild": "not implemented in this change",
+  "artifact_sha256": {
+    "README.md": "243540a056350d9f6e87a2a9db4ac10371cbdc515ceef8eae03def2dd0eecf84",
+    "benchmark.json": "52c8488c8ae1a77769c2c3ce2f58a6b1afb8d9fd37b93e933dde497ed5a62cf7",
+    "benchmark.log": "8ac8162c974e49a3c9b979f9cea2b2d68f0f2737d7b9b4a6849eb91daef5c38a",
+    "build-inputs.json": "ee45dd48a396d543f25410b0acb488fd7e647da0ed1a0b67828b1403389b7eaf",
+    "canonical-inventory.json": "f0f6bdd0ad7374c77e55b647c6b9c757a5db634f7b4d2af807f1f46300a14a69",
+    "clippy.log": "a08a4b86a4303b2567860473f756eaec389afa35f73efc70e9681c051eadd600",
+    "compatibility-tests.log": "0b665670abc78ed1067eedd86400e078cf07b6845d8e5cf00f5032a82f4f3675",
+    "doctests.log": "0fce3d4be6c0ea93d0024394c0bcd7ccf158b7386407ab407fc18763033ae386",
+    "format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "internal-tests.log": "8b21391303f053a55e7c4316b5edb45e5cd401fd7528e557d8e9c4eaf30d0733",
+    "openspec-validation.json": "2be289b11c1729b7741e4258e1c4d750f9fc230170862c94c75e1d47d4230581",
+    "public-example.log": "2e9e1cdf5eb8dd040ebfbf15a634e1b693e2722d14a4e751e8ab01150da0ed29",
+    "public-tests.log": "b2a07dad5ef72457351909d007290211d09a12e1993b5eb83becc2168f1d902c",
+    "release-build.log": "c95fa35067fee9f0a57a0f5a6d2900ba5f026134a456a4305df7bd795ddec7d4"
+  }
+}

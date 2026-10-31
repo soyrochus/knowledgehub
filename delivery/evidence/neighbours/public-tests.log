@@ -1,0 +1,17 @@
+   Compiling knowledgehub v0.1.0 (/home/iwk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.64s
+     Running tests/neighbours.rs (target/debug/deps/neighbours-940d59d44ff99d89)
+
+running 6 tests
+test strict_contract_bounds_and_explicit_legacy_capability ... ok
+test late_links_exact_scopes_and_ready_point_reads ... ok
+test legacy_assertion_traversal_order_filters_and_limits_match_files2 ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle has been running for over 60 seconds
+test paging_is_bounded_and_survives_head_movement_and_cache_eviction has been running for over 60 seconds
+test successors_selection_and_schema_versions_equal_clean_rebuilds has been running for over 60 seconds
+test paging_is_bounded_and_survives_head_movement_and_cache_eviction ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle ... ok
+test successors_selection_and_schema_versions_equal_clean_rebuilds ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 88.50s
+

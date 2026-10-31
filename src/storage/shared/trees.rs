@@ -6,7 +6,7 @@ use serde_json::Value;
 const MAX_ITEMS: usize = 1_000_000;
 const MAP_SCHEMA: &str = "knowledgehub-map-node/1";
 const SEQ_SCHEMA: &str = "knowledgehub-sequence-node/1";
-fn spaces() -> [&'static str; 6] {
+fn spaces() -> [&'static str; 8] {
     [
         "selection/1",
         "revisions/1",
@@ -14,13 +14,25 @@ fn spaces() -> [&'static str; 6] {
         "artifacts/1",
         "operations/1",
         "ancestors/1",
+        "neighbour-endpoints/1",
+        "neighbour-selectors/1",
     ]
 }
-fn item_types() -> [&'static str; 4] {
-    ["exact-refs/1", "legacy-refs/1", "gap-oids/1", "chunks/1"]
+fn item_types() -> [&'static str; 5] {
+    [
+        "exact-refs/1",
+        "legacy-refs/1",
+        "gap-oids/1",
+        "chunks/1",
+        "neighbour-postings/1",
+    ]
 }
 fn item_valid(t: &str, v: &Value) -> bool {
     match t {
+        "neighbour-postings/1" => {
+            serde_json::from_value::<crate::ontology::neighbours::Posting>(v.clone())
+                .is_ok_and(|p| p.valid())
+        }
         "exact-refs/1" => serde_json::from_value::<crate::ontology::ExactRef>(v.clone())
             .is_ok_and(|r| r.is_valid()),
         "legacy-refs/1" => serde_json::from_value::<RevisionRef>(v.clone())
@@ -77,17 +89,23 @@ pub(super) struct Tree<'a, 'b> {
 
 fn key_valid(space: &str, key: &Value) -> bool {
     match space {
-        "selection/1" | "revisions/1" | "exact-reference-set/1" | "artifacts/1" => {
-            key.as_array().is_some_and(|a| {
-                a.len() == (if space == "selection/1" { 2 } else { 3 })
-                    && a.iter().all(|v| {
-                        v.as_str()
-                            .is_some_and(|s| !s.trim().is_empty() && !s.contains('\0'))
-                    })
-            })
-        }
+        "selection/1"
+        | "revisions/1"
+        | "exact-reference-set/1"
+        | "artifacts/1"
+        | "neighbour-endpoints/1" => key.as_array().is_some_and(|a| {
+            a.len() == (if space == "selection/1" { 2 } else { 3 })
+                && a.iter().all(|v| {
+                    v.as_str()
+                        .is_some_and(|s| !s.trim().is_empty() && !s.contains('\0'))
+                })
+        }),
         "operations/1" => key.as_str().is_some_and(|s| !s.trim().is_empty()),
         "ancestors/1" => key.as_str().is_some_and(model::hash),
+        "neighbour-selectors/1" => {
+            serde_json::from_value::<crate::ontology::NeighbourSelector>(key.clone())
+                .is_ok_and(|s| s.valid())
+        }
         _ => false,
     }
 }
@@ -117,6 +135,122 @@ pub(super) fn exact_key(key: &Value) -> Result<crate::ontology::ExactRef, Error>
 }
 
 impl Tree<'_, '_> {
+    /// Batch path copying emits only final changed trie nodes, rather than intermediate roots.
+    pub fn update_many(
+        &self,
+        root: &str,
+        space: &str,
+        changes: Vec<(Value, Option<Value>)>,
+    ) -> Result<String, Error> {
+        let mut unique = BTreeMap::new();
+        for (key, value) in changes {
+            if !key_valid(space, &key) {
+                return Err(integrity("invalid batch map key"));
+            }
+            unique.insert(json(&key)?, (key, value));
+        }
+        self.batch_at(root, space, "", unique.into_values().collect())
+    }
+    fn batch_at(
+        &self,
+        id: &str,
+        space: &str,
+        prefix: &str,
+        changes: Vec<(Value, Option<Value>)>,
+    ) -> Result<String, Error> {
+        if changes.is_empty() {
+            return Ok(id.into());
+        }
+        match self.map_node(id, space, prefix)? {
+            MapNode::Leaf { entries, .. } => {
+                let mut entries = entries
+                    .into_iter()
+                    .map(|e| Ok((json(&e.key)?, e)))
+                    .collect::<Result<BTreeMap<_, _>, Error>>()?;
+                for (key, value) in changes {
+                    let k = json(&key)?;
+                    if let Some(value) = value {
+                        entries.insert(k, Entry { key, value });
+                    } else {
+                        entries.remove(&k);
+                    }
+                }
+                if entries.len() > MAX_ITEMS {
+                    return Err(Error::Capacity);
+                }
+                self.build(space, prefix, entries.into_values().collect())
+            }
+            MapNode::Branch {
+                mut children,
+                count,
+                ..
+            } => {
+                let mut groups: BTreeMap<String, Vec<(Value, Option<Value>)>> = BTreeMap::new();
+                for (key, value) in changes {
+                    groups
+                        .entry(route(&key)?[prefix.len()..prefix.len() + 1].into())
+                        .or_default()
+                        .push((key, value));
+                }
+                let mut count = number(&count)?;
+                for (digit, changes) in groups {
+                    let p = format!("{prefix}{digit}");
+                    let old = children.get(&digit).cloned();
+                    let old_count = old
+                        .as_ref()
+                        .map(|id| self.map_node(id, space, &p)?.count())
+                        .transpose()?
+                        .unwrap_or(0);
+                    let child = match old {
+                        Some(old) => self.batch_at(&old, space, &p, changes)?,
+                        None => self.build(
+                            space,
+                            &p,
+                            changes
+                                .into_iter()
+                                .filter_map(|(key, value)| value.map(|value| Entry { key, value }))
+                                .collect(),
+                        )?,
+                    };
+                    let new_count = self.map_node(&child, space, &p)?.count()?;
+                    count = count
+                        .checked_sub(old_count)
+                        .and_then(|n| n.checked_add(new_count))
+                        .ok_or_else(|| integrity("batch map count"))?;
+                    if new_count == 0 {
+                        children.remove(&digit);
+                    } else {
+                        children.insert(digit, child);
+                    }
+                }
+                if count > MAX_ITEMS as u64 {
+                    return Err(Error::Capacity);
+                }
+                if count <= 64 {
+                    let mut entries = Vec::new();
+                    for (digit, id) in children {
+                        entries.extend(self.collect(&id, space, &format!("{prefix}{digit}"))?);
+                    }
+                    entries.sort_by_cached_key(|e| json(&e.key).expect("validated key"));
+                    self.build(space, prefix, entries)
+                } else {
+                    self.objects.put_json(
+                        "map-node",
+                        &MapNode::Branch {
+                            schema: MAP_SCHEMA.into(),
+                            keyspace: space.into(),
+                            prefix: prefix.into(),
+                            count: count.to_string(),
+                            children,
+                        },
+                    )
+                }
+            }
+        }
+    }
+    pub fn map_count(&self, root: &str, space: &str) -> Result<u64, Error> {
+        self.map_node(root, space, "")?.count()
+    }
     fn map_node(&self, id: &str, space: &str, prefix: &str) -> Result<MapNode, Error> {
         let n: MapNode = self.objects.get_json(id, "map-node")?;
         let (schema, keyspace, p) = match &n {
@@ -571,6 +705,22 @@ impl Tree<'_, '_> {
             .zip(items)
             .take_while(|(a, b)| a == b)
             .count();
+        if prefix == previous.len() {
+            if items.len() > MAX_ITEMS {
+                return Err(Error::Capacity);
+            }
+            let mut nodes = self.append_at(root, t, &items[prefix..], 0)?;
+            while nodes.len() > 1 {
+                nodes = nodes
+                    .chunks(128)
+                    .map(|c| self.seq_branch(t, c.to_vec()))
+                    .collect::<Result<_, _>>()?;
+            }
+            return Ok(nodes
+                .pop()
+                .ok_or_else(|| integrity("append sequence root"))?
+                .oid);
+        }
         let suffix = previous[prefix..]
             .iter()
             .rev()
@@ -585,6 +735,41 @@ impl Tree<'_, '_> {
             root = self.edit(&root, t, (prefix + i) as u64, Some(v.clone()), false)?;
         }
         Ok(root)
+    }
+    fn append_at(
+        &self,
+        id: &str,
+        t: &str,
+        added: &[Value],
+        depth: usize,
+    ) -> Result<Vec<Child>, Error> {
+        if depth > 64 {
+            return Err(Error::Capacity);
+        }
+        let node = self.sequence_node(id, t)?;
+        if added.is_empty() {
+            return Ok(vec![Child {
+                oid: id.into(),
+                count: node.count()?.to_string(),
+            }]);
+        }
+        match node {
+            Sequence::Leaf { mut items, .. } => {
+                items.extend_from_slice(added);
+                items
+                    .chunks(128)
+                    .map(|items| self.seq_node(t, items.to_vec()))
+                    .collect()
+            }
+            Sequence::Branch { mut children, .. } => {
+                let last = children.pop().ok_or_else(|| integrity("append child"))?;
+                children.extend(self.append_at(&last.oid, t, added, depth + 1)?);
+                children
+                    .chunks(128)
+                    .map(|c| self.seq_branch(t, c.to_vec()))
+                    .collect()
+            }
+        }
     }
     fn edit(
         &self,
@@ -669,6 +854,54 @@ impl Tree<'_, '_> {
 #[cfg(test)]
 mod tests {
     use super::*;
+    #[test]
+    fn batched_maps_and_sequence_appends_emit_only_final_changed_nodes() {
+        let (_s, b) = super::super::object_backend("batch-index-nodes");
+        let o = Objects::new(&b.store);
+        let tree = Tree { objects: &o };
+        let key = |i| serde_json::json!(["m", format!("key:{i:04}"), "1"]);
+        let root = tree
+            .map(
+                "exact-reference-set/1",
+                (0..1000).map(|i| (key(i), Value::Null)),
+            )
+            .unwrap();
+        let before = b.file_work();
+        let changes = (0..250)
+            .map(|i| (key(i), None))
+            .chain((1000..1250).map(|i| (key(i), Some(Value::Null))))
+            .collect();
+        let changed = tree
+            .update_many(&root, "exact-reference-set/1", changes)
+            .unwrap();
+        assert!(b.file_work().objects_written - before.objects_written < 200);
+        assert_eq!(
+            changed,
+            tree.map(
+                "exact-reference-set/1",
+                (250..1250).map(|i| (key(i), Value::Null))
+            )
+            .unwrap()
+        );
+        assert_eq!(
+            tree.entries(&root, "exact-reference-set/1").unwrap().len(),
+            1000
+        );
+        let refs = (0..300)
+            .map(|i| serde_json::json!({"model":"m","id":format!("r{i}"),"revision":"1"}))
+            .collect::<Vec<_>>();
+        let root = tree.sequence("exact-refs/1", &refs).unwrap();
+        let mut next = refs.clone();
+        next.extend(
+            (300..2300)
+                .map(|i| serde_json::json!({"model":"m","id":format!("r{i}"),"revision":"1"})),
+        );
+        let before = b.file_work();
+        let changed = tree.reconcile(Some(&root), "exact-refs/1", &next).unwrap();
+        assert!(b.file_work().objects_written - before.objects_written < 32);
+        assert_eq!(tree.items(&changed, "exact-refs/1").unwrap(), next);
+        assert_eq!(tree.items(&root, "exact-refs/1").unwrap(), refs);
+    }
     #[test]
     fn persistent_maps_share_paths_and_preserve_prior_roots() {
         let (_s, b) = super::super::object_backend("shared-maps");

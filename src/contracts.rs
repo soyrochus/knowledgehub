@@ -500,6 +500,9 @@ impl ValidationReport {
 
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub enum Error {
+    IndexNotReady {
+        reason: String,
+    },
     Denied {
         action: Action,
     },

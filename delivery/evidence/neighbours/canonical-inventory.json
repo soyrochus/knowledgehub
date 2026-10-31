@@ -1,0 +1,9 @@
+{
+  "initial_git_status_store": "hub/",
+  "final_observed_store": "orig_hub/",
+  "canonical_hub_exists": false,
+  "checked_original_files": 426,
+  "mismatches": [],
+  "original_content_byte_exact": true,
+  "scope": "This change used target/ stores only; it did not execute the canonical reset/rebuild or change the observed directory layout."
+}

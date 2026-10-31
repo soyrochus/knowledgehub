@@ -40,5 +40,8 @@ mod shared_fault_tests;
 mod test_support;
 
 #[cfg(test)]
+#[path = "../examples/neighbour_support/mod.rs"]
+mod neighbour_test_support;
+#[cfg(test)]
 #[path = "../examples/ontology_support/mod.rs"]
 mod test_specimens;

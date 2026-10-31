@@ -223,6 +223,7 @@ impl<'a> Objects<'a> {
         frame.extend_from_slice(&(header.len() as u32).to_be_bytes());
         frame.extend(header);
         frame.extend(encoded);
+        super::reserve_file(self.store, frame.len())?;
         let temporary = self
             .store
             .root

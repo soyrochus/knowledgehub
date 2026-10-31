@@ -568,6 +568,11 @@ pub(super) fn materialise(
     g: &Generation,
     id: &str,
 ) -> Result<Stored, Error> {
+    objects
+        .store
+        .work
+        .materialisations
+        .fetch_add(1, Ordering::Relaxed);
     let tree = Tree { objects };
     let mut state = State::empty(g.scope.clone());
     state.ontology = g.ontology.clone();
@@ -645,13 +650,13 @@ pub(super) fn materialise(
     })
 }
 
-struct View {
-    g: Generation,
-    selected: String,
-    supporting: Option<String>,
-    artifacts: String,
+pub(super) struct View {
+    pub g: Generation,
+    pub selected: String,
+    pub supporting: Option<String>,
+    pub artifacts: String,
 }
-fn view(
+pub(super) fn view(
     objects: &Objects<'_>,
     head_id: &str,
     head: &Generation,
@@ -689,7 +694,7 @@ fn view(
         }
     }
 }
-fn eligible(tree: &Tree<'_, '_>, v: &View, r: &ExactRef) -> Result<bool, Error> {
+pub(super) fn eligible(tree: &Tree<'_, '_>, v: &View, r: &ExactRef) -> Result<bool, Error> {
     let Some(supporting) = &v.supporting else {
         return Ok(true);
     };
@@ -698,7 +703,7 @@ fn eligible(tree: &Tree<'_, '_>, v: &View, r: &ExactRef) -> Result<bool, Error> 
             || tree.get(supporting, "exact-reference-set/1", &ref_key(r))? == Some(Value::Null),
     )
 }
-fn record(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Record, Error> {
+pub(super) fn record(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Record, Error> {
     let tree = Tree { objects };
     if r.revision == "@identity" {
         let selected = tree.get(&v.selected, "selection/1", &identity_key(r))?;
@@ -764,6 +769,23 @@ fn binding(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Binding, Err
 }
 
 impl BranchStorage for SharedLease<'_> {
+    fn prepare_neighbours(
+        &self,
+        request: &ontology::Neighbours,
+        force: bool,
+    ) -> Result<ontology::NeighbourWork, Error> {
+        if self.shared {
+            return Err(storage("index preparation through read lease"));
+        }
+        super::neighbours::prepare(self.store, &self.scope, request, force)
+    }
+    fn neighbours(
+        &self,
+        request: &ontology::Neighbours,
+        position: &ontology::neighbours::Position,
+    ) -> Result<ontology::neighbours::Slice, Error> {
+        super::neighbours::read(self.store, &self.scope, request, position)
+    }
     fn head(&self) -> Result<HeadRef, Error> {
         let objects = Objects::new(self.store);
         let (id, g) = root(self.store, &self.scope, &objects)?;
@@ -936,6 +958,20 @@ impl BranchStorage for SharedLease<'_> {
             &oid,
             Some(plan.receipt.operation_id.clone()),
         )?;
+        if super::neighbours::after_commit(
+            self.store,
+            &g,
+            &next,
+            old.snapshot.ontology.as_deref().unwrap(),
+            plan.snapshot.ontology.as_deref().unwrap(),
+        )
+        .is_err()
+        {
+            self.store
+                .work
+                .neighbour_failures
+                .fetch_add(1, Ordering::Relaxed);
+        }
         Ok(plan.receipt)
     }
 }

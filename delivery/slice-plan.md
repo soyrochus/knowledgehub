@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.3 · 31 October 2026 · KH-SL-001 implemented with scoped technical evidence; human acceptance pending. The next proposed outcomes explicitly cover the full ontology, then KnowledgeHub's own model.
+Draft 0.4 · 31 October 2026 · Full ontology/self-model technically verified at its recorded boundary; shared storage and deterministic indexed navigation are the next proposed outcomes. Human acceptance remains separate.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -206,3 +206,45 @@ working-copy authoring scope; KH-SL-003 retains broader query work; KH-SL-004 re
 mandatory review policy; KH-SL-005 retains portable exchange/backup/replay continuity;
 KH-SL-006 retains actual acceptance, independent reconstruction and scoped authority
 handover. These earlier slices are not automatically marked complete or archived.
+
+## Next sequence: compact persistence and deterministic local navigation
+
+The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Proposed order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. The four linked OpenSpec changes are planning artifacts; creating them does not execute implementation or deletion. KH-SL-012 follows verified shared storage and both indexed query outcomes.
+
+| Journey / story | Need and completion |
+| --- | --- |
+| KH-J-08 Preserve and inspect knowledge efficiently | Maintainer retains exact model history without complete file copies, then reopens exact records and original outcomes. KH-US-25: share unchanged content; KH-US-26: preserve baseline/generation distinctions through compaction and recovery. |
+| KH-J-09 Trace a proposed change | Human or external AI finds a story, follows actual local ontology associations and receives exact candidate impacts with evidence. KH-US-27: discover incoming/outgoing neighbours, including later links; KH-US-28: traverse several directions/steps in one bounded request; KH-US-29: search narrative and receive grouped, projected paths without autonomous reasoning. |
+| KH-J-10 Rebuild and verify the canonical demonstration | Maintainer checks current code, explicitly deletes old generated content, captures verified inputs and repopulates/reopens files/3. KH-US-30: demonstrate the current self-model, fresh A/B and indexed reads with actual full-suite evidence and honest new history. |
+
+### KH-SL-009 — Retain exact history with shared immutable files
+
+- **Actor/trigger:** maintainer observes approximately 116 MB for the current full-generation demonstration.
+- **Outcome:** explicit files/3 create/commit/read/reopen retains shared records/artifacts, compact baselines, original receipts and history, including packing, full scrub and safe cleanup.
+- **Hard prerequisites:** implemented files/2 ontology/record/request contracts; source file-storage §§3–6/8–13. No dependency on future query shapes or future associations.
+- **Stories/rules:** KH-US-25–26; KH-DR-01–15/17/20. [Change](../openspec/changes/share-immutable-file-storage/proposal.md).
+- **Acceptance:** byte/digest/replay equality, full-history recovery tests and structural sharing/allocation measurements. Does not convert `hub/` or change definition authority.
+
+### KH-SL-010 — Retrieve actual ontology neighbours quickly
+
+- **Actor/trigger:** reader follows local associations whose future routes were unknown at insertion time.
+- **Outcome:** generic batch incoming/outgoing lookup returns exact assertions and reference occurrences using snapshot-bound adjacency, including late insertion and new registered types.
+- **Hard prerequisite:** KH-SL-009 root-bound point reads, immutable maps and read coordination; deriving all selected records through files/2 on every lookup would defeat the outcome.
+- **Stories/rules:** KH-US-27; KH-DR-03/04/07/12/15/17/19/21. [Change](../openspec/changes/index-ontology-neighbours/proposal.md).
+- **Acceptance:** scan-equivalent results, exact old/new views, rebuild/corruption behaviour and measured lookup work independent of unrelated edges except tree height. No transitive closure cache or per-question index.
+
+### KH-SL-011 — Answer bounded trace questions in one deterministic read
+
+- **Actor/trigger:** human or external AI asks which physical tables are linked to a story containing a phrase.
+- **Outcome:** type/phrase selection and typed mixed-direction traversal execute locally over indexed hops and return grouped targets, origin paths, compact evidence and explicit ambiguity/coverage limits.
+- **Hard prerequisite:** KH-SL-010. A rent example supplies explicit logical-to-physical mappings as an isolated demonstration, not a new universal ontology family or a claim about KnowledgeHub's own tables.
+- **Stories/rules:** KH-US-28–29; KH-DR-03/04/07/12/15/18/19/21/22. [Change](../openspec/changes/query-deterministic-model-impact/proposal.md).
+- **Acceptance:** one public request plus explicit pagination, deterministic results, bounded fan-out/cycles and missing-mapping/unsupported-external outcomes; no LLM, inferred edges, scripts or automatic schema-change decisions.
+
+### KH-SL-012 — Rebuild and verify the canonical self-model
+
+- **Actor/trigger:** maintainer regenerates the root `hub/` demonstration after shared storage and indexed query implementation.
+- **Outcome:** run the full native suite/checks on final code, capture current verified sources, delete all previous canonical content, populate a fresh files/3 self-model, then drain/reopen/scrub and execute public/catalogue/indexed walkthroughs.
+- **Hard prerequisites:** verified KH-SL-009/010/011; current capture/loader/source bindings and successful exact-source native checks. No general migration or recovery-backup implementation is needed.
+- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md).
+- **Acceptance:** old generated content removed; new replay domain/history and actual new A/B/receipts/source/gap counts; all required tests/walkthroughs pass with new evidence. Preflight failure preserves old data; post-reset failure remains explicitly incomplete. Older evidence is not relabelled. KH-SL-005 backup/interchange and KH-SL-006 authority scope remain deferred.

@@ -1,6 +1,6 @@
 # Bootstrapping KnowledgeHub's own definition
 
-Draft 0.4 · 31 October 2026 · First slice technically verified at its recorded boundary; full ontology then the applicable library self-model are the user's target. New schema refinements are proposed; human acceptance and authority migration remain pending.
+Draft 0.5 · 31 October 2026 · Full ontology/self-model technically verified at the recorded boundary; compact persistence and generic deterministic navigation are the next proposed outcomes. Human acceptance and authority migration remain pending.
 
 This plan owns the bootstrap sequence, representation authority and migration gates. It references the [domain analysis](domain-analysis.md), [slice plan](../delivery/slice-plan.md), [ontology proposal](../source/system-definition-ontology-proposal.md) and [Practical Design Manual](../source/practical-design-manual.md). The manual guides how we discover and specify the product; the ontology defines what the Hub can represent and preserve.
 
@@ -148,6 +148,19 @@ definitions have one owner in the linked change's design/inventory.
 | KH-D-13 | Append-only successors plus selected normative revision maps and immutable exact named baseline closure; explicit relationship pins and deterministic comparison. | Preserve original explanations and review scope; no automatic latest lookup, rebase or repinning. Historical supporting artifact revisions are not competing normative owners. |
 | KH-D-14 | Exact type/ID filters, qualified forward/reverse traversal and stable UTF-8-ID ordering; default/max depth 1/4, page 100/1000, total visited subject/edge caps 10000 each. Opaque actor/query-bound instance cursors: 64 active, explicit release, 30-minute idle expiry, invalid after close/reopen. | Concrete next subset of KH-D-07. Current policy applies to every page; limits and invalid-cursor outcomes are public. Broader operators and durable cursors are not promised. |
 | KH-D-15 | Explicit opt-in files/request/record version 2; preallocated opaque revision tokens separate from canonical content digests, enabling cyclic exact references. Keep original version-1 codecs, seed semantics, hashes and receipts exact. | Full catalogue/self-model use fresh v2 stores. No silent in-place migration, circular hash scheme or transfer of old committed keys to a new replay domain. |
+
+### Compact storage and indexed navigation — proposed 31 October 2026
+
+The user requested the file-format proposal, selected actual local-neighbour lookup and requested bounded OpenSpec changes. They subsequently replaced canonical migration with a fresh rebuild, explicitly deleting previous hub content and performing the test suite when that change is applied. These requests authorise planning updates here; they do not execute the rebuild or establish acceptance/authority handover. [File-storage draft 0.3](../source/file-storage-proposal.md) owns the proposed physical format; KH-SL-009–012 own outcome order.
+
+| ID | Proposed selection / explicit user direction | Consequence and review boundary |
+| --- | --- | --- |
+| KH-D-16 | Explicit files/3 with shared immutable objects/trees, compact lossless baseline/anchor data, chunked artifacts, raw/zstd packs and lifetime history/receipts. | Keep existing record/request digests and files/1–2 support. Parameters and crash/space evidence must be verified before treating files/3 as supported. No automatic in-place conversion. |
+| KH-D-17 | User-selected direction: generic actual incoming/outgoing neighbours, independent of future routes; schema-guided property references and explicit categories. | Snapshot-bound derived indexes, incremental updates and correct rebuilds; no per-model index code, inferred edges or all-pairs closure. Storage representation remains a proposed implementation detail. |
+| KH-D-18 | Deterministic text entry and typed bounded query-time traversal with grouped evidence projections. | Initial literal UTF-8/ASCII-insensitive modes, explicit policies, budgets and ordering; no semantic AI search or autonomous interpretation. Public API names and numeric defaults remain proposed in the query design. |
+| KH-D-19 | User-selected replacement: delete the generated canonical hub's previous contents and populate a fresh files/3 self-description from current checked repository inputs. Run the complete native suite and public/reopen/scrub/indexed checks. | New replay domain, snapshots and receipts; do not claim migration or import old history. Preserve older evidence outside hub/ as historical. Reset executes only when the rebuild change is applied; general conversion/backup/restore remains deferred. |
+
+Format-tree/block/chunk parameters, cache/extractor versions, resource defaults and readable-view policy remain reviewable proposals rather than silently adopted source requirements. A minimal-closure authoring helper and broad portable interchange remain separate semantic scope.
 
 These proposals preserve the adopted single-crate/host/runtime/file support
 boundary. An implementation request must identify this change; completed

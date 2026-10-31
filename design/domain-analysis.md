@@ -1,6 +1,6 @@
 # KnowledgeHub domain analysis
 
-Draft 0.2 · Updated 31 October 2026 · Proposed domain boundaries; KH-SL-001 implementation/evidence exists. Full ontology and then the library self-model are the user's explicit target; practitioner acceptance remains pending.
+Draft 0.3 · Updated 31 October 2026 · Full ontology/self-model evidence exists; shared storage and generic indexed-neighbour/query refinements are proposed. Domain boundaries and practitioner acceptance remain under review.
 
 This document owns the working domain vocabulary, responsibility boundaries and invariant catalogue for the `knowledgehub` library. The [ontology proposal](../source/system-definition-ontology-proposal.md) supplies the requirements and target ontology. The [Practical Design Manual](../source/practical-design-manual.md) supplies the design method. Its Memento examples are examples, not KnowledgeHub requirements.
 
@@ -52,9 +52,11 @@ Self-description stops at these useful levels. The first implementation needs a 
 | Source artifact / revision / anchor | Source identity, exact captured bytes or immutable version, and a meaningful location within it. | Refreshing a source does not refresh previous citations. |
 | Interpretation | Account of how a source supports a definition or assertion, with author and review status. | Extracted content and confidence are distinct from approval. |
 | Definition authority | Declared representation that owns a field or relationship in a scope. | This is different from the caller's permission to change it. |
-| Snapshot / commit | Consistent immutable stored generation and the accepted change that produced it. | Storage commitment does not mean the design was approved. |
+| Snapshot | A consistent immutable readable state identified by an exact public snapshot reference. | Its records/content can share storage with other states; reading it does not imply approval. |
+| Commit / generation | An accepted transition and its immutable storage descriptor binding resulting roots, parent, sequence and original receipt. | Neither a complete model copy nor an ontology-level baseline; physical maintenance adds no model commit. |
 | Model branch / head | Scope whose current committed snapshot can advance under guards. | A head selects a state; it is not an ontology revision. |
 | Model baseline | Explicit selection of compatible element, relationship, ontology and artifact revisions. | A named baseline is not an implicit query for latest. |
+| Neighbour | An exact endpoint connected by one actual typed assertion or declared reference occurrence in a selected view. | Ontology compatibility permits a link but does not establish that it exists. |
 | Change set | One requested, atomic change to one model branch, with base, operation identity and intent. | A project OpenSpec change can require many runtime change sets. |
 | Review decision | Assessment of an exact scope and revisions by an authorised reviewer. | Approval of a definition is neither implementation nor verification. |
 | Implementation evidence | Versioned artifact or observed result tied to the claim it supports. | A specification or a successful import does not establish that claim. |
@@ -134,6 +136,10 @@ This is the owning analysis catalogue for the proposed rules. Specifications ref
 | KH-DR-17 | Native kernel subjects and successor revisions share exact typed addressing and immutable lineage; selected baselines resolve their actual subjects without shadow definitions, circular hash assumptions or latest substitution. | Definition Modelling / Evidence / Governance; §§4–5, 8, 21.4. |
 | KH-DR-18 | Available vocabulary, valid structure, purpose completeness, applicability, observed execution and human assessment are separate facts. Draft gaps cannot waive integrity and inapplicable self-model families remain supported ontology vocabulary. | Definition Modelling / Evidence; §§3–4, 6, 14, 17. |
 | KH-DR-19 | Typed navigation is finite, ordered and bound to exact selection/intent; continuations recheck current disclosure and cannot mix later head revisions or another actor's scope. | Definition Modelling / Governance; §§21.3/21.7. |
+| KH-DR-20 | A baseline selects exact semantic revisions; a generation records an accepted storage transition. Sharing or repacking immutable content changes neither meaning nor original receipts. | Definition Modelling / file adapter; ontology §§5/21.4–21.6; proposed file-storage §§3–7/9. |
+| KH-DR-21 | Neighbours are actual typed assertions or declared reference occurrences in one exact view. New associations may be added later; legal ontology endpoints alone do not establish a relationship. Derived indexes cannot invent, omit silently or repin those facts. | Definition Modelling; ontology §§5/8/21.7; user direction and file-storage §7.4–7.5. |
+| KH-DR-22 | Deterministic queries compose bounded indexed hops under an explicit typed policy, preserving exact paths, ambiguity and coverage limits. Reachable dependencies are not proof that a proposed edit requires a schema change. | Definition Modelling / Governance; ontology §§11/17/21.3/21.7; file-storage §7.6–7.7. |
+| KH-DR-23 | An explicitly authorised reset of a regenerable demonstration deletes that instance and starts fresh history/replay scope from current checked inputs. New tests/baselines/receipts cannot be presented as continuity of the removed store; independent older evidence retains its original scope. Ordinary knowledge mutation and maintenance preserve immutability. | Host lifecycle / Governance; user-selected rebuild; ontology §§5/17/21.10; file-storage §13.3. |
 
 ## 7. Operations and lifecycles
 
@@ -213,3 +219,13 @@ The observed cost of validating retained full generations is an adapter performa
 limit. It does not change the domain rule that exact source/history/receipts survive.
 Broad query algebra, mandatory review policy, interchange and routine authority
 handover remain with the residual slices. No original source material was revised.
+
+## 11. Storage and local-neighbour refinement — proposed
+
+The measured full-generation storage cost motivates [file-storage draft 0.3](../source/file-storage-proposal.md), not a new domain context. For the new planning sequence, distinguish **snapshot** (one consistent readable state), **baseline** (an exact model selection) and **generation** (the accepted storage transition recording roots and original receipt). Earlier files/1–2 documents retain their historical terminology and implemented boundary.
+
+The user selected generic local association lookup: index actual incoming/outgoing neighbours and compose routes only when queried. An association may be inserted long after either endpoint. Schema-declared reference fields and first-class assertions retain distinct origins; provenance and baseline membership do not silently become ordinary impact links. The same exact view governs retrieval, traversal and evidence projection. No agent decides which relationships exist or what a change means.
+
+KH-DR-20–23 state the proposed refinements. KH-SL-009–012 in the slice plan own the next outcomes; they do not close residual managed-authoring, review, broad interchange or authority-handover scope.
+
+The user replaced canonical migration with explicit deletion/regeneration plus the complete native suite and public checks. KH-DR-23 separates that host demonstration lifecycle from immutable updates within a retained Hub. General conversion/recovery backup remains deferred; no planning edit deletes the current data.

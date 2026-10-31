@@ -18,6 +18,9 @@ use std::{
     sync::Arc,
 };
 
+mod shared;
+pub use shared::{FileStorageReport, FileWork};
+
 #[derive(Clone, Copy, Debug)]
 pub struct JobLimits {
     pub active: usize,
@@ -84,6 +87,7 @@ impl FileBackend {
                 root: path,
                 format: FILE_VERSION,
                 support: options.support,
+                work: shared::Counters::default(),
                 #[cfg(test)]
                 hook: std::sync::Mutex::new(None),
             }),
@@ -97,6 +101,17 @@ impl FileBackend {
         Arc::get_mut(&mut backend.store)
             .expect("new unshared backend")
             .format = crate::ontology::FILE_FORMAT;
+        Ok(backend)
+    }
+    /// Explicit shared immutable files/3 storage; never converts an existing store.
+    pub fn new_shared_ontology(
+        path: impl Into<PathBuf>,
+        options: FileOptions,
+    ) -> Result<Self, Error> {
+        let mut backend = Self::new(path, options)?;
+        Arc::get_mut(&mut backend.store)
+            .expect("new unshared backend")
+            .format = crate::ontology::SHARED_FILE_FORMAT;
         Ok(backend)
     }
     /// Close admission for all clones and wait for every admitted job. Keep the host runtime alive.
@@ -118,18 +133,96 @@ pub(crate) trait Storage: Send + Sync {
     fn allocate_id(&self) -> Result<SnapshotId, Error>;
     fn create(&self, initial: Snapshot) -> Result<(), Error>;
     fn acquire(&self, scope: &Scope) -> Result<Box<dyn BranchStorage + '_>, Error>;
+    fn acquire_read(&self, scope: &Scope) -> Result<Box<dyn BranchStorage + '_>, Error> {
+        self.acquire(scope)
+    }
 }
 pub(crate) trait BranchStorage {
     fn recover(&self) -> Result<History, Error>;
     fn publish(&self, plan: ValidatedPlan, parent: HeadRef) -> Result<Receipt, Error>;
+    fn current(&self) -> Result<Stored, Error> {
+        self.recover()?
+            .entries
+            .pop()
+            .ok_or_else(|| integrity("missing genesis"))
+    }
+    fn head(&self) -> Result<HeadRef, Error> {
+        Ok(self.current()?.reference)
+    }
+    fn snapshot(&self, id: &SnapshotId) -> Result<Stored, Error> {
+        self.recover()?
+            .entries
+            .into_iter()
+            .find(|s| s.snapshot.id == *id)
+            .ok_or(Error::NotFound)
+    }
+    fn operation(&self, id: &str) -> Result<Option<Receipt>, Error> {
+        Ok(self.recover()?.operation(id).cloned())
+    }
+    fn state(
+        &self,
+        selection: &crate::ontology::Selection,
+    ) -> Result<crate::ontology::State, Error> {
+        use crate::ontology::Selection;
+        let stored = match selection {
+            Selection::Snapshot(id) => self.snapshot(id)?,
+            Selection::Baseline(_) => self.current()?,
+        };
+        let state = stored
+            .snapshot
+            .ontology
+            .ok_or_else(|| Error::Incompatible("not an ontology state".into()))?;
+        match selection {
+            Selection::Snapshot(_) => Ok(*state),
+            Selection::Baseline(r) => Ok(state.view(state.baseline(r).ok_or(Error::NotFound)?)),
+        }
+    }
+    fn record(
+        &self,
+        selection: &crate::ontology::Selection,
+        r: &crate::ontology::ExactRef,
+    ) -> Result<crate::ontology::Record, Error> {
+        self.state(selection)?.resolve(r).ok_or(Error::NotFound)
+    }
+    fn artifact(
+        &self,
+        selection: &crate::ontology::Selection,
+        r: &crate::ontology::ExactRef,
+    ) -> Result<Content, Error> {
+        self.state(selection)?
+            .artifact(r)
+            .cloned()
+            .ok_or(Error::NotFound)
+    }
+    fn artifact_range(
+        &self,
+        selection: &crate::ontology::Selection,
+        r: &crate::ontology::ExactRef,
+        start: u64,
+        len: u64,
+    ) -> Result<crate::ontology::ArtifactRange, Error> {
+        let content = self.artifact(selection, r)?;
+        if start > content.reference.length || len > content.reference.length - start {
+            return Err(Error::InvalidInput("artifact range out of bounds".into()));
+        }
+        Ok(crate::ontology::ArtifactRange {
+            selection: selection.clone(),
+            reference: r.clone(),
+            original: content.reference,
+            offset: start,
+            bytes: content.bytes[start as usize..(start + len) as usize].to_vec(),
+            full_content_verified: true,
+        })
+    }
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub(crate) struct HeadRef {
-    snapshot: SnapshotId,
-    manifest_sha256: String,
+    pub(crate) snapshot: SnapshotId,
+    pub(crate) manifest_sha256: String,
 }
+#[derive(Clone)]
 pub(crate) struct Stored {
     pub snapshot: Snapshot,
     pub receipt: Option<Receipt>,
@@ -173,6 +266,7 @@ pub(crate) struct FileStore {
     root: PathBuf,
     format: &'static str,
     support: FileSupport,
+    work: shared::Counters,
     #[cfg(test)]
     hook: std::sync::Mutex<Option<Hook>>,
 }
@@ -329,6 +423,13 @@ impl FileStore {
 
     fn metadata(&self, scope: &Scope) -> Result<(), Error> {
         self.check_profile(&self.root)?;
+        let raw = read(&self.root.join("hub.json"))?;
+        let declared: serde_json::Value = parse(&raw)?;
+        if declared.get("format").and_then(serde_json::Value::as_str) != Some(self.format) {
+            return Err(Error::Incompatible(
+                "explicit file backend format differs".into(),
+            ));
+        }
         let device = fs::metadata(&self.root)
             .map_err(|_| integrity("store metadata"))?
             .dev();
@@ -345,7 +446,7 @@ impl FileStore {
                 ));
             }
         }
-        let meta: Metadata = parse(&read(&self.root.join("hub.json"))?)?;
+        let meta: Metadata = parse(&raw)?;
         if meta.format != self.format
             || meta.fingerprint_format != self.request_format()
             || &meta.scope != scope
@@ -636,6 +737,9 @@ impl Storage for FileStore {
         Ok(SnapshotId(codec::digest(&bytes)))
     }
     fn create(&self, initial: Snapshot) -> Result<(), Error> {
+        if self.format == crate::ontology::SHARED_FILE_FORMAT {
+            return shared::create(self, initial);
+        }
         if (self.format == crate::ontology::FILE_FORMAT) != initial.ontology.is_some() {
             return Err(Error::Incompatible(
                 "explicit snapshot/store format mismatch".into(),
@@ -687,6 +791,9 @@ impl Storage for FileStore {
         Ok(())
     }
     fn acquire(&self, scope: &Scope) -> Result<Box<dyn BranchStorage + '_>, Error> {
+        if self.format == crate::ontology::SHARED_FILE_FORMAT {
+            return shared::acquire(self, scope, false);
+        }
         self.metadata(scope)?;
         let lock = lock_file(&self.root.join("branch.lock"), false)?;
         Ok(Box::new(Lease {
@@ -694,6 +801,13 @@ impl Storage for FileStore {
             scope: scope.clone(),
             _lock: lock,
         }))
+    }
+    fn acquire_read(&self, scope: &Scope) -> Result<Box<dyn BranchStorage + '_>, Error> {
+        if self.format == crate::ontology::SHARED_FILE_FORMAT {
+            shared::acquire(self, scope, true)
+        } else {
+            self.acquire(scope)
+        }
     }
 }
 

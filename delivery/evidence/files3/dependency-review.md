@@ -1,0 +1,9 @@
+# Codec dependency review
+
+The only new direct dependency is `zstd = { version = "=0.13.3", default-features = false }`. The lockfile pins/checksums `zstd-safe 7.3.0` and `zstd-sys 2.1.2+zstd.1.5.7` and their build dependencies. [dependencies.json](dependencies.json) records the locally inspected package metadata, upstream repositories, declared licenses and registry checksums. No Rust toolchain was installed or replaced; the existing Rust/Cargo 1.99.1 compiled these dependencies.
+
+`cargo tree --offline -p zstd -e features` confirms the wrapper enables `zstd-safe/std` and `zstd-sys/std`; no dictionary builder, bindgen, experimental, legacy codec or multithreaded codec features are enabled. The native bundled codec is built using the existing host C toolchain through `cc`, `jobserver`, `find-msvc-tools`, `pkg-config` and `shlex`. These packages are build mechanisms, not additional storage backends or runtime services.
+
+The adapter uses level-3 bulk compression and selects it only when it saves at least 32 bytes. Reads require one standard frame, its exact encoded length, no nonzero dictionary ID, a maximum window log of 26, bounded output allocation and exact decoded length/hash. Input/framing limits apply before allocation. Raw/zstd forms share the same kind/length-separated logical OID. Packs use independently verified blocks; their encoded full-file digest is checked on install and scrub.
+
+Executed checks cover raw/zstd equivalence for the same OID, malformed/trailing frames, a frame declaring a dictionary, excessive decoded size, unknown encoding/schema/fields, duplicate JSON keys and invalid Unicode, chunk boundaries and full-source reconstruction. The complete test log is [tests.log](tests.log). This review records dependency provenance, configured features and observed codec behaviour; it does not claim a vulnerability database audit or legal approval.

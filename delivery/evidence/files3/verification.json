@@ -1,0 +1,224 @@
+{
+  "commands": [
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets",
+        "--",
+        "--nocapture"
+      ],
+      "exit_code": 0,
+      "passed": 68,
+      "log": "tests.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "passed": 1,
+      "log": "doctests.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "log": "format.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "log": "clippy.log"
+    },
+    {
+      "argv": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--example",
+        "shared_storage",
+        "--example",
+        "storage_benchmark"
+      ],
+      "exit_code": 0,
+      "log": "release-build.log"
+    },
+    {
+      "argv": [
+        "openspec",
+        "validate",
+        "share-immutable-file-storage",
+        "--strict",
+        "--json"
+      ],
+      "exit_code": 0,
+      "log": "openspec-validation.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/shared_storage",
+        "create",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/walkthrough-final"
+      ],
+      "exit_code": 0,
+      "log": "public-example.log"
+    },
+    {
+      "argv": [
+        "target/release/examples/shared_storage",
+        "scrub",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/walkthrough-final"
+      ],
+      "exit_code": 0,
+      "log": "public-example.log"
+    },
+    {
+      "argv": [
+        "target/release/examples/shared_storage",
+        "pack",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/walkthrough-final"
+      ],
+      "exit_code": 0,
+      "log": "public-example.log"
+    },
+    {
+      "argv": [
+        "target/release/examples/shared_storage",
+        "export",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/walkthrough-final",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/readable-export-final"
+      ],
+      "exit_code": 0,
+      "log": "public-example.log"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/small-2-measured",
+        "small",
+        "2"
+      ],
+      "exit_code": 0,
+      "log": "small-2.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/small-3-measured",
+        "small",
+        "3"
+      ],
+      "exit_code": 0,
+      "log": "small-3.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/large-2-measured",
+        "large",
+        "2"
+      ],
+      "exit_code": 0,
+      "log": "large-2.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/large-3-measured",
+        "large",
+        "3"
+      ],
+      "exit_code": 0,
+      "log": "large-3.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/history-2-measured",
+        "history",
+        "2"
+      ],
+      "exit_code": 0,
+      "log": "history-2.json"
+    },
+    {
+      "argv": [
+        "target/release/examples/storage_benchmark",
+        "/home/iwk/src/knowledgehub/target/files3-evidence/history-3-measured",
+        "history",
+        "3"
+      ],
+      "exit_code": 0,
+      "log": "history-3.json"
+    }
+  ],
+  "paired_fixture_equivalence": [
+    {
+      "case": "small",
+      "input_sha256": "7416dbe2c92757b96a89a3c55b4908ec2fb371a7525531bb4026709659b7f6b5",
+      "logical_state_sha256": "a929288e70b62810291a19325ef15e6f73f2dbba04e0506189bcb8f2a16e3aaf",
+      "equal": true
+    },
+    {
+      "case": "large",
+      "input_sha256": "15951450c3cd9869bc33ccf5a278183ed336e9671d5c2908f8a5d9eaa4e9bad3",
+      "logical_state_sha256": "08768c6dcf26575ddd5f8dfec608c42fdea60393756d42632c62304d19edfba6",
+      "equal": true
+    },
+    {
+      "case": "history",
+      "input_sha256": "12d244b771ca15cbb952716d8717ad50ad4a8801e380fc65e53c9dd3bf6b9603",
+      "logical_state_sha256": "4db364d4131a661c67db6171c714ecb40b6b4a583b0ec13b9f99d7759aadec1f",
+      "equal": true
+    }
+  ],
+  "canonical_and_export": "canonical-and-export.json",
+  "human_acceptance": "not established",
+  "next_changes": "not implemented",
+  "timing_conditions": "separate benchmark processes, shared host with concurrent verification, uncontrolled OS page cache",
+  "artifact_sha256": {
+    "README.md": "0d4af2988eff8e663716adf60c61d8bc1634568f5730344a5015b5c95a68abdf",
+    "build-inputs.json": "f6002345fe38538e9e4ec42d673908d303e5f1527cc72bce8393e8d8a987f752",
+    "canonical-and-export.json": "402b32d1a431ca90fb173c6c9b62dbc5eafecc15990e8904d9b74d2cd4f08687",
+    "clippy.log": "5d361f7a0ee4fefe4b32bdbcd72f42bca504d0509a287b3ba28fd2edb127ecc5",
+    "dependencies.json": "88f0b8b14643d08528197ff13a1767d2642aee30bfa95c2ea17f1f56a384470f",
+    "dependency-review.md": "7f6e4b3f6f1c86bcf2a80d29f32ce6f3d5b2b7fcc623a51845a48352142e5e9f",
+    "doctests.log": "0e9002f6d7b8946bddf8576422b95ba446df82884897c2e93a8b1449d6ecf2e0",
+    "format.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "history-2.json": "561f174a01b9fe99acfcf4e4ef99b28d6ab7f1157a4b82f7fee98515f9700b00",
+    "history-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "history-3.json": "b2eb9066154b5707a9ab28661d5939c277ce770473c7f322934126b379ce12e1",
+    "history-3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "large-2.json": "84dbd7dcf8b78b3921e296427621202c1fb7264105cc03e9834cd623fabfa4c0",
+    "large-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "large-3.json": "bac2e2719a7bb7076ced76c025718304f3d3dc02d1167f51c4782773c614f74e",
+    "large-3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "openspec-validation.json": "f3b462791ae5a30cc3e6847dfbeab3f5c25cd0397c3a230144be032e9c6dc832",
+    "public-example.log": "af79db2802838e83a8212a50ef6084c2885496263c1e9df81377c216c01bec96",
+    "release-build.log": "da55caf45b68b053001b0575df7b9758ca8b702cf3209e16a968433c3686751d",
+    "small-2.json": "c9994be231c987782484909add411a5750ed548babf03fab7fa0cd347a702b94",
+    "small-2.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "small-3.json": "17b4a16f1e669e2d32582b904987028b4cc406835cca3f842aee72477da8f775",
+    "small-3.stderr": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "tests.log": "20ebf6a9eac8645146c08bfa369a4b01b95b9b1e5e48114b050dd7d6aa7e429b"
+  }
+}

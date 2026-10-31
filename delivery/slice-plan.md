@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.4 · 31 October 2026 · Full ontology/self-model technically verified at its recorded boundary; shared storage and deterministic indexed navigation are the next proposed outcomes. Human acceptance remains separate.
+Draft 0.5 · 31 October 2026 · Full ontology/self-model and shared immutable storage technically verified at their recorded boundaries; deterministic indexed navigation is next. Human acceptance remains separate.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -209,7 +209,7 @@ handover. These earlier slices are not automatically marked complete or archived
 
 ## Next sequence: compact persistence and deterministic local navigation
 
-The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Proposed order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. The four linked OpenSpec changes are planning artifacts; creating them does not execute implementation or deletion. KH-SL-012 follows verified shared storage and both indexed query outcomes.
+The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. “Implement the first open change” subsequently authorised KH-SL-009, now implemented and technically verified. KH-SL-010–012 remain planning artifacts; no canonical deletion has executed. KH-SL-012 follows verified shared storage and both indexed query outcomes.
 
 | Journey / story | Need and completion |
 | --- | --- |
@@ -224,6 +224,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Hard prerequisites:** implemented files/2 ontology/record/request contracts; source file-storage §§3–6/8–13. No dependency on future query shapes or future associations.
 - **Stories/rules:** KH-US-25–26; KH-DR-01–15/17/20. [Change](../openspec/changes/share-immutable-file-storage/proposal.md).
 - **Acceptance:** byte/digest/replay equality, full-history recovery tests and structural sharing/allocation measurements. Does not convert `hub/` or change definition authority.
+- **Observed delivery:** explicit files/3, exact A/B/retry/reopen, packs/scrub/cleanup, 68 tests plus one doctest, process-fault boundaries and fixed-input measurements are recorded in [KH-SL-009 evidence](evidence/files3/README.md). The 64-edit fixture retained 67 generations in 1,112,693 packed encoded bytes versus 78,170,264 with files/2; its fixed point read stayed at five objects. This is technical verification, not human acceptance or a canonical-size claim. Root `hub/` remains byte-exact files/2; proceed to KH-SL-010 planning/authorisation next.
 
 ### KH-SL-010 — Retrieve actual ontology neighbours quickly
 

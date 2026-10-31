@@ -59,9 +59,9 @@ impl OntologyHub {
         context: Context,
         scope: ModelScope,
     ) -> Result<Self, Error> {
-        if backend.store.version() != FILE_FORMAT {
+        if !matches!(backend.store.version(), FILE_FORMAT | SHARED_FILE_FORMAT) {
             return Err(Error::Incompatible(
-                "explicit files/2 backend required".into(),
+                "explicit files/2 or files/3 backend required".into(),
             ));
         }
         let h = Self {
@@ -86,9 +86,9 @@ impl OntologyHub {
         context: Context,
         scope: ModelScope,
     ) -> Result<Self, Error> {
-        if backend.store.version() != FILE_FORMAT {
+        if !matches!(backend.store.version(), FILE_FORMAT | SHARED_FILE_FORMAT) {
             return Err(Error::Incompatible(
-                "explicit files/2 backend required".into(),
+                "explicit files/2 or files/3 backend required".into(),
             ));
         }
         let h = Self {
@@ -101,7 +101,7 @@ impl OntologyHub {
         h.jobs
             .run(move || {
                 context.check(&job.scope.transport(), Action::Open)?;
-                job.store.acquire(&job.scope.transport())?.recover()?;
+                job.store.acquire_read(&job.scope.transport())?.head()?;
                 Ok(())
             })
             .await?;
@@ -115,8 +115,8 @@ impl OntologyHub {
         self.jobs
             .run(move || {
                 context.check(&h.scope.transport(), Action::Read)?;
-                let hist = h.store.acquire(&h.scope.transport())?.recover()?;
-                let s = &hist.current().snapshot;
+                let current = h.store.acquire_read(&h.scope.transport())?.current()?;
+                let s = &current.snapshot;
                 Ok((
                     s.id.clone(),
                     s.ontology
@@ -128,37 +128,21 @@ impl OntologyHub {
             .await
     }
     pub async fn head(&self, context: Context) -> Result<SnapshotId, Error> {
-        Ok(self.snapshot(context).await?.0)
+        let h = self.clone();
+        self.jobs
+            .run(move || {
+                context.check(&h.scope.transport(), Action::Read)?;
+                Ok(h.store.acquire_read(&h.scope.transport())?.head()?.snapshot)
+            })
+            .await
     }
     pub(crate) fn select(&self, selection: &Selection) -> Result<(Selection, State), Error> {
-        let history = self.store.acquire(&self.scope.transport())?.recover()?;
-        match selection {
-            Selection::Snapshot(id) => {
-                let s = history
-                    .entries
-                    .iter()
-                    .find(|s| s.snapshot.id == *id)
-                    .ok_or(Error::NotFound)?;
-                Ok((
-                    selection.clone(),
-                    s.snapshot
-                        .ontology
-                        .as_deref()
-                        .ok_or_else(|| Error::Incompatible("snapshot format".into()))?
-                        .clone(),
-                ))
-            }
-            Selection::Baseline(r) => {
-                let state = history
-                    .current()
-                    .snapshot
-                    .ontology
-                    .as_deref()
-                    .ok_or_else(|| Error::Incompatible("snapshot format".into()))?;
-                let b = state.baseline(r).ok_or(Error::NotFound)?;
-                Ok((selection.clone(), state.view(b)))
-            }
-        }
+        Ok((
+            selection.clone(),
+            self.store
+                .acquire_read(&self.scope.transport())?
+                .state(selection)?,
+        ))
     }
     pub async fn read_state(&self, context: Context, selection: Selection) -> Result<State, Error> {
         let h = self.clone();
@@ -179,10 +163,9 @@ impl OntologyHub {
         self.jobs
             .run(move || {
                 context.check(&h.scope.transport(), Action::Read)?;
-                h.select(&selection)?
-                    .1
-                    .resolve(&reference)
-                    .ok_or(Error::NotFound)
+                h.store
+                    .acquire_read(&h.scope.transport())?
+                    .record(&selection, &reference)
             })
             .await
     }
@@ -196,11 +179,28 @@ impl OntologyHub {
         self.jobs
             .run(move || {
                 context.check(&h.scope.transport(), Action::Read)?;
-                h.select(&selection)?
-                    .1
-                    .artifact(&reference)
-                    .cloned()
-                    .ok_or(Error::NotFound)
+                h.store
+                    .acquire_read(&h.scope.transport())?
+                    .artifact(&selection, &reference)
+            })
+            .await
+    }
+    /// Read an owned exact original-content range, without claiming a full hash check for partial chunk reads.
+    pub async fn read_artifact_range(
+        &self,
+        context: Context,
+        selection: Selection,
+        reference: ExactRef,
+        offset: u64,
+        length: u64,
+    ) -> Result<ArtifactRange, Error> {
+        let h = self.clone();
+        self.jobs
+            .run(move || {
+                context.check(&h.scope.transport(), Action::Read)?;
+                h.store
+                    .acquire_read(&h.scope.transport())?
+                    .artifact_range(&selection, &reference, offset, length)
             })
             .await
     }
@@ -227,55 +227,67 @@ impl OntologyHub {
                 let lease = h.store.acquire(&scope)?;
                 context.check(&scope, Action::Commit)?;
                 context.check(&scope, Action::OperationResult)?;
-                let hist = lease.recover()?;
-                let register = change.operations.iter().any(|o| {
-                    if let Operation::Select(reference) = o {
-                        if hist
-                            .current()
-                            .snapshot
-                            .ontology
-                            .as_deref()
-                            .and_then(|s| s.get(reference))
-                            .is_some_and(|r| {
-                                matches!(
-                                    r.data,
-                                    RecordData::Ontology(_)
-                                        | RecordData::Type(_)
-                                        | RecordData::Relationship(_)
-                                        | RecordData::Constraint(_)
-                                        | RecordData::Profile(_)
-                                )
-                            })
-                        {
-                            return true;
+                let shared = h.store.version() == SHARED_FILE_FORMAT;
+                let history = if shared { None } else { Some(lease.recover()?) };
+                let current_head = match &history {
+                    Some(hist) => hist.current().reference.clone(),
+                    None => lease.head()?,
+                };
+                let definition = |r: &Record| {
+                    matches!(
+                        r.data,
+                        RecordData::Ontology(_)
+                            | RecordData::Type(_)
+                            | RecordData::Relationship(_)
+                            | RecordData::Constraint(_)
+                            | RecordData::Profile(_)
+                    )
+                };
+                let mut register = false;
+                for o in &change.operations {
+                    let target = if let Operation::Select(reference) = o {
+                        match &history {
+                            Some(hist) => hist
+                                .current()
+                                .snapshot
+                                .ontology
+                                .as_deref()
+                                .and_then(|s| s.get(reference))
+                                .cloned(),
+                            None => match lease.record(
+                                &Selection::Snapshot(current_head.snapshot.clone()),
+                                reference,
+                            ) {
+                                Ok(r) => Some(r),
+                                Err(Error::NotFound) => None,
+                                Err(error) => return Err(error),
+                            },
                         }
-                    }
-
-                    o.record().is_some_and(|r| {
-                        matches!(
-                            r.data,
-                            RecordData::Ontology(_)
-                                | RecordData::Type(_)
-                                | RecordData::Relationship(_)
-                                | RecordData::Constraint(_)
-                                | RecordData::Profile(_)
-                        )
-                    })
-                }) || change
-                    .operations
-                    .iter()
-                    .any(|o| matches!(o, Operation::SelectProfile { .. }));
+                    } else {
+                        None
+                    };
+                    register |= target.as_ref().is_some_and(definition)
+                        || o.record().is_some_and(definition)
+                        || matches!(o, Operation::SelectProfile { .. });
+                }
                 if register {
                     context.check(&scope, Action::RegisterOntology)?
                 }
                 let fp = change.fingerprint(&context.actor)?;
-                if let Some(r) = hist.operation(&change.operation_id) {
+                let original = match &history {
+                    Some(hist) => hist.operation(&change.operation_id).cloned(),
+                    None => lease.operation(&change.operation_id)?,
+                };
+                if let Some(r) = original {
                     if r.actor != context.actor || r.fingerprint != fp {
                         return Err(Error::OperationReuse);
                     }
-                    return Ok(r.clone());
+                    return Ok(r);
                 }
-                let current = hist.current();
+                let current = match history {
+                    Some(mut hist) => hist.entries.pop().expect("accepted genesis"),
+                    None => lease.current()?,
+                };
                 if current.snapshot.id != change.expected_head {
                     return Err(Error::Conflict {
                         expected: change.expected_head.clone(),
@@ -343,6 +355,18 @@ impl OntologyHub {
                 context.check(&h.scope.transport(), Action::OperationResult)?;
                 if id.trim().is_empty() {
                     return Err(Error::InvalidInput("operation ID required".into()));
+                }
+                if h.store.version() == SHARED_FILE_FORMAT {
+                    let lease = h.store.acquire_read(&h.scope.transport())?;
+                    return match lease.operation(&id)? {
+                        Some(r) if r.actor == context.actor => {
+                            Ok(OperationOutcome::Committed(Box::new(r)))
+                        }
+                        Some(_) => Err(Error::OperationReuse),
+                        None => Ok(OperationOutcome::Absent {
+                            recovered_head: lease.head()?.snapshot,
+                        }),
+                    };
                 }
                 let hist = h.store.acquire(&h.scope.transport())?.recover()?;
                 match hist.operation(&id) {

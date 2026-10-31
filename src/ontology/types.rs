@@ -23,6 +23,7 @@ pub const KERNEL_KINDS: &[&str] = &[
 ];
 
 pub const FILE_FORMAT: &str = "knowledgehub-files/2";
+pub const SHARED_FILE_FORMAT: &str = "knowledgehub-files/3";
 pub const REQUEST_FORMAT: &str = "knowledgehub-request/2";
 pub const RECORD_FORMAT: &str = "knowledgehub-record/2";
 
@@ -825,6 +826,16 @@ pub struct Difference {
 pub enum Selection {
     Snapshot(SnapshotId),
     Baseline(ExactRef),
+}
+/// An owned exact original-content range. Partial chunk reads do not claim a full-byte hash check.
+#[derive(Clone, Debug, PartialEq, Eq)]
+pub struct ArtifactRange {
+    pub selection: Selection,
+    pub reference: ExactRef,
+    pub original: ContentRef,
+    pub offset: u64,
+    pub bytes: Vec<u8>,
+    pub full_content_verified: bool,
 }
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum Direction {

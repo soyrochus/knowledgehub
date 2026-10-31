@@ -1,6 +1,5 @@
 //! Files/2 publication fault checks. Hooks are compiled only into the native test harness.
-#[path = "../../examples/ontology_support/mod.rs"]
-mod specimens;
+use crate::test_specimens as specimens;
 use crate::test_support as support;
 use crate::{backends::files::*, ontology::*, *};
 use std::{

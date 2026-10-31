@@ -1,0 +1,63 @@
+{
+  "direct_dependency": "zstd = { version = \"=0.13.3\", default-features = false }",
+  "lock_sha256": "b63eb114657ab849e81bfe94852f0750011c54f93f919e1497292c717ff01e97",
+  "packages": [
+    {
+      "name": "zstd",
+      "version": "0.13.3",
+      "registry_checksum": "e91ee311a569c327171651566e07972200e76fcfe2242a4fa446149a3881c08a",
+      "license_declared": "MIT",
+      "repository": "https://github.com/gyscos/zstd-rs"
+    },
+    {
+      "name": "zstd-safe",
+      "version": "7.3.0",
+      "registry_checksum": "64d80649ab6db9d9f6f9c80a40becd948eda4714a0a5ac8c4d157a32231c7882",
+      "license_declared": "BSD-3-Clause",
+      "repository": "https://github.com/gyscos/zstd-rs"
+    },
+    {
+      "name": "zstd-sys",
+      "version": "2.1.2+zstd.1.5.7",
+      "registry_checksum": "481ada9c543b2323cbb7bbdbb5249177fbf0188ed959ed2c15e4b22421c84ed3",
+      "license_declared": "BSD-3-Clause",
+      "repository": "https://github.com/gyscos/zstd-rs"
+    },
+    {
+      "name": "cc",
+      "version": "1.10.0",
+      "registry_checksum": "86e055fa6e3e40ad6187ba25b6855eeb635d5271f8e0f0e1e9a5826b8d75bea0",
+      "license_declared": "MIT OR Apache-2.0",
+      "repository": "https://github.com/rust-lang/cc-rs"
+    },
+    {
+      "name": "find-msvc-tools",
+      "version": "0.1.15",
+      "registry_checksum": "1c66915cc5391097de7a2b0b972e8505aa33c0df401fd3a6811dbdb32881ba48",
+      "license_declared": "MIT OR Apache-2.0",
+      "repository": "https://github.com/rust-lang/cc-rs"
+    },
+    {
+      "name": "jobserver",
+      "version": "0.1.35",
+      "registry_checksum": "1c00acbd29eabad4a2392fa0e921c874934dbbf4194312ad20f04a0ed67a3cb3",
+      "license_declared": "MIT OR Apache-2.0",
+      "repository": "https://github.com/rust-lang/jobserver-rs"
+    },
+    {
+      "name": "pkg-config",
+      "version": "0.3.34",
+      "registry_checksum": "f6b464fbc74e149a392436b17d523f769e057cb6877f6a5c4618bc6f11800548",
+      "license_declared": "MIT OR Apache-2.0",
+      "repository": "https://github.com/rust-lang/pkg-config-rs"
+    },
+    {
+      "name": "shlex",
+      "version": "2.0.1",
+      "registry_checksum": "f8fadd59c855ef2080decdef8ff161eb6661b86933c9d82e5ba29dc602a55aba",
+      "license_declared": "MIT OR Apache-2.0",
+      "repository": "https://github.com/comex/rust-shlex"
+    }
+  ],
+  "review_scope": "local package metadata, enabled dependency features, bounded codec use and executed malformed-input tests; no claim of a vulnerability database audit"
+}

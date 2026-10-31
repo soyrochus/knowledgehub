@@ -1,0 +1,56 @@
+{
+  "command": [
+    "cargo",
+    "run",
+    "--offline",
+    "--release",
+    "--example",
+    "inspect_self_model"
+  ],
+  "started_at": "2026-10-31T13:22:59.984373+00:00",
+  "elapsed_seconds": 117.59456814800069,
+  "exit_code": 0,
+  "store": "hub",
+  "result": "delivery/evidence/hub-inspection.json",
+  "log": "delivery/evidence/hub-inspection.txt",
+  "selected_records": 4932,
+  "retained_revisions": 4938,
+  "explicit_gaps": 1690,
+  "structurally_valid": true,
+  "purpose_complete": false,
+  "executable_sha256": "4742760f1879bb59423c3d3d36c0e38ddda9f5ecfc43f9fc67d11c6d5bfb7464",
+  "inspector_source_sha256": "df3da7a275fff52137d6541bd96fc29418cb61b7d7d12a10d51473ccc156b57c",
+  "additional_checks": [
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--example",
+        "inspect_self_model",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "passed": 1
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit_code": 0
+    }
+  ]
+}

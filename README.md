@@ -14,7 +14,26 @@ The [ontology proposal](source/system-definition-ontology-proposal.md) remains t
 source draft. The [Practical Design Manual](source/practical-design-manual.md)
 supplies the method; its Memento examples are not KnowledgeHub requirements.
 
-## Run the full public walkthrough
+## Inspect the canonical self-model
+
+The repository's actual persisted KnowledgeHub is in [`hub/`](hub/README.md).
+It contains the ontology catalogue and KnowledgeHub's own sourced model, exact
+artifacts, immutable revision history, A/B baselines and original operation receipts.
+It is repository data, preserved independently of Cargo's `target/` directory.
+
+Open it through the public library API:
+
+```sh
+cargo run --offline --release --example inspect_self_model
+```
+
+This read-only example reports the model, draft gaps and original receipts, and
+reads both versions of the atomic-change explanation. The stored model captures
+the verified source snapshot described in its evidence; it is not automatically
+updated when repository files change. See the [store guide](hub/README.md) for its
+layout and update rules.
+
+## Reproduce the full public walkthrough
 
 Use the existing Rust compiler, Python 3 and installed Poppler `pdftotext`.
 Choose fresh absolute store paths with an existing parent on the supported local
@@ -34,6 +53,8 @@ PDF extraction manifests, loads the applicable self-model, follows its real
 requirement/case/run path, creates A/B, closes/reopens, compares them and recovers
 original receipts. Its result JSON contains group bindings, Q01–Q08 answers and
 explicit gaps. Structural conformance does not manufacture execution or acceptance.
+These commands create separate disposable demonstrations. The canonical `hub/`
+already exists; do not pass it as the new-store destination to either loader.
 
 Read the [typed API and version contract](design/typed-ontology-api.md) and
 [self-model walkthrough](design/self-model-consumer.md) for exact addresses,

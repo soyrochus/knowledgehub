@@ -8,7 +8,18 @@ working-tree status. Git HEAD is recorded as context and never substituted for
 modified bytes. Native run timestamps refer to the observed check batch; individual
 subcase timings are not invented.
 
-Run the commands in [README](../README.md) with fresh store paths. The verifier
+The canonical persisted instance is the repository-root [`hub/`](../hub/README.md),
+including all accepted generations, original artifacts, A/B and receipts. Run
+`cargo run --offline --release --example inspect_self_model` to reopen it through
+the public API without authoring changes. The inspector reads both explanations,
+compares the exact baselines and recovers the original operation outcomes.
+The recorded source baseline remains exact; moving the store or editing current
+repository files does not refresh its historical model or evidence. The
+[relocation inventory](../delivery/evidence/hub-relocation.json) records the
+byte-preserving move from the original disposable build location.
+
+To reproduce authoring separately, run the commands in [README](../README.md)
+with fresh store paths, outside the existing canonical Hub. The verifier
 retains original command output, source/Cargo hashes and exact native test-executable
 hashes. The capture script refuses a different log or changed checked input. The
 loader rechecks every captured file, so a stale inventory cannot label changed bytes

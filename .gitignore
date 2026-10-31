@@ -1,2 +1,4 @@
 /target
+/hub/staging/*
+!/hub/staging/.gitkeep
 .DS_Store

@@ -127,6 +127,7 @@ fn source_key(path: &str) -> String {
         "delivery/slice-plan.md" => "slice-plan",
         "examples/catalogue_conformance.rs" => "catalogue-consumer",
         "examples/full_self_description.rs" => "self-model-consumer",
+        "examples/inspect_self_model.rs" => "self-model-inspector",
         "examples/seed.rs" => "seed-consumer",
         "examples/support/mod.rs" => "seed-consumer-fixture",
         "examples/ontology_support/mod.rs" => "catalogue-specimens",

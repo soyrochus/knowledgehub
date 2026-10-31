@@ -1,0 +1,5 @@
+   Compiling knowledgehub v0.1.0 (/home/iwk/src/knowledgehub)
+    Finished `release` profile [optimized] target(s) in 8.55s
+     Running `target/release/examples/inspect_self_model`
+Opening persisted self-model at /home/iwk/src/knowledgehub/hub
+Recovered both baseline narratives; comparing A/B and original receipts

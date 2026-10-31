@@ -104,3 +104,21 @@ accepted self-definition. The selected self-description profile intentionally
 permits such declared draft gaps while refusing integrity violations. The next
 useful work is review/prioritisation of these semantic refinements and the residual
 slice obligations, not automatic authority transfer.
+
+## Canonical repository instance
+
+At the user's request, the actual self-model store was moved to repository-root
+[`hub/`](../../hub/README.md), preserving all eight generations and all 426 original
+files byte for byte. The [relocation inventory](hub-relocation.json) records the
+original and canonical paths and exact file hashes; historical commands above
+retain their original run paths.
+
+The new public, read-only `inspect_self_model` example reopened that location,
+validated the catalogue/model, read both exact A/B explanations, compared the
+baselines and recovered original load/revision receipts at sequences 2 and 6.
+The [inspection run](hub-inspection-run.json) and [public result](hub-inspection.json)
+record the scoped check: 4,932 selected records at the head, 4,938 retained revisions,
+1,690 draft gaps, purpose completeness false and approximately 118 seconds including
+compilation. Clippy for the inspector and the README doctest passed. Every original
+store file was checked unchanged after inspection. This relocation and new host
+tooling do not refresh the stored source baseline or relabel the earlier 54 checks.

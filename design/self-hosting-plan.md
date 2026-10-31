@@ -77,6 +77,14 @@ coverage are recorded in [full-ontology evidence](../delivery/evidence/full-onto
 The loaded model remains a draft with explicit gaps. Technical completion does
 not close the B3 authority/acceptance/reconstruction gates.
 
+The user requested a visible canonical dogfooding instance at the repository
+root. The actual files/2 store now lives in [`hub/`](../hub/README.md), retaining
+the complete verified history and source/evidence baseline. Its move from `target/`
+does not reauthor that baseline or transfer definition authority. The public
+`inspect_self_model` example opens it and reads A/B and original receipts; fresh
+walkthroughs use separate paths. Subsequent repository changes require explicit
+API authoring to become new stored model revisions.
+
 Map the authored model through the following families as needed:
 
 | Project definition | Ontology family / type examples |

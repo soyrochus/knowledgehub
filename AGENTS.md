@@ -23,6 +23,8 @@ The user authorised `retain-first-self-definition` (KH-SL-001) and then explicit
 
 The crate has the preserved files/1 seed API and the opt-in files/2 typed ontology API. See `design/typed-ontology-api.md`, `design/self-model-consumer.md` and `delivery/evidence/full-ontology.md` for the implemented boundary and scoped evidence. The sourced self-model retains explicit draft gaps. Human acceptance, broad interchange/review/query capabilities and authority handover remain separate.
 
+At the user's request, `hub/` is the canonical persisted self-description demonstration, retained as repository data. Inspect it with `cargo run --offline --release --example inspect_self_model`. Preserve its full history and exact captured source baseline; change stored definitions through the public API rather than editing accepted backend files. Current repository edits do not automatically refresh this historical model or transfer definition authority.
+
 ## Scope and design constraints
 
 - Start with one Rust crate named `knowledgehub`, with clear internal responsibility boundaries.

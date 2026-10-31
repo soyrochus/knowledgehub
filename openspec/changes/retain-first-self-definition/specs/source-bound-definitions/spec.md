@@ -92,6 +92,8 @@ The initial file backend SHALL use the host-owned Tokio runtime without creating
 - **WHEN** another request needs a file job
 - **THEN** it receives an explicit retryable capacity result without submitting another job or changing accepted state
 
+Verification directive · 31 October 2026: the user requires existing Rust 1.99.1, no compiler installation and assumed compliant platforms. Actual checks use that compiler with both schedulers; minimum Rust execution is assumed, not claimed as evidence.
+
 #### Scenario: Both supported executor configurations
 - **WHEN** the public seed consumer runs on the minimum toolchain and current stable using either supported Tokio scheduler configuration
 - **THEN** it can create, commit, reopen and read without blocking the async scheduler on file work or requiring a hidden library runtime

@@ -1,6 +1,6 @@
 # Design
 
-Planning design · KH-SL-001 · The user adopted the first-slice recommendations on 30 October 2026. Explicit implementation authorisation, execution evidence and acceptance remain pending.
+Design · KH-SL-001 · Recommendations adopted 30 October 2026; implementation authorised 31 October 2026. See [actual contract](../../../design/file-backend.md) and [technical evidence](../../../delivery/evidence/kh-sl-001.md). Human acceptance remains pending.
 
 ## Context
 
@@ -57,7 +57,7 @@ Installing a prebuilt accepted snapshot by copying private files would evade the
 - [The first slice contains substantial integrity work] → Keep the seed/profile and query surface small; retain the safeguards needed for the first supported write.
 - [Branch serialization limits write concurrency] → Prefer a clear initial correctness boundary; later optimisation must preserve the same observable results.
 - [Document and graph copies diverge] → Declare ownership by field/scope and validate required bindings within the same change set.
-- [Adopted targets are mistaken for verified support] → Require explicit implementation authorisation and retain minimum-toolchain, executor, filesystem and recovery evidence before claiming support. All implementation tasks remain unchecked.
+- [Adopted targets are mistaken for verified support] → Require explicit implementation authorisation and retain minimum-toolchain, executor, filesystem and recovery evidence before claiming support. Task completion follows actual implementation and evidence; it does not establish human acceptance.
 - [Self-description is mistaken for proof of correctness] → Keep requirements, actual run evidence and human assessment separate, even when they are stored in the same Hub.
 
 ## Migration Plan
@@ -78,4 +78,4 @@ The [domain analysis](../../../design/domain-analysis.md#6-rule-catalogue) owns 
 
 ## First-implementation gate
 
-KH-D-01–06 now have adopted planning selections in the owning decision register. The remaining gate is explicit implementation authorisation; this chat instruction adopted recommendations and did not request code. All tasks remain unchecked until their stated work and evidence exist. If feasibility checks expose a contradiction, revise the affected decision and contracts explicitly. KH-D-07–10 stay with later slices; adopting their broad directions does not invent their missing policy details or transfer document authority.
+KH-D-01–06 have adopted selections in the owning decision register. The user explicitly authorised this implementation on 31 October 2026, then directed use of existing Rust 1.99.1 without installing a compiler and assumed platform compliance. This replaces minimum-toolchain execution with an explicit assumption for this change; the declared Rust 1.85 target remains. Task completion requires the stated implementation and scoped evidence, independently of human acceptance. Implementation conservatively stages full generations under the branch lock; all admission and publication guarantees remain. No domain-rule contradiction was found. KH-D-07–10 stay with later slices; adopting their broad directions does not invent their missing policy details or transfer document authority.

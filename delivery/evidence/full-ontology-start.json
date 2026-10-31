@@ -1,0 +1,187 @@
+{
+  "scope": "exact uncommitted working-tree inputs before full ontology code changes",
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "git_head": "67b4f765bfef8167950acd1038901d4120f31b87",
+  "files": {
+    "Cargo.lock": {
+      "sha256": "0e289e2c8a57a243c71231027f1e40c7c727cf4955515f737206dc3bfdd122c9",
+      "length": 5605
+    },
+    "Cargo.toml": {
+      "sha256": "c60e053f11e2b20f8725c878941fcc1895a58401cac56cb7e45875a88e3256b8",
+      "length": 498
+    },
+    "delivery/evidence/kh-sl-001.md": {
+      "sha256": "f9dde477d22a5e3014db2fe4c389944140d0d7627dab94ef3c12bf53d996be47",
+      "length": 8426
+    },
+    "delivery/slice-plan.md": {
+      "sha256": "2f4e60a78cd2bbf2f6b3036fef4482deb87ee7edb26ef6b6fb948fa499cd22de",
+      "length": 25441
+    },
+    "design/domain-analysis.md": {
+      "sha256": "dea13cba7c5e43795399741664cb53892f26d37b3b6e50663e14d6494e135725",
+      "length": 23042
+    },
+    "design/file-backend.md": {
+      "sha256": "d36685b6b08f8df4193ac0a1422c0106c913ed89587ab9382834fb2dc491a796",
+      "length": 12346
+    },
+    "design/full-ontology-implementation.md": {
+      "sha256": "96ce7f9b74cba65c290cbdf53d0d6e5cfb641d5b42a6741b4608c6257fa93597",
+      "length": 1542
+    },
+    "design/implementation-record.md": {
+      "sha256": "ff8f8f6545ccfe8d86678f1dde2caa880c109df5dbc67a41ed93ae8392e7360b",
+      "length": 3600
+    },
+    "design/self-hosting-plan.md": {
+      "sha256": "ac4ee8fa11a3d586a0bf32e5831e5c79a73de51aeec276e7ac3a6ce3c462945a",
+      "length": 30830
+    },
+    "examples/seed.rs": {
+      "sha256": "67ef6f609fcaaba6c5f2b3dced10bca9def41881ea71a97a7e3dd135d8a56179",
+      "length": 2822
+    },
+    "examples/support/mod.rs": {
+      "sha256": "29921ff438c1829ac77a80442bda0b5f6467a83496b79d1734fea1340b93d26b",
+      "length": 6726
+    },
+    "openspec/changes/express-full-ontology-and-self-model/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/express-full-ontology-and-self-model/design.md": {
+      "sha256": "8576b3cccc34ac8db90e28e5574403212217cf584241c73fa9a2fb10a5e3df4e",
+      "length": 20585
+    },
+    "openspec/changes/express-full-ontology-and-self-model/ontology-coverage.md": {
+      "sha256": "a95d920e6fc9ac3d0690f9d2bb0e443f12919c62ca4a2b7bb207ebe998ecac68",
+      "length": 42986
+    },
+    "openspec/changes/express-full-ontology-and-self-model/proposal.md": {
+      "sha256": "7832c4159765427fe36309ac40f7a2f67e6d34c34c22f63d8942358c9cd04e9c",
+      "length": 6152
+    },
+    "openspec/changes/express-full-ontology-and-self-model/self-model-map.md": {
+      "sha256": "864cd6173d760520ad57a49ceb1bb74ea99ad486f9fae503abc4a97c043a0d5b",
+      "length": 17699
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "75af331726b77d57524ee86b52ac9a17ef04f2aeff81334c13b20fe64cac5af9",
+      "length": 5011
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/model-baselines/spec.md": {
+      "sha256": "a0a1f9e10ce8438f0501e6254addde4961435d144ca34622db17b356be095df4",
+      "length": 4959
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/model-navigation/spec.md": {
+      "sha256": "eb96d8a81bd9b1d9112e13faa149e6860a0f027edec174138a9f07c34d4e5eea",
+      "length": 4933
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/ontology-conformance/spec.md": {
+      "sha256": "7bebb79d710bba38c4bf371e635d795c7c3bcf5e4b487227638b3855b58835b3",
+      "length": 8954
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/ontology-definitions/spec.md": {
+      "sha256": "82ac8f1893d81dc5dce8fa4c22da3ea774fd8dd330cbeb6dfdb3f1850e0fe694",
+      "length": 6094
+    },
+    "openspec/changes/express-full-ontology-and-self-model/tasks.md": {
+      "sha256": "0afaee3262d5068fb06f0ff67ecb2c917657f327fe6e3cfdc203d00aab8e45b8",
+      "length": 14319
+    },
+    "openspec/changes/retain-first-self-definition/.openspec.yaml": {
+      "sha256": "6803193cd4b83f73d2d65d3e3ce1f3b116fb4dba2543ef44a3ad6cc9791547ed",
+      "length": 40
+    },
+    "openspec/changes/retain-first-self-definition/design.md": {
+      "sha256": "b9d646c798f858c199540eb10367bf6d294d2ade4f1b47eb297101c2c78a29ab",
+      "length": 11363
+    },
+    "openspec/changes/retain-first-self-definition/proposal.md": {
+      "sha256": "b1d3c7f243f71830cbc732c2f62c223c4f7e3b49d8fecd43d6f74a89f10737ab",
+      "length": 3903
+    },
+    "openspec/changes/retain-first-self-definition/specs/branch-commits/spec.md": {
+      "sha256": "d7d62be0c8bb82ad19226d9c9bea03a350411e13bce4224718b0b29c53b33850",
+      "length": 8545
+    },
+    "openspec/changes/retain-first-self-definition/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "1ff352e6478aa9011a6019fd30fc1292a29c1ff357e3db13cc6aaf78a3b93183",
+      "length": 7524
+    },
+    "openspec/changes/retain-first-self-definition/specs/source-bound-definitions/spec.md": {
+      "sha256": "177cb923b2c4cb15daf95e79f5932e6d0e79cfcb32ebc7cc34d00f9aa680ec46",
+      "length": 9760
+    },
+    "openspec/changes/retain-first-self-definition/tasks.md": {
+      "sha256": "013c26327828cdc0101c49cd031ec528d0f00dbdfd4a8995c9b25d120ec74653",
+      "length": 6691
+    },
+    "openspec/config.yaml": {
+      "sha256": "d2553833c8c88a5cc441e99b4850f941780b3e3260a87f80635a86126ad0c635",
+      "length": 4085
+    },
+    "source/practical-design-manual.md": {
+      "sha256": "ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15",
+      "length": 72094
+    },
+    "source/practical-design-manual.pdf": {
+      "sha256": "5c4124476b3abe1ba41a1d053bc676ab34eafeac18d98f3e7842abe0c9d9f704",
+      "length": 268152
+    },
+    "source/system-definition-ontology-proposal.md": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "source/system-definition-ontology-proposal.pdf": {
+      "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+      "length": 479613
+    },
+    "src/application.rs": {
+      "sha256": "646969d2cbad4a7fc689fdae783b7fc4def7b155ef88b5d737f29de52e580b36",
+      "length": 8309
+    },
+    "src/codec.rs": {
+      "sha256": "a18d7476c466eacaa3ba9137418381be8f98a3b073fbbed09107b0a959c96236",
+      "length": 6864
+    },
+    "src/contracts.rs": {
+      "sha256": "7f11054554e6a4f97f2b6755b429cd4b2c6a21f77c703b6f6453e975922a2eb7",
+      "length": 14872
+    },
+    "src/jobs.rs": {
+      "sha256": "22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857",
+      "length": 4889
+    },
+    "src/lib.rs": {
+      "sha256": "7c2a2ba247a724e17a2a0b16ed137d07529c38298382f812dce631d251b9698c",
+      "length": 544
+    },
+    "src/model.rs": {
+      "sha256": "a82a8f117551e0c9675e61a15bcb1f8a0ae94790d424297add5aa98c7959426f",
+      "length": 15843
+    },
+    "src/storage.rs": {
+      "sha256": "1b498525dfb73503b80124565ea403c37b5c81fa85ae2fd43f753b13c291613b",
+      "length": 24649
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/documents/0c152f078a1c4580cdcc3e5558a684e9d03534da23f3f159b3e8d7e4d7a69ec8.md": {
+      "sha256": "906c83982cc7d969d7dadbcfe98309bc962da85262d35c045f8ec34be7237ae3",
+      "length": 533
+    },
+    "tests/internal/faults.rs": {
+      "sha256": "a6b020cb01a17bf382678adf94bb51b6c269969968e304125954053e8d6d5aa7",
+      "length": 13167
+    },
+    "tests/public_contract.rs": {
+      "sha256": "3209481138dab5d025aeb33a23ba5ad8850c6c5a41c86460015fcb6256046d39",
+      "length": 19507
+    },
+    "tests/support/mod.rs": {
+      "sha256": "0753fe2b71f35c7175e64eb1ababf1eb4525b94a872d4d6fb7964c4ed833ebea",
+      "length": 1276
+    }
+  }
+}

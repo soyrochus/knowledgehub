@@ -16,12 +16,27 @@ context: |
   with documents and a small self-description seed, then progressively use the
   implemented Hub to govern its own definition. Authority handover is explicit
   per field/scope/baseline; derived specs must identify exact model revisions.
-  This is currently preparation and planning only. Do not implement or generate
-  code, add dependencies, or create modules, tests, examples or adapters until the
-  user explicitly authorises implementation. Planning alone does not imply adoption,
-  implementation, verification or acceptance. The user adopted KH-D-01–06 on
-  30 October 2026; design/self-hosting-plan.md owns those selections. Later
-  decisions remain progressive; implementation authorisation is still pending.
+  The user authorised implementation of retain-first-self-definition (KH-SL-001)
+  on 31 October 2026. Later slices still require authorisation. Planning alone
+  does not establish implementation, verification or human acceptance. The user
+  adopted KH-D-01–06 on 30 October 2026; design/self-hosting-plan.md owns those
+  selections. Use existing Rust 1.99.1, install no compiler, and assume platform
+  compliance at the user's direction; distinguish this from actual run evidence.
+  See design/file-backend.md and delivery/evidence/kh-sl-001.md for the first
+  implemented boundary. Later decisions remain progressive.
+  The user subsequently clarified the concrete next target: express the entire
+  System Definition Ontology in the supplied PDF, then express KnowledgeHub
+  itself through that ontology. The planned change is
+  express-full-ontology-and-self-model: KH-SL-007 complete catalogue and
+  KH-SL-008 applicable sourced self-model. Its coverage inventory enumerates
+  all kernel/types/relationships/contracts; its self-model map names concrete
+  project records and public reads. Proposed KH-D-11–15 in the self-hosting
+  register distinguish schema refinements from source statements. These new
+  artifacts remain distinct from implementation and acceptance. The user explicitly
+  requested Apply express-full-ontology-and-self-model, then committed implementation
+  as 807ed85 and requested completion of verification/evidence. This bounded change
+  is authorised; no compiler installation, deferred adapters or authority handover.
+  See design/typed-ontology-api.md and design/self-model-consumer.md.
   The first implementation is one embedded Rust library crate with a default file
   backend using Markdown, graph JSON and versioned artifacts. Public contracts must
   remain storage-independent and use asynchronous I/O, snapshot-bound reads,

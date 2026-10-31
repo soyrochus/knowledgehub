@@ -1,0 +1,18 @@
+{
+  "source/practical-design-manual.md": {
+    "sha256": "ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15",
+    "length": 72094
+  },
+  "source/practical-design-manual.pdf": {
+    "sha256": "5c4124476b3abe1ba41a1d053bc676ab34eafeac18d98f3e7842abe0c9d9f704",
+    "length": 268152
+  },
+  "source/system-definition-ontology-proposal.md": {
+    "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+    "length": 74064
+  },
+  "source/system-definition-ontology-proposal.pdf": {
+    "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+    "length": 479613
+  }
+}

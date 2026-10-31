@@ -1,6 +1,6 @@
 # KnowledgeHub domain analysis
 
-Draft 0.1 · 30 October 2026 · Proposed model; no implementation or practitioner acceptance.
+Draft 0.2 · Updated 31 October 2026 · Proposed domain boundaries; KH-SL-001 implementation/evidence exists. Full ontology and then the library self-model are the user's explicit target; practitioner acceptance remains pending.
 
 This document owns the working domain vocabulary, responsibility boundaries and invariant catalogue for the `knowledgehub` library. The [ontology proposal](../source/system-definition-ontology-proposal.md) supplies the requirements and target ontology. The [Practical Design Manual](../source/practical-design-manual.md) supplies the design method. Its Memento examples are examples, not KnowledgeHub requirements.
 
@@ -43,6 +43,9 @@ Self-description stops at these useful levels. The first implementation needs a 
 | Hub | Governed repository containing model scopes and policy references. | Neither a production transaction store nor a source-code repository. |
 | System model | Coherent definition of a particular system with scope and owner. | The KnowledgeHub library is one system that can be described. |
 | Ontology / profile | Versioned vocabulary, permitted relationships, constraints and selected completeness obligations. | Type availability differs from completeness for a purpose. |
+| Ontology conformance | A record/graph conforms to its exact registered property, endpoint and constraint definitions. | A familiar type name or arbitrary property bag does not establish support. |
+| Kernel subject | An addressable native identity, exact revision, assertion, anchor or representation binding. | A relationship targeting an assertion or revision must not require a duplicate editable element. |
+| Model completeness | Applicable obligations are met for a declared purpose and exact selection, with explicit draft gaps/inapplicability. | A complete self-model does not prove support for unused ontology families or human acceptance. |
 | Element identity | Stable semantic identity within a declared namespace and scope. | A filename, label or position is not its identity. |
 | Element revision | Immutable definition of that identity at a particular version. | Editing creates a successor; it does not rewrite cited history. |
 | Relationship assertion | Identified, versioned claim of a typed relation between exact endpoints. | A drawn arrow or similar label does not establish the relation. |
@@ -127,6 +130,10 @@ This is the owning analysis catalogue for the proposed rules. Specifications ref
 | KH-DR-13 | A review binds exact scope/revisions. Storage commitment, review approval, implementation, verification and human acceptance remain separate facts. | Governance; §§14, 17. |
 | KH-DR-14 | Import validates staged content and source/endpoint resolution before promotion; export preserves the selected profile's declared semantics and recovery history. | Interchange; §§16, 21.9. |
 | KH-DR-15 | The consumer API preserves model meaning across storage choices and does not expose native storage transactions or layout. | Application boundary; §§21.2–21.3, 21.7–21.9. |
+| KH-DR-16 | The user's full-ontology target requires explicit versioned definitions/schemas and meaningful conformance for every source catalogue type/relationship and specialised contract; a seed or label list cannot establish full support. | Definition Modelling; §§5–17; clarified user scope, 31 October 2026. |
+| KH-DR-17 | Native kernel subjects and successor revisions share exact typed addressing and immutable lineage; selected baselines resolve their actual subjects without shadow definitions, circular hash assumptions or latest substitution. | Definition Modelling / Evidence / Governance; §§4–5, 8, 21.4. |
+| KH-DR-18 | Available vocabulary, valid structure, purpose completeness, applicability, observed execution and human assessment are separate facts. Draft gaps cannot waive integrity and inapplicable self-model families remain supported ontology vocabulary. | Definition Modelling / Evidence; §§3–4, 6, 14, 17. |
+| KH-DR-19 | Typed navigation is finite, ordered and bound to exact selection/intent; continuations recheck current disclosure and cannot mix later head revisions or another actor's scope. | Definition Modelling / Governance; §§21.3/21.7. |
 
 ## 7. Operations and lifecycles
 
@@ -171,6 +178,38 @@ Candidate, committed and reviewed are separate dimensions. An uncertain response
 
 ## 9. Review boundary and next work
 
-The current result is an authored analysis grounded in the two supplied documents and repository inspection. The user has adopted the first-slice recommendations KH-D-01–06; the context map and aggregate responsibilities remain hypotheses to challenge against the selected slice. No interviews, library operations, durability tests or acceptance walkthroughs have occurred.
+The current result is an authored analysis grounded in the two supplied documents and repository inspection. The user has adopted the first-slice recommendations KH-D-01–06; the context map and aggregate responsibilities remain hypotheses to challenge against the selected slice. No practitioner interviews or human acceptance have occurred. KH-SL-001 now has a public-contract walkthrough and scoped process-interruption, policy, graph, concurrency and replay evidence; see [recorded results](../delivery/evidence/kh-sl-001.md). These results support the branch admission and provenance boundaries for the fixed seed, without establishing the broader model.
 
-Use the [slice plan](../delivery/slice-plan.md) to test the boundaries through one complete path. The [self-hosting plan](self-hosting-plan.md#decisions-to-resolve) owns open adoption and implementation decisions, including bootstrap authority. Expand the profile only when a selected outcome needs the additional types and obligations.
+The user clarified on 31 October 2026 that the product must express the full
+ontology in the source PDF, then KnowledgeHub itself. This selects the full
+catalogue as the next capability target, beyond the two-type seed. Proposed
+KH-DR-16–19 make that obligation explicit; they do not imply adoption of every
+new schema refinement or implementation of those capabilities.
+
+Use the [slice plan](../delivery/slice-plan.md) for KH-SL-007/008 and the
+[new change](../openspec/changes/express-full-ontology-and-self-model/proposal.md)
+for the bounded delta. Its exhaustive coverage inventory refines type/property
+details without revising the original sources. The [self-hosting plan](self-hosting-plan.md#decisions-to-resolve)
+owns proposed KH-D-11–15 and bootstrap authority. Existing context/aggregate
+hypotheses retain their assessment status when loaded into the self-model.
+
+## 10. Learning from KH-SL-007/008 implementation
+
+The full catalogue and sourced self-model extend the same branch admission and
+provenance responsibilities; they do not establish a new deployment/context map.
+Native assertion/anchor/representation addressing uses actual records, with an
+identity projection and an actual revision envelope rather than duplicate owners.
+Explicit named baselines distinguish selected definitions from supporting history.
+Current permission and retained original intent still govern the enlarged change.
+
+The host's loader gives public contracts, fields and modules declared semantic
+names independent of physical source locations. Source origins and exact spans
+remain provenance. Candidate context/aggregate descriptions remain proposed.
+The loaded self-description preserves explicit semantic gaps; successful structural
+assessment does not establish purpose completeness or practitioner acceptance.
+See [technical outcome evidence](../delivery/evidence/full-ontology.md).
+
+The observed cost of validating retained full generations is an adapter performance
+limit. It does not change the domain rule that exact source/history/receipts survive.
+Broad query algebra, mandatory review policy, interchange and routine authority
+handover remain with the residual slices. No original source material was revised.

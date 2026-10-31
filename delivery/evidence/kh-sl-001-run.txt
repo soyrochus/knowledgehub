@@ -1,0 +1,133 @@
+KH-SL-001 verification run; 2026-10-31T08:54:37.618854+00:00
+Existing compiler only. No compiler installation. Rust 1.85/platform compliance is assumed at user direction.
+
+$ rustc --version --verbose
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+binary: rustc
+commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67
+commit-date: 2026-10-13
+host: x86_64-unknown-linux-gnu
+release: 1.99.1
+LLVM version: 23.1.1
+exit=0
+
+$ cargo --version
+cargo 1.99.1 (5f94df478 2026-08-27)
+exit=0
+
+$ uname -a
+Linux iwk-HX90 7.0.0-38-generic #38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026 x86_64 GNU/Linux
+exit=0
+
+$ findmnt -T /home/iwk/src/knowledgehub -o TARGET,SOURCE,FSTYPE,OPTIONS
+TARGET                     SOURCE                                     FSTYPE OPTIONS
+/home/iwk/src/knowledgehub /dev/nvme0n1p2[/home/iwk/src/knowledgehub] ext4   rw,nosuid,nodev,relatime
+exit=0
+
+$ cargo fmt --all -- --check
+exit=0
+
+$ cargo clippy --offline --all-targets -- -D warnings
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.01s
+exit=0
+
+$ cargo test --offline --all-targets -- --nocapture
+   Compiling knowledgehub v0.1.0 (/home/iwk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.05s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-0e2285382b9dd9af)
+
+running 8 tests
+test codec::tests::canonical_rfc8785_subset_vectors ... ok
+test fault_tests::process_worker ... ok
+test jobs::tests::cancelled_wait_keeps_capacity_and_drain_waits ... ok
+SIGKILL staging: complete prior snapshot and authoritative original outcome
+test fault_tests::cancelled_publication_keeps_lock_and_data_until_drain ... ok
+process race: busy; committed:9d4c5778e6f07f9397b93944330fb8ada7d5a44be2aceb90f47fe60128a2bdbd; later loser admission gives stale conflict
+test fault_tests::two_process_same_base_race_has_one_winner ... ok
+test fault_tests::missing_old_history_and_accepted_raw_content_prevent_absence_claims ... ok
+SIGKILL content-file: complete prior snapshot and authoritative original outcome
+SIGKILL content-synced: complete prior snapshot and authoritative original outcome
+SIGKILL generation-installed: complete prior snapshot and authoritative original outcome
+SIGKILL reference-synced: complete prior snapshot and authoritative original outcome
+SIGKILL head-replaced: complete new snapshot and authoritative original outcome
+test fault_tests::injected_persistence_failures_distinguish_before_and_after_replacement ... ok
+SIGKILL head-synced: complete new snapshot and authoritative original outcome
+SIGKILL acknowledgement: complete new snapshot and authoritative original outcome
+test fault_tests::sigkill_at_each_publication_boundary_recovers_only_complete_states ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.85s
+
+     Running tests/public_contract.rs (target/debug/deps/public_contract-9f5cab5407f4b4e3)
+
+running 12 tests
+test file_adapter_requires_the_host_runtime_and_creates_none ... ok
+test refuses_unsupported_profile_and_detected_filesystem ... ok
+test recheck_policy_inside_publication_lock ... ok
+test coordinated_exclusive_scope_creation ... ok
+test incompatible_and_damaged_stores_are_not_recreated ... ok
+test default_denial_revocation_and_policy_failure ... ok
+test separately_opened_instances_race_and_later_stale_conflict ... ok
+test explicit_revision_and_absence_guards ... ok
+test canonical_retries_bytes_actor_and_operation_order ... ok
+test invalid_seed_examples_preserve_head_independently ... ok
+test public_walkthrough_current_thread ... ok
+test public_walkthrough_multithreaded ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.66s
+
+     Running unittests examples/seed.rs (target/debug/examples/seed-ba91eb9b4a00c47c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+exit=0
+
+$ cargo test --offline --doc
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.01s
+   Doc-tests knowledgehub
+
+running 1 test
+test src/../README.md - (line 39) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+all doctests ran in 0.13s; merged doctests compilation took 0.12s
+exit=0
+
+$ cargo run --offline --example seed -- /home/iwk/src/knowledgehub/target/kh-walkthrough-20261031-3
+   Compiling knowledgehub v0.1.0 (/home/iwk/src/knowledgehub)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.75s
+     Running `target/debug/examples/seed /home/iwk/src/knowledgehub/target/kh-walkthrough-20261031-3`
+snapshot=34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae sequence=1 source_sha256=30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620 source_bytes=74064 elements=2 assertions=1
+Original source, Markdown, exact revisions and receipt survived reopen and exact retry.
+operation=self-definition:1 fingerprint=c06eddd11156f41a1e2cc8b373801f21f298dfd48ab37b5e987890d6db780e0d
+document=urn:document:knowledgehub-seed revision=9132a60d62dce23c2478a636c15bc37f9b56b3b770b7a11d9a59cfd66f895081 sha256=906c83982cc7d969d7dadbcfe98309bc962da85262d35c045f8ec34be7237ae3 bytes=533
+element=urn:requirement:atomic-change revision=e7af3aac4d3d832983ed019f4f59347a7c6ef8666dfbd0f51791cc3265c0eb14
+element=urn:use-case:commit-change-set revision=3718e92d929b94b611e33741ee6c37c1f44170be59b18aa09ee1eb47bfd211a3
+assertion=urn:assertion:commit-satisfies-atomic-change revision=07f4ead17c5996ea2e48ac68850939a289f1458993fa421614eab925f73b6df5 from=3718e92d929b94b611e33741ee6c37c1f44170be59b18aa09ee1eb47bfd211a3 to=e7af3aac4d3d832983ed019f4f59347a7c6ef8666dfbd0f51791cc3265c0eb14
+exit=0
+
+$ openspec validate retain-first-self-definition --strict
+Change 'retain-first-self-definition' is valid
+exit=0
+
+SHA-256 inventory of checked implementation and source inputs
+0e289e2c8a57a243c71231027f1e40c7c727cf4955515f737206dc3bfdd122c9  Cargo.lock
+c60e053f11e2b20f8725c878941fcc1895a58401cac56cb7e45875a88e3256b8  Cargo.toml
+67ef6f609fcaaba6c5f2b3dced10bca9def41881ea71a97a7e3dd135d8a56179  examples/seed.rs
+29921ff438c1829ac77a80442bda0b5f6467a83496b79d1734fea1340b93d26b  examples/support/mod.rs
+ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15  source/practical-design-manual.md
+30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620  source/system-definition-ontology-proposal.md
+646969d2cbad4a7fc689fdae783b7fc4def7b155ef88b5d737f29de52e580b36  src/application.rs
+a18d7476c466eacaa3ba9137418381be8f98a3b073fbbed09107b0a959c96236  src/codec.rs
+7f11054554e6a4f97f2b6755b429cd4b2c6a21f77c703b6f6453e975922a2eb7  src/contracts.rs
+22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857  src/jobs.rs
+7c2a2ba247a724e17a2a0b16ed137d07529c38298382f812dce631d251b9698c  src/lib.rs
+a82a8f117551e0c9675e61a15bcb1f8a0ae94790d424297add5aa98c7959426f  src/model.rs
+1b498525dfb73503b80124565ea403c37b5c81fa85ae2fd43f753b13c291613b  src/storage.rs
+a6b020cb01a17bf382678adf94bb51b6c269969968e304125954053e8d6d5aa7  tests/internal/faults.rs
+3209481138dab5d025aeb33a23ba5ad8850c6c5a41c86460015fcb6256046d39  tests/public_contract.rs
+0753fe2b71f35c7175e64eb1ababf1eb4525b94a872d4d6fb7964c4ed833ebea  tests/support/mod.rs
+
+Isolated public walkthrough store retained at /home/iwk/src/knowledgehub/target/kh-walkthrough-20261031-3

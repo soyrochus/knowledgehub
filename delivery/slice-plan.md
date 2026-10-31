@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.1 · 30 October 2026 · All delivery work is planned; no implementation or acceptance is asserted.
+Draft 0.3 · 31 October 2026 · KH-SL-001 implemented with scoped technical evidence; human acceptance pending. The next proposed outcomes explicitly cover the full ontology, then KnowledgeHub's own model.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -9,6 +9,16 @@ This plan applies the [Practical Design Manual](../source/practical-design-manua
 A delivery slice is the manual's project convention: a bounded increment of working behaviour delivering one coherent, demonstrable outcome, with actor/trigger, complete path, applicable safeguards and reviewable evidence. We adopt that convention here. It is distinct from a DDD context, a feature, a runtime change set, an OpenSpec change and a technical task.
 
 Use the progression domain understanding → journey and story map → outcome slice → behavioural specification → authorised implementation → verification and review. Revisiting earlier modelling is expected. Keep the direction visible and specify the next outcome in detail; deepen later slices when evidence makes them ready.
+
+## Revised priority after the user's full-ontology clarification
+
+The user explicitly wants the whole source ontology expressible, then KnowledgeHub
+itself expressed through it. Next priority is **KH-SL-001 → KH-SL-007 → KH-SL-008**.
+The new IDs preserve earlier slice identities; numeric order is not priority.
+The [full-ontology change](../openspec/changes/express-full-ontology-and-self-model/proposal.md)
+specifies these two ordered outcomes. Its inventory enumerates all source types,
+relationships and rules; its self-model map names actual library records and reads.
+Planning is not implementation or human acceptance.
 
 ## Journeys and observable library interactions
 
@@ -21,6 +31,8 @@ The primary channel is a host calling the embedded API. A maintainer initiates t
 | KH-J-03 Review exact meaning | Reviewer receives a candidate or changed scope. | Inspect definition, rationale and source → assess exact revisions → retain decision → distinguish unchanged assessed content from new unassessed content. |
 | KH-J-04 Move and resume the project model | Maintainer needs an independently reconstructable copy. | Select export profile/baseline → export → stage in a fresh Hub → validate → promote → compare identities, content, history and declared recovery records. |
 | KH-J-05 Develop KnowledgeHub using KnowledgeHub | Maintainer prepares the next library outcome after the handover gate. | Inspect governed model → record need and intended change → obtain review → produce a version-bound spec representation → implement outside the Hub → attach actual evidence → review and baseline. |
+| KH-J-06 Express the source ontology | Model author needs the vocabulary defined by the supplied PDF. | Discover exact definitions → choose profile → submit meaningful records from the required families → inspect conformance/gaps → commit → reopen the same exact graph. Completion requires full catalogue support, not a list of accepted labels. |
+| KH-J-07 Describe the library itself | Maintainer needs to inspect KnowledgeHub's own definition and evidence. | Capture exact project sources → register full vocabulary → load sourced model → follow requirement/behaviour/implementation/evidence → revise one explanation → reopen A/B. This precedes routine-authority handover. |
 
 ### Story map
 
@@ -35,10 +47,12 @@ The columns preserve the actor's progression. Stories below name needs; code mod
 | Cut D: govern review | Apply a host-configured review policy. | Inspect exact source and proposed meaning. | Keep commit and review permission distinct. | KH-US-11: record an assessment of exact revisions; KH-US-12: recognise a successor requiring review. | Reopen the original review and its assessed content. |
 | Cut E: exchange safely | Select portable model/backup scope. | Inspect contained and qualified external references. | KH-US-13: stage and validate an import before promotion. | Compare exact preserved semantics. | KH-US-14: export and reconstruct content and declared operation history. |
 | Cut F: maintain the library's own model | Select the governed self-description baseline. | KH-US-15: follow the library's own rules, journeys and slices in the Hub. | KH-US-16: author the next bounded development change through governed operations. | KH-US-17: attach real implementation/run evidence and obtain scoped review. | Recover the model independently and continue from a known baseline. |
+| Cut G: express the full ontology | KH-US-18: discover/register the complete exact ontology. | KH-US-19: author every source modelling family with meaningful properties. | KH-US-20: inspect schema/graph violations and completeness independently. | Inspect kernel subjects and exact source/refinement meanings. | Reopen the complete catalogue and conformance graphs without losing original artifacts. |
+| Cut H: describe KnowledgeHub | KH-US-23: load the sourced library model through ordinary APIs. | KH-US-22: follow actual requirement/behaviour/code/evidence connections. | KH-US-21: preserve two exact explanations under named baselines. | KH-US-24: inspect actual observed evidence separately from intended definitions and acceptance. | Reopen and compare A/B with original receipts and explicit applicability/gaps. |
 
 ## Ordered slice catalogue
 
-All six slices are proposals. The ordering below distinguishes hard capability prerequisites from sequencing preferences. Each slice inherits applicable guarantees from earlier slices; identity, current authority, conflicts, idempotency and recovery are required from the first write.
+KH-SL-001 is implemented at the boundary recorded below, pending human acceptance. KH-SL-007/008 are the next proposed priorities; KH-SL-002–006 retain the identities and remaining scope reconciled below. Each slice inherits applicable guarantees from earlier slices; identity, current authority, conflicts, idempotency and recovery are required from the first write.
 
 ### KH-SL-001 — Retain and reopen one sourced KnowledgeHub definition
 
@@ -46,11 +60,32 @@ All six slices are proposals. The ordering below distinguishes hard capability p
 - **Outcome:** a host can create/open one model, retain a small Markdown definition, its source/anchor and two typed elements connected by an identified assertion; after restart, it reads the same exact content and original commit receipt.
 - **Complete path:** public asynchronous operations → current authority → pinned bootstrap profile → model/provenance validation → one guarded branch publication → snapshot-bound exact reads and restart recovery. The seed uses a `UseCase satisfies Requirement` assertion from the source catalogue.
 - **Safeguards:** invalid types/anchors/endpoints and denied requests preserve the accepted head; same-base writer races yield an explicit conflict; exact retries recover the receipt; reuse for different intent is rejected; staged/incomplete content cannot become the accepted model.
-- **Evidence target:** normal, denied, malformed, concurrent, replay, changed-fingerprint, interrupted-publication and lost-response examples through public contracts on a declared host/filesystem profile. Capture the build/toolchain and inspected content hashes. These are future checks.
+- **Evidence target:** normal, denied, malformed, concurrent, replay, changed-fingerprint, interrupted-publication and lost-response examples through public contracts on a declared host/filesystem profile. Capture the build/toolchain and inspected content hashes. Actual KH-SL-001 runs and limitations are recorded in [technical evidence](evidence/kh-sl-001.md); no human acceptance is inferred.
 - **Source/rules:** ontology §§5, 8, 17, 21.2–21.7, 21.10; KH-DR-01–12 and KH-DR-15 as applicable to the fixed seed profile.
-- **Dependencies:** no prior product slice. KH-D-01–06 have adopted selections in the self-hosting plan; explicit implementation authorisation and subsequent verification remain required.
+- **Dependencies:** no prior product slice. KH-D-01–06 have adopted selections in the self-hosting plan; implementation was explicitly authorised on 31 October 2026 and verified using existing Rust 1.99.1, with platform compliance assumed at the user's direction. Human acceptance remains pending.
 - **Deferred:** arbitrary profile expansion, broad search/traversal, review workflow, portable bundle exchange and the complete self-model. Low-level constraints needed for this seed are included; graph-wide constraints for later profiles arrive with those profiles.
 - **Stories/specification:** KH-US-01–05; first bounded OpenSpec change `retain-first-self-definition`.
+
+### KH-SL-007 — Express the complete System Definition Ontology
+
+- **Actor/trigger:** a model author needs the vocabulary expressly defined by the supplied ontology PDF.
+- **Outcome:** every kernel concept, all 128 types in the 14 §6 families, all 32 §8 signatures and detailed §§9–17 contracts can be represented, validated, committed and read back through the library. Prose relationship refinements retain explicit provenance.
+- **Complete path:** exact ontology/type/property/relationship/profile registration → schema-driven typed authoring → record/graph/completeness assessment → guarded commit → public discovery/exact reads → close/reopen. Original PDF and Markdown bytes are independent captures.
+- **Safeguards:** unknown fields/types/qualifiers, wrong endpoints/roles, invalid multiplicity/ownership/lineage and corrupt artifacts are rejected; native assertion/anchor/revision subjects need no duplicate nodes; all first-write safeguards remain.
+- **Evidence:** an exhaustive K/T/R/P/V/S manifest binds registered revisions, meaningful valid/invalid fixtures and reopen results for every entry. A missing UI/AI family is incomplete support even if the library self-model does not use it.
+- **Dependency:** KH-SL-001's admission/recovery foundation. Source details absent from the proposal use visibly proposed KH-D-11–15 refinements, not attributed source requirements.
+- **Stories/rules/specification:** KH-US-18–20; KH-DR-01–18; `ontology-definitions` and `ontology-conformance` in `express-full-ontology-and-self-model`.
+- **Excluded:** executing arbitrary modelled algorithms/processes/AI, a product UI, new database/service adapters or authority transfer. Their ontology definitions remain representable.
+
+### KH-SL-008 — Express KnowledgeHub itself and recover its explanations
+
+- **Actor/trigger:** the maintainer needs the library's actual purpose, domain, contracts, implementation and evidence inspectable through the ontology.
+- **Outcome:** a complete applicable sourced model of KnowledgeHub, not just the seed, supports concrete requirement → behaviour → implementation/artifact and requirement → case → actual run/evidence navigation; after revising an explanation, A/B remain exact after reopen.
+- **Complete path:** capture exact source/repository/build inputs → register KH-SL-007 vocabulary → ordinary public model load → named A → bounded typed inspection → coherent successor/document/assertion change → named B → drain/close/reopen → compare/resolve original operations.
+- **Safeguards:** exact identity/lineage/source/authority, no silent repinning/rebase, bounded current-access navigation and original retry/recovery. Capture actual observations; preserve proposed analysis and historical evidence status; do not invent runtime UI/AI, test success or acceptance.
+- **Evidence:** the change's concrete self-model group manifest and Q01–Q08 walkthrough, integrated conflict/replay/interruption checks, and separate catalogue-support/self-model-completeness reports.
+- **Dependencies:** KH-SL-007 plus the successor, exact-baseline and bounded-navigation portions now specified in the same change. Routine document-authority handover remains KH-SL-006.
+- **Stories/rules/specification:** KH-US-06–10/15–17/21–24; KH-DR-01–19; `model-baselines`, `model-navigation`, `knowledgehub-self-description` in `express-full-ontology-and-self-model`.
 
 ### KH-SL-002 — Revise a definition and recover both explanations
 
@@ -117,3 +152,57 @@ These establish supported boundaries rather than inventing additional user outco
 6. Progress from a small self-description seed to the explicit authority handover in KH-SL-006. Keep code and native run evidence in their owning tools with exact Hub references.
 
 The [first change](../openspec/changes/retain-first-self-definition/proposal.md) specifies only KH-SL-001. The later descriptions above are a rolling plan, not an approved backlog of implementation-ready changes. Main specifications under `openspec/specs/` are populated through the normal adoption/archive workflow, not by declaring every proposed future behaviour already current.
+
+## Review after KH-SL-001
+
+The implemented seed validates the proposed distinction between modelling,
+provenance and branch admission for this small path. Process-interruption and
+replay examples support keeping the original receipt in accepted history.
+No model contradiction required changing the owning domain rules. The adapter
+serializes full-history recovery and candidate preparation under one branch
+lock; this is a deliberate small-model performance limit, not a new domain rule.
+
+The earlier recommendation to implement KH-SL-002 next is superseded by the
+user's full-ontology clarification. Successor document/fragment authoring,
+revision lineage and exact baseline/comparison operations needed by that outcome
+are now specified concretely inside KH-SL-008. This does not mark any older slice
+implemented or remove its unfulfilled obligations. Human acceptance and KH-SL-006
+authority handover have not occurred.
+
+## Reconcile the earlier slices without losing their scope
+
+| Earlier slice | Relationship to the next full-ontology/self-model change |
+| --- | --- |
+| KH-SL-002 | Its core coherent successors and exact A/B explanations are specified in model-baselines for KH-SL-008. Reassess delivery evidence before marking the older slice complete; managed filesystem working-copy/import authoring is not silently promised. |
+| KH-SL-003 | Exact type/ID filtering, bounded directional traversal and snapshot-bound continuations are pulled forward. Broader filters/search/query operators remain separately specified work. |
+| KH-SL-004 | ReviewDecision/AcceptanceRecord definitions and exact assessment scope are representable. Host-configured review workflow, required approval enforcement and dispute policy remain later work. |
+| KH-SL-005 | Binary artifacts and exact source records are prerequisites delivered here. Portable interchange/recovery-backup export/import and replay-domain continuity remain later work. |
+| KH-SL-006 | Full applicable self-description and public inspection are pulled forward to KH-SL-008. Actual acceptance, reconstructability via interchange, routine governance of the next change and scoped authority handover remain explicit gates. |
+
+Preparation remains progressive: the new bounded proposal is the concrete next
+planning set, with unchecked implementation tasks. Existing Rust 1.99.1 and the
+user-directed platform assumption apply; install no compiler. Use actual findings
+to revise the residual sequence rather than automatically closing old slices.
+
+## Review after implementation of KH-SL-007/008
+
+The user authorised and committed the bounded full-ontology/self-model change.
+The full catalogue is materialised as constrained definitions; synthetic complete,
+draft and invalid specimens exercise every family. The public self-model consumer
+retains exact sources, actual native evidence and two reopened explanations.
+See [measured technical results](evidence/full-ontology.md) and the
+[consumer instructions](../design/self-model-consumer.md). Human acceptance is
+pending. A valid draft with declared gaps is not a complete accepted self-definition.
+
+The evidence supports retaining exact branch admission, source ownership and
+original receipt rules for the enlarged model. No new domain boundary follows
+from an implementation module. Full-generation/history validation is a measured
+small-model implementation tradeoff; release-mode runs are used for the larger
+walkthrough.
+
+The next sequence is review of the actual self-model gaps and outcome evidence,
+then progressive specification of the remaining need. KH-SL-002 still has managed
+working-copy authoring scope; KH-SL-003 retains broader query work; KH-SL-004 retains
+mandatory review policy; KH-SL-005 retains portable exchange/backup/replay continuity;
+KH-SL-006 retains actual acceptance, independent reconstruction and scoped authority
+handover. These earlier slices are not automatically marked complete or archived.

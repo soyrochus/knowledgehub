@@ -1,6 +1,6 @@
 # Bootstrapping KnowledgeHub's own definition
 
-Draft 0.2 · 30 October 2026 · First-slice recommendations adopted by the user; implementation, verification and authority migration remain pending.
+Draft 0.4 · 31 October 2026 · First slice technically verified at its recorded boundary; full ontology then the applicable library self-model are the user's target. New schema refinements are proposed; human acceptance and authority migration remain pending.
 
 This plan owns the bootstrap sequence, representation authority and migration gates. It references the [domain analysis](domain-analysis.md), [slice plan](../delivery/slice-plan.md), [ontology proposal](../source/system-definition-ontology-proposal.md) and [Practical Design Manual](../source/practical-design-manual.md). The manual guides how we discover and specify the product; the ontology defines what the Hub can represent and preserve.
 
@@ -17,7 +17,7 @@ Uploading a directory of prose is only source capture. The self-model also needs
 | Original proposal and manual under `source/` | Immutable inputs to the analysis; retain original revisions and hashes. | Remain source evidence. A new source edition is a successor capture, never an edit of earlier evidence. |
 | Domain analysis, journeys and slice definitions | Repository documents own these authored definitions while they are being reviewed. | Selected fields may remain document-owned or become graph-owned; the recorded authority map names exactly which. |
 | OpenSpec specifications and change artifacts | Own the bounded behavioural delta used to direct an authorised implementation. | Bind each contract to a Hub model revision/baseline. Keep narrative document-owned where appropriate; graph-owned fields appear only as derived representations or references. |
-| Graph records | Planned mappings only; no operative graph exists. | Own stable identities, typed assertions and the structured fields explicitly assigned to them. Derived extractions remain marked as derived. |
+| Graph records | The small seed is submitted through the implemented public API; broader mappings remain planned. | Own stable identities, typed assertions and the structured fields explicitly assigned to them. Derived extractions remain marked as derived. |
 | Rust source, builds and tests | Git/build/test tools own implementation and actual execution evidence. | Continue to own them; the Hub retains exact versions, bindings and scoped evidence records. |
 | Review and acceptance records | User adoption of the first-slice recommendations is recorded below; other draft content remains subject to review. | Hub review decisions bind exact scope. Actual acceptance and test results remain distinct from stored design status. |
 
@@ -27,15 +27,15 @@ Authority is per field, relationship and baseline scope. It need not move all at
 
 ### B0 — Define the library outside the running library
 
-Current stage. Keep original sources intact. Author domain language, responsibility boundaries, rules, journeys, slices and the first specification as documents. Record what is sourced, what is proposed, and which adoption choices remain open. Stable document identifiers referenced in the analysis will become import mappings, not filenames used as semantic identities.
+Bootstrap foundation. Repository documents continue to own these definitions. Keep original sources intact. Author domain language, responsibility boundaries, rules, journeys, slices and the first specification as documents. Record what is sourced, what is proposed, and which adoption choices remain open. Stable document identifiers referenced in the analysis will become import mappings, not filenames used as semantic identities.
 
 Exit evidence is a reviewed planning set and resolved first-implementation decisions. Structural validation can show consistency of the documents; it cannot complete domain review or authorise implementation.
 
 ### B1 — Retain a small self-description through the public API
 
-KH-SL-001 supplies the smallest end-to-end path. A versioned bootstrap profile declares `Requirement`, `UseCase` and `UseCase satisfies Requirement`, plus the shared identity/revision, document/provenance and model-scope structures they require. Only the source constraints applicable to this profile are required initially; unsupported types or profile versions are rejected explicitly.
+Current implemented stage, pending human acceptance: KH-SL-001 supplies the smallest end-to-end path. See [technical evidence](../delivery/evidence/kh-sl-001.md) and [actual contract](file-backend.md). A versioned bootstrap profile declares `Requirement`, `UseCase` and `UseCase satisfies Requirement`, plus the shared identity/revision, document/provenance and model-scope structures they require. Only the source constraints applicable to this profile are required initially; unsupported types or profile versions are rejected explicitly.
 
-The planned first seed has the following semantic roles. These are mapping labels, not an implemented schema, generated data fixture or a claim that records already exist.
+The first seed has the following semantic roles. The [public fixture](../examples/support/mod.rs) implements this mapping and submits it through ordinary API operations in isolated stores. This establishes neither the complete self-model nor human acceptance.
 
 | Seed role | Representation and source | Required meaning |
 | --- | --- | --- |
@@ -50,9 +50,32 @@ The calling host submits the entire seed under one authorised, guarded branch ch
 
 This is already limited use of KnowledgeHub for its own definition. It is not the complete self-model, a reviewed authority handover, or an exemption from its own consistency contract.
 
-### B2 — Grow the governed self-description progressively
+### B2 — Express the full ontology, then the governed self-description
 
-KH-SL-002–005 add coherent authoring, explicit baselines, impact navigation, scoped review and portable exchange. Introduce required profile types as these outcomes need them. Capture both source documents and any retained PDF bytes with independent original-content hashes and explicit representation relationships; similar filenames do not establish byte or semantic equivalence.
+The user clarified that the library must express the entire ontology explicitly
+defined in the supplied PDF and then describe KnowledgeHub itself. The next
+proposed sequence is KH-SL-007 full ontology → KH-SL-008 self-model, detailed in
+[express-full-ontology-and-self-model](../openspec/changes/express-full-ontology-and-self-model/proposal.md).
+The [coverage inventory](../openspec/changes/express-full-ontology-and-self-model/ontology-coverage.md)
+enumerates all kernel/type/signature/rule obligations, including schemas and
+visible refinements where the source leaves detail open. Full support cannot
+mean accepting a larger label list or deferring unused UI/AI families.
+
+The [self-model map](../openspec/changes/express-full-ontology-and-self-model/self-model-map.md)
+names actual library records, source/code/test bindings, exact A/B explanations
+and public inspection questions. It covers all applicable library responsibilities,
+while retaining proposed domain analysis, historical evidence and inapplicability
+status. Earlier KH-SL-002–005 core revision/baseline/navigation needs are pulled
+forward where necessary; broader review, portable exchange and routine authority
+handover retain their own gates in the owning slice plan.
+
+Capture both source documents and retained PDF bytes with independent original-
+content hashes and explicit representation relationships; similar filenames do
+not establish byte or semantic equivalence. These additions now exist in the
+opt-in files/2 API; files/1 remains a separate compatibility path. Actual runs and
+coverage are recorded in [full-ontology evidence](../delivery/evidence/full-ontology.md).
+The loaded model remains a draft with explicit gaps. Technical completion does
+not close the B3 authority/acceptance/reconstruction gates.
 
 Map the authored model through the following families as needed:
 
@@ -93,14 +116,34 @@ Later-slice directions are retained, but details that have not been proposed rem
 | --- | --- | --- |
 | KH-D-01 | Adopted: versioned kernel + `Requirement`, `UseCase` and `satisfies`; fixed seed contract below. | Implement and verify only this profile first; reject arbitrary types/properties. |
 | KH-D-02 | Adopted: Markdown owns narrative; graph owns semantic IDs, types and assertions; coherent API submission owns admission. | Bind fields/fragments exactly; later authoring round-trip remains KH-SL-002. |
-| KH-D-03 | Adopted: Rust 2024, fixed Rust 1.85 minimum, host-owned Tokio 1.x for the file backend; bounded blocking jobs. | Minimum is a planned support target, not a successful build result. Verify dependencies and consumer on minimum/current stable before claiming support. |
+| KH-D-03 | Adopted: Rust 2024, fixed Rust 1.85 minimum, host-owned Tokio 1.x for the file backend; bounded blocking jobs. | User's later directive selects existing Rust 1.99.1, no compiler installation and assumed platform compliance. Record actual runs separately; no minimum-compiler execution claim. |
 | KH-D-04 | Adopted: Linux x86_64/local ext4, coordinated single-host writers, immutable generations and synced atomic reference publication. | First evidence covers process interruption and lost responses; power-loss and other filesystem/host support await separate evidence. |
 | KH-D-05 | Adopted: trusted host supplies stable actor identity and current scoped policy; deny by default. | No built-in account system or privilege from modelled roles; no mandatory human-review workflow in the seed. |
 | KH-D-06 | Adopted: separate explicit versions, SHA-256, RFC 8785 canonical request encoding, branch-scoped operation IDs and lifetime committed-receipt retention. | Implement compatibility, replay and integrity checks under the contract below; no pruning in the first slice. |
-| KH-D-07 | Direction retained: bounded portable snapshot queries. Operator set, ordering, missing/null and cursor limits remain open. | Resolve before KH-SL-003; first slice only needs exact-ID reads. |
+| KH-D-07 | Direction retained: bounded portable snapshot queries. KH-D-14 proposes the exact-type/ID and directional subset needed next; broader operators remain open. | Initial seed has exact-ID reads only. Review the proposed finite ordering/cursor contract before implementing the new subset. |
 | KH-D-08 | Direction retained: host-configured review of exact revisions, separate from commitment and evidence. Detailed roles, outcomes and dispute policy remain open. | Resolve before KH-SL-004. |
 | KH-D-09 | Direction retained: distinct model-exchange and recovery-backup profiles. Collision mapping and replay-domain continuity remain open. | Resolve before KH-SL-005; ordinary exchange cannot silently promise recovery continuity. |
-| KH-D-10 | Direction retained: progressive self-description with an explicit scoped handover. Full profile and exact acceptance baseline remain open. | Resolve before KH-SL-006; documents retain authority until actual handover. |
+| KH-D-10 | Direction retained: progressive self-description with an explicit scoped handover. The next change proposes a full applicable self-model; exact acceptance/handover baseline remains open. | KH-SL-008 proposes the model, while KH-SL-006 still owns actual authority transfer. Documents retain authority until that decision. |
+
+### Full ontology and self-model refinements — proposed 31 October 2026
+
+The user's desired breadth and order are explicit: full source ontology, then
+KnowledgeHub's own model. The source remains draft 0.2 and is not rewritten.
+The following technical/schema details are concrete proposals for that scope,
+not already adopted user decisions or implemented features. Their detailed
+definitions have one owner in the linked change's design/inventory.
+
+| ID | Proposed selection | Consequence / review boundary |
+| --- | --- | --- |
+| KH-D-11 | `system-definition-ontology/1`, explicit shared typed schemas and per-type refinements covering 17 kernel kinds, 128 profile kinds, all 32 catalogue signatures plus separately sourced/refined prose edges; `knowledgehub-self-description/1` selects applicable completeness. | The coverage inventory defines every row; source omissions and chosen field requiredness remain visibly proposed refinements. No family may be silently omitted to declare completion. |
+| KH-D-12 | Small trusted meta-schema, first-class exact ontology/kernel addressing, closed deterministic validators and independent binary/original source capture with resolving locator manifests. | One owner per subject/property; no shadow assertion/revision nodes, arbitrary script execution or inferred PDF/Markdown equivalence. Host-derived extraction observations remain distinct from review. |
+| KH-D-13 | Append-only successors plus selected normative revision maps and immutable exact named baseline closure; explicit relationship pins and deterministic comparison. | Preserve original explanations and review scope; no automatic latest lookup, rebase or repinning. Historical supporting artifact revisions are not competing normative owners. |
+| KH-D-14 | Exact type/ID filters, qualified forward/reverse traversal and stable UTF-8-ID ordering; default/max depth 1/4, page 100/1000, total visited subject/edge caps 10000 each. Opaque actor/query-bound instance cursors: 64 active, explicit release, 30-minute idle expiry, invalid after close/reopen. | Concrete next subset of KH-D-07. Current policy applies to every page; limits and invalid-cursor outcomes are public. Broader operators and durable cursors are not promised. |
+| KH-D-15 | Explicit opt-in files/request/record version 2; preallocated opaque revision tokens separate from canonical content digests, enabling cyclic exact references. Keep original version-1 codecs, seed semantics, hashes and receipts exact. | Full catalogue/self-model use fresh v2 stores. No silent in-place migration, circular hash scheme or transfer of old committed keys to a new replay domain. |
+
+These proposals preserve the adopted single-crate/host/runtime/file support
+boundary. An implementation request must identify this change; completed
+planning alone neither adopts every refinement nor proves support or acceptance.
 
 ### KH-D-01/02 — Seed contract and definition authority
 
@@ -121,7 +164,7 @@ The host retains its candidate until a receipt establishes commitment. Initial a
 
 ### KH-D-03 — Toolchain and executor policy
 
-Keep edition 2024 and select Rust 1.85 as the fixed minimum supported compiler target. Later authorised implementation will add `rust-version`, an exact development toolchain selection and dependency constraints compatible with that minimum. Verify both minimum and current stable; an incompatible dependency requires a compatible version or an explicit revised decision, not an unnoticed minimum increase. The locally inspected Rust 1.99.1 is environment information, not minimum-version evidence. Edition 2024 starts at Rust 1.85 ([Rust guide](https://doc.rust-lang.org/stable/edition-guide/rust-2024/)); Tokio 1.54 currently declares that same minimum ([Tokio README](https://docs.rs/crate/tokio/1.54.1/source/README.md)). No dependency is installed by this decision.
+Keep edition 2024 and Rust 1.85 as the declared minimum compiler target. Implementation adds `rust-version` and constrained dependencies. On 31 October 2026 the user explicitly directed no compiler installation, use of existing Rust 1.99.1 and assumed platform compliance. This supersedes the planned toolchain pin and minimum-compiler execution requirement for this change. No `rust-toolchain` selection is added; verification uses the existing compiler, and Rust 1.85 execution is not claimed. An incompatible dependency requires an explicit revised decision, not an unnoticed minimum increase. The locally inspected Rust 1.99.1 is environment information, not minimum-version evidence. Edition 2024 starts at Rust 1.85 ([Rust guide](https://doc.rust-lang.org/stable/edition-guide/rust-2024/)); Tokio 1.54 currently declares that same minimum ([Tokio README](https://docs.rs/crate/tokio/1.54.1/source/README.md)). No dependency is installed by this decision.
 
 The host owns and drives the Tokio runtime for the initial file backend; KnowledgeHub creates no hidden runtime. The core model, storage port and public semantic request/result types do not expose Tokio resources. Runtime independence of those types does not mean this adapter can run on every executor. Verify both Tokio current-thread and multithreaded callers; blocking file work must not run on their async scheduler threads.
 
@@ -156,6 +199,21 @@ Semantic revision hashes use their separately tagged canonical record encoding; 
 
 The operation key is `(Hub ID, model ID, branch ID, operation ID)`. The stored actor and fingerprint bind that key, so a changed actor cannot create a second operation under it. Current policy checks precede lookup/disclosure. Exact committed retries return the original receipt before stale-base checks; changed intent or actor is rejected without disclosing another actor's receipt. Only committed operations reserve a durable key; rejected/never-admitted attempts do not. Uncertain callers must establish authoritative outcome/absence before changing intent. Committed keys, original fingerprints/actors and receipts are retained for the lifetime of this store, including across later head movement. There is no expiry, pruning or branch deletion in this slice. Missing history prevents an authoritative absence claim. Staging receipts are not evidence of commitment.
 
-### Remaining gate
+### Implementation and remaining gates
 
-KH-D-01–06 have adopted planning selections. Explicit implementation authorisation is still required before code, dependencies, targets or tests change. On authorisation, validate feasibility against these choices and record actual evidence; reopen a decision explicitly if implementation examples contradict it. KH-D-07–10 remain progressively specified later decisions. Adoption does not satisfy the first slice's verification or acceptance criteria.
+The user explicitly authorised KH-SL-001 implementation on 31 October 2026 and directed use of existing Rust 1.99.1 without installing another compiler. The [implementation record](implementation-record.md) records feasibility and the platform assumption; [evidence](../delivery/evidence/kh-sl-001.md) records actual technical checks. Human acceptance is pending. KH-D-07–10 remain progressively specified later decisions. No document authority has transferred, and no later slice is authorised by this implementation.
+
+### KH-SL-007/008 implementation follow-up
+
+The user's explicit apply request authorised KH-D-11–15 as concrete implementation
+choices for this bounded change. The source ontology and proposed domain analysis
+retain their source/review status. The public consumer loads through ordinary API
+operations, retains actual native logs/build/source hashes, establishes A/B and
+recovers them after reopen. Missing semantic refinements remain explicit gaps;
+UI/runtime-AI inapplicability does not remove those supported catalogue families.
+
+Repository documents continue to own their definitions. There is no new human
+AcceptanceRecord, automatic promotion of a stored claim to observed execution,
+or KH-SL-006 handover. Review the resulting gaps and actual scope before choosing
+the next outcome. [Consumer contract](self-model-consumer.md) and
+[technical evidence](../delivery/evidence/full-ontology.md) own the reproducible run.

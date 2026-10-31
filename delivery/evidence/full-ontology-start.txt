@@ -1,0 +1,41 @@
+Starting verification on existing Rust 1.99.1: cargo test --offline --all-targets
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.21s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-0e2285382b9dd9af)
+
+running 8 tests
+test fault_tests::process_worker ... ok
+test codec::tests::canonical_rfc8785_subset_vectors ... ok
+test jobs::tests::cancelled_wait_keeps_capacity_and_drain_waits ... ok
+test fault_tests::cancelled_publication_keeps_lock_and_data_until_drain ... ok
+test fault_tests::two_process_same_base_race_has_one_winner ... ok
+test fault_tests::missing_old_history_and_accepted_raw_content_prevent_absence_claims ... ok
+test fault_tests::injected_persistence_failures_distinguish_before_and_after_replacement ... ok
+test fault_tests::sigkill_at_each_publication_boundary_recovers_only_complete_states ... ok
+
+test result: ok. 8 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.88s
+
+     Running tests/public_contract.rs (target/debug/deps/public_contract-9f5cab5407f4b4e3)
+
+running 12 tests
+test file_adapter_requires_the_host_runtime_and_creates_none ... ok
+test refuses_unsupported_profile_and_detected_filesystem ... ok
+test coordinated_exclusive_scope_creation ... ok
+test recheck_policy_inside_publication_lock ... ok
+test incompatible_and_damaged_stores_are_not_recreated ... ok
+test default_denial_revocation_and_policy_failure ... ok
+test separately_opened_instances_race_and_later_stale_conflict ... ok
+test explicit_revision_and_absence_guards ... ok
+test canonical_retries_bytes_actor_and_operation_order ... ok
+test invalid_seed_examples_preserve_head_independently ... ok
+test public_walkthrough_multithreaded ... ok
+test public_walkthrough_current_thread ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
+
+     Running unittests examples/seed.rs (target/debug/examples/seed-ba91eb9b4a00c47c)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+

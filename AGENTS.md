@@ -19,9 +19,9 @@ The library's domain model and the ontology it stores are different modelling le
 
 ## Current phase
 
-Domain analysis, slice planning and specification only. Do not generate or modify implementation code, add dependencies, or create library modules, tests, examples or adapters until the user explicitly authorises implementation. Documentation, project metadata and planning configuration may be updated within the requested scope.
+The user authorised `retain-first-self-definition` (KH-SL-001) and then explicitly requested `Apply express-full-ontology-and-self-model` (KH-SL-007/008). The latter implementation was committed as `807ed85`; finishing its verification, evidence, coverage and outcome documentation is authorised. Further changes require their own scope. Preserve the domain → journey/slice → specification → implementation/evidence → review loop. Use the existing Rust 1.99.1, install no compiler, and accept the user's platform compliance assumption separately from actual run evidence.
 
-The existing `src/main.rs` is a Cargo starter placeholder. Converting the package to a library target is deferred to authorised implementation; the placeholder is not a working KnowledgeHub implementation.
+The crate has the preserved files/1 seed API and the opt-in files/2 typed ontology API. See `design/typed-ontology-api.md`, `design/self-model-consumer.md` and `delivery/evidence/full-ontology.md` for the implemented boundary and scoped evidence. The sourced self-model retains explicit draft gaps. Human acceptance, broad interchange/review/query capabilities and authority handover remain separate.
 
 ## Scope and design constraints
 

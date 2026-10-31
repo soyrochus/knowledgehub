@@ -1,0 +1,25 @@
+{
+  "command": [
+    "cargo",
+    "run",
+    "--offline",
+    "--release",
+    "--example",
+    "full_self_description",
+    "--",
+    "target/self-model-input.json",
+    "/home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library-final"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 330.0143210180013,
+  "store": "/home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library-final",
+  "store_bytes": 116028218,
+  "executable_sha256": "15415b6143a64f4e8637edade1f3cc0a869820b509f01b9bef2bcba6f0e03345",
+  "input_sha256": "486daf755b84011691d2e42c0ff075ff27b6e137c32691354a880621670db21b",
+  "checked_manifest_sha256": "4acc8965eba43d2255bbde1ae4c3f2db339d28e68ac6aa4e4aab253101bc6013",
+  "selected_records": 4930,
+  "explicit_gaps": 1690,
+  "purpose_complete": false,
+  "retained_input": "delivery/evidence/self-model-input.json",
+  "implementation_base": "807ed85"
+}

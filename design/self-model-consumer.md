@@ -1,0 +1,63 @@
+# Sourced self-model consumer
+
+`examples/full_self_description.rs` authors through public owned contracts only.
+It never reads private backend files. The host's `capture_self_model.py` reads the
+repository and extractor output before admission, verifies the checked-run inventory,
+and records exact paths, hashes, spans, toolchain/filesystem observations and actual
+working-tree status. Git HEAD is recorded as context and never substituted for
+modified bytes. Native run timestamps refer to the observed check batch; individual
+subcase timings are not invented.
+
+Run the commands in [README](../README.md) with fresh store paths. The verifier
+retains original command output, source/Cargo hashes and exact native test-executable
+hashes. The capture script refuses a different log or changed checked input. The
+loader rechecks every captured file, so a stale inventory cannot label changed bytes
+as the checked snapshot. PDF originals and Markdown originals remain independent;
+all physical PDF pages bind to retained `pdftotext -layout` output and a source-bound
+manifest. Extraction consistency establishes the declared binding, not human adequacy.
+
+The model separates the vocabulary (`sdo:ontology:system-definition`), this governed
+Hub (`kh:hub:self-description`) and the described library (`urn:knowledgehub:library`).
+The seed's requirement, use case, assertion, document and ontology source keep their
+semantic IDs in a fresh v2 replay domain. Public types, named/tuple/enum payload
+fields, constants, I/O operations and modules have individual typed source bindings.
+Rules, terms, candidate contexts/aggregates, decisions, journeys, stories, slices,
+tasks and actual cases expand the selected owning documents. Private file manifests
+are modelled as implementation mappings rather than exposed consumer handles.
+
+Declared Rust shapes are source interpretations, not a new executable serde/schema
+compiler. Native source artifacts preserve attributes, conditional code and full
+bodies. Trait declarations have sourced descriptive bodies; actual implementations
+have symbolic Rust entrypoints and exact artifacts. An explicit gap records a
+semantic refinement that the source has not settled. Draft assessment must not be
+reported as purpose completeness. Proposed responsibility boundaries stay proposed;
+no synthetic UI, runtime AI, deployment success or human acceptance is loaded.
+
+The definition baseline pins the exact cases, code and sources available for the
+observed native test batch. A later change loads its actual log/build manifest,
+TestRun and EvidenceArtifact, then selects the self-description profile. Historical
+logs retain their own captures and are not current-code success. A includes the
+sourced model and available evidence. The retained authoring request changes only
+the atomic-change explanation and its document/fragment revisions, with explicit
+assertion/representation successors. B selects the successor while A retains its
+old source and narrative. Old tests and reviews keep their exact assessed scope.
+
+After drain/close/reopen the consumer compares A/B, reads both exact narratives,
+recovers the original load outcome, retries the exact successor intent and traverses
+Requirement ← TestCase ← TestRun. Q01–Q08 and group IDs are retained in the result
+JSON beside the store. Q02–Q05 contain actual publicly read records; source/build/log
+artifacts remain retrievable through the same public snapshot/baseline API.
+
+The repository continues to own its definitions. The new explanation is a sourced
+walkthrough interpretation; it does not rewrite original material or transfer
+routine authority. Human review, full exchange/backup reconstruction and explicit
+KH-SL-006 handover remain separate work. Use release mode for the larger walkthrough:
+the current backend validates retained generations on reads, and debug builds are
+slow at this model size. No broad performance or untested durability claim follows.
+
+Semantic identity bindings are declared by `module_id`, `namespace` and `source_key`
+in the host author. They map current origins to stable source/module/contract
+names. A relocated file updates its origin binding while retaining that name.
+Task IDs use change/task identity; contracts and fields use their declared Rust
+namespace and symbol. Exact byte/span anchors describe provenance, not a second
+editable definition. Unknown new source/module origins require an explicit binding.

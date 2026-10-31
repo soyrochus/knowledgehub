@@ -1,0 +1,7 @@
+$ cargo run --offline --release --example full_self_description -- target/self-model-input.json /home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/full_self_description target/self-model-input.json /home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library`
+Assessing register-catalogue: 209 ordered operations
+Committed register-catalogue: sequence 1
+Assessing load-self-definition: 4718 ordered operations
+Error: Invalid([Violation { rule: "V-12", subject: "knowledgehub\0kh:mapping:snapshot-encoding\0self-1", message: "/target: selector field does not resolve against the exact subject/schema" }])

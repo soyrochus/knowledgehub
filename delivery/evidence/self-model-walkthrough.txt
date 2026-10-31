@@ -1,0 +1,16 @@
+$ cargo run --offline --release --example full_self_description -- target/self-model-input.json /home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library-final
+    Finished `release` profile [optimized] target(s) in 0.01s
+     Running `target/release/examples/full_self_description target/self-model-input.json /home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/library-final`
+Assessing register-catalogue: 209 ordered operations
+Committed register-catalogue: sequence 1
+Assessing load-self-definition: 4718 ordered operations
+Committed load-self-definition: sequence 2
+Assessing baseline:checked-definitions: 1 ordered operations
+Committed baseline:checked-definitions: sequence 3
+Assessing load-observed-evidence: 6 ordered operations
+Committed load-observed-evidence: sequence 4
+Assessing baseline:A: 1 ordered operations
+Committed baseline:A: sequence 5
+Assessing baseline:B: 1 ordered operations
+Committed baseline:B: sequence 7
+{"Q01_Q08":"resolved through public API; acceptance absent","explicit_gaps":1690,"result":"/home/iwk/src/knowledgehub/target/kh-full-final-9obweis9/self-model-result.json","retained_records":4930,"selected_records":4930}

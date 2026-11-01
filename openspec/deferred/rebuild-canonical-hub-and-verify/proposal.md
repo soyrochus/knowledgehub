@@ -1,5 +1,7 @@
 # Proposal
 
+Deferred by user direction on 1 November 2026. The unfinished 7/11 attempt and failed evidence remain historical. Its active completion plan is obsolete pending [pack-derived-index-storage](../../changes/pack-derived-index-storage/proposal.md); no completion/archive is claimed.
+
 Planning draft · KH-SL-012 · 31 October 2026. Replaces the proposed migration outcome at the user's direction; applying this change will explicitly discard and regenerate the demonstration.
 
 ## Why
@@ -15,7 +17,7 @@ The canonical `hub/` is a generated self-description whose inputs live in the re
 - Mark failed/incomplete rebuilds explicitly and publish completion only after the new store's checks pass. Retain historical evidence outside `hub/` as older-run records, without relabelling it as current.
 - Report actual new source/model counts, draft gaps, logical/encoded/allocated bytes and cold/warm lookup work. A fresh rebuild has a new replay domain and history, not migration continuity.
 
-Outcome: KH-US-30; a maintainer applies the reset/rebuild workflow, obtains a newly verified canonical self-description and a complete test/walkthrough report. Hard prerequisites: [shared files/3 storage](../share-immutable-file-storage/proposal.md), [neighbours](../index-ontology-neighbours/proposal.md) and [composite queries](../query-deterministic-model-impact/proposal.md).
+Outcome: KH-US-30; a maintainer applies the reset/rebuild workflow, obtains a newly verified canonical self-description and a complete test/walkthrough report. Hard prerequisites: [shared files/3 storage](../../changes/share-immutable-file-storage/proposal.md), [neighbours](../../changes/index-ontology-neighbours/proposal.md) and [composite queries](../../changes/query-deterministic-model-impact/proposal.md).
 
 Trace: ontology §§4–5/17/21.3–21.7/21.10; [file-storage proposal](../../../source/file-storage-proposal.md) §13.3/14–15; KH-DR-02/04–13/15/17–23 and user-selected KH-D-19. This does not implement the residual KH-SL-005 migration/backup/interchange scope or KH-SL-006 authority transfer.
 

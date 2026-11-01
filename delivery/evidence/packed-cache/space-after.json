@@ -1,0 +1,25 @@
+{
+  "neighbours": {
+    "files": 306,
+    "packs": 152,
+    "unique_objects": 71283,
+    "encoded_bytes": 25728424,
+    "allocated_bytes": 26177536,
+    "quota_bytes": 268435456,
+    "pack_bytes": 8129593,
+    "sidecar_bytes": 17587689,
+    "peak_reserved_bytes": 26177536
+  },
+  "text": {
+    "files": 22,
+    "packs": 10,
+    "unique_objects": 2675,
+    "encoded_bytes": 1227581,
+    "allocated_bytes": 1269760,
+    "quota_bytes": 134217728,
+    "pack_bytes": 561681,
+    "sidecar_bytes": 664286,
+    "peak_reserved_bytes": 1269760
+  },
+  "scope": "After successful public queries and full scrub; unique-inode regular-file bytes, directory/Git excluded. Peak reservation includes publication overlap under existing quotas."
+}

@@ -2,10 +2,10 @@
 """Reconcile source denominators with public consumer results and observed native checks."""
 import argparse,collections,hashlib,json,pathlib,re
 root=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('catalogue');p.add_argument('model');p.add_argument('input');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('catalogue');p.add_argument('model');p.add_argument('input');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--output',default='delivery/evidence/full-ontology-coverage.json');a=p.parse_args()
 load=lambda path:json.loads(pathlib.Path(path).read_text())
 catalogue=load(a.catalogue);model=load(a.model);capture=load(a.input)
-data=load(root/'src/ontology/catalogue.json');log=(root/'delivery/evidence/full-ontology-run.txt').read_text()
+data=load(root/'src/ontology/catalogue.json');log=(root/a.log).read_text()
 passed=set(re.findall(r'^test ([\w:]+) \.\.\. ok$',log,re.M))
 def evidence(*names):
  for name in names:assert any(t==name or t.endswith('::'+name) for t in passed),'unexecuted evidence: '+name
@@ -80,12 +80,10 @@ for file in capture['files']:assert model['source_originals'][file['path']]==fil
 refs={key(ref) for values in model['groups'].values() for ref in values}
 ids={ref[1] for ref in refs}
 # Owning-document items must expand to distinct records, rather than one node per group.
+origins=load(root/'examples/self_model_support/origins.json')
 def namespace(path):
- if path in ('src/contracts.rs','src/application.rs'):return 'knowledgehub'
- if path=='src/storage.rs':return 'knowledgehub::backends::files'
- if path in ('src/ontology/types.rs','src/ontology/api.rs','src/ontology/navigation.rs','src/ontology/catalogue.rs','src/ontology/validation.rs'):return 'knowledgehub::ontology'
- names={'src/lib.rs':'lib','src/codec.rs':'codec','src/jobs.rs':'jobs','src/model.rs':'model','src/ontology/mod.rs':'ontology'}
- return 'knowledgehub::internal::'+names[path]
+ return origins['public_namespaces'].get(path) or 'knowledgehub::internal::'+origins['modules'][path]
+
 for unit in capture['units']:
  if unit['kind']=='rule':assert 'kh:rule:'+unit['name']+':BusinessRule' in ids
  if unit['kind']=='decision':assert 'kh:decision:'+unit['name'] in ids
@@ -100,4 +98,4 @@ assertions={r['reference']['id']:r for r in model['assertions']}
 for name in ['kh:assertion:capability-goal','kh:assertion:journey-outcome','kh:assertion:commit-handler','urn:assertion:commit-satisfies-atomic-change','kh:assertion:commit-invokes','kh:assertion:admit-aggregate','kh:assertion:aggregate-root','kh:assertion:aggregate-invariant','kh:assertion:crate-implements','kh:assertion:adapter-translates','kh:assertion:policy-governs','kh:assertion:interruption-checks','kh:assertion:run-executes','kh:assertion:evidence-criterion','kh:assertion:source-supports','kh:assertion:admission-represents']:assert name in assertions,name
 sha=lambda path:hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
 output=dict(format='knowledgehub-coverage-audit/1',catalogue=dict(rows=rows,families=families,required_properties=field_count,kernel=17,family_types=128,source_signatures=32,prose_signatures=6),obligations={r:dict(evidence=names) for r,names in rules.items()},self_model=dict(groups={k:len(v) for k,v in model['groups'].items()},source_units=len(capture['units']),original_files=len(capture['files']),selected_records=model['selected_records'],retained_records=model['retained_records'],explicit_gaps=len(model['Q08']['gaps']),purpose_complete=False,human_assessments=0,questions=['Q%02d'%n for n in range(1,9)],required_assertions=16),inputs={path:sha(path) for path in (a.catalogue,a.model,a.input)},scope='Observed structural conformance and public walkthrough. Semantic adequacy and human acceptance remain separate.')
-out=root/'delivery/evidence/full-ontology-coverage.json';out.write_text(json.dumps(output,indent=2)+'\n');print(json.dumps(dict(audit=str(out.relative_to(root)),catalogue_rows=len(rows),obligations=len(rules),groups=len(model['groups']),explicit_gaps=len(model['Q08']['gaps']))))
+out=root/a.output;assert not out.exists(),'fresh audit output required; historical evidence is not overwritten';out.write_text(json.dumps(output,indent=2)+'\n');print(json.dumps(dict(audit=str(out.relative_to(root)),catalogue_rows=len(rows),obligations=len(rules),groups=len(model['groups']),explicit_gaps=len(model['Q08']['gaps']))))

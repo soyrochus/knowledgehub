@@ -170,6 +170,9 @@ pub struct ReadWork {
     pub hydrated_bytes: u64,
     pub index_objects_read: u64,
     pub index_bytes_read: u64,
+    /// Catalog/sidecar bytes included in index_bytes_read.
+    #[serde(default)]
+    pub index_metadata_bytes_read: u64,
     pub prepared_owners: u64,
     pub prepared_fields: u64,
     pub prepared_bytes: u64,

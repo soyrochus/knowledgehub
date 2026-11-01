@@ -1,0 +1,53 @@
+{
+  "command": [
+    "target/release/examples/inspect_self_model",
+    "--format",
+    "files3",
+    "--verify"
+  ],
+  "executions": 2,
+  "exit_codes": [
+    0,
+    0
+  ],
+  "binary": {
+    "path": "target/release/examples/inspect_self_model",
+    "sha256": "e9b554d1e98f4e5cb2e951c1406281b45b60c10d168d21d961be406732ecd0df",
+    "length": 9932912
+  },
+  "files": {
+    "canonical-inspect.json": {
+      "sha256": "1ae63747f70b504109eed269adbfb196a62ef602d8d6bd599681f663bc9fdc83",
+      "length": 94976
+    },
+    "canonical-inspect.log": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    },
+    "canonical-reopen.json": {
+      "sha256": "e4ec80ef5d69c07efca2632e7d8be51c48adb90fdea951263754341c7ff1b6d2",
+      "length": 95284
+    },
+    "canonical-reopen.log": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    },
+    "space-before.json": {
+      "sha256": "865366dd7cfdaa44e638b70de051e824bbcca59ff2494e57f1df14d22f843a8f",
+      "length": 352
+    },
+    "space-after.json": {
+      "sha256": "38528d05a86bb46917a240afd97b4c19e55473f3345002ab6c7c8a6f88c0584d",
+      "length": 728
+    },
+    "accepted-before.json": {
+      "sha256": "8a03ef47840ec00afb8bf5011181621cbd71607c33985c93933bb7665cc99774",
+      "length": 4661720
+    },
+    "immutability.json": {
+      "sha256": "ee3104e8ac3fc37a0edf28c5803c52b25ca1bc2ed65b7514b99787f3907dc54b",
+      "length": 788
+    }
+  },
+  "scope": "Actual existing canonical model; separate backend on second run; no reset, recapture, generation or authoritative compaction. Native build/input binding is native-final/checked.json."
+}

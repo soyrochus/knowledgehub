@@ -20,6 +20,8 @@ Closed packs contain independently verifiable blocks of at most 1 MiB/512 entrie
 
 `scrub_ontology(context, scope)` verifies complete retained physical closure, every state/source digest, history transitions and lifetime maps. `compact_ontology(context, scope)` requires current commit permission, acquires exclusive store coordination, scrubs first, installs and verifies a durable replacement pack and only then removes loose encodings, superseded packs and preparation debris. It never prunes accepted knowledge. Readers hold a shared lock until their owned result is materialised; publication/maintenance use the same stable exclusive lock and return `Busy` on contention. Keep the host Tokio runtime alive and drain before shutting it down.
 
+Disposable neighbour/text nodes now use [sealed variable-size packs](packed-cache-storage.md) directly. Normal blocks remain bounded by 1 MiB/512 entries; finish makes every required pack durable before the exact-view manifest. These namespaces share catalog-stamp-bound location maps across ready batches, account cold metadata separately and preserve the existing 256 MiB/128 MiB allocated-file quotas. Accepted-object writes and explicit compaction retain the protocol above. [KH-SL-013 evidence](../delivery/evidence/packed-cache/README.md) records unchanged canonical files, successful public queries, reopen and full scrub.
+
 Run these commands with fresh absolute paths whose parent already exists. Replace the paths with unused directories under this checkout's `target/`; do not use `hub/`.
 
 ```sh

@@ -1,17 +1,28 @@
 #!/usr/bin/env python3
 """Host inventory only: capture exact working-tree bytes and source locations, never backend internals."""
-import argparse,datetime,hashlib,json,mimetypes,pathlib,re,subprocess
+import argparse,ast,datetime,hashlib,json,mimetypes,pathlib,re,subprocess,sys
+sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/"scripts"))
+sys.dont_write_bytecode=True
+from host_sources import source_paths,checked_run
 ROOT=pathlib.Path(__file__).resolve().parents[1]
-p=argparse.ArgumentParser();p.add_argument('--output',default='target/self-model-input.json');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--checked-manifest');a=p.parse_args()
+p=argparse.ArgumentParser();p.add_argument('--output',default='target/self-model-input.json');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--checked-manifest');p.add_argument('--derived',default='target/ontology-pdf-extracted.txt');a=p.parse_args()
 def digest(b):return {'sha256':hashlib.sha256(b).hexdigest(),'length':len(b)}
-paths=sorted(set(x for group in ('source','design','delivery','openspec','src','tests','examples') for x in (ROOT/group).rglob('*') if x.is_file() and 'fixtures' not in x.parts and x.suffix in ('.rs','.md','.pdf','.toml','.json','.txt','.py') and x.name not in ('full-ontology-start.json','self-model-input.json') and 'evidence' not in x.parts)|{ROOT/'Cargo.toml',ROOT/'Cargo.lock',ROOT/'README.md',ROOT/a.log})
+paths=[x for x in source_paths(ROOT) if 'fixtures' not in x.parts]
+paths.append(ROOT/a.log)
 if a.checked_manifest:
- checked=json.loads((ROOT/a.checked_manifest).read_text())
- assert digest((ROOT/a.log).read_bytes())==checked['log'], 'run log differs from observed checked manifest'
- assert all(c['exit_code']==0 for c in checked['commands']), 'native checks did not pass'
- for path,expected in checked['files'].items():
-  assert digest((ROOT/path).read_bytes())==expected, 'checked code has changed: '+path
+ checked=checked_run(ROOT,ROOT/a.checked_manifest,ROOT/a.log)
+ paths.append(ROOT/a.checked_manifest)
 else:checked=None
+for output in (a.output,a.derived):
+ relative=(ROOT/output).relative_to(ROOT)
+ if relative.parts[0]!='target' and relative.parts[:3]!=('delivery','evidence','hub-rebuild'):
+  raise ValueError('generated capture output must be under target/ or a run evidence directory')
+origins=json.loads((ROOT/'examples/self_model_support/origins.json').read_text())
+for path in paths:
+ rel=str(path.relative_to(ROOT));parts=path.relative_to(ROOT).parts
+ declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/')) or (parts[:3]==('delivery','evidence','hub-rebuild') and len(parts)==5 and parts[-1] in origins['run_artifacts']))
+ if not declared:raise ValueError('declare semantic source binding for '+rel)
+
 for historical in ['delivery/evidence/kh-sl-001-run.txt','delivery/evidence/full-ontology-start.txt','delivery/evidence/full-ontology-start.json','delivery/evidence/full-ontology-start.tar.gz']:
  if (ROOT/historical).exists():paths.append(ROOT/historical)
 paths=sorted(set(paths))
@@ -88,6 +99,19 @@ for file in paths:
     offset+=len(line.encode())
   if 'specs' in file.parts:lines(rel,text,'requirement',r'^### Requirement: (.+)')
   if file.name=='tasks.md':lines(rel,text,'task',r'^- \[[ x]\] (\d+\.\d+ .+)')
+ if file.suffix=='.py':
+  tree=ast.parse(text);line_offsets=[0]
+  for line in text.splitlines(keepends=True):line_offsets.append(line_offsets[-1]+len(line.encode()))
+  class Visitor(ast.NodeVisitor):
+   def __init__(self):self.owners=[]
+   def visit_ClassDef(self,node):
+    self.owners.append(node.name);self.generic_visit(node);self.owners.pop()
+   def visit_FunctionDef(self,node):
+    name='.'.join(self.owners+[node.name]);signature=ast.unparse(node).split('\n',1)[0]
+    parameters=[dict(name=x.arg,rust_type=ast.unparse(x.annotation) if x.annotation else 'Python value') for x in node.args.args if x.arg!='self']
+    unit(rel,'test' if rel.startswith('tests/') and node.name.startswith('test_') else 'host-function',name,line_offsets[node.lineno-1],line_offsets[node.end_lineno],signature=signature,has_body=True,parameters=parameters,result=ast.unparse(node.returns) if node.returns else 'Python value',public=False,asynchronous=False)
+    self.owners.append(node.name);self.generic_visit(node);self.owners.pop()
+  Visitor().visit(tree)
  if file.suffix=='.rs':
   for m in re.finditer(r'(?m)^\s*pub\s+(struct|enum|trait)\s+(\w+)',text):
    bounds=block(text,m.end());end=bounds[1] if bounds else text.find(';',m.end())+1
@@ -146,16 +170,16 @@ for file in paths:
      depth-=1
      if depth==0:arg_end=i;break
    parameters=[]
-   for arg in split_top(signature[arg_start+1:arg_end]):
+   for parameter_index,arg in enumerate(split_top(signature[arg_start+1:arg_end])):
     if ':' in arg:
-     name,typ=arg.split(':',1);parameters.append({'name':name.strip(),'rust_type':typ.strip()})
+     name,typ=arg.split(':',1);name=name.strip();parameters.append({'name':f'argument_{parameter_index}' if name=='_' else name,'rust_type':typ.strip()})
    result=signature[arg_end+1:].split('where')[0].strip().removeprefix('->').strip() or '()'
    unit(rel,'test' if test else 'operation' if m[1]=='pub ' else 'function',owner+'.'+m[3],len(text[:m.start()].encode()),len(text[:end].encode()),signature=signature,has_body=bounds is not None,parameters=parameters,result=result,public=m[1]=='pub ',asynchronous=bool(m[2]))
 # Retain actual PDF extraction separately, with page delimiters, original digest and exact derived spans.
 pdf='source/system-definition-ontology-proposal.pdf';pdfbytes=(ROOT/pdf).read_bytes()
 proc=subprocess.run(['pdftotext','-layout',str(ROOT/pdf),'-'],check=True,capture_output=True)
-derived=ROOT/'target/ontology-pdf-extracted.txt';derived.parent.mkdir(exist_ok=True);derived.write_bytes(proc.stdout)
-files.append(dict(path='target/ontology-pdf-extracted.txt',reference=digest(proc.stdout),media_type='text/plain',derived_from=pdf,derivation='pdftotext -layout; form-feed delimited physical pages'))
+derived=ROOT/a.derived;derived.parent.mkdir(parents=True,exist_ok=True);derived.write_bytes(proc.stdout)
+files.append(dict(path=a.derived,reference=digest(proc.stdout),media_type='text/plain',derived_from=pdf,derivation='pdftotext -layout; form-feed delimited physical pages'))
 off=0;pages=[]
 for i,page in enumerate(proc.stdout.split(b'\x0c')):
  if page.strip():pages.append(dict(index=i,start=off,end=off+len(page),label=f'physical PDF page {i+1}'))

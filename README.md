@@ -1,7 +1,7 @@
 # KnowledgeHub
 
 `knowledgehub` is an embedded Rust library for governed, source-bound system
-definitions. The opt-in files/2 API implements the System Definition Ontology:
+definitions. The explicit files/3 backend shares immutable storage and implements the System Definition Ontology:
 17 kernel kinds, 128 family types, 32 catalogue relationships and 6 explicit
 prose refinements. It supports typed values and constraints, exact binary and
 Markdown artifacts, immutable revisions, named baselines and bounded navigation.
@@ -16,7 +16,7 @@ supplies the method; its Memento examples are not KnowledgeHub requirements.
 
 ## Inspect the canonical self-model
 
-The repository's actual persisted KnowledgeHub is in [`hub/`](hub/README.md).
+The repository's actual persisted KnowledgeHub is in [`hub/`](hub/).
 It contains the ontology catalogue and KnowledgeHub's own sourced model, exact
 artifacts, immutable revision history, A/B baselines and original operation receipts.
 It is repository data, preserved independently of Cargo's `target/` directory.
@@ -24,14 +24,22 @@ It is repository data, preserved independently of Cargo's `target/` directory.
 Open it through the public library API:
 
 ```sh
-cargo run --offline --release --example inspect_self_model
+cargo run --offline --release --example inspect_self_model -- --format files3
 ```
 
 This read-only example reports the model, draft gaps and original receipts, and
 reads both versions of the atomic-change explanation. The stored model captures
 the verified source snapshot described in its evidence; it is not automatically
-updated when repository files change. See the [store guide](hub/README.md) for its
-layout and update rules.
+updated when repository files change. See the [files/3 guide](design/files3-guide.md)
+for its layout and update rules.
+
+Neighbour and text indexes now use [sealed variable-size packs](design/packed-cache-storage.md)
+with bounded compression blocks. The existing canonical data passed public indexed
+queries, reopen and full scrub without changing accepted files; its completed neighbour
+cache uses about 25 MiB. [Evidence](delivery/evidence/packed-cache/README.md) records
+the measurements and full checks. The unfinished canonical rebuild remains
+[deferred at 7/11](openspec/deferred/rebuild-canonical-hub-and-verify/tasks.md);
+this storage change did not refresh the captured model.
 
 ## Reproduce the full public walkthrough
 
@@ -40,11 +48,11 @@ Choose fresh absolute store paths with an existing parent on the supported local
 ext4 platform. These commands compile and run with the existing toolchain:
 
 ```sh
-python3 scripts/verify_full_ontology.py
-python3 examples/capture_self_model.py --checked-manifest delivery/evidence/full-ontology-checked.json
+python3 scripts/verify_full_ontology.py --run-dir delivery/evidence/hub-rebuild/manual-run
+python3 examples/capture_self_model.py --log delivery/evidence/hub-rebuild/manual-run/native.log --checked-manifest delivery/evidence/hub-rebuild/manual-run/checked.json
 mkdir -p target/ontology-demo
-cargo run --offline --release --example catalogue_conformance -- "$PWD/target/ontology-demo/catalogue"
-cargo run --offline --release --example full_self_description -- target/self-model-input.json "$PWD/target/ontology-demo/library"
+cargo run --offline --release --example catalogue_conformance -- --format files3 "$PWD/target/ontology-demo/catalogue"
+cargo run --offline --release --example full_self_description -- --format files3 target/self-model-input.json "$PWD/target/ontology-demo/library"
 ```
 
 The first consumer retains complete synthetic specimens for every family and
@@ -62,7 +70,8 @@ authoring, source capture, query budgets and review boundaries.
 
 ## Use the typed library
 
-Host composition creates `FileBackend::new_ontology` for files/2. The host supplies
+Host composition creates `FileBackend::new_shared_ontology` for files/3;
+`FileBackend::new_ontology` retains files/2 compatibility. The host supplies
 qualified actor identity, a current scoped `Policy` and its own Tokio runtime.
 Stored roles never grant runtime access. Ontology registration has a separate
 `RegisterOntology` admission action.
@@ -108,7 +117,9 @@ cargo run --offline --release --example rent_impact -- /absolute/unused/rent-fix
 See the [query contract and limits](design/deterministic-query-api.md),
 [executable fixture/request](examples/rent_support/mod.rs) and
 [technical evidence](delivery/evidence/impact/README.md).
-The canonical demonstration is rebuilt in its separate subsequent change.
+The [canonical rebuild](design/canonical-rebuild.md) is postponed after its
+derived-cache allocation failure. The active [sealed-pack change](openspec/changes/pack-derived-index-storage/proposal.md)
+preserves existing data and verifies compact derived indexes; it performs no reset.
 
 ## Compatibility and supported boundary
 

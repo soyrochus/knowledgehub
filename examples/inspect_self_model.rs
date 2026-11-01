@@ -1,10 +1,11 @@
 //! Read the canonical persisted self-model through the public files/2 API.
+mod file_format;
 #[path = "self_model_support/mod.rs"]
 mod host;
 #[path = "support/mod.rs"]
 mod seed;
 
-use knowledgehub::{backends::files::*, ontology::*, *};
+use knowledgehub::{ontology::*, *};
 use serde_json::json;
 use std::path::PathBuf;
 
@@ -21,7 +22,8 @@ fn narrative(state: &State, record: &Record) -> Result<serde_json::Value, Error>
 
 #[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut args = std::env::args().skip(1);
+    let options = file_format::Arguments::parse()?;
+    let mut args = options.positional.iter().cloned();
     let store = args
         .next()
         .map(PathBuf::from)
@@ -35,12 +37,20 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::env::current_dir()?.join(store)
     };
     eprintln!("Opening persisted self-model at {}", store.display());
-    let hub = OntologyHub::open(
-        FileBackend::new_ontology(&store, FileOptions::local_ext4())?,
-        seed::context(),
-        host::scope(),
-    )
-    .await?;
+    if (options.verify || options.compact) && options.format != file_format::Format::Files3 {
+        return Err("--verify/--compact require --format files3".into());
+    }
+    let backend = options.format.backend(&store)?;
+    let compacted = if options.compact {
+        Some(
+            backend
+                .compact_ontology(seed::context(), host::scope())
+                .await?,
+        )
+    } else {
+        None
+    };
+    let hub = OntologyHub::open(backend.clone(), seed::context(), host::scope()).await?;
     let (head, state) = hub.snapshot(seed::context()).await?;
     let report = assess(&state);
     if !report.is_valid() {
@@ -85,11 +95,29 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             "fingerprint": receipt.fingerprint,
         }));
     }
+    let indexed = if options.verify {
+        Some(host::verify::indexed(&hub, &backend, seed::context()).await?)
+    } else {
+        None
+    };
+    let scrub = if options.verify {
+        Some(
+            backend
+                .scrub_ontology(seed::context(), host::scope())
+                .await?,
+        )
+    } else {
+        None
+    };
     hub.drain().await;
     println!(
         "{}",
         serde_json::to_string_pretty(&json!({
             "store": store,
+            "format":options.format.name(),
+            "compaction":compacted,
+            "scrub":scrub,
+            "indexed":indexed,
             "scope": state.scope,
             "head": head,
             "profile": state.profile,

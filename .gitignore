@@ -2,3 +2,8 @@
 /hub/staging/*
 !/hub/staging/.gitkeep
 .DS_Store
+/.hub-rebuild.lock
+/.hub-rebuild-state.json
+/.knowledgehub-create-*.lock
+/hub/cache/
+**/__pycache__/

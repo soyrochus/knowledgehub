@@ -3,6 +3,7 @@
 use knowledgehub::{Content, ContentRef, Error, ontology::*};
 use serde::Deserialize;
 use std::{collections::BTreeMap, path::Path};
+pub mod verify;
 #[derive(Deserialize)]
 pub struct InputFile {
     pub path: String,
@@ -62,36 +63,35 @@ pub fn scope() -> ModelScope {
         owner: "host:maintainer".into(),
     }
 }
-// Explicit semantic bindings. Update an origin key when a file moves; retain its value.
+// Explicit semantic bindings shared with host capture and the coverage auditor.
+#[derive(Deserialize)]
+struct Origins {
+    modules: BTreeMap<String, String>,
+    sources: BTreeMap<String, String>,
+    public_namespaces: BTreeMap<String, String>,
+    function_namespaces: BTreeMap<String, String>,
+    run_artifacts: BTreeMap<String, String>,
+}
+fn origins() -> &'static Origins {
+    static VALUE: std::sync::OnceLock<Origins> = std::sync::OnceLock::new();
+    VALUE.get_or_init(|| {
+        serde_json::from_str(include_str!("origins.json"))
+            .expect("checked explicit origin inventory")
+    })
+}
 pub fn module_id(path: &str) -> &'static str {
-    match path {
-        "src/lib.rs" => "lib",
-        "src/application.rs" => "application",
-        "src/contracts.rs" => "contracts",
-        "src/model.rs" => "model",
-        "src/storage.rs" => "storage",
-        "src/codec.rs" => "codec",
-        "src/jobs.rs" => "jobs",
-        "src/ontology/mod.rs" => "ontology",
-        "src/ontology/api.rs" => "ontology-application",
-        "src/ontology/catalogue.rs" => "ontology-catalogue",
-        "src/ontology/navigation.rs" => "ontology-navigation",
-        "src/ontology/types.rs" => "ontology-contracts",
-        "src/ontology/validation.rs" => "ontology-validation",
-        _ => panic!("declare semantic module binding for {path}"),
-    }
+    origins()
+        .modules
+        .get(path)
+        .map(String::as_str)
+        .unwrap_or_else(|| panic!("declare semantic module binding for {path}"))
 }
 fn namespace(path: &str) -> String {
-    match path {
-        "src/contracts.rs" | "src/application.rs" => "knowledgehub".into(),
-        "src/storage.rs" => "knowledgehub::backends::files".into(),
-        "src/ontology/types.rs"
-        | "src/ontology/api.rs"
-        | "src/ontology/navigation.rs"
-        | "src/ontology/catalogue.rs"
-        | "src/ontology/validation.rs" => "knowledgehub::ontology".into(),
-        _ => format!("knowledgehub::internal::{}", module_id(path)),
-    }
+    origins()
+        .public_namespaces
+        .get(path)
+        .cloned()
+        .unwrap_or_else(|| format!("knowledgehub::internal::{}", module_id(path)))
 }
 fn source_key(path: &str) -> String {
     if path.starts_with("src/") {
@@ -101,7 +101,7 @@ fn source_key(path: &str) -> String {
             format!("library-source:{}", module_id(path))
         };
     }
-    if path.starts_with("openspec/changes/") {
+    if path.starts_with("openspec/changes/") || path.starts_with("openspec/deferred/") {
         let parts = path.split('/').collect::<Vec<_>>();
         return if parts.get(3) == Some(&"specs") {
             format!("change:{}:specification:{}", parts[2], parts[4])
@@ -109,47 +109,16 @@ fn source_key(path: &str) -> String {
             format!("change:{}:{}", parts[2], parts[3].trim_end_matches(".md"))
         };
     }
-    let key = match path {
-        "README.md" => "project-overview",
-        "Cargo.toml" => "crate-manifest",
-        "Cargo.lock" => "dependency-lock",
-        "source/system-definition-ontology-proposal.md" => "ontology-original-markdown",
-        "source/system-definition-ontology-proposal.pdf" => "ontology-original-pdf",
-        "source/practical-design-manual.md" => "design-method-markdown",
-        "source/practical-design-manual.pdf" => "design-method-pdf",
-        "design/domain-analysis.md" => "domain-analysis",
-        "design/self-hosting-plan.md" => "self-hosting-plan",
-        "design/full-ontology-implementation.md" => "ontology-implementation-record",
-        "design/implementation-record.md" => "seed-implementation-record",
-        "design/typed-ontology-api.md" => "typed-api-contract",
-        "design/file-backend.md" => "seed-file-contract",
-        "design/self-model-consumer.md" => "self-model-consumer-guide",
-        "delivery/slice-plan.md" => "slice-plan",
-        "examples/catalogue_conformance.rs" => "catalogue-consumer",
-        "examples/full_self_description.rs" => "self-model-consumer",
-        "examples/inspect_self_model.rs" => "self-model-inspector",
-        "examples/seed.rs" => "seed-consumer",
-        "examples/support/mod.rs" => "seed-consumer-fixture",
-        "examples/ontology_support/mod.rs" => "catalogue-specimens",
-        "examples/self_model_support/mod.rs" => "self-model-author",
-        "examples/capture_self_model.py" => "host-source-capture",
-        "tests/public_contract.rs" => "seed-api-cases",
-        "tests/ontology_contract.rs" => "ontology-api-cases",
-        "tests/support/mod.rs" => "test-support",
-        "tests/internal/faults.rs" => "seed-publication-cases",
-        "tests/internal/ontology_faults.rs" => "ontology-publication-cases",
-        "delivery/evidence/kh-sl-001-run.txt" => "historical-seed-log",
-        "delivery/evidence/full-ontology-start.txt" => "ontology-start-log",
-        "delivery/evidence/full-ontology-start.json" => "ontology-start-inventory",
-        "delivery/evidence/full-ontology-start.tar.gz" => "ontology-start-snapshot",
-        "delivery/evidence/full-ontology-run.txt" => "native-conformance-log",
-        "target/ontology-pdf-extracted.txt" => "ontology-pdf-extraction",
-        "ontology-pdf-pages.json" => "ontology-pdf-locator-manifest",
-        "host-inventory.json" => "host-inventory",
-        "urn:document:knowledgehub-seed" => "urn:document:knowledgehub-seed",
-        _ => panic!("declare semantic source binding for {path}"),
-    };
-    key.into()
+    if let Some(key) = origins().sources.get(path) {
+        return key.clone();
+    }
+    let parts = path.split('/').collect::<Vec<_>>();
+    if parts.len() == 5 && parts[..3] == ["delivery", "evidence", "hub-rebuild"] {
+        if let Some(key) = origins().run_artifacts.get(parts[4]) {
+            return key.clone();
+        }
+    }
+    panic!("declare semantic source binding for {path}")
 }
 pub fn capture_ref(path: &str) -> ExactRef {
     r(&format!("kh:capture:{}", source_key(path)))
@@ -159,6 +128,11 @@ pub fn file_anchor_ref(path: &str) -> ExactRef {
 }
 fn unit_scope(unit: &Unit) -> String {
     if unit.path.starts_with("src/") {
+        if unit.kind == "function" {
+            if let Some(n) = origins().function_namespaces.get(&unit.path) {
+                return n.clone();
+            }
+        }
         namespace(&unit.path)
     } else {
         source_key(&unit.path)
@@ -493,7 +467,7 @@ fn signature_schema(
         "information",
         "DataSchema",
         id,
-        &format!("{name} exact Rust signature"),
+        &format!("{name} exact source signature"),
         a.clone(),
         properties([
             ("fields", list([])),
@@ -594,6 +568,7 @@ pub fn author(
                 {
                     "validation-result"
                 } else if file.path.ends_with(".rs")
+                    || file.path.ends_with(".py")
                     || file.path.starts_with("Cargo.")
                     || file.derived_from.is_some()
                     || file.path.starts_with("delivery/evidence/")
@@ -631,7 +606,15 @@ pub fn author(
     let source = b.anchors["source/system-definition-ontology-proposal.md"].clone();
     // Retain every physical PDF page against actual pdftotext output and original PDF digest.
     let pdf = b.sources["source/system-definition-ontology-proposal.pdf"].clone();
-    let derived = b.sources["target/ontology-pdf-extracted.txt"].clone();
+    let derived = b.sources[&capture
+        .files
+        .iter()
+        .find(|f| {
+            f.derived_from.as_deref() == Some("source/system-definition-ontology-proposal.pdf")
+        })
+        .expect("retained PDF extraction")
+        .path]
+        .clone();
     let manifest = LocatorManifest {
         source: pdf.clone(),
         original: b.state.artifact(&pdf).unwrap().reference.clone(),
@@ -974,6 +957,41 @@ pub fn author(
         )?);
     }
     b.patch(&component, "modules", list(modules));
+    let tools = b.make(
+        "architecture",
+        "SoftwareComponent",
+        "kh:component:host-tools",
+        "KnowledgeHub demonstration host tools",
+        b.anchors["scripts/rebuild_canonical_hub.py"].clone(),
+        properties([
+            ("modules", list([])),
+            ("interfaces", list([])),
+            (
+                "artifacts",
+                artifact_list([b.sources["scripts/rebuild_canonical_hub.py"].clone()]),
+            ),
+        ]),
+    )?;
+    let mut host_modules = Vec::new();
+    for file in capture.files.iter().filter(|f| {
+        (f.path.starts_with("scripts/") || f.path.starts_with("examples/"))
+            && f.path.ends_with(".py")
+    }) {
+        host_modules.push(b.make(
+            "architecture",
+            "Module",
+            &format!("kh:module:host:{}", source_key(&file.path)),
+            &file.path,
+            b.anchors[&file.path].clone(),
+            properties([
+                ("component", Value::Ref(tools.clone())),
+                ("artifacts", artifact_list([b.sources[&file.path].clone()])),
+                ("interfaces", list([])),
+            ]),
+        )?);
+    }
+    b.patch(&tools, "modules", list(host_modules));
+
     let policy = b.make(
         "policy",
         "AuthorizationPolicy",
@@ -1243,7 +1261,7 @@ pub fn author(
                     ]),
                 )?;
             }
-            "operation" | "function" => {
+            "operation" | "function" | "host-function" => {
                 let input_schema = signature_schema(
                     &mut b,
                     &format!("{id}:input"),
@@ -1285,7 +1303,14 @@ pub fn author(
                             Value::Record(properties([
                                 ("form", Value::enumeration("native")),
                                 ("artifact", Value::Artifact(b.sources[&unit.path].clone())),
-                                ("language", Value::text("Rust")),
+                                (
+                                    "language",
+                                    Value::text(if unit.path.ends_with(".py") {
+                                        "Python"
+                                    } else {
+                                        "Rust"
+                                    }),
+                                ),
                                 (
                                     "entrypoint",
                                     Value::text(
@@ -1310,7 +1335,18 @@ pub fn author(
                         || unit.name.contains("snapshot")
                         || unit.name.contains("head")
                         || unit.name.contains("compare")
-                        || unit.name.contains("operation_result");
+                        || unit.name.contains("operation_result")
+                        || [
+                            "search_text",
+                            "neighbours",
+                            "prepare_neighbours",
+                            "continue_neighbours",
+                            "traverse",
+                            "continue_traverse",
+                            "model_impact",
+                            "continue_model_impact",
+                        ]
+                        .contains(&unit.name.split('.').next_back().unwrap_or(""));
                     let kind = if query {
                         "QueryDefinition"
                     } else {

@@ -1,27 +1,80 @@
 #!/usr/bin/env python3
-"""Execute native checks and bind their original output to the exact checked working tree."""
-import datetime,hashlib,json,pathlib,subprocess,sys
-root=pathlib.Path(__file__).resolve().parents[1]
-def digest(b):return dict(sha256=hashlib.sha256(b).hexdigest(),length=len(b))
-paths=sorted([*root.glob('Cargo.*'),root/'README.md',*root.glob('src/**/*.rs'),*root.glob('src/**/*.json'),*root.glob('source/*'),*[p for p in root.glob('tests/fixtures/files1/**/*') if p.is_file()],*root.glob('tests/**/*.rs'),*root.glob('examples/**/*.rs'),root/'examples/capture_self_model.py',pathlib.Path(__file__)])
-files={str(p.relative_to(root)):digest(p.read_bytes()) for p in paths}
-start=datetime.datetime.now(datetime.timezone.utc).isoformat();out=root/'delivery/evidence/full-ontology-run.txt';manifest=root/'delivery/evidence/full-ontology-checked.json'
-commands=[['cargo','fmt','--check'],['cargo','test','--offline','--','--nocapture'],['cargo','clippy','--offline','--all-targets','--','-D','warnings']]
-results=[]
-with out.open('wb') as log:
- for command in [['rustc','-Vv'],['findmnt','-T',str(root),'-J','-o','TARGET,SOURCE,FSTYPE,OPTIONS'],*commands]:
-  log.write(('\n$ '+' '.join(command)+'\n').encode());log.flush();print('$ '+' '.join(command),flush=True)
-  result=subprocess.run(command,cwd=root,stdout=log,stderr=subprocess.STDOUT)
-  results.append(dict(command=command,exit_code=result.returncode))
-  if result.returncode:
-   print(f'Failed; original output: {out}',flush=True);sys.exit(result.returncode)
- assert all(digest((root/p).read_bytes())==h for p,h in files.items()), 'source changed while checks ran'
-metadata=subprocess.run(['cargo','test','--offline','--no-run','--message-format=json'],cwd=root,capture_output=True,text=True,check=True)
-executables={}
-for line in metadata.stdout.splitlines():
- try:item=json.loads(line)
- except json.JSONDecodeError:continue
- if item.get('executable'):
-  executable=pathlib.Path(item['executable']);executables[str(executable.relative_to(root))]=digest(executable.read_bytes())
-manifest.write_text(json.dumps(dict(format='knowledgehub-observed-native-run/1',started_at=start,ended_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),source_status='exact uncommitted working tree; no Git commit identity substituted',files=files,executables=executables,build_metadata_command=['cargo','test','--offline','--no-run','--message-format=json'],commands=results,log=digest(out.read_bytes()),limits=['Linux/ext4 native tests and process interruption; no power-loss evidence','No human acceptance, remote adapter parity or authority transfer']),indent=2)+'\n')
-print(f'Native checks passed; checked-source evidence: {manifest}',flush=True)
+"""Execute a fresh complete native batch and bind exact source, logs and binaries."""
+import argparse
+import datetime
+import json
+import pathlib
+import re
+import subprocess
+import sys
+sys.dont_write_bytecode = True
+from host_sources import checkpoint, digest, require_checkpoint
+
+ROOT = pathlib.Path(__file__).resolve().parents[1]
+COMMANDS = [
+    ["cargo", "fmt", "--all", "--", "--check"],
+    ["cargo", "test", "--offline", "--all-targets"],
+    ["cargo", "test", "--offline", "--doc"],
+    ["cargo", "clippy", "--offline", "--all-targets", "--", "-D", "warnings"],
+    ["python3", "-m", "unittest", "discover", "-s", "tests", "-p", "host_workflows.py", "-v"],
+]
+
+
+def verify(root, directory):
+    directory.mkdir(parents=True, exist_ok=True)
+    output, manifest = directory / "native.log", directory / "checked.json"
+    if output.exists() or manifest.exists():
+        raise ValueError("fresh evidence paths required; older native evidence is never overwritten")
+    files = checkpoint(root)
+    started = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    results = []
+    with output.open("xb") as log:
+        for command in [["rustc", "-Vv"], ["findmnt", "-T", str(root), "-J", "-o", "TARGET,SOURCE,FSTYPE,OPTIONS"], *COMMANDS]:
+            log.write(("\n$ " + " ".join(command) + "\n").encode())
+            log.flush()
+            print("$ " + " ".join(command), flush=True)
+            result = subprocess.run(command, cwd=root, stdout=log, stderr=subprocess.STDOUT)
+            results.append({"command": command, "exit_code": result.returncode})
+            if result.returncode:
+                raise RuntimeError(f"required check failed ({result.returncode}): {command}; output: {output}")
+    require_checkpoint(root, files)
+    executables = {}
+    for command in [["cargo", "test", "--offline", "--all-targets", "--no-run", "--message-format=json"], ["cargo", "build", "--offline", "--release", "--examples", "--message-format=json"]]:
+        result = subprocess.run(command, cwd=root, capture_output=True, text=True, check=True)
+        metadata = directory / ("release-build.log" if "--release" in command else "test-build.log")
+        metadata.write_text(result.stdout + result.stderr)
+        results.append({"command": command, "exit_code": result.returncode, "log": digest(metadata.read_bytes())})
+        for line in result.stdout.splitlines():
+            try:
+                item = json.loads(line)
+            except json.JSONDecodeError:
+                continue
+            if item.get("executable"):
+                path = pathlib.Path(item["executable"])
+                executables[str(path.relative_to(root))] = digest(path.read_bytes())
+    require_checkpoint(root, files)
+    counts = [int(n) for n in re.findall(r"test result: ok\. (\d+) passed", output.read_text())]
+    data = dict(format="knowledgehub-observed-native-run/2", started_at=started,
+                ended_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
+                source_status="exact working tree before capture/final task and generated-report updates",
+                files=files, executables=executables, commands=results, log=digest(output.read_bytes()),
+                native_test_counts=counts,
+                limits=["host-declared local ext4; actual platform observations in log", "no power-loss, remote-adapter, acceptance or authority-handover claim"])
+    manifest.write_text(json.dumps(data, indent=2) + "\n")
+    return manifest
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--run-dir", required=True, help="new run-specific evidence directory")
+    args = parser.parse_args()
+    manifest = verify(ROOT, ROOT / args.run_dir)
+    print(f"Complete native batch passed: {manifest}", flush=True)
+
+
+if __name__ == "__main__":
+    try:
+        main()
+    except (ValueError, RuntimeError, subprocess.CalledProcessError) as error:
+        print(error, file=sys.stderr)
+        sys.exit(1)

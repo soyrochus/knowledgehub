@@ -1,11 +1,12 @@
 //! Public files/2 consumer. Prepare exact host input with capture_self_model.py first.
+mod file_format;
 #[path = "self_model_support/mod.rs"]
 mod host;
 #[path = "support/mod.rs"]
 mod seed;
 #[path = "ontology_support/mod.rs"]
 mod specimens;
-use knowledgehub::{backends::files::*, ontology::*, *};
+use knowledgehub::{ontology::*, *};
 use std::path::PathBuf;
 async fn submit(
     h: &OntologyHub,
@@ -43,22 +44,48 @@ async fn baseline(h: &OntologyHub, name: &str) -> Result<ExactRef, Error> {
 }
 #[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    let mut args = std::env::args().skip(1);
+    let options = file_format::Arguments::parse()?;
+    let mut args = options.positional.iter().cloned();
     let root = PathBuf::from(env!("CARGO_MANIFEST_DIR"));
     let input = PathBuf::from(args.next().unwrap_or("target/self-model-input.json".into()));
-    let store = PathBuf::from(
-        args.next()
-            .ok_or("usage: cargo run --example full_self_description -- INPUT_JSON NEW_STORE")?,
-    );
     let input_bytes = std::fs::read(input)?;
     let capture: host::Capture = serde_json::from_slice(&input_bytes)?;
+    if options.validate_input {
+        let catalogue = builtin_catalogue()?;
+        let mut state = State::empty(host::scope());
+        state.ontology = Some(ontology_ref());
+        state.profile = Some(profile_ref());
+        for record in catalogue.records {
+            state
+                .selected
+                .insert(record.reference.identity(), record.reference.clone());
+            state.records.insert(record.reference.key(), record);
+        }
+        state.artifacts = catalogue.artifacts;
+        let authored = host::author(&root, &capture, state, input_bytes)?;
+        let report = assess(&authored.state);
+        if !report.is_valid() {
+            return Err(Error::Invalid(report.violations).into());
+        }
+        println!(
+            "{}",
+            serde_json::json!({"validated_origins":capture.files.len(),"units":capture.units.len(),"records":authored.state.selected.len(),"gaps":report.gaps.len()})
+        );
+        return Ok(());
+    }
+    let store = PathBuf::from(args.next().ok_or(
+        "usage: full_self_description [--format files3] INPUT_JSON NEW_STORE [--result OUTPUT]",
+    )?);
+    if args.next().is_some() {
+        return Err("unexpected positional argument".into());
+    }
     let checked=capture.checked.as_ref().ok_or("A checked source/run manifest is required; prepare it with scripts/verify_full_ontology.py and pass --checked-manifest to capture_self_model.py")?;
     let run_start = checked
         .get("started_at")
         .and_then(serde_json::Value::as_str)
         .ok_or("checked run has no actual start time")?;
 
-    let backend = FileBackend::new_ontology(&store, FileOptions::local_ext4())?;
+    let backend = options.format.backend(&store)?;
     let hub = OntologyHub::create(backend, seed::context(), host::scope()).await?;
     submit(
         &hub,
@@ -180,7 +207,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     hub.drain().await;
     drop(hub);
     let reopened = OntologyHub::open(
-        FileBackend::new_ontology(&store, FileOptions::local_ext4())?,
+        options.format.backend(&store)?,
         seed::context(),
         host::scope(),
     )
@@ -327,10 +354,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         originals.insert(file.path.clone(), file.reference.clone());
     }
     let summary = serde_json::json!({"store":store,"source_status":capture.source_status,"checked_current_code":capture.checked.is_some(),"groups":groups,"assertions":assertions,"source_originals":originals,"actual_human_assessments":assessment_count,"answers":answers,"structurally_valid":assess(&view).is_valid(),"purpose_complete":assess(&view).is_complete(),"Q01":{"types":145,"signatures":38,"missing":catalogue_coverage(&view)},"Q02":host::r("urn:knowledgehub:library"),"Q03":host::r("kh:command:commit-change-set"),"Q04":host::r("kh:aggregate:model-branch"),"Q05":host::r("kh:representation:admission-code"),"Q06":{"records":path.records.iter().map(|r|&r.reference).collect::<Vec<_>>(),"assertions":path.assertions.iter().map(|r|&r.reference).collect::<Vec<_>>()},"Q07":{"A":a,"B":b,"changed":differences.iter().map(|d|&d.identity).collect::<Vec<_>>()},"Q08":{"gaps":assess(&view).gaps,"inapplicable":view.profile_definition().unwrap().inapplicable,"human_acceptance":"absent; repository authority retained"},"selected_records":view.selected.len(),"retained_records":view.records.len()});
-    let output = store
-        .parent()
-        .unwrap_or(std::path::Path::new("."))
-        .join("self-model-result.json");
+    let output = options.result.unwrap_or_else(|| {
+        store
+            .parent()
+            .unwrap_or(std::path::Path::new("."))
+            .join("self-model-result.json")
+    });
     std::fs::write(&output, serde_json::to_vec_pretty(&summary)?)?;
     println!(
         "{}",

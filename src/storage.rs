@@ -89,6 +89,7 @@ impl FileBackend {
                 support: options.support,
                 work: shared::Counters::default(),
                 loose_budget: None,
+                packed_cache: false,
                 #[cfg(test)]
                 hook: std::sync::Mutex::new(None),
             }),
@@ -302,6 +303,7 @@ pub(crate) struct FileStore {
     support: FileSupport,
     work: shared::Counters,
     loose_budget: Option<std::sync::atomic::AtomicU64>,
+    packed_cache: bool,
     #[cfg(test)]
     hook: std::sync::Mutex<Option<Hook>>,
 }

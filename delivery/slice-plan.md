@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.7 · 1 November 2026 · Full ontology/self-model, shared storage, indexed neighbours and deterministic impact queries technically verified at their recorded boundaries. Canonical rebuilding is next; human acceptance remains separate.
+Draft 0.7 · 1 November 2026 · Full ontology/self-model, shared storage, indexed neighbours and deterministic impact queries technically verified at their recorded boundaries. Sealed derived-index packs are the active next outcome; the unfinished canonical rebuild is deferred. Human acceptance remains separate.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -249,5 +249,14 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Actor/trigger:** maintainer regenerates the root `hub/` demonstration after shared storage and indexed query implementation.
 - **Outcome:** run the full native suite/checks on final code, capture current verified sources, delete all previous canonical content, populate a fresh files/3 self-model, then drain/reopen/scrub and execute public/catalogue/indexed walkthroughs.
 - **Hard prerequisites:** verified KH-SL-009/010/011; current capture/loader/source bindings and successful exact-source native checks. No general migration or recovery-backup implementation is needed.
-- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md).
+- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/deferred/rebuild-canonical-hub-and-verify/proposal.md).
 - **Acceptance:** old generated content removed; new replay domain/history and actual new A/B/receipts/source/gap counts; all required tests/walkthroughs pass with new evidence. Preflight failure preserves old data; post-reset failure remains explicitly incomplete. Older evidence is not relabelled. KH-SL-005 backup/interchange and KH-SL-006 authority scope remain deferred.
+
+### KH-SL-013 — Keep derived indexes compact with sealed packs
+
+- **Actor/trigger:** maintainer/reader prepares indexes for the actual library self-model after small-file allocation exhausts the cache quota.
+- **Outcome:** variable-size sealed packs with bounded compression blocks retain exact query semantics under unchanged allocated-space quotas, with reusable warm location metadata.
+- **Dependencies:** KH-SL-009–011. [Change](../openspec/changes/pack-derived-index-storage/proposal.md). The user explicitly authorised proposing and implementing this outcome on 1 November 2026.
+- **Acceptance:** bounded publication/failure/quota handling, old/new cache equivalence, unchanged accepted Hub data, actual canonical queries and full technical evidence.
+- **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/deferred/rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; any future rebuild needs a refreshed/resumed scope.
+- **Observed delivery:** [KH-SL-013 evidence](evidence/packed-cache/README.md) records 100 native tests, one doctest, 11 host tests, formatting, Clippy and release builds. The existing canonical model passes public neighbour/text/three-hop composite reads, reopen and full scrub, with all 22,842 non-cache files unchanged. The completed neighbour cache allocates 26,177,536 bytes across 306 files; text allocates 1,269,760 bytes. Cold metadata is loaded once per namespace and warm batches load none. Human acceptance and authority handover remain separate.

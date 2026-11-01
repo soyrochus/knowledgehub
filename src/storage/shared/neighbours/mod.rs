@@ -111,10 +111,15 @@ fn cache(store: &FileStore) -> FileStore {
         root: store.root.join("cache/neighbours"),
         format: ontology::SHARED_FILE_FORMAT,
         support: store.support.clone(),
-        work: Counters::default(),
+        work: Counters {
+            locations: store.work.neighbour_locations.clone(),
+            peak_allocated: store.work.neighbour_peak.clone(),
+            ..Counters::default()
+        },
         loose_budget: None,
+        packed_cache: true,
         #[cfg(test)]
-        hook: std::sync::Mutex::new(None),
+        hook: std::sync::Mutex::new(store.hook.lock().unwrap().clone()),
     }
 }
 fn layout(c: &FileStore) -> Result<(), Error> {
@@ -153,6 +158,7 @@ fn usage(path: &Path) -> Result<u64, Error> {
     Ok(n)
 }
 fn clear(store: &FileStore) -> Result<(), Error> {
+    *store.work.neighbour_locations.lock().unwrap() = None;
     let c = cache(store);
     match fs::symlink_metadata(&c.root) {
         Ok(m) => {
@@ -185,6 +191,7 @@ fn writer_cache(store: &FileStore, force_clear: bool) -> Result<FileStore, Error
         clear(store)?;
     }
     c.loose_budget = Some(AtomicU64::new(QUOTA.saturating_sub(usage(&c.root)?)));
+    c.work.allocation_limit.store(QUOTA, Ordering::Relaxed);
     Ok(c)
 }
 fn path(c: &FileStore, b: &Binding) -> Result<PathBuf, Error> {
@@ -388,6 +395,7 @@ pub(super) fn prepare(
     }
     let outgoing = build_root(&tree, &all, false)?;
     let incoming = build_root(&tree, &all, true)?;
+    index.finish()?;
     install(
         store,
         &c,
@@ -408,7 +416,8 @@ pub(super) fn prepare(
         prepared_owners: refs.len() as u64,
         prepared_facts: all.len() as u64,
         index_objects_read: c.work.snapshot().object_reads,
-        index_bytes_read: c.work.snapshot().encoded_bytes_read,
+        index_bytes_read: c.work.snapshot().encoded_bytes_read + c.work.snapshot().index_bytes_read,
+        index_metadata_bytes_read: c.work.snapshot().index_bytes_read,
         record_reads: records.reads,
         record_bytes: records.bytes as u64,
         index_rebuilt: true,
@@ -576,6 +585,7 @@ pub(super) fn after_commit(
             .ok_or(Error::Capacity)?;
         let outgoing = update_root(&tree, &m.outgoing, &removed, &added, false)?;
         let incoming = update_root(&tree, &m.incoming, &removed, &added, true)?;
+        index.finish()?;
         install(
             store,
             &c,

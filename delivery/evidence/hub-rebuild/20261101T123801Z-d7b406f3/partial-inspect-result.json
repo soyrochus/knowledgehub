@@ -1,0 +1,10 @@
+{
+  "command": [
+    "target/release/examples/inspect_self_model",
+    "--format",
+    "files3"
+  ],
+  "exit_code": 0,
+  "seconds": 23.43216586100243,
+  "scope": "Inspection only; rebuild verification remains failed due to derived cache allocation limit."
+}

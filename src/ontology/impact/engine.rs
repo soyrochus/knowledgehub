@@ -338,6 +338,8 @@ pub(crate) fn evaluate(
                         page.work.examined_associations += s.page.work.examined_postings;
                         page.work.index_objects_read += s.page.work.index_objects_read;
                         page.work.index_bytes_read += s.page.work.index_bytes_read;
+                        page.work.index_metadata_bytes_read +=
+                            s.page.work.index_metadata_bytes_read;
                         page.work.record_reads += s.page.work.record_reads;
                         page.work.hydrated_bytes += s.page.work.record_bytes;
                         for v in s.page.vertices {

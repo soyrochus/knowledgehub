@@ -1,0 +1,280 @@
+{
+  "baseline_a": {
+    "narrative": {
+      "content": {
+        "length": 288,
+        "sha256": "6adc5dfd3fe18aec232ef22592f4e9db028f33477679c889e418a0b5dd882017"
+      },
+      "document": {
+        "id": "kh:capture:urn:document:knowledgehub-seed",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "text": "# Atomic governed change\n\nAn admitted change publishes its definitions, exact source captures, selected revisions and original operation receipt together. The trusted host supplies current authority. This explanation is derived from ontology section 21.4; project acceptance is separate.\n"
+    },
+    "reference": {
+      "id": "kh:baseline:A",
+      "model": "knowledgehub",
+      "revision": "self-1"
+    },
+    "requirement": {
+      "data": {
+        "data": {
+          "owners": [
+            {
+              "owner": "Graph",
+              "path": "/claim_kind"
+            },
+            {
+              "owner": "Document",
+              "path": "/description"
+            },
+            {
+              "owner": "Graph",
+              "path": "/name"
+            },
+            {
+              "owner": "Graph",
+              "path": "/rationale"
+            },
+            {
+              "owner": "Document",
+              "path": "/statement"
+            }
+          ],
+          "properties": {
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "urn:source:ontology:capture",
+                  "model": "sdo",
+                  "revision": "catalogue-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:source:ontology-original-markdown",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            },
+            "name": {
+              "kind": "Text",
+              "value": "Atomic governed change"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "kh:capture:urn:document:knowledgehub-seed",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:atomic-explanation",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            }
+          }
+        },
+        "kind": "Element"
+      },
+      "predecessor": null,
+      "provenance": [
+        {
+          "id": "kh:anchor:source:ontology-original-markdown",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        }
+      ],
+      "reference": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "sha256": "7449cfd09fa4b29cb17ae6d8e3881ca82f6d8a60f8f794dcd6cf2b255b2fe204",
+      "type_ref": {
+        "id": "sdo:type:Requirement",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      }
+    },
+    "selected_records": 9062
+  },
+  "baseline_b": {
+    "narrative": {
+      "content": {
+        "length": 406,
+        "sha256": "0b76387190202df3d8af69b544b07d43bedc3f14687d7c50b8de0f9f6fcaac4a"
+      },
+      "document": {
+        "id": "kh:capture:urn:document:knowledgehub-seed",
+        "model": "knowledgehub",
+        "revision": "self-2"
+      },
+      "text": "# Atomic governed change\n\nThe library checks current authority and exact expected revisions before publishing the complete typed graph, original artifacts, selected baseline and original operation receipt. An uncertain caller resolves that original operation after recovery. This revised explanation is authored for this walkthrough; it does not change historical test outcomes or record human acceptance.\n"
+    },
+    "reference": {
+      "id": "kh:baseline:B",
+      "model": "knowledgehub",
+      "revision": "self-1"
+    },
+    "requirement": {
+      "data": {
+        "data": {
+          "owners": [
+            {
+              "owner": "Graph",
+              "path": "/claim_kind"
+            },
+            {
+              "owner": "Document",
+              "path": "/description"
+            },
+            {
+              "owner": "Graph",
+              "path": "/name"
+            },
+            {
+              "owner": "Graph",
+              "path": "/rationale"
+            },
+            {
+              "owner": "Document",
+              "path": "/statement"
+            }
+          ],
+          "properties": {
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "urn:source:ontology:capture",
+                  "model": "sdo",
+                  "revision": "catalogue-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:source:ontology-original-markdown",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            },
+            "name": {
+              "kind": "Text",
+              "value": "Atomic governed change"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "kh:capture:urn:document:knowledgehub-seed",
+                  "model": "knowledgehub",
+                  "revision": "self-2"
+                },
+                "fragment": {
+                  "id": "kh:anchor:atomic-explanation",
+                  "model": "knowledgehub",
+                  "revision": "self-2"
+                }
+              }
+            }
+          }
+        },
+        "kind": "Element"
+      },
+      "predecessor": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "provenance": [
+        {
+          "id": "kh:anchor:source:ontology-original-markdown",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        },
+        {
+          "id": "kh:anchor:atomic-explanation",
+          "model": "knowledgehub",
+          "revision": "self-2"
+        }
+      ],
+      "reference": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-2"
+      },
+      "sha256": "ee370b96e30d97d3f2b3dbf0f110767319e4dd7301534633ccf0503f452c7930",
+      "type_ref": {
+        "id": "sdo:type:Requirement",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      }
+    },
+    "selected_records": 9063
+  },
+  "changed_identities": [
+    "knowledgehub::kh:anchor:atomic-explanation",
+    "knowledgehub::kh:assertion:interruption-checks",
+    "knowledgehub::kh:assertion:source-supports",
+    "knowledgehub::kh:baseline:A",
+    "knowledgehub::kh:capture:urn:document:knowledgehub-seed",
+    "knowledgehub::urn:assertion:commit-satisfies-atomic-change",
+    "knowledgehub::urn:requirement:atomic-change"
+  ],
+  "compaction": null,
+  "explicit_gaps": 3738,
+  "format": "knowledgehub-files/3",
+  "head": "578baab09fc19ca06c7e35ea0486c19269b8be90fb580531d9a8cbeacb6aead6",
+  "indexed": null,
+  "original_receipts": [
+    {
+      "fingerprint": "c513a3021acf7d6211ba1cb085fcd07932717619a6b111d5b6be2add6aa746d2",
+      "head": "a5eda8d9bff7a3e7620c647fcae3f24f96c7009217c78d82a0e728e1f744bdb5",
+      "operation_id": "load-self-definition",
+      "sequence": 2
+    },
+    {
+      "fingerprint": "2f809dceb445dfd7dd730673c0cbbbf0107300f5e4e1be787e5c26dc4a407710",
+      "head": "06a82a89e8a21510bff8d70034ae252efec63ef8b59e963594449ceda5f23334",
+      "operation_id": "revise-explanation",
+      "sequence": 6
+    }
+  ],
+  "profile": {
+    "id": "sdo:profile:knowledgehub-self-description",
+    "model": "sdo",
+    "revision": "catalogue-1"
+  },
+  "purpose_complete": false,
+  "retained_revisions": 9070,
+  "scope": {
+    "branch": "main",
+    "hub": "kh:hub:self-description",
+    "model": "urn:knowledgehub:library",
+    "owner": "host:maintainer"
+  },
+  "scrub": null,
+  "selected_records": 9064,
+  "store": "/home/iwk/src/knowledgehub/hub",
+  "structurally_valid": true
+}

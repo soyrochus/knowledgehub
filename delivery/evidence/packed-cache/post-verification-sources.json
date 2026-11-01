@@ -1,0 +1,92 @@
+{
+  "all_checked_executables_match": true,
+  "authority_handover": false,
+  "canonical_inspector_matches_checked_binary": true,
+  "changed_sources": {
+    "README.md": {
+      "checked": {
+        "length": 8819,
+        "sha256": "9a6fc71a00e02f0856f6c3ae1cc87d4a482d9d38ded90c7b8df54d441b22a0d0"
+      },
+      "final": {
+        "length": 9387,
+        "sha256": "60e51f1e3ee4466a1cb4adc1192f16810fffa9425c64336360b0ee44a8b32408"
+      }
+    },
+    "delivery/slice-plan.md": {
+      "checked": {
+        "length": 35601,
+        "sha256": "f45aef3c57ba5f925c293fde625b421505f8b2d05ff9c48fd695b80f1b4595bb"
+      },
+      "final": {
+        "length": 36159,
+        "sha256": "f9b23183b7ff312fddb6c918c8830b853dca308b22dab23c5423e44dabf09a77"
+      }
+    },
+    "design/canonical-rebuild.md": {
+      "checked": {
+        "length": 6234,
+        "sha256": "f00440dd38479c9a7a57e707418b57d68cd87108d8d7d6dfcbf2707d3921e966"
+      },
+      "final": {
+        "length": 6330,
+        "sha256": "25518cd2b5c22615c330d2d9b1d23bc6a670bc216c831eac847750c38be34b14"
+      }
+    },
+    "design/files3-guide.md": {
+      "checked": {
+        "length": 8820,
+        "sha256": "6b451973aba3964399f6f664fc234b95d91999db40e297706d04387c9804a2d3"
+      },
+      "final": {
+        "length": 9451,
+        "sha256": "0c69516ea76e1d82e3ba4debc641f884002f7d466303e3107b444d88036e2e17"
+      }
+    },
+    "design/self-hosting-plan.md": {
+      "checked": {
+        "length": 37593,
+        "sha256": "7e3a7e7e155039b166d208c01111264e640379dfa5d03cb31381728d718c85e3"
+      },
+      "final": {
+        "length": 38675,
+        "sha256": "04b5f66cfb8af51f59d2bac31655cb138ca339a6330ac3ef27aaceb4ba803743"
+      }
+    },
+    "design/self-model-consumer.md": {
+      "checked": {
+        "length": 6029,
+        "sha256": "fb6e888580886b0f1ef20b0e76c2a338bffeec57bdade3b3c8d14e7a435a69b8"
+      },
+      "final": {
+        "length": 6312,
+        "sha256": "9b3b546c4d08a5b6d4f82081d5ef799e46d552d47b54ea0c5a31e8b04ad945f1"
+      }
+    },
+    "openspec/changes/pack-derived-index-storage/tasks.md": {
+      "checked": {
+        "length": 2471,
+        "sha256": "911079942cd7e7fd6ed2a8fc3ef243751fe60f950730d2f5c72ed96391084f3f"
+      },
+      "final": {
+        "length": 2471,
+        "sha256": "ec144d9fe71014457b871eea2ec942e63a89f79ece1adaca79c382e7a6551d24"
+      }
+    },
+    "openspec/deferred/rebuild-canonical-hub-and-verify/proposal.md": {
+      "checked": {
+        "length": 4073,
+        "sha256": "c04c2bb55a346e71165bcd6fa5eb9e8156c4044f5651cac5b2c0d061f145877d"
+      },
+      "final": {
+        "length": 4106,
+        "sha256": "9995aec19066a34133df0e885342192d009be74297a5924fbf63641705f1fe8a"
+      }
+    }
+  },
+  "current_document_links_resolve": true,
+  "deferred_attempt_status": "failed",
+  "deferred_rebuild_tasks": "7/11",
+  "human_acceptance": false,
+  "scope": "Post-batch task/status/guide prose only; exact implementation, tests, host tools and checked executables remain unchanged."
+}

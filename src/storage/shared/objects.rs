@@ -54,12 +54,14 @@ type CachedBlock = (String, u64, Arc<Vec<u8>>, u64);
 pub(super) struct Objects<'a> {
     pub store: &'a FileStore,
     cache: RefCell<BTreeMap<String, Object>>,
-    locations: RefCell<Option<Arc<BTreeMap<String, Location>>>>,
+    pub(super) locations: RefCell<Option<Arc<BTreeMap<String, Location>>>>,
+    pub(super) pending: RefCell<super::packed_cache::Pending>,
     block_cache: RefCell<Option<CachedBlock>>,
 }
 pub(super) struct LocationCache {
-    inventory: Vec<(String, u64, u128)>,
-    entries: Arc<BTreeMap<String, Location>>,
+    pub(super) inventory: Vec<(String, u64, u128)>,
+    pub(super) entries: Arc<BTreeMap<String, Location>>,
+    pub(super) catalog_stamp: Option<super::packed_cache::Stamp>,
 }
 
 pub(super) fn oid(kind: &str, bytes: &[u8]) -> Result<String, Error> {
@@ -163,6 +165,7 @@ impl<'a> Objects<'a> {
             store,
             cache: RefCell::new(BTreeMap::new()),
             locations: RefCell::new(None),
+            pending: RefCell::new(super::packed_cache::Pending::default()),
             block_cache: RefCell::new(None),
         }
     }
@@ -199,6 +202,16 @@ impl<'a> Objects<'a> {
             if previous.kind != kind || previous.bytes != bytes {
                 return Err(integrity("immutable object collision"));
             }
+            return Ok(id);
+        }
+        if self.store.packed_cache {
+            self.buffer_object(
+                id.clone(),
+                Object {
+                    kind: kind.into(),
+                    bytes: bytes.to_vec(),
+                },
+            )?;
             return Ok(id);
         }
         let path = self.path(&id)?;
@@ -301,12 +314,18 @@ impl<'a> Objects<'a> {
         if let Some(v) = self.cache.borrow().get(id) {
             return Ok(v.clone());
         }
+        if let Some(v) = self.pending.borrow().values.get(id) {
+            return Ok(v.clone());
+        }
         if !model::hash(id) {
             return Err(integrity("invalid object address"));
         }
         self.store.work.reads.fetch_add(1, Ordering::Relaxed);
         self.store.point("read-object")?;
-        let v = if self
+        let added = self.pending.borrow().locations.get(id).cloned();
+        let v = if let Some(location) = added {
+            self.locate(id, &location)
+        } else if self
             .path(id)?
             .try_exists()
             .map_err(|_| integrity("object metadata"))?
@@ -331,12 +350,18 @@ impl<'a> Objects<'a> {
         parse(&v.bytes)
     }
     fn has_packed(&self, id: &str) -> Result<bool, Error> {
+        if self.pending.borrow().locations.contains_key(id) {
+            return Ok(true);
+        }
         self.discover()?;
         Ok(self.locations.borrow().as_ref().unwrap().contains_key(id))
     }
     fn discover(&self) -> Result<(), Error> {
         if self.locations.borrow().is_some() {
             return Ok(());
+        }
+        if self.store.packed_cache {
+            return self.discover_derived();
         }
         let mut inventory = Vec::new();
         for entry in fs::read_dir(self.store.root.join("objects/packs"))
@@ -391,6 +416,7 @@ impl<'a> Objects<'a> {
         *self.store.work.locations.lock().unwrap() = Some(LocationCache {
             inventory,
             entries: entries.clone(),
+            catalog_stamp: None,
         });
         *self.locations.borrow_mut() = Some(entries);
         Ok(())
@@ -576,6 +602,7 @@ impl<'a> Objects<'a> {
         };
         match try_location() {
             Ok(v) => Ok(v),
+            Err(e) if self.store.packed_cache => Err(e),
             Err(_) => {
                 // The index is derived. Rebuild from verified closed blocks before deciding absence.
                 let mut rebuilt = BTreeMap::new();

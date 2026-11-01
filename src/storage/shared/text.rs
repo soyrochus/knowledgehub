@@ -76,10 +76,15 @@ fn cache(s: &FileStore) -> FileStore {
         root: s.root.join("cache/text"),
         format: s.format,
         support: s.support.clone(),
-        work: Counters::default(),
+        work: Counters {
+            locations: s.work.text_locations.clone(),
+            peak_allocated: s.work.text_peak.clone(),
+            ..Counters::default()
+        },
         loose_budget: None,
+        packed_cache: true,
         #[cfg(test)]
-        hook: std::sync::Mutex::new(None),
+        hook: std::sync::Mutex::new(s.hook.lock().unwrap().clone()),
     }
 }
 fn usage(p: &Path) -> Result<u64, Error> {
@@ -105,6 +110,7 @@ fn writer(s: &FileStore, clear: bool) -> Result<FileStore, Error> {
         || usage(&c.root).is_ok_and(|n| n > QUOTA * 3 / 4)
         || fs::read_dir(c.root.join("views")).is_ok_and(|es| es.count() >= 32)
     {
+        *c.work.locations.lock().unwrap() = None;
         match fs::symlink_metadata(&c.root) {
             Ok(m) if m.is_dir() => fs::remove_dir_all(&c.root).map_err(|_| missing("evict"))?,
             Ok(_) => return Err(missing("cache is not a directory")),
@@ -128,6 +134,7 @@ fn writer(s: &FileStore, clear: bool) -> Result<FileStore, Error> {
         }
     }
     c.loose_budget = Some(AtomicU64::new(QUOTA.saturating_sub(usage(&c.root)?)));
+    c.work.allocation_limit.store(QUOTA, Ordering::Relaxed);
     Ok(c)
 }
 fn path(c: &FileStore, b: &Binding) -> Result<PathBuf, Error> {
@@ -263,6 +270,7 @@ fn build(
         fields,
         checksum: String::new(),
     };
+    index.finish()?;
     install(&c, m.clone())?;
     drop(index);
     Ok((c, m, work))
@@ -316,7 +324,8 @@ pub(super) fn search(
         let Some(v) = tree.get(&m.grams, GRAMS, &value!(gram)).map_err(missing)? else {
             let w = c.work.snapshot();
             work.index_objects_read = w.object_reads;
-            work.index_bytes_read = w.encoded_bytes_read;
+            work.index_bytes_read = w.encoded_bytes_read + w.index_bytes_read;
+            work.index_metadata_bytes_read = w.index_bytes_read;
             return Ok(SearchResult {
                 selection: q.selection.clone(),
                 mode: q.text.mode,
@@ -454,7 +463,8 @@ pub(super) fn search(
     });
     let w = c.work.snapshot();
     work.index_objects_read = w.object_reads;
-    work.index_bytes_read = w.encoded_bytes_read;
+    work.index_bytes_read = w.encoded_bytes_read + w.index_bytes_read;
+    work.index_metadata_bytes_read = w.index_bytes_read;
     Ok(SearchResult {
         selection: q.selection.clone(),
         mode: q.text.mode,
@@ -590,11 +600,13 @@ pub(super) fn after_commit(
         }
         let mut b = m.binding;
         b.selected = new.selected_root.clone();
+        let grams = t.update_many(&m.grams, GRAMS, changes)?;
+        o.finish()?;
         install(
             &c,
             Manifest {
                 binding: b,
-                grams: t.update_many(&m.grams, GRAMS, changes)?,
+                grams,
                 fields,
                 checksum: String::new(),
             },

@@ -1,0 +1,69 @@
+[
+  {
+    "name": "capture",
+    "command": [
+      "/usr/bin/python3",
+      "/home/iwk/src/knowledgehub/examples/capture_self_model.py",
+      "--output",
+      "delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/self-model-input.json",
+      "--derived",
+      "delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/ontology-pdf-extracted.txt",
+      "--log",
+      "delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/native.log",
+      "--checked-manifest",
+      "delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/checked.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.6636413460000767,
+    "output": {
+      "sha256": "77a117442c37143ac7eadbbab12df6a9d57d4d34a1c7cd9ed7c259eb7e914ed7",
+      "length": 139
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "validate-input",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "--format",
+      "files3",
+      "--validate-input",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/self-model-input.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.7879983720013115,
+    "output": {
+      "sha256": "3250aad46e0fd996162b063da41f4fafd9b495836ef34840b8d3a49983cac20b",
+      "length": 66
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "populate",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "--format",
+      "files3",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/self-model-input.json",
+      "/home/iwk/src/knowledgehub/hub",
+      "--result",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/self-model-result.json"
+    ],
+    "exit_code": 1,
+    "seconds": 673.8086191719995,
+    "output": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "stderr": {
+      "sha256": "ba1ba92cffd1e9b8e3dbffdc2948698dd6d86c36148934453c7e0a6f99786e67",
+      "length": 573
+    }
+  }
+]

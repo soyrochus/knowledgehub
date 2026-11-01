@@ -460,7 +460,8 @@ pub(in crate::storage::shared) fn read(
     page.work.record_bytes = records.bytes as u64;
     let work = c.work.snapshot();
     page.work.index_objects_read = work.object_reads;
-    page.work.index_bytes_read = work.encoded_bytes_read;
+    page.work.index_bytes_read = work.encoded_bytes_read + work.index_bytes_read;
+    page.work.index_metadata_bytes_read = work.index_bytes_read;
     Ok(Slice {
         page,
         next: (p.group != streams.len()).then_some(p),

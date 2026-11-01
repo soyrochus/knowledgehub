@@ -1,5 +1,7 @@
 ## Purpose
 
+Deferred by user direction on 1 November 2026. Retained historical contract; no rebuild completion is claimed.
+
 Delete and regenerate the explicitly disposable canonical KnowledgeHub demonstration in files/3, using current checked sources and actual complete-suite/public-walkthrough results. Trace: KH-US-30; KH-DR-02/04–13/15/17–23; ontology §§17/21.10; file-storage §13.3.
 
 ## ADDED Requirements

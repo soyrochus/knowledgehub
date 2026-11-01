@@ -1,0 +1,13 @@
+{
+  "neighbours": {
+    "files": 65536,
+    "encoded_bytes": 34782560,
+    "allocated_bytes": 268435456
+  },
+  "text": {
+    "files": 0,
+    "encoded_bytes": 0,
+    "allocated_bytes": 0
+  },
+  "meaning": "Before first packed-index preparation on the existing canonical Hub; regular-file bytes, allocated unique inodes, directory/Git bytes excluded."
+}

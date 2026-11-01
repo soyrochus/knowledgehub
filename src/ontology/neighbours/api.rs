@@ -50,6 +50,7 @@ pub(crate) fn read_slice(
     slice.page.work.prepared_facts = prepared.prepared_facts;
     slice.page.work.index_objects_read += prepared.index_objects_read;
     slice.page.work.index_bytes_read += prepared.index_bytes_read;
+    slice.page.work.index_metadata_bytes_read += prepared.index_metadata_bytes_read;
     slice.page.work.record_reads += prepared.record_reads;
     slice.page.work.record_bytes += prepared.record_bytes;
     slice.page.work.index_rebuilt = true;

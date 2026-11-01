@@ -1,0 +1,22 @@
+{
+  "scope": "Existing files/3 canonical accepted data and original files/2 store retained; only disposable caches rebuilt.",
+  "accepted_files": 22842,
+  "accepted_bytes": 16012885,
+  "accepted_files_exactly_unchanged": true,
+  "original_files2_checked": 426,
+  "original_files2_unchanged": true,
+  "unchanged_public_fields": [
+    "head",
+    "selected_records",
+    "retained_revisions",
+    "original_receipts",
+    "baseline_a",
+    "baseline_b",
+    "changed_identities"
+  ],
+  "head": "578baab09fc19ca06c7e35ea0486c19269b8be90fb580531d9a8cbeacb6aead6",
+  "adapter_written_objects": 0,
+  "replay_domain": "0b449a8e73e8b6380b8b265c478ace341845d2f67cc117338c7175a642077009",
+  "reopened_semantic_results_exactly_equal": true,
+  "accepted_files_exactly_unchanged_after_reopen": true
+}

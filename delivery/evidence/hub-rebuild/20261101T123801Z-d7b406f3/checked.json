@@ -1,0 +1,835 @@
+{
+  "format": "knowledgehub-observed-native-run/2",
+  "started_at": "2026-11-01T12:38:01.413740+00:00",
+  "ended_at": "2026-11-01T12:46:19.580808+00:00",
+  "source_status": "exact working tree before capture/final task and generated-report updates",
+  "files": {
+    ".gitignore": {
+      "sha256": "c7a585cb68acc37447bd07e3794cf622e305a318eed5e13b2585b865de851a94",
+      "length": 157
+    },
+    "Cargo.lock": {
+      "sha256": "b63eb114657ab849e81bfe94852f0750011c54f93f919e1497292c717ff01e97",
+      "length": 7815
+    },
+    "Cargo.toml": {
+      "sha256": "08fe7a64c0e857520a88426fb3b8a09c73ddd8d8ebf84d2291ba6af398e7c082",
+      "length": 555
+    },
+    "README.md": {
+      "sha256": "05df0eae756053c4869f52045dce9f991f4f89a25b3a904b4198b8fcbb3ca8e3",
+      "length": 8777
+    },
+    "delivery/slice-plan.md": {
+      "sha256": "09f0531f7bdbf995963ff9667792376806c4f9fed45c31c9ba58622595bbaf92",
+      "length": 34416
+    },
+    "design/canonical-rebuild.md": {
+      "sha256": "e61cfe52a116e148bff07d0d8464317ae8d05c2e3d9873ed3f91a82b64acfbe7",
+      "length": 5960
+    },
+    "design/deterministic-query-api.md": {
+      "sha256": "e414e17544e9b6a05f73d299e3d90daf23e4a55b123b4bb73486d36046430022",
+      "length": 11302
+    },
+    "design/domain-analysis.md": {
+      "sha256": "9fc313b1d49e980e5431ffce8d897801bee26e48d55d9ee18d13142829e34a85",
+      "length": 28473
+    },
+    "design/file-backend.md": {
+      "sha256": "d36685b6b08f8df4193ac0a1422c0106c913ed89587ab9382834fb2dc491a796",
+      "length": 12346
+    },
+    "design/files3-guide.md": {
+      "sha256": "6b451973aba3964399f6f664fc234b95d91999db40e297706d04387c9804a2d3",
+      "length": 8820
+    },
+    "design/full-ontology-implementation.md": {
+      "sha256": "314c227d906662a9982997350dc1673355cd0de65acdf6001dca13ac9a7d1a0d",
+      "length": 2578
+    },
+    "design/implementation-record.md": {
+      "sha256": "ff8f8f6545ccfe8d86678f1dde2caa880c109df5dbc67a41ed93ae8392e7360b",
+      "length": 3600
+    },
+    "design/neighbour-api.md": {
+      "sha256": "31a339c1e1137cb21e35b26337536e6174327f2541833b19439c4351d9ac4581",
+      "length": 8703
+    },
+    "design/self-hosting-plan.md": {
+      "sha256": "206f91745c32e75cb826486f06fd97a5ec0c973cf7f7bbde442210cb0387f2cb",
+      "length": 36905
+    },
+    "design/self-model-consumer.md": {
+      "sha256": "eb60e9a1b02f94c0aa59a247ddaa1e91d44b64fb301c0f1b711481c5f6511758",
+      "length": 5755
+    },
+    "design/typed-ontology-api.md": {
+      "sha256": "858d72ff47d9621afe6dadfd3d04fbac064b5914144ea99700fce849ca9324e9",
+      "length": 7040
+    },
+    "examples/capture_self_model.py": {
+      "sha256": "9324d104e98c00be49d72fb3c42dcac8565bbca21aca6fee2bb1008500776d88",
+      "length": 12004
+    },
+    "examples/catalogue_conformance.rs": {
+      "sha256": "75f772e6ccd6cbacfce2f1950995d0d7352b4103cebab029b7cde0d28dc7cb01",
+      "length": 3160
+    },
+    "examples/file_format/mod.rs": {
+      "sha256": "5102b2b3daefc66626c1b968fde6bb8f063ef4f978af24f384e78e7f817aad6e",
+      "length": 3523
+    },
+    "examples/full_self_description.rs": {
+      "sha256": "58167587a14150397f835adb31e72fa11ccbd28499283fd5bb212ee3dbc82568",
+      "length": 15342
+    },
+    "examples/impact_benchmark.rs": {
+      "sha256": "b2a0405b0b044a586b2bb0c1b01a9f5bc2f0e7ac0625ce9994dd951403eafc88",
+      "length": 4538
+    },
+    "examples/inspect_self_model.rs": {
+      "sha256": "6e0e225142bcedaf1478f8ff41b0a16170ec3b23011398cef2a678e108818a88",
+      "length": 5335
+    },
+    "examples/neighbour_benchmark.rs": {
+      "sha256": "1fda578d19acf6f6103ec21e166605a096e771db322156b0c77e90098af35c7b",
+      "length": 7158
+    },
+    "examples/neighbour_support/mod.rs": {
+      "sha256": "1e78044923d65049e079c9385fb8c8396d23bbd60b35955d382462975a774fae",
+      "length": 11239
+    },
+    "examples/neighbours.rs": {
+      "sha256": "95e97b71e497a3807ddc5c0877c8bb039143b48deed84a5507b1bf788f9bae86",
+      "length": 7119
+    },
+    "examples/ontology_support/mod.rs": {
+      "sha256": "231e6ab26cd738f4898ae5e4ba0bd9d07d34ee6d2befe1c60ce8c4bb4c8e6b71",
+      "length": 18794
+    },
+    "examples/rent_impact.rs": {
+      "sha256": "79d66fac4d2188a48df0ed04108d0876ef363181008b49fdc1902162bd3403db",
+      "length": 600
+    },
+    "examples/rent_support/mod.rs": {
+      "sha256": "bf902a56800b1d8598b37189cd7f7d49ab89c07e3036f1c07db0cd1414da966c",
+      "length": 10563
+    },
+    "examples/seed.rs": {
+      "sha256": "67ef6f609fcaaba6c5f2b3dced10bca9def41881ea71a97a7e3dd135d8a56179",
+      "length": 2822
+    },
+    "examples/self_model_support/mod.rs": {
+      "sha256": "a78678be266aad10c73623a71f7b65a63fb0ed08872595c59e750ee933bbc0e4",
+      "length": 83267
+    },
+    "examples/self_model_support/origins.json": {
+      "sha256": "c80e1fb62b8cdbc11cc75728a6de36e41b66413c541e53c9620dcf55ce92d145",
+      "length": 8866
+    },
+    "examples/self_model_support/verify.rs": {
+      "sha256": "0b73770e089cc0a15038d01589a29cc70448de4c2ce24150cb3555299503e150",
+      "length": 5030
+    },
+    "examples/shared_storage.rs": {
+      "sha256": "dea539e71429703d06a7f5d799d4ed00e4547d5ca5cf82c4f24937aa6bf8dcb4",
+      "length": 7088
+    },
+    "examples/storage_benchmark.rs": {
+      "sha256": "65742431c33f2af2c3948241d73bda5276dd9e41aed212d24bf4841f4b3f01b7",
+      "length": 8702
+    },
+    "examples/support/mod.rs": {
+      "sha256": "29921ff438c1829ac77a80442bda0b5f6467a83496b79d1734fea1340b93d26b",
+      "length": 6726
+    },
+    "openspec/changes/express-full-ontology-and-self-model/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/express-full-ontology-and-self-model/design.md": {
+      "sha256": "8576b3cccc34ac8db90e28e5574403212217cf584241c73fa9a2fb10a5e3df4e",
+      "length": 20585
+    },
+    "openspec/changes/express-full-ontology-and-self-model/ontology-coverage.md": {
+      "sha256": "a95d920e6fc9ac3d0690f9d2bb0e443f12919c62ca4a2b7bb207ebe998ecac68",
+      "length": 42986
+    },
+    "openspec/changes/express-full-ontology-and-self-model/proposal.md": {
+      "sha256": "7832c4159765427fe36309ac40f7a2f67e6d34c34c22f63d8942358c9cd04e9c",
+      "length": 6152
+    },
+    "openspec/changes/express-full-ontology-and-self-model/self-model-map.md": {
+      "sha256": "864cd6173d760520ad57a49ceb1bb74ea99ad486f9fae503abc4a97c043a0d5b",
+      "length": 17699
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "75af331726b77d57524ee86b52ac9a17ef04f2aeff81334c13b20fe64cac5af9",
+      "length": 5011
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/model-baselines/spec.md": {
+      "sha256": "a0a1f9e10ce8438f0501e6254addde4961435d144ca34622db17b356be095df4",
+      "length": 4959
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/model-navigation/spec.md": {
+      "sha256": "eb96d8a81bd9b1d9112e13faa149e6860a0f027edec174138a9f07c34d4e5eea",
+      "length": 4933
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/ontology-conformance/spec.md": {
+      "sha256": "7bebb79d710bba38c4bf371e635d795c7c3bcf5e4b487227638b3855b58835b3",
+      "length": 8954
+    },
+    "openspec/changes/express-full-ontology-and-self-model/specs/ontology-definitions/spec.md": {
+      "sha256": "82ac8f1893d81dc5dce8fa4c22da3ea774fd8dd330cbeb6dfdb3f1850e0fe694",
+      "length": 6094
+    },
+    "openspec/changes/express-full-ontology-and-self-model/tasks.md": {
+      "sha256": "9dfadf45d6d346a89872343c94cbe3fdaa3c80d7f5ba8779c2ae66af3504f5d8",
+      "length": 14533
+    },
+    "openspec/changes/index-ontology-neighbours/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/index-ontology-neighbours/design.md": {
+      "sha256": "48b08d74692e3eaaa7f5786a4f150c899df4f0fcce2c79dc9fd72e933ea405b3",
+      "length": 7168
+    },
+    "openspec/changes/index-ontology-neighbours/proposal.md": {
+      "sha256": "2ede564ff1519ba8cae880eb39bbbd5920e5ca5d28cd121f22882a90330b3af3",
+      "length": 3571
+    },
+    "openspec/changes/index-ontology-neighbours/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "9beb47fbe86a2ee069741a040e76049b0cebe51799b5ae0da0aa206f65b6890e",
+      "length": 6353
+    },
+    "openspec/changes/index-ontology-neighbours/tasks.md": {
+      "sha256": "1923679c33517d3a27754804542da0433487b5d8d84ea71aac30ec9147b5dd8b",
+      "length": 3894
+    },
+    "openspec/changes/query-deterministic-model-impact/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/query-deterministic-model-impact/design.md": {
+      "sha256": "66342baabc3496a89512386067dde8d3faad4289a35edb0cf96c0c092e502c9f",
+      "length": 8316
+    },
+    "openspec/changes/query-deterministic-model-impact/proposal.md": {
+      "sha256": "0d7d3c4453859e7a70435eda240e55eff7336631e4338c1fe5e05824ad8b9f3d",
+      "length": 3848
+    },
+    "openspec/changes/query-deterministic-model-impact/specs/bounded-model-traversal/spec.md": {
+      "sha256": "3cc1d8feb0d6c88f6550e88bf2e8d4fdef0108986726cca4c3e80003d8c8c574",
+      "length": 4940
+    },
+    "openspec/changes/query-deterministic-model-impact/specs/composite-model-queries/spec.md": {
+      "sha256": "a37c83527c56b0fdf6dba837e7a78c99c65c9d4457a5ff79b096af9589762943",
+      "length": 4756
+    },
+    "openspec/changes/query-deterministic-model-impact/specs/model-text-search/spec.md": {
+      "sha256": "f9196317ec61f81a786a3913b3bcbfbf08d4e116563724b4aff2a9bab3ae5897",
+      "length": 3666
+    },
+    "openspec/changes/query-deterministic-model-impact/tasks.md": {
+      "sha256": "1bad360d53f38ac3e15006d27c97795f68028164f651e9399860ce2bb1ad451d",
+      "length": 4167
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/design.md": {
+      "sha256": "25e248a1989c0350a6a5e66643ee86e2c0c7b51a62945951c27122b140181e95",
+      "length": 9070
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/proposal.md": {
+      "sha256": "a8ef331290a1d880dc550d441da1cb3d853dea43459a68b8508436b3f0b663ab",
+      "length": 3793
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "537aa62586db3f54770bd05ccdcf3b959e470c16403af28438ba1a371bf1f242",
+      "length": 6129
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/tasks.md": {
+      "sha256": "ca4e631785cc89bcb8576ee92017684b1e8ad0143de1643cb765e1d572186591",
+      "length": 4444
+    },
+    "openspec/changes/retain-first-self-definition/.openspec.yaml": {
+      "sha256": "6803193cd4b83f73d2d65d3e3ce1f3b116fb4dba2543ef44a3ad6cc9791547ed",
+      "length": 40
+    },
+    "openspec/changes/retain-first-self-definition/design.md": {
+      "sha256": "b9d646c798f858c199540eb10367bf6d294d2ade4f1b47eb297101c2c78a29ab",
+      "length": 11363
+    },
+    "openspec/changes/retain-first-self-definition/proposal.md": {
+      "sha256": "b1d3c7f243f71830cbc732c2f62c223c4f7e3b49d8fecd43d6f74a89f10737ab",
+      "length": 3903
+    },
+    "openspec/changes/retain-first-self-definition/specs/branch-commits/spec.md": {
+      "sha256": "d7d62be0c8bb82ad19226d9c9bea03a350411e13bce4224718b0b29c53b33850",
+      "length": 8545
+    },
+    "openspec/changes/retain-first-self-definition/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "1ff352e6478aa9011a6019fd30fc1292a29c1ff357e3db13cc6aaf78a3b93183",
+      "length": 7524
+    },
+    "openspec/changes/retain-first-self-definition/specs/source-bound-definitions/spec.md": {
+      "sha256": "177cb923b2c4cb15daf95e79f5932e6d0e79cfcb32ebc7cc34d00f9aa680ec46",
+      "length": 9760
+    },
+    "openspec/changes/retain-first-self-definition/tasks.md": {
+      "sha256": "013c26327828cdc0101c49cd031ec528d0f00dbdfd4a8995c9b25d120ec74653",
+      "length": 6691
+    },
+    "openspec/changes/share-immutable-file-storage/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/share-immutable-file-storage/design.md": {
+      "sha256": "4bc9a67df6e6e6ef8c072eb969a9181ad9dc39675b622694d4a70f77ab12a1a0",
+      "length": 6628
+    },
+    "openspec/changes/share-immutable-file-storage/proposal.md": {
+      "sha256": "3999e6a18180a4c0e9bc9dd0f37fff3b3d1b45d5b942f4f9b8adb30a8c358f55",
+      "length": 3907
+    },
+    "openspec/changes/share-immutable-file-storage/specs/immutable-storage-maintenance/spec.md": {
+      "sha256": "0bfdb9c012fb3803ee7d396b39874b4b07e3b954b0bfdf7675f78c95ad96d670",
+      "length": 4511
+    },
+    "openspec/changes/share-immutable-file-storage/specs/shared-file-storage/spec.md": {
+      "sha256": "057bb1c60ba854e1211ebb3ac48133380775a4819cee9d62e866309e7183a08d",
+      "length": 5507
+    },
+    "openspec/changes/share-immutable-file-storage/tasks.md": {
+      "sha256": "c3cb16d393587a5dc2ba4a74500dfe04c5d1b93797a7914db3f75dd5d846ecbc",
+      "length": 4634
+    },
+    "openspec/config.yaml": {
+      "sha256": "75c97f8de2826fc035649c904bea0450dfe74dba84b41f81ae8af7a09ce3b84c",
+      "length": 4417
+    },
+    "scripts/audit_full_ontology.py": {
+      "sha256": "d0ce4ca529f73108192137b9624a0284dc0eb726c7730fd7f12c7c49177d7556",
+      "length": 10567
+    },
+    "scripts/host_sources.py": {
+      "sha256": "52337b61d4b79c00b899fb3d2ca32e023c20d99f9684a703115e0e02c47dbcbb",
+      "length": 2815
+    },
+    "scripts/rebuild_canonical_hub.py": {
+      "sha256": "35fdf6867a44b722d28a3f9b4d4344c0f677b3b8342d333725b26c36a410615c",
+      "length": 13240
+    },
+    "scripts/verify_full_ontology.py": {
+      "sha256": "cabdc6439a39942d1c8b316b9a270c88240826400b3a429ae8d2cb0c6ec94509",
+      "length": 3990
+    },
+    "source/file-storage-proposal.md": {
+      "sha256": "87f113eb8eb6c58d4ca3b7045ed418eb3a2fa00bfd797088880ce1ae2a2ba063",
+      "length": 75272
+    },
+    "source/practical-design-manual.md": {
+      "sha256": "ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15",
+      "length": 72094
+    },
+    "source/practical-design-manual.pdf": {
+      "sha256": "5c4124476b3abe1ba41a1d053bc676ab34eafeac18d98f3e7842abe0c9d9f704",
+      "length": 268152
+    },
+    "source/system-definition-ontology-proposal.md": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "source/system-definition-ontology-proposal.pdf": {
+      "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+      "length": 479613
+    },
+    "src/application.rs": {
+      "sha256": "258ce922a2a1f2602a10eaa21878e3c6a068703cfe4f40a0386a85728e25840a",
+      "length": 8781
+    },
+    "src/codec.rs": {
+      "sha256": "a18d7476c466eacaa3ba9137418381be8f98a3b073fbbed09107b0a959c96236",
+      "length": 6864
+    },
+    "src/contracts.rs": {
+      "sha256": "c95297b939a03217bb11e554b7ff1c210eccf5e8accf99a6d74c647e9ee5e804",
+      "length": 15284
+    },
+    "src/jobs.rs": {
+      "sha256": "22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857",
+      "length": 4889
+    },
+    "src/lib.rs": {
+      "sha256": "594f04028f564eb87b71e9bbe7466cfa04437c16236c4efbb69048f6d5e222bf",
+      "length": 1027
+    },
+    "src/model.rs": {
+      "sha256": "d7fcf1a147032d6c49c00afa5cceae2b703342344636d797834a797e8c516f3c",
+      "length": 17152
+    },
+    "src/ontology/api.rs": {
+      "sha256": "cbb56adb441ec2527f54e3ad7ee8b2e088f6758e6d96d6b69fe5565465d1e396",
+      "length": 20255
+    },
+    "src/ontology/catalogue.json": {
+      "sha256": "1ea6d1ac92dc8199b0763b90f51b04e399d6b00609bada665f79fe38ad779d9d",
+      "length": 633748
+    },
+    "src/ontology/catalogue.rs": {
+      "sha256": "984fb5533a2aa168c63de209739610dff20e35c4cbce8c22659108408bd12f04",
+      "length": 10846
+    },
+    "src/ontology/impact/api.rs": {
+      "sha256": "ea6c5e4f83562b8c9fc03e0cd7c0accd371883b10096793ccdb2965f37f2a727",
+      "length": 9494
+    },
+    "src/ontology/impact/engine.rs": {
+      "sha256": "9294edc61ac3aa0bc39c5b828b11c33069dc474105a396a50c3aa78bde7cdc0f",
+      "length": 18704
+    },
+    "src/ontology/impact/mod.rs": {
+      "sha256": "36d55777536d35e91db666e69871743ecc26f8518aa37c075fd84d50c8ae15ca",
+      "length": 237
+    },
+    "src/ontology/impact/tests.rs": {
+      "sha256": "af2b81cdbdf12ba63ed7cef5bbd1150b7bdc7b4b90ce5acec2f411565b3a5ad8",
+      "length": 6417
+    },
+    "src/ontology/impact/text.rs": {
+      "sha256": "b1d37dbd185c0e0f58ff6a94d6991841205c94f36bea009fbdbeef7e02d22d3c",
+      "length": 7852
+    },
+    "src/ontology/impact/types.rs": {
+      "sha256": "c4e012c68be1e6c6fb7af38d6e2c7bc505c7f7381c5cd5e4978caf3f8689c058",
+      "length": 12819
+    },
+    "src/ontology/mod.rs": {
+      "sha256": "1d78bb4980f128a2c9efd5442db40fa667d240924d4b091991bed9eb2952f539",
+      "length": 570
+    },
+    "src/ontology/navigation.rs": {
+      "sha256": "398727fa469f77def705b62aaef3a889004753f28a7ff4e6d81bad80b6c07f6c",
+      "length": 16953
+    },
+    "src/ontology/neighbours/api.rs": {
+      "sha256": "78aeaa6b634429991e8ef0b60614df793445c17bf0d553d44136eb3c0d54925a",
+      "length": 6457
+    },
+    "src/ontology/neighbours/facts.rs": {
+      "sha256": "527c319544e390dbfa189566a2c4d542bf99739c3ca8a4748d490880aee1811e",
+      "length": 20133
+    },
+    "src/ontology/neighbours/mod.rs": {
+      "sha256": "a74bf188ce06bfd6e91aa8fe18635e6a76c3da72211791e1d5b93f8b4dd2af16",
+      "length": 2227
+    },
+    "src/ontology/neighbours/types.rs": {
+      "sha256": "89938816d0833c2e1496e43d879b9fb1b79c2955721dfe8569bd915b642eba59",
+      "length": 7254
+    },
+    "src/ontology/types.rs": {
+      "sha256": "ac3cec51669424d6fa077cc6aa726be64f5983e79b77c88728573eeff9b09fa6",
+      "length": 25532
+    },
+    "src/ontology/validation.rs": {
+      "sha256": "0e51410ac1017c80b51f27edb62b84881bda802cecb61fbcf3a55f169bd104de",
+      "length": 92069
+    },
+    "src/storage/shared/content.rs": {
+      "sha256": "ed0a545ba3bcd5b7c7c62d10eaae63e27b6b1afb843b681e74cf54f5560b91f2",
+      "length": 7083
+    },
+    "src/storage/shared/generation.rs": {
+      "sha256": "ff2c05303adcac9c730bbae920b41b4b5e440db2ae5c5acaf368a1ba0b4105ef",
+      "length": 34470
+    },
+    "src/storage/shared/maintenance.rs": {
+      "sha256": "22f11b200eb979bd713882d8a2ba663c4b75b289b279636f9d8de6a0e36ec6de",
+      "length": 24940
+    },
+    "src/storage/shared/mod.rs": {
+      "sha256": "7baefd230c8b4ce14e9e14fd3705a32cdd898e1ee0a8c69c8dc42c17e9faf157",
+      "length": 4309
+    },
+    "src/storage/shared/neighbours/mod.rs": {
+      "sha256": "42ef4cdecd32354ee005a1378b5662ecf50d3c460eee96896ea713f90f35a171",
+      "length": 20585
+    },
+    "src/storage/shared/neighbours/read.rs": {
+      "sha256": "f70cceb13ce5d99b9fd5fdcc4dbcad4f24c6250182f035c92277c9c127ba8254",
+      "length": 15419
+    },
+    "src/storage/shared/neighbours/tests.rs": {
+      "sha256": "fe04bf65f2abbd73cde0c67df972911e5a1b2ea9fef2d73a981b160af5f04b8c",
+      "length": 13230
+    },
+    "src/storage/shared/objects.rs": {
+      "sha256": "2092661b6836f755d3723cb2cb881e720e1985175102b3f7078f6a3deff53f68",
+      "length": 27040
+    },
+    "src/storage/shared/projection.rs": {
+      "sha256": "6a18c757c35c716556272263e137c4ccefe206514af11bdfd76dedab1da64d68",
+      "length": 22702
+    },
+    "src/storage/shared/tests.rs": {
+      "sha256": "9185316438dd07910d3bd2e4245eec86d6e48ae632e7c0261e89f3fec63fc42b",
+      "length": 13432
+    },
+    "src/storage/shared/text.rs": {
+      "sha256": "eef9e2d62a07d37b261dd9b940b0a3662ba7d109a2bd76a2f3ac2e490d7106b0",
+      "length": 21274
+    },
+    "src/storage/shared/trees.rs": {
+      "sha256": "7320b2f320e7f42bd688b2bc77cc01e13dd830193b05e460cd44dd812f65fd89",
+      "length": 36016
+    },
+    "src/storage.rs": {
+      "sha256": "343bcbfe540b345e6e12918087339f12422362e19389f15f48cb92ac60714eea",
+      "length": 33183
+    },
+    "tests/fixtures/files1/branch.lock": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/documents/0c152f078a1c4580cdcc3e5558a684e9d03534da23f3f159b3e8d7e4d7a69ec8.md": {
+      "sha256": "906c83982cc7d969d7dadbcfe98309bc962da85262d35c045f8ec34be7237ae3",
+      "length": 533
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/graph.json": {
+      "sha256": "46359b0d14e6460a7ab7cd76269eb4012b56d8fb89c1799dddc359a3d564e0e4",
+      "length": 9471
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/manifest.json": {
+      "sha256": "14035b5b29cd92b2d88ebf19ce66eb018ad2360e20476c7825e2ca9c9b79b000",
+      "length": 863
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/receipt.json": {
+      "sha256": "afe190dd2f6dd5e9924e1aa4d9bb53dfa515523e717c80c67f2fa483bb471dc8",
+      "length": 2723
+    },
+    "tests/fixtures/files1/generations/34fcb0872326608f313b334f9c54d8a38e6200789686b55961bff3b2be320aae/sources/6b098aa0c84e12efaef4233508dff2aabcfdfa47a92047d87b7f60673bf07806.bin": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "tests/fixtures/files1/generations/397a05ac1317051d53055d1cce331614d49a4b56901409d130a9a1f477145224/graph.json": {
+      "sha256": "f0d93ab2b1813cb4923b1814c05f43a0516ae77af02455ceb5a6aa044d90594b",
+      "length": 1803
+    },
+    "tests/fixtures/files1/generations/397a05ac1317051d53055d1cce331614d49a4b56901409d130a9a1f477145224/manifest.json": {
+      "sha256": "8fd6b3715a12dda1e9bad077200d725ef0c6f62380b8ec632b3fa89ef7c931df",
+      "length": 253
+    },
+    "tests/fixtures/files1/hub.json": {
+      "sha256": "8bc5a1397fd60e3ce27977153cdfa78e0a6016196e66440badf4c6ebe9aaef76",
+      "length": 1717
+    },
+    "tests/fixtures/files1/refs/head.json": {
+      "sha256": "2076a75b243c38881d2be23687cda2e708bb15e133b4a2a38460f0da7a83ce38",
+      "length": 164
+    },
+    "tests/host_workflows.py": {
+      "sha256": "eb732954788c2c11a0f2418b242384cc0c149ffccfb48f77bdc6432daed00b99",
+      "length": 8251
+    },
+    "tests/impact_oracle.rs": {
+      "sha256": "7c1239a5f6e039e8348c1c312733383c6c51bdecf10ef3d45d16e4cf795454ad",
+      "length": 2018
+    },
+    "tests/internal/faults.rs": {
+      "sha256": "46e76e042f5d460b298b9f04ec7c3ee88634354fbdb88f2af57a46348e7242cd",
+      "length": 13160
+    },
+    "tests/internal/ontology_faults.rs": {
+      "sha256": "f90c973092935b889148522ee72f3731ad6957601b3000200c84e358cdda5aea",
+      "length": 10308
+    },
+    "tests/internal/shared_faults.rs": {
+      "sha256": "839776558e74131371df50206d557ef98699b72e565c54dbdb4d2571f0d70689",
+      "length": 14243
+    },
+    "tests/model_impact.rs": {
+      "sha256": "b3889529151e9435d9c9c74d7a2fc164cc4cc50a88f600a514321f7c77ffefac",
+      "length": 15270
+    },
+    "tests/neighbour_oracle/mod.rs": {
+      "sha256": "f491205ed66e36118489dff6a5423dc92433a86d7ea042525b213cbab2b2fe49",
+      "length": 12109
+    },
+    "tests/neighbours.rs": {
+      "sha256": "92e06e9d6fa0e7f95e50d8c8902cdd99027214df97297a06b8e7bf9cc7e0d7f0",
+      "length": 25226
+    },
+    "tests/ontology_contract.rs": {
+      "sha256": "bfe99a38002a9d5b102f012bd186313041b74eaf27263052f55904ffffbf2f3c",
+      "length": 67158
+    },
+    "tests/public_contract.rs": {
+      "sha256": "3209481138dab5d025aeb33a23ba5ad8850c6c5a41c86460015fcb6256046d39",
+      "length": 19507
+    },
+    "tests/rent_impact.rs": {
+      "sha256": "f9393bb38e4b8a6d10ba2e84e294b7e52fc608feb4bb7c39b82bf566d3bd00f1",
+      "length": 9970
+    },
+    "tests/shared_storage.rs": {
+      "sha256": "601f66d0c6b6882e2bf82908155a47d28d6532c69329e6a7751b3ece8999a8cb",
+      "length": 3555
+    },
+    "tests/support/mod.rs": {
+      "sha256": "0753fe2b71f35c7175e64eb1ababf1eb4525b94a872d4d6fb7964c4ed833ebea",
+      "length": 1276
+    }
+  },
+  "executables": {
+    "target/debug/deps/knowledgehub-f230e69bd633ab9e": {
+      "sha256": "d99cba96f47ddb29e290e44869d52499d5d03ff9e54e1c77af1eedaf2f46c0d4",
+      "length": 135292912
+    },
+    "target/debug/examples/full_self_description-f2cb996031cd54f4": {
+      "sha256": "ef7ab7bd4f9f794f33876b0cc119f53afaf7ed753572a06941a873bbd6f60ae7",
+      "length": 64078872
+    },
+    "target/debug/examples/catalogue_conformance-4d8cb091fa530395": {
+      "sha256": "a95b13d686a07da5f42e299dea5968082c6b91efd2b41c79bcf57be6f2b3adde",
+      "length": 57229576
+    },
+    "target/debug/deps/ontology_contract-f2b6fdb1d5ae1275": {
+      "sha256": "7bbfcd21ae8d55bd687281b34378fdbaa955b08d441aaa85cb9ca698845c3366",
+      "length": 110531816
+    },
+    "target/debug/deps/shared_storage-bc8c061d1ebf2e60": {
+      "sha256": "e3ecda18947dcd6428bd7b2936fb31789ae5adffa986493742be5130a0847a16",
+      "length": 96879104
+    },
+    "target/debug/deps/rent_impact-9eae6662fc651862": {
+      "sha256": "61dd66ba4e2f6ad0d6d56fcdee06ceab640d5481621588d7a44a0bc3ebd642d5",
+      "length": 97177752
+    },
+    "target/debug/examples/storage_benchmark-917d2404c005f9ee": {
+      "sha256": "0cf7dff29db3324aca9a0509d14edc9cea5a697c459143ac3ec42586206cd75d",
+      "length": 7206000
+    },
+    "target/debug/deps/impact_oracle-1c2acb7bf53ca7a8": {
+      "sha256": "9551ae407b0b6d6ebc6af6dda07eb9983db904526baf5f01cee51e2c85aaa572",
+      "length": 7205872
+    },
+    "target/debug/deps/public_contract-9889b2477244b4b2": {
+      "sha256": "539ee676a39061933b3809116fc28dee49127deb487a3078c39890f2bbe5fc31",
+      "length": 94924136
+    },
+    "target/debug/deps/neighbours-940d59d44ff99d89": {
+      "sha256": "a21fc340e43c55591413d099f60fb382d7850413b816e190f6b1bf90d4f8f50d",
+      "length": 97610296
+    },
+    "target/debug/examples/shared_storage-ef570ffe9d5df384": {
+      "sha256": "8e7b19f142cde39517b2d4a7fdb19bacabb00e11c0f8bceb3ef5e6629c313b39",
+      "length": 71916488
+    },
+    "target/debug/examples/seed-a6fe153879c7c668": {
+      "sha256": "8e970e069fd25d72f86f8292ac1364ac613a86293c66409a91cc79c4a65bd72d",
+      "length": 7205648
+    },
+    "target/debug/deps/model_impact-609e66f094eacd5f": {
+      "sha256": "60b0179e362eae48c52721bada8228d9b6ba053e3c4060137fbe191df2683660",
+      "length": 97542072
+    },
+    "target/debug/examples/rent_impact-9354beda83070f2f": {
+      "sha256": "f66fcfb8b67966cfdea3f76bedbab9dfb72f384069a5879516b823d865996c7a",
+      "length": 66615176
+    },
+    "target/debug/examples/neighbours-ee39d77c2e854a87": {
+      "sha256": "4355258e94be9ce1d609d82fbff5067a050803fd418f89aba92d179f6f935285",
+      "length": 65512136
+    },
+    "target/debug/examples/neighbour_benchmark-6532b2706c04520e": {
+      "sha256": "6848425a7919c9a709b0bddfbd35e00c028c8e67dbb98cfe76447fab2a6c5555",
+      "length": 65568120
+    },
+    "target/debug/examples/inspect_self_model-db87cb41432c69bd": {
+      "sha256": "3d92d3bcc16b55d1310e7375de25dbe2666203602b0d34b20439353ca7ff185c",
+      "length": 64058632
+    },
+    "target/debug/examples/impact_benchmark-50f4e30d3a225e94": {
+      "sha256": "5d21bde6dfb62d8c82dfc5fdeeaaed857c363d603db7dfe2ca8dfa691237a2aa",
+      "length": 65549448
+    },
+    "target/release/examples/inspect_self_model": {
+      "sha256": "75ea0b69db1735591685368739825100a441e08e5c72e3a050278db13a8a3607",
+      "length": 9895176
+    },
+    "target/release/examples/full_self_description": {
+      "sha256": "269b8b5a548d76529ecaf3e2382c4e3e3e87dbb9202aeae1f05a8f3f60e0015f",
+      "length": 10360456
+    },
+    "target/release/examples/catalogue_conformance": {
+      "sha256": "7a9bd175e47e092f6a564b52090ff9c8c1d083e5b2028057a0435b2105ec33f7",
+      "length": 9017976
+    },
+    "target/release/examples/seed": {
+      "sha256": "59f70e9109d87edb2d33ab064fd49e57d1f1ec0b3388b9d61d3d095b2db4b0fa",
+      "length": 9042008
+    },
+    "target/release/examples/impact_benchmark": {
+      "sha256": "5818895bed375faf1931088c81eadb1c4d16d8f0320555d9df8a4becf800724a",
+      "length": 9237856
+    },
+    "target/release/examples/neighbours": {
+      "sha256": "56d99e2aa6d0710814327dc5662dc8af95f8a30c0692cbe9b7623e4ab5345b55",
+      "length": 9195104
+    },
+    "target/release/examples/neighbour_benchmark": {
+      "sha256": "6b13894cdb57d7d46ac96ccaea2e4be0c212a50fdf7400a5396627f7af601529",
+      "length": 9225376
+    },
+    "target/release/examples/storage_benchmark": {
+      "sha256": "fa90ec0a7816acef599d664dcfbe0cb97a7660d4ef0d4cf75e632f750d6e5dbb",
+      "length": 9206504
+    },
+    "target/release/examples/rent_impact": {
+      "sha256": "d22bfd9930c3ef92f730faa362c7f5e2dd87e55c583fdb883667d4051732f145",
+      "length": 9447936
+    },
+    "target/release/examples/shared_storage": {
+      "sha256": "a2ae506d92a55c4d34bebedbc999b235a5cc3e4b564e1898961dd3cc25ef56e3",
+      "length": 10048792
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "findmnt",
+        "-T",
+        "/home/iwk/src/knowledgehub",
+        "-J",
+        "-o",
+        "TARGET,SOURCE,FSTYPE,OPTIONS"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "host_workflows.py",
+        "-v"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets",
+        "--no-run",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "d4a5da8a1380ecd6cf8d297ef1c7556e1dbd2810940d1bd200fc17373b34bd90",
+        "length": 48045
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--examples",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "add3b7bdbc9b6719fccee490096d78dc6e3327f3aa632c0d3bd9bdca0e3ca959",
+        "length": 43951
+      }
+    }
+  ],
+  "log": {
+    "sha256": "373ec2e740d77dfd9018a156e293f5ddd98c4879d2904888222e8a2053f614a0",
+    "length": 16240
+  },
+  "native_test_counts": [
+    39,
+    0,
+    6,
+    6,
+    25,
+    12,
+    3,
+    1,
+    2,
+    2,
+    0,
+    2,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1
+  ],
+  "limits": [
+    "host-declared local ext4; actual platform observations in log",
+    "no power-loss, remote-adapter, acceptance or authority-handover claim"
+  ]
+}

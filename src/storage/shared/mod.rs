@@ -7,6 +7,7 @@ mod generation;
 mod maintenance;
 mod neighbours;
 mod objects;
+mod packed_cache;
 mod projection;
 #[cfg(test)]
 use crate::test_specimens as specimens;
@@ -29,6 +30,10 @@ pub struct FileWork {
     pub structural_bytes_written: u64,
     pub state_materialisations: u64,
     pub neighbour_cache_failures: u64,
+    #[serde(default)]
+    pub neighbour_cache_peak_allocated_bytes: u64,
+    #[serde(default)]
+    pub text_cache_peak_allocated_bytes: u64,
 }
 
 /// File-adapter diagnostics; these counts do not establish model completeness or acceptance.
@@ -63,11 +68,17 @@ pub(super) struct Counters {
     write_bytes: AtomicU64,
     index_bytes: AtomicU64,
     rebuilds: AtomicU64,
-    locations: std::sync::Mutex<Option<objects::LocationCache>>,
+    locations: Arc<std::sync::Mutex<Option<objects::LocationCache>>>,
+    neighbour_locations: Arc<std::sync::Mutex<Option<objects::LocationCache>>>,
+    text_locations: Arc<std::sync::Mutex<Option<objects::LocationCache>>>,
     payload_writes: AtomicU64,
     structural_writes: AtomicU64,
     materialisations: AtomicU64,
     neighbour_failures: AtomicU64,
+    allocation_limit: AtomicU64,
+    peak_allocated: Arc<AtomicU64>,
+    neighbour_peak: Arc<AtomicU64>,
+    text_peak: Arc<AtomicU64>,
 }
 impl Counters {
     fn snapshot(&self) -> FileWork {
@@ -82,6 +93,8 @@ impl Counters {
             structural_bytes_written: self.structural_writes.load(Ordering::Relaxed),
             state_materialisations: self.materialisations.load(Ordering::Relaxed),
             neighbour_cache_failures: self.neighbour_failures.load(Ordering::Relaxed),
+            neighbour_cache_peak_allocated_bytes: self.neighbour_peak.load(Ordering::Relaxed),
+            text_cache_peak_allocated_bytes: self.text_peak.load(Ordering::Relaxed),
         }
     }
 }
@@ -113,6 +126,11 @@ fn reserve_file(store: &FileStore, bytes: usize) -> Result<(), Error> {
                 Err(actual) => remaining = actual,
             }
         }
+        let limit = store.work.allocation_limit.load(Ordering::Relaxed);
+        store.work.peak_allocated.fetch_max(
+            limit.saturating_sub(budget.load(Ordering::Relaxed)),
+            Ordering::Relaxed,
+        );
     }
     Ok(())
 }

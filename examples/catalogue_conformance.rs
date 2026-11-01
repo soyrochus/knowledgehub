@@ -1,18 +1,21 @@
 //! Retain a complete synthetic conformance model through the ordinary public API.
+mod file_format;
 #[path = "support/mod.rs"]
 mod seed;
 #[path = "ontology_support/mod.rs"]
 mod specimens;
-use knowledgehub::{backends::files::*, ontology::*};
+use knowledgehub::ontology::*;
 #[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let args = file_format::Arguments::parse()?;
     let path = std::path::PathBuf::from(
-        std::env::args()
-            .nth(1)
+        args.positional
+            .first()
+            .cloned()
             .ok_or("provide a new absolute store path with an existing parent")?,
     );
     let h = OntologyHub::create(
-        FileBackend::new_ontology(&path, FileOptions::local_ext4())?,
+        args.format.backend(&path)?,
         seed::context(),
         specimens::scope(),
     )
@@ -31,7 +34,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let (head, before) = h.snapshot(seed::context()).await?;
     h.drain().await;
     let reopened = OntologyHub::open(
-        FileBackend::new_ontology(&path, FileOptions::local_ext4())?,
+        args.format.backend(&path)?,
         seed::context(),
         specimens::scope(),
     )

@@ -1,0 +1,23 @@
+{
+  "format": "knowledgehub-canonical-rebuild/1",
+  "state": "failed",
+  "target": "/home/iwk/src/knowledgehub/hub",
+  "scope": {
+    "hub": "kh:hub:self-description",
+    "model": "urn:knowledgehub:library",
+    "branch": "main",
+    "owner": "host:maintainer"
+  },
+  "started_at": "2026-11-01T12:38:01.355156+00:00",
+  "reset_started": true,
+  "before": {
+    "exists": false,
+    "files": 0,
+    "bytes": 0,
+    "replay_domain": null
+  },
+  "partial_scope_verified": false,
+  "updated_at": "2026-11-01T12:57:38.177305+00:00",
+  "failed_at": "2026-11-01T12:57:38.177290+00:00",
+  "error": "RuntimeError: populate failed; see /home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/populate.stderr.log"
+}

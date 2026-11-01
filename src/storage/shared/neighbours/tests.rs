@@ -16,6 +16,10 @@ async fn cache_installation_faults_never_replace_the_committed_outcome() {
         "neighbour-nodes-synced",
         "neighbour-manifest-synced",
         "neighbour-cache-installed",
+        "cache-pack-staged",
+        "cache-pack-installed",
+        "cache-pack-indexed",
+        "cache-pack-catalog-installed",
     ]
     .into_iter()
     .enumerate()
@@ -105,7 +109,11 @@ async fn corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity
     let view = generation::view(&objects, &id, &g, &q.selection).unwrap();
     let m = manifest(&c, &Binding::view(&view, q.fact_scope)).unwrap();
     let index = Objects::new(&c);
-    fs::remove_file(index.path(&m.incoming).unwrap()).unwrap();
+    index.get(&m.incoming).unwrap();
+    let pack = index.locations.borrow().as_ref().unwrap()[&m.incoming]
+        .pack
+        .clone();
+    fs::remove_file(c.root.join("objects/packs").join(format!("{pack}.khpack"))).unwrap();
     let page = h.neighbours(f::context(), q.clone()).await.unwrap();
     assert!(page.work.index_rebuilt);
     assert_eq!(page.neighbours, expected);
@@ -347,10 +355,9 @@ async fn preparation_budgets_quota_and_view_eviction_preserve_knowledge() {
         .neighbours;
     let mut c = cache(&b.store);
     c.loose_budget = Some(AtomicU64::new(0));
-    assert!(matches!(
-        Objects::new(&c).put("blob", b"unique quota fixture"),
-        Err(Error::Capacity)
-    ));
+    let pending = Objects::new(&c);
+    pending.put("blob", b"unique quota fixture").unwrap();
+    assert!(matches!(pending.finish(), Err(Error::Capacity)));
     let advertised = fs::read_dir(c.root.join("views"))
         .unwrap()
         .next()

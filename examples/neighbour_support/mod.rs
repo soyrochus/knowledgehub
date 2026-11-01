@@ -309,6 +309,7 @@ pub async fn collect(
         all.extend(p.neighbours);
         work.index_objects_read += p.work.index_objects_read;
         work.index_bytes_read += p.work.index_bytes_read;
+        work.index_metadata_bytes_read += p.work.index_metadata_bytes_read;
         work.record_reads += p.work.record_reads;
         work.examined_postings += p.work.examined_postings;
         work.postings_read += p.work.postings_read;

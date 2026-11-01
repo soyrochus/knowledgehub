@@ -1,6 +1,6 @@
 # Sourced self-model consumer
 
-Status: the canonical rebuild is postponed by user direction. Its unfinished attempt remains at 7/11 under openspec/deferred/rebuild-canonical-hub-and-verify/. The cache-storage prerequisite pack-derived-index-storage is implemented and technically verified; see [packed-cache evidence](../delivery/evidence/packed-cache/README.md). It performed no reset or recapture.
+Status: the resumed canonical rebuild is implemented and technically verified on 1 November 2026. [Fresh run evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new replay domain, exact captured checkpoint, full checks and packed-cache reopen verification. The older failed attempt remains historical; no human acceptance or authority handover is claimed.
 
 `examples/full_self_description.rs` authors through public owned contracts only.
 It never reads private backend files. The host's `capture_self_model.py` reads the
@@ -10,14 +10,14 @@ working-tree status. Git HEAD is recorded as context and never substituted for
 modified bytes. Native run timestamps refer to the observed check batch; individual
 subcase timings are not invented.
 
-The canonical persisted instance is the repository-root [`hub/`](../hub/),
+The canonical persisted instance is the repository-root [`hub/`](../hub/README.md),
 including all accepted generations, original artifacts, A/B and receipts. Run
 `cargo run --offline --release --example inspect_self_model -- --format files3` to reopen it through
 the public API without authoring changes. The inspector reads both explanations,
 compares the exact baselines and recovers the original operation outcomes.
 The recorded source baseline remains exact; moving the store or editing current
 repository files does not refresh its historical model or evidence. The
-[relocation inventory](../delivery/evidence/hub-relocation.json) describes the older files/2 store now retained under `orig_hub/`. The current files/3 dataset comes from the deferred rebuild attempt; [packed-cache evidence](../delivery/evidence/packed-cache/README.md) records its unchanged checkpoint and successful indexed verification.
+[relocation inventory](../delivery/evidence/hub-relocation.json) describes the older files/2 store now retained under `orig_hub/`. The current files/3 dataset comes from the completed fresh rebuild; [new evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) binds its sources, checks and original receipts. Earlier [packed-cache evidence](../delivery/evidence/packed-cache/README.md) describes the older instance before this reset.
 
 To reproduce authoring separately, run the commands in [README](../README.md)
 with fresh store paths, outside the existing canonical Hub. The verifier

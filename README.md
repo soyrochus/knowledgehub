@@ -16,7 +16,7 @@ supplies the method; its Memento examples are not KnowledgeHub requirements.
 
 ## Inspect the canonical self-model
 
-The repository's actual persisted KnowledgeHub is in [`hub/`](hub/).
+The repository's actual persisted KnowledgeHub is in [`hub/`](hub/README.md).
 It contains the ontology catalogue and KnowledgeHub's own sourced model, exact
 artifacts, immutable revision history, A/B baselines and original operation receipts.
 It is repository data, preserved independently of Cargo's `target/` directory.
@@ -33,13 +33,13 @@ the verified source snapshot described in its evidence; it is not automatically
 updated when repository files change. See the [files/3 guide](design/files3-guide.md)
 for its layout and update rules.
 
-Neighbour and text indexes now use [sealed variable-size packs](design/packed-cache-storage.md)
-with bounded compression blocks. The existing canonical data passed public indexed
-queries, reopen and full scrub without changing accepted files; its completed neighbour
-cache uses about 25 MiB. [Evidence](delivery/evidence/packed-cache/README.md) records
-the measurements and full checks. The unfinished canonical rebuild remains
-[deferred at 7/11](openspec/deferred/rebuild-canonical-hub-and-verify/tasks.md);
-this storage change did not refresh the captured model.
+Neighbour and text indexes use [sealed variable-size packs](design/packed-cache-storage.md)
+with bounded compression blocks. The canonical Hub has now been deleted and freshly
+rebuilt from current checked sources, then reopened, compacted and fully verified.
+It has 9,264 selected records and 3,815 explicit draft gaps; its accepted data and
+caches allocate about 40.1 MiB in regular files. The [rebuild evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md)
+records the complete test suite, fresh source checkpoint and exact measurements.
+See [hub/README.md](hub/README.md) for this instance's replay domain and commands.
 
 ## Reproduce the full public walkthrough
 
@@ -117,9 +117,7 @@ cargo run --offline --release --example rent_impact -- /absolute/unused/rent-fix
 See the [query contract and limits](design/deterministic-query-api.md),
 [executable fixture/request](examples/rent_support/mod.rs) and
 [technical evidence](delivery/evidence/impact/README.md).
-The [canonical rebuild](design/canonical-rebuild.md) is postponed after its
-derived-cache allocation failure. The active [sealed-pack change](openspec/changes/pack-derived-index-storage/proposal.md)
-preserves existing data and verifies compact derived indexes; it performs no reset.
+The [canonical rebuild](design/canonical-rebuild.md) is complete after the [sealed-pack change](openspec/changes/pack-derived-index-storage/proposal.md). [Fresh evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new instance and exact captured checkpoint; the older failed attempt remains historical.
 
 ## Compatibility and supported boundary
 

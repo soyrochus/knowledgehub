@@ -164,6 +164,63 @@ def command(root, directory, label, args, results):
     return output
 
 
+def packed_cache_report(target, inspection):
+    """Host physical measurements; accepted data is inspected through the public API."""
+    report = {}
+    for name, quota, counter in (("neighbours", 256 << 20, "neighbour"), ("text", 128 << 20, "text")):
+        root = target / "cache" / name
+        files = sorted(p for p in root.rglob("*") if p.is_file())
+        packs = sorted((root / "objects/packs").glob("*.khpack"))
+        if not packs or any((root / "objects/loose").rglob("*.obj")):
+            raise ValueError("fresh derived cache must use sealed packs: " + name)
+        bindings = {str(p.relative_to(target)): digest(p.read_bytes()) for p in packs}
+        if any(binding["sha256"] != pathlib.Path(p).stem for p, binding in bindings.items()):
+            raise ValueError("derived pack filename/hash mismatch: " + name)
+        seen, allocated = set(), 0
+        for path in files:
+            m = path.stat()
+            identity = (m.st_dev, m.st_ino)
+            if identity not in seen:
+                allocated += m.st_blocks * 512
+                seen.add(identity)
+        peak = inspection["indexed"]["adapter_work"][counter + "_cache_peak_allocated_bytes"]
+        if allocated > quota or peak > quota:
+            raise ValueError("derived allocation quota exceeded: " + name)
+        nodes = set()
+        sidecars = sorted((root / "objects/packs").glob("*.idx"))
+        for path in sidecars:
+            nodes.update(json.loads(path.read_text()))
+        report[name] = dict(files=len(files), packs=len(packs), unique_objects=len(nodes),
+                            encoded_bytes=sum(p.stat().st_size for p in files), allocated_bytes=allocated,
+                            peak_reserved_bytes=peak, quota_bytes=quota, sealed_packs=bindings,
+                            pack_bytes=sum(p.stat().st_size for p in packs),
+                            sidecar_bytes=sum(p.stat().st_size for p in sidecars))
+    return report
+
+
+def verify_reopened(first, second):
+    for key in ("head", "baseline_a", "baseline_b", "original_receipts", "changed_identities"):
+        if first[key] != second[key]:
+            raise ValueError("reopened canonical result differs: " + key)
+    for key in ("warm_neighbours", "search", "composite"):
+        semantic = lambda value: {k: v for k, v in value.items() if k not in ("work", "continuation")}
+        if semantic(first["indexed"][key]) != semantic(second["indexed"][key]):
+            raise ValueError("reopened indexed result differs: " + key)
+    indexed = second["indexed"]
+    if not indexed["cold_neighbours"]["ready"]:
+        raise ValueError("reopened neighbour cache was not ready")
+    cold = indexed["cold_neighbours"]["work"]["index_metadata_bytes_read"]
+    text = indexed["search"]["work"]["index_metadata_bytes_read"]
+    warm = [indexed["warm_neighbours"]["work"], indexed["composite"]["work"], indexed["repeated_composite_work"]]
+    if cold == 0 or text == 0 or any(work["index_metadata_bytes_read"] != 0 for work in warm):
+        raise ValueError("expected accounted cold metadata and reusable warm locations")
+    return dict(exact_semantic_results=True, cold_neighbour_metadata_bytes=cold,
+                cold_text_metadata_bytes=text, warm_metadata_bytes=0,
+                first_composite_work=first["indexed"]["composite"]["work"],
+                reopened_composite_work=indexed["composite"]["work"],
+                composite_full_state_loads=indexed["composite_full_state_loads"])
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--reset", action="store_true", help="explicitly discard this generated Hub instance")
@@ -196,6 +253,14 @@ def main():
             raise ValueError("expected a fresh files/3 replay domain")
     def verify():
         inspection = command(ROOT, directory, "inspect", [binaries / "inspect_self_model", "--format", "files3", "--verify", "--compact", args.target], results)
+        report = json.loads(inspection.read_text())
+        caches = packed_cache_report(args.target, report)
+        reopened = command(ROOT, directory, "inspect-reopened", [binaries / "inspect_self_model", "--format", "files3", "--verify", args.target], results)
+        reopened_report = json.loads(reopened.read_text())
+        reads = verify_reopened(report, reopened_report)
+        after = packed_cache_report(args.target, reopened_report)
+        if any(caches[name]["sealed_packs"] != after[name]["sealed_packs"] for name in caches):
+            raise ValueError("sealed packs changed during read-only reopen")
         # Fixtures live on the supported repository filesystem, never in the canonical store.
         fixture_root = pathlib.Path(tempfile.mkdtemp(prefix="kh-rebuild-", dir=ROOT / "target"))
         catalogue = command(ROOT, directory, "catalogue", [binaries / "catalogue_conformance", "--format", "files3", fixture_root / "catalogue"], results)
@@ -203,13 +268,15 @@ def main():
             command(ROOT, directory, example, [binaries / example, fixture_root / example], results)
         command(ROOT, directory, "coverage", [sys.executable, ROOT / "scripts/audit_full_ontology.py", catalogue, directory / "self-model-result.json", directory / "self-model-input.json",
                 "--log", directory / "native.log", "--output", directory / "coverage-audit.json"], results)
-        report = json.loads(inspection.read_text())
         meta = json.loads((args.target / "hub.json").read_text())
         capture = json.loads((directory / "self-model-input.json").read_text())
         final = dict(format=SCHEMA, replay_domain=meta["replay_domain"], scope=meta["scope"], native=checked["log"],
                      captured_at=capture["captured_at"], capture=digest((directory / "self-model-input.json").read_bytes()),
                      selected_records=report["selected_records"], retained_revisions=report["retained_revisions"],
                      explicit_gaps=report["explicit_gaps"], scrub=report["scrub"],
+                     head=report["head"], original_receipts=report["original_receipts"],
+                     captured_files=len(capture["files"]), source_units=len(capture["units"]),
+                     packed_caches=caches, reopened_reads=reads,
                      source_checkpoint="captured after successful exact-input batch, before final task/report/generated-guide edits",
                      human_acceptance=False, authority_handover=False, migration_continuity=False)
         guide = f"""# Canonical KnowledgeHub demonstration

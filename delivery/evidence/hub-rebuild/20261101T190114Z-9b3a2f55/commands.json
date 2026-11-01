@@ -1,0 +1,187 @@
+[
+  {
+    "name": "capture",
+    "command": [
+      "/usr/bin/python3",
+      "/home/iwk/src/knowledgehub/examples/capture_self_model.py",
+      "--output",
+      "delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-input.json",
+      "--derived",
+      "delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/ontology-pdf-extracted.txt",
+      "--log",
+      "delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/native.log",
+      "--checked-manifest",
+      "delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/checked.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.7136905690058484,
+    "output": {
+      "sha256": "b1d90e22c54881a332c2fc08671afeb3d175b16f1d06ae228fb7a5ca126f9ef3",
+      "length": 139
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "validate-input",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "--format",
+      "files3",
+      "--validate-input",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-input.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.7952884119949886,
+    "output": {
+      "sha256": "a375add2f04c55f102ec2cd1ec858a6c869fc37617e81f5be1f59e31b1410c12",
+      "length": 66
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "populate",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "--format",
+      "files3",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-input.json",
+      "/home/iwk/src/knowledgehub/hub",
+      "--result",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-result.json"
+    ],
+    "exit_code": 0,
+    "seconds": 388.3399938770017,
+    "output": {
+      "sha256": "f788f2df60d3fdaba6bf85961cbf6aaff731e8bef462bbf0b1d46f964afdd24d",
+      "length": 247
+    },
+    "stderr": {
+      "sha256": "1ec6de9660350f31c2ef8157a4ca81cfb2dbd309e15afa00edbfe29c68e81f0f",
+      "length": 557
+    }
+  },
+  {
+    "name": "inspect",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--format",
+      "files3",
+      "--verify",
+      "--compact",
+      "/home/iwk/src/knowledgehub/hub"
+    ],
+    "exit_code": 0,
+    "seconds": 213.21301358399796,
+    "output": {
+      "sha256": "c57b7c5de7a807531a4c73494682e7f6c6c81d67f20b02700f1b875ebf1b7460",
+      "length": 96008
+    },
+    "stderr": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    }
+  },
+  {
+    "name": "inspect-reopened",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--format",
+      "files3",
+      "--verify",
+      "/home/iwk/src/knowledgehub/hub"
+    ],
+    "exit_code": 0,
+    "seconds": 98.28238525299821,
+    "output": {
+      "sha256": "2040a8db1bfc8a1258ce93ddb5dcb97e61b75bb0dc1a6e0cdc1c8c03f6ddac05",
+      "length": 95298
+    },
+    "stderr": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    }
+  },
+  {
+    "name": "catalogue",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/catalogue_conformance",
+      "--format",
+      "files3",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-j65qf81m/catalogue"
+    ],
+    "exit_code": 0,
+    "seconds": 5.733963585000311,
+    "output": {
+      "sha256": "2e76843af205f83376bc57d214a5ed6514518fb8cdd909f837d5733acce9d8b7",
+      "length": 484756
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "neighbours",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/neighbours",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-j65qf81m/neighbours"
+    ],
+    "exit_code": 0,
+    "seconds": 6.598931499996979,
+    "output": {
+      "sha256": "b37b21dc61321e2e42baafa640fbb59e295c1a44b3eed0a58c16517b61c6b75c",
+      "length": 21309
+    },
+    "stderr": {
+      "sha256": "ca706c575b7b26f82cee613dd79817be0196a8fe60c8e2876fc101b8c1e77dcb",
+      "length": 121
+    }
+  },
+  {
+    "name": "rent_impact",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/rent_impact",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-j65qf81m/rent_impact"
+    ],
+    "exit_code": 0,
+    "seconds": 6.497722842002986,
+    "output": {
+      "sha256": "bf3f889afd7830b27fc6c9ee44ee5059af9e5fdc43abbcd822030de393212609",
+      "length": 14370
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "coverage",
+    "command": [
+      "/usr/bin/python3",
+      "/home/iwk/src/knowledgehub/scripts/audit_full_ontology.py",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/catalogue.json",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-result.json",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/self-model-input.json",
+      "--log",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/native.log",
+      "--output",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/coverage-audit.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.09911218600609573,
+    "output": {
+      "sha256": "fca4e0baf39932328aae0ada420e427f239f61eefc64d6f3186a49dd943d3e0f",
+      "length": 168
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  }
+]

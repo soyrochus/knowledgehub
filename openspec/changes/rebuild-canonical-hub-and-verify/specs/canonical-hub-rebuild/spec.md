@@ -1,6 +1,6 @@
 ## Purpose
 
-Deferred by user direction on 1 November 2026. Retained historical contract; no rebuild completion is claimed.
+Resumed by explicit user direction on 1 November 2026 after KH-SL-013. The previous failed attempt remains historical; fresh completion requires every requirement below against the current checkpoint.
 
 Delete and regenerate the explicitly disposable canonical KnowledgeHub demonstration in files/3, using current checked sources and actual complete-suite/public-walkthrough results. Trace: KH-US-30; KH-DR-02/04–13/15/17–23; ontology §§17/21.10; file-storage §13.3.
 
@@ -76,3 +76,10 @@ A fresh populated Hub SHALL preserve source status, actual test scope, declared 
 #### Scenario: Structurally valid draft is rebuilt
 - **WHEN** all required technical checks pass with remaining declared draft gaps
 - **THEN** the result reports successful technical verification and those gaps without inventing purpose completeness or human approval
+
+### Requirement: Packed-storage compatibility and selective cache reads
+The fresh run SHALL retain files/3 logical contracts, use existing explicit compaction for accepted packs, and verify sealed variable-size neighbour/text cache packs under unchanged allocation quotas. It SHALL account encoded, allocated and peak regular-file space and separately charge cold location metadata. A newly opened backend SHALL return identical semantic results and reuse metadata on subsequent warm batches.
+
+#### Scenario: Rebuild after derived packing is implemented
+- **WHEN** the current source model is regenerated and indexed
+- **THEN** required packs have valid content-addressed names, actual queries and reopened results agree, the original quotas hold and subsequent warm batches do not reload all sidecars

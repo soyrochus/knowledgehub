@@ -7,3 +7,5 @@
 /.knowledgehub-create-*.lock
 /hub/cache/
 **/__pycache__/
+hub/
+

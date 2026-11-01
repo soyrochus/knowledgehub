@@ -1,3 +1,9 @@
+# Rebuild resumption — 1 November 2026
+
+The user authorised checking the old rebuild against pack-derived-index-storage, deleting hub/ and regenerating it. The previous attempt remains failed at delivery/evidence/hub-rebuild/20261101T123801Z-d7b406f3/. Its 7/11 task snapshot follows. The new attempt reuses the three implemented tooling tasks and repeats every source-bound execution task against the current checkpoint. Old evidence and orig_hub/ remain outside the reset target.
+
+## Previous task state
+
 # Tasks
 
 Deferred by user direction on 1 November 2026. The unfinished 7/11 attempt and failed evidence remain historical. Its active completion plan is obsolete pending [pack-derived-index-storage](../../changes/pack-derived-index-storage/proposal.md); no completion/archive is claimed.

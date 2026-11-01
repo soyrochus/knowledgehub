@@ -1,0 +1,5 @@
+{
+  "state": "not_completed",
+  "scope": "Optional concurrent physical read outside the orchestrated checks; not counted as verification.",
+  "reason": "Reading the old cache overlapped the authorised reset and found its files already removed. No writes were performed. Required post-population cache checks remain in the orchestrator."
+}

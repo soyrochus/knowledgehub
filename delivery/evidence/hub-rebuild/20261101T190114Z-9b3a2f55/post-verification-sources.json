@@ -1,0 +1,102 @@
+{
+  "all_checked_executables_match": true,
+  "all_required_commands_succeeded": true,
+  "authority_handover": false,
+  "changed_sources": {
+    "README.md": {
+      "checked": {
+        "length": 9482,
+        "sha256": "ba88cc1665c2f90165d9c2c0cfd5f3e8e7cc95e4c0fa53bdbfbd37bba2544951"
+      },
+      "final": {
+        "length": 9532,
+        "sha256": "d81e7f5926ae44b2ba694cff9a4c8ef0a7bcbed5cd7f3a0974104374d56dd9e9"
+      }
+    },
+    "delivery/slice-plan.md": {
+      "checked": {
+        "length": 36478,
+        "sha256": "67fae62c01596802d3b8194dd5ea9597b82fc600749232e5628a095e459ac9a2"
+      },
+      "final": {
+        "length": 37078,
+        "sha256": "63289dcef162a0a7b86a3c63b7d70fe3b42da87e12390e5221c8327b504677ae"
+      }
+    },
+    "design/canonical-rebuild.md": {
+      "checked": {
+        "length": 6493,
+        "sha256": "fa60efb55770de0a6112d458dc5e1aff76e08c68d3eb7a9e65a87b772f8ba2cb"
+      },
+      "final": {
+        "length": 6524,
+        "sha256": "403fd3a522c0ff0bd8cda0c621710c17dcd1a9eeda5d973f0d44179dccf65350"
+      }
+    },
+    "design/packed-cache-storage.md": {
+      "checked": {
+        "length": 5818,
+        "sha256": "82719b33086d475b9b9460d125347806bf9b2a0258da742abe8cac8a0e6cf913"
+      },
+      "final": {
+        "length": 6130,
+        "sha256": "f866d13895773ea49caf8ccb96130d1b07599b89ce067665b7720788985a7c36"
+      }
+    },
+    "design/self-hosting-plan.md": {
+      "checked": {
+        "length": 38892,
+        "sha256": "4b83f0deae53af5a7a3246c9f387a386670d647c47145db00b4b796e9e4c46e3"
+      },
+      "final": {
+        "length": 39611,
+        "sha256": "c3e40c896c98001fa0ee82872bc6978531aff637870123d6b80aef74d370713c"
+      }
+    },
+    "design/self-model-consumer.md": {
+      "checked": {
+        "length": 6308,
+        "sha256": "38f7da01d23c3fc1394a2d704dc3d55497c96dab78ebc968d3ffcecca326aee2"
+      },
+      "final": {
+        "length": 6467,
+        "sha256": "6020990c220128be590b5f3ad4a479b1f14a8cb13dc1ae6ed76c8fb9a7971fe7"
+      }
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/design.md": {
+      "checked": {
+        "length": 10615,
+        "sha256": "b1e036d3c868d9629f540dd933187ec8991128d81b760a5093a48976a8df20fe"
+      },
+      "final": {
+        "length": 10728,
+        "sha256": "c5617baddce5494bac27278804b3bc0749ee70974d3ea6aa61287e153c00864c"
+      }
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/proposal.md": {
+      "checked": {
+        "length": 4453,
+        "sha256": "754f3dbcbf769b530ced76a73e12d5495d8532540e5b9a8ec5a60afa24aef33c"
+      },
+      "final": {
+        "length": 4566,
+        "sha256": "defa08c98d00c03732a30b314dde7b803d6ec3ab7b251f4ac541d83c5d1acd2c"
+      }
+    },
+    "openspec/changes/rebuild-canonical-hub-and-verify/tasks.md": {
+      "checked": {
+        "length": 5104,
+        "sha256": "96dc3955f0f0ef8a2501f1d2922c0c39a3f7a3eebe91d856a27a89e315062ce9"
+      },
+      "final": {
+        "length": 5235,
+        "sha256": "69f9630892f3b4476b09e477b7fbacaf10d4ce85e9e6417ae240c2ec14442453"
+      }
+    }
+  },
+  "current_document_links_resolve": true,
+  "human_acceptance": false,
+  "previous_attempt_remains_failed": true,
+  "required_commands": 9,
+  "scope": "Final task/status/documentation updates after exact checked capture; no implementation, test, host-tool or checked binary changes."
+}

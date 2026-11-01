@@ -248,9 +248,13 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 
 - **Actor/trigger:** maintainer regenerates the root `hub/` demonstration after shared storage and indexed query implementation.
 - **Outcome:** run the full native suite/checks on final code, capture current verified sources, delete all previous canonical content, populate a fresh files/3 self-model, then drain/reopen/scrub and execute public/catalogue/indexed walkthroughs.
-- **Hard prerequisites:** verified KH-SL-009/010/011; current capture/loader/source bindings and successful exact-source native checks. No general migration or recovery-backup implementation is needed.
-- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/deferred/rebuild-canonical-hub-and-verify/proposal.md).
+- **Hard prerequisites:** verified KH-SL-009/010/011/013; current capture/loader/source bindings and successful exact-source native checks. No general migration or recovery-backup implementation is needed.
+- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md).
 - **Acceptance:** old generated content removed; new replay domain/history and actual new A/B/receipts/source/gap counts; all required tests/walkthroughs pass with new evidence. Preflight failure preserves old data; post-reset failure remains explicitly incomplete. Older evidence is not relabelled. KH-SL-005 backup/interchange and KH-SL-006 authority scope remain deferred.
+
+- **Resumed scope:** the user authorised a fresh checked/captured reset on 1 November 2026 after KH-SL-013. Reuse three implemented tooling tasks and rerun eight execution tasks, including sealed-cache quotas/hashes and cold/warm reopen equivalence. The previous failed attempt remains historical.
+
+- **Observed delivery:** [KH-SL-012 completed evidence](evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records a fresh reset after 100 Rust tests, one doctest, 11 host tests, formatting, Clippy and release builds. Capture covers 149 artifacts/2,049 units; the new canonical instance has 9,264 selected records, 9,270 revisions and 3,815 draft gaps. Both inspectors, full scrub/compaction, packed-cache hashes/quotas/warm reuse, catalogue, late-neighbour, rent and coverage walkthroughs pass. Regular files allocate about 40.1 MiB. Human acceptance and authority handover remain separate.
 
 ### KH-SL-013 — Keep derived indexes compact with sealed packs
 
@@ -258,5 +262,5 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Outcome:** variable-size sealed packs with bounded compression blocks retain exact query semantics under unchanged allocated-space quotas, with reusable warm location metadata.
 - **Dependencies:** KH-SL-009–011. [Change](../openspec/changes/pack-derived-index-storage/proposal.md). The user explicitly authorised proposing and implementing this outcome on 1 November 2026.
 - **Acceptance:** bounded publication/failure/quota handling, old/new cache equivalence, unchanged accepted Hub data, actual canonical queries and full technical evidence.
-- **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/deferred/rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; any future rebuild needs a refreshed/resumed scope.
+- **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; the user subsequently authorised the refreshed KH-SL-012 scope above.
 - **Observed delivery:** [KH-SL-013 evidence](evidence/packed-cache/README.md) records 100 native tests, one doctest, 11 host tests, formatting, Clippy and release builds. The existing canonical model passes public neighbour/text/three-hop composite reads, reopen and full scrub, with all 22,842 non-cache files unchanged. The completed neighbour cache allocates 26,177,536 bytes across 306 files; text allocates 1,269,760 bytes. Cold metadata is loaded once per namespace and warm batches load none. Human acceptance and authority handover remain separate.

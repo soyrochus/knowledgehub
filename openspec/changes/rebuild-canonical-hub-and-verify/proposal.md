@@ -1,8 +1,8 @@
 # Proposal
 
-Deferred by user direction on 1 November 2026. The unfinished 7/11 attempt and failed evidence remain historical. Its active completion plan is obsolete pending [pack-derived-index-storage](../../changes/pack-derived-index-storage/proposal.md); no completion/archive is claimed.
+Resumed by user direction on 1 November 2026 after completion of [pack-derived-index-storage](../pack-derived-index-storage/proposal.md). The earlier failed 7/11 attempt remains historical; this execution repeats checks, capture, reset and population against the current packed-index implementation. The fresh run is now technically verified; see delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md. No human acceptance or archive is claimed.
 
-Planning draft · KH-SL-012 · 31 October 2026. Replaces the proposed migration outcome at the user's direction; applying this change will explicitly discard and regenerate the demonstration.
+Authorised refreshed scope · KH-SL-012 · 1 November 2026. Replaces the proposed migration outcome at the user's direction; applying this change will explicitly discard and regenerate the demonstration.
 
 ## Why
 
@@ -15,9 +15,10 @@ The canonical `hub/` is a generated self-description whose inputs live in the re
 - Run the complete native test suite, doctests, formatting and Clippy against final code before deletion; bind fresh source capture to those actual successful checks using new run-specific evidence paths.
 - Populate the full catalogue and current applicable KnowledgeHub self-model, create new A/B explanations and receipts, drain/reopen, scrub and perform the public and indexed-query walkthroughs.
 - Mark failed/incomplete rebuilds explicitly and publish completion only after the new store's checks pass. Retain historical evidence outside `hub/` as older-run records, without relabelling it as current.
+- Check the files/3 and sealed-cache compatibility boundary, pack accepted objects through existing compaction, verify packed cache hashes/quotas and cold metadata reuse after reopening, and preserve exact query results.
 - Report actual new source/model counts, draft gaps, logical/encoded/allocated bytes and cold/warm lookup work. A fresh rebuild has a new replay domain and history, not migration continuity.
 
-Outcome: KH-US-30; a maintainer applies the reset/rebuild workflow, obtains a newly verified canonical self-description and a complete test/walkthrough report. Hard prerequisites: [shared files/3 storage](../../changes/share-immutable-file-storage/proposal.md), [neighbours](../../changes/index-ontology-neighbours/proposal.md) and [composite queries](../../changes/query-deterministic-model-impact/proposal.md).
+Outcome: KH-US-30; a maintainer applies the reset/rebuild workflow, obtains a newly verified canonical self-description and a complete test/walkthrough report. Hard prerequisites: [shared files/3 storage](../share-immutable-file-storage/proposal.md), [neighbours](../index-ontology-neighbours/proposal.md) and [composite queries](../query-deterministic-model-impact/proposal.md), plus completed [sealed derived packs](../pack-derived-index-storage/proposal.md).
 
 Trace: ontology §§4–5/17/21.3–21.7/21.10; [file-storage proposal](../../../source/file-storage-proposal.md) §13.3/14–15; KH-DR-02/04–13/15/17–23 and user-selected KH-D-19. This does not implement the residual KH-SL-005 migration/backup/interchange scope or KH-SL-006 authority transfer.
 

@@ -1,0 +1,8 @@
+{
+  "scope": "Fresh reset run; original unrelated files/2 store and historical evidence retained.",
+  "original_files2_unchanged": 426,
+  "old_replay_domain": "0b449a8e73e8b6380b8b265c478ace341845d2f67cc117338c7175a642077009",
+  "new_replay_domain": "aa574094b460be73b70ecfab007bb216dc1d6f434bb69debdd870d4cbbe7c7cf",
+  "new_instance": true,
+  "exact_checked_source_and_binaries_verified_before_final_status_edits": true
+}

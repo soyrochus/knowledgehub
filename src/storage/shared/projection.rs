@@ -474,6 +474,26 @@ pub(super) fn read_gaps(objects: &Objects<'_>, root: &str) -> Result<Vec<Gap>, E
         })
         .collect()
 }
+pub(super) fn bounded_gaps(objects: &Objects<'_>, root: &str) -> Result<(Vec<Gap>, bool), Error> {
+    let t = Tree { objects };
+    let count = t.seq_count(root, "gap-oids/1")?;
+    let mut gaps = Vec::new();
+    let mut bytes = 0;
+    for v in t.seq_range(root, "gap-oids/1", 0, count.min(100))? {
+        let g: StoredGap =
+            objects.get_json(v.as_str().ok_or_else(|| integrity("gap OID"))?, "gap")?;
+        if g.schema != "knowledgehub-gap/1" {
+            return Err(integrity("gap schema"));
+        }
+        bytes += json(&g.value)?.len();
+        if bytes > 65536 {
+            break;
+        }
+        gaps.push(g.value);
+    }
+    let omitted = gaps.len() as u64 != count;
+    Ok((gaps, omitted))
+}
 pub(super) fn encode_receipt(objects: &Objects<'_>, receipt: &Receipt) -> Result<String, Error> {
     let mut fields = serde_json::to_value(receipt).map_err(codec::encoding)?;
     let m = fields.as_object_mut().unwrap();

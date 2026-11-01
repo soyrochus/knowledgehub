@@ -12,6 +12,7 @@ mod projection;
 use crate::test_specimens as specimens;
 #[cfg(test)]
 mod tests;
+mod text;
 mod trees;
 pub(super) use generation::{acquire, create};
 

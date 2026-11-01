@@ -1,0 +1,10 @@
+{
+  "checked_documents": [
+    "design/deterministic-query-api.md",
+    "delivery/evidence/impact/README.md",
+    "delivery/slice-plan.md",
+    "design/self-hosting-plan.md",
+    "design/domain-analysis.md"
+  ],
+  "missing_local_links": []
+}

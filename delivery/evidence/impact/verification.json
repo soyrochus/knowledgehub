@@ -1,0 +1,129 @@
+{
+  "verified_at": "2026-10-31T23:50:06.261242+00:00",
+  "change": "query-deterministic-model-impact",
+  "native_tests": 92,
+  "doctests": 1,
+  "native": {
+    "command": [
+      "cargo",
+      "test",
+      "--offline"
+    ],
+    "exit_code": 0,
+    "seconds": 539.6021132999958
+  },
+  "final_rent": {
+    "exit_code": 0,
+    "seconds": 104.94567214300332,
+    "inputs": "rent-final-inputs.json"
+  },
+  "checks": [
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.7640745920070913,
+      "log": "format.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "seconds": 5.038646224995318,
+      "log": "clippy.log"
+    },
+    {
+      "command": [
+        "openspec",
+        "validate",
+        "query-deterministic-model-impact",
+        "--strict"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3669872399987071,
+      "log": "openspec.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      "exit_code": 0,
+      "seconds": 0.3917899930020212,
+      "log": "final-format.log"
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "seconds": 0.2462776410029619,
+      "log": "final-clippy.log"
+    }
+  ],
+  "examples": [
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "delivery/evidence/impact/rent_impact-resources.log",
+        "target/release/examples/rent_impact",
+        "/home/iwk/src/knowledgehub/target/kh-impact-evidence-x486cgrp/rent_impact"
+      ],
+      "exit_code": 0,
+      "seconds": 50.879065280998475,
+      "binary_sha256": "d22bfd9930c3ef92f730faa362c7f5e2dd87e55c583fdb883667d4051732f145",
+      "output": "rent_impact.json"
+    },
+    {
+      "command": [
+        "/usr/bin/time",
+        "-v",
+        "-o",
+        "delivery/evidence/impact/impact_benchmark-resources.log",
+        "target/release/examples/impact_benchmark",
+        "/home/iwk/src/knowledgehub/target/kh-impact-evidence-x486cgrp/impact_benchmark"
+      ],
+      "exit_code": 0,
+      "seconds": 295.39684254899475,
+      "binary_sha256": "5818895bed375faf1931088c81eadb1c4d16d8f0320555d9df8a4becf800724a",
+      "output": "impact_benchmark.json"
+    }
+  ],
+  "production_inputs_unchanged_since_full_build": true,
+  "final_inputs": "rent-final-inputs.json",
+  "original_inputs": "build-inputs.json",
+  "canonical_reset": false,
+  "human_acceptance": false,
+  "authority_handover": false,
+  "notes": [
+    "Original full-suite manifest preserved; final strengthened rent test input and successful focused execution are separately bound.",
+    "First /tmp invocation was explicitly refused by the existing filesystem profile; successful release examples ran under target/."
+  ],
+  "openspec_progress": {
+    "complete": 13,
+    "total": 13,
+    "state": "all_done"
+  },
+  "document_links": "document-links.json",
+  "final_strict_validation": "passed after 13/13 task completion",
+  "final_diff_check": "passed"
+}

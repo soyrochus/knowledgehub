@@ -410,6 +410,7 @@ pub(super) fn prepare(
         index_objects_read: c.work.snapshot().object_reads,
         index_bytes_read: c.work.snapshot().encoded_bytes_read,
         record_reads: records.reads,
+        record_bytes: records.bytes as u64,
         index_rebuilt: true,
         rebuild_reason: Some(
             if exists {

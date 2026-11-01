@@ -300,6 +300,7 @@ async fn finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query() 
                     truncated: None,
                     touched: now,
                     neighbour: None,
+                    impact: None,
                 },
             );
         }

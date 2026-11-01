@@ -1,0 +1,16 @@
+[
+  {
+    "command": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "delivery/evidence/impact/rent_impact-resources.log",
+      "target/release/examples/rent_impact",
+      "/tmp/kh-impact-evidence-f5ybbvqa/rent_impact"
+    ],
+    "exit_code": 1,
+    "seconds": 0.007486449998395983,
+    "binary_sha256": "d22bfd9930c3ef92f730faa362c7f5e2dd87e55c583fdb883667d4051732f145",
+    "output": "rent_impact.json"
+  }
+]

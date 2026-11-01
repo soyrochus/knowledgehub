@@ -1,0 +1,26 @@
+[
+  {
+    "command": [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.3917899930020212,
+    "log": "final-format.log"
+  },
+  {
+    "command": [
+      "cargo",
+      "clippy",
+      "--offline",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "seconds": 0.2462776410029619,
+    "log": "final-clippy.log"
+  }
+]

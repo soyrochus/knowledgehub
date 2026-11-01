@@ -1,0 +1,37 @@
+[
+  {
+    "command": [
+      "cargo",
+      "fmt",
+      "--check"
+    ],
+    "exit_code": 0,
+    "seconds": 0.7640745920070913,
+    "log": "format.log"
+  },
+  {
+    "command": [
+      "cargo",
+      "clippy",
+      "--offline",
+      "--all-targets",
+      "--",
+      "-D",
+      "warnings"
+    ],
+    "exit_code": 0,
+    "seconds": 5.038646224995318,
+    "log": "clippy.log"
+  },
+  {
+    "command": [
+      "openspec",
+      "validate",
+      "query-deterministic-model-impact",
+      "--strict"
+    ],
+    "exit_code": 0,
+    "seconds": 0.3669872399987071,
+    "log": "openspec.log"
+  }
+]

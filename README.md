@@ -91,6 +91,25 @@ Exact retries recover that receipt before stale-base checks. Current access stil
 applies. The host drains admitted work before stopping Tokio; defaults are 4 active
 and 32 waiting blocking jobs per backend. Both scheduler configurations are tested.
 
+## Deterministic dependency reads
+
+The additive files/3 operations `search_text`, `traverse` and `model_impact`
+combine literal text entry, bounded typed traversal and exact evidence. A composite
+request returns grouped candidate dependencies in one pinned view, with explicit
+ambiguity, coverage gaps and work limits. The engine follows recorded facts and
+does not infer whether a database migration is necessary.
+
+Run the isolated fictional rent example with an absent absolute destination:
+
+~~~sh
+cargo run --offline --release --example rent_impact -- /absolute/unused/rent-fixture
+~~~
+
+See the [query contract and limits](design/deterministic-query-api.md),
+[executable fixture/request](examples/rent_support/mod.rs) and
+[technical evidence](delivery/evidence/impact/README.md).
+The canonical demonstration is rebuilt in its separate subsequent change.
+
 ## Compatibility and supported boundary
 
 The original `KnowledgeHub` and `FileBackend::new` preserve the files/1 seed API,

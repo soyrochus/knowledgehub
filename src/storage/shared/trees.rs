@@ -6,7 +6,7 @@ use serde_json::Value;
 const MAX_ITEMS: usize = 1_000_000;
 const MAP_SCHEMA: &str = "knowledgehub-map-node/1";
 const SEQ_SCHEMA: &str = "knowledgehub-sequence-node/1";
-fn spaces() -> [&'static str; 8] {
+fn spaces() -> [&'static str; 10] {
     [
         "selection/1",
         "revisions/1",
@@ -16,19 +16,26 @@ fn spaces() -> [&'static str; 8] {
         "ancestors/1",
         "neighbour-endpoints/1",
         "neighbour-selectors/1",
+        "text-grams/1",
+        "text-fields/1",
     ]
 }
-fn item_types() -> [&'static str; 5] {
+fn item_types() -> [&'static str; 6] {
     [
         "exact-refs/1",
         "legacy-refs/1",
         "gap-oids/1",
         "chunks/1",
         "neighbour-postings/1",
+        "text-postings/1",
     ]
 }
 fn item_valid(t: &str, v: &Value) -> bool {
     match t {
+        "text-postings/1" => {
+            serde_json::from_value::<crate::ontology::impact::text::FieldRef>(v.clone())
+                .is_ok_and(|f| f.valid())
+        }
         "neighbour-postings/1" => {
             serde_json::from_value::<crate::ontology::neighbours::Posting>(v.clone())
                 .is_ok_and(|p| p.valid())
@@ -89,6 +96,15 @@ pub(super) struct Tree<'a, 'b> {
 
 fn key_valid(space: &str, key: &Value) -> bool {
     match space {
+        "text-fields/1" => {
+            serde_json::from_value::<crate::ontology::impact::text::FieldRef>(key.clone())
+                .is_ok_and(|f| f.valid())
+        }
+        "text-grams/1" => key.as_str().is_some_and(|s| {
+            s.len() == 6
+                && s.bytes()
+                    .all(|b| b.is_ascii_digit() || (b'a'..=b'f').contains(&b))
+        }),
         "selection/1"
         | "revisions/1"
         | "exact-reference-set/1"

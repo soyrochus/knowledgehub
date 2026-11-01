@@ -1,0 +1,291 @@
+{
+  "started_at": "2026-10-31T23:39:26.780953+00:00",
+  "base_commit": "9c63846b42bbfe9f7a775c4ca46d42bac9b134bb",
+  "toolchain": {
+    "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: x86_64-unknown-linux-gnu\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+    "cargo": "cargo 1.99.1 (5f94df478 2026-08-27)\n"
+  },
+  "host": {
+    "system": "Linux",
+    "node": "iwk-HX90",
+    "release": "7.0.0-38-generic",
+    "version": "#38-Ubuntu SMP PREEMPT_DYNAMIC Fri Sep  4 09:10:14 UTC 2026",
+    "machine": "x86_64",
+    "processor": ""
+  },
+  "filesystem": "ext2/ext3",
+  "inputs": {
+    "Cargo.lock": {
+      "sha256": "b63eb114657ab849e81bfe94852f0750011c54f93f919e1497292c717ff01e97",
+      "length": 7815
+    },
+    "Cargo.toml": {
+      "sha256": "08fe7a64c0e857520a88426fb3b8a09c73ddd8d8ebf84d2291ba6af398e7c082",
+      "length": 555
+    },
+    "README.md": {
+      "sha256": "d6816d719663d3d6200692e6c1095942ef82684c4c169c347faf4e8699e7649b",
+      "length": 8340
+    },
+    "examples/catalogue_conformance.rs": {
+      "sha256": "45f071aa3660819705432d8301099cdf0ea9cc687906c17abd2f1ff0349e4be6",
+      "length": 3160
+    },
+    "examples/full_self_description.rs": {
+      "sha256": "8f86b604d1f8d8941fb4d5003bd7574ac3b7d844cb8c4de81a266d052c2dc670",
+      "length": 14200
+    },
+    "examples/impact_benchmark.rs": {
+      "sha256": "b2a0405b0b044a586b2bb0c1b01a9f5bc2f0e7ac0625ce9994dd951403eafc88",
+      "length": 4538
+    },
+    "examples/inspect_self_model.rs": {
+      "sha256": "df3da7a275fff52137d6541bd96fc29418cb61b7d7d12a10d51473ccc156b57c",
+      "length": 4438
+    },
+    "examples/neighbour_benchmark.rs": {
+      "sha256": "1fda578d19acf6f6103ec21e166605a096e771db322156b0c77e90098af35c7b",
+      "length": 7158
+    },
+    "examples/neighbour_support/mod.rs": {
+      "sha256": "1e78044923d65049e079c9385fb8c8396d23bbd60b35955d382462975a774fae",
+      "length": 11239
+    },
+    "examples/neighbours.rs": {
+      "sha256": "95e97b71e497a3807ddc5c0877c8bb039143b48deed84a5507b1bf788f9bae86",
+      "length": 7119
+    },
+    "examples/ontology_support/mod.rs": {
+      "sha256": "231e6ab26cd738f4898ae5e4ba0bd9d07d34ee6d2befe1c60ce8c4bb4c8e6b71",
+      "length": 18794
+    },
+    "examples/rent_impact.rs": {
+      "sha256": "79d66fac4d2188a48df0ed04108d0876ef363181008b49fdc1902162bd3403db",
+      "length": 600
+    },
+    "examples/rent_support/mod.rs": {
+      "sha256": "bf902a56800b1d8598b37189cd7f7d49ab89c07e3036f1c07db0cd1414da966c",
+      "length": 10563
+    },
+    "examples/seed.rs": {
+      "sha256": "67ef6f609fcaaba6c5f2b3dced10bca9def41881ea71a97a7e3dd135d8a56179",
+      "length": 2822
+    },
+    "examples/self_model_support/mod.rs": {
+      "sha256": "ef35b9c97979b06db117c30220664b9c4d8c3daadd0ece9669a8ca4e2c52c03f",
+      "length": 83283
+    },
+    "examples/shared_storage.rs": {
+      "sha256": "dea539e71429703d06a7f5d799d4ed00e4547d5ca5cf82c4f24937aa6bf8dcb4",
+      "length": 7088
+    },
+    "examples/storage_benchmark.rs": {
+      "sha256": "65742431c33f2af2c3948241d73bda5276dd9e41aed212d24bf4841f4b3f01b7",
+      "length": 8702
+    },
+    "examples/support/mod.rs": {
+      "sha256": "29921ff438c1829ac77a80442bda0b5f6467a83496b79d1734fea1340b93d26b",
+      "length": 6726
+    },
+    "source/system-definition-ontology-proposal.md": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "source/system-definition-ontology-proposal.pdf": {
+      "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+      "length": 479613
+    },
+    "src/application.rs": {
+      "sha256": "258ce922a2a1f2602a10eaa21878e3c6a068703cfe4f40a0386a85728e25840a",
+      "length": 8781
+    },
+    "src/codec.rs": {
+      "sha256": "a18d7476c466eacaa3ba9137418381be8f98a3b073fbbed09107b0a959c96236",
+      "length": 6864
+    },
+    "src/contracts.rs": {
+      "sha256": "c95297b939a03217bb11e554b7ff1c210eccf5e8accf99a6d74c647e9ee5e804",
+      "length": 15284
+    },
+    "src/jobs.rs": {
+      "sha256": "22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857",
+      "length": 4889
+    },
+    "src/lib.rs": {
+      "sha256": "594f04028f564eb87b71e9bbe7466cfa04437c16236c4efbb69048f6d5e222bf",
+      "length": 1027
+    },
+    "src/model.rs": {
+      "sha256": "d7fcf1a147032d6c49c00afa5cceae2b703342344636d797834a797e8c516f3c",
+      "length": 17152
+    },
+    "src/ontology/api.rs": {
+      "sha256": "cbb56adb441ec2527f54e3ad7ee8b2e088f6758e6d96d6b69fe5565465d1e396",
+      "length": 20255
+    },
+    "src/ontology/catalogue.json": {
+      "sha256": "1ea6d1ac92dc8199b0763b90f51b04e399d6b00609bada665f79fe38ad779d9d",
+      "length": 633748
+    },
+    "src/ontology/catalogue.rs": {
+      "sha256": "984fb5533a2aa168c63de209739610dff20e35c4cbce8c22659108408bd12f04",
+      "length": 10846
+    },
+    "src/ontology/impact/api.rs": {
+      "sha256": "ea6c5e4f83562b8c9fc03e0cd7c0accd371883b10096793ccdb2965f37f2a727",
+      "length": 9494
+    },
+    "src/ontology/impact/engine.rs": {
+      "sha256": "9294edc61ac3aa0bc39c5b828b11c33069dc474105a396a50c3aa78bde7cdc0f",
+      "length": 18704
+    },
+    "src/ontology/impact/mod.rs": {
+      "sha256": "36d55777536d35e91db666e69871743ecc26f8518aa37c075fd84d50c8ae15ca",
+      "length": 237
+    },
+    "src/ontology/impact/tests.rs": {
+      "sha256": "af2b81cdbdf12ba63ed7cef5bbd1150b7bdc7b4b90ce5acec2f411565b3a5ad8",
+      "length": 6417
+    },
+    "src/ontology/impact/text.rs": {
+      "sha256": "b1d37dbd185c0e0f58ff6a94d6991841205c94f36bea009fbdbeef7e02d22d3c",
+      "length": 7852
+    },
+    "src/ontology/impact/types.rs": {
+      "sha256": "c4e012c68be1e6c6fb7af38d6e2c7bc505c7f7381c5cd5e4978caf3f8689c058",
+      "length": 12819
+    },
+    "src/ontology/mod.rs": {
+      "sha256": "1d78bb4980f128a2c9efd5442db40fa667d240924d4b091991bed9eb2952f539",
+      "length": 570
+    },
+    "src/ontology/navigation.rs": {
+      "sha256": "398727fa469f77def705b62aaef3a889004753f28a7ff4e6d81bad80b6c07f6c",
+      "length": 16953
+    },
+    "src/ontology/neighbours/api.rs": {
+      "sha256": "78aeaa6b634429991e8ef0b60614df793445c17bf0d553d44136eb3c0d54925a",
+      "length": 6457
+    },
+    "src/ontology/neighbours/facts.rs": {
+      "sha256": "527c319544e390dbfa189566a2c4d542bf99739c3ca8a4748d490880aee1811e",
+      "length": 20133
+    },
+    "src/ontology/neighbours/mod.rs": {
+      "sha256": "a74bf188ce06bfd6e91aa8fe18635e6a76c3da72211791e1d5b93f8b4dd2af16",
+      "length": 2227
+    },
+    "src/ontology/neighbours/types.rs": {
+      "sha256": "89938816d0833c2e1496e43d879b9fb1b79c2955721dfe8569bd915b642eba59",
+      "length": 7254
+    },
+    "src/ontology/types.rs": {
+      "sha256": "ac3cec51669424d6fa077cc6aa726be64f5983e79b77c88728573eeff9b09fa6",
+      "length": 25532
+    },
+    "src/ontology/validation.rs": {
+      "sha256": "0e51410ac1017c80b51f27edb62b84881bda802cecb61fbcf3a55f169bd104de",
+      "length": 92069
+    },
+    "src/storage/shared/content.rs": {
+      "sha256": "ed0a545ba3bcd5b7c7c62d10eaae63e27b6b1afb843b681e74cf54f5560b91f2",
+      "length": 7083
+    },
+    "src/storage/shared/generation.rs": {
+      "sha256": "ff2c05303adcac9c730bbae920b41b4b5e440db2ae5c5acaf368a1ba0b4105ef",
+      "length": 34470
+    },
+    "src/storage/shared/maintenance.rs": {
+      "sha256": "22f11b200eb979bd713882d8a2ba663c4b75b289b279636f9d8de6a0e36ec6de",
+      "length": 24940
+    },
+    "src/storage/shared/mod.rs": {
+      "sha256": "7baefd230c8b4ce14e9e14fd3705a32cdd898e1ee0a8c69c8dc42c17e9faf157",
+      "length": 4309
+    },
+    "src/storage/shared/neighbours/mod.rs": {
+      "sha256": "42ef4cdecd32354ee005a1378b5662ecf50d3c460eee96896ea713f90f35a171",
+      "length": 20585
+    },
+    "src/storage/shared/neighbours/read.rs": {
+      "sha256": "f70cceb13ce5d99b9fd5fdcc4dbcad4f24c6250182f035c92277c9c127ba8254",
+      "length": 15419
+    },
+    "src/storage/shared/neighbours/tests.rs": {
+      "sha256": "fe04bf65f2abbd73cde0c67df972911e5a1b2ea9fef2d73a981b160af5f04b8c",
+      "length": 13230
+    },
+    "src/storage/shared/objects.rs": {
+      "sha256": "2092661b6836f755d3723cb2cb881e720e1985175102b3f7078f6a3deff53f68",
+      "length": 27040
+    },
+    "src/storage/shared/projection.rs": {
+      "sha256": "6a18c757c35c716556272263e137c4ccefe206514af11bdfd76dedab1da64d68",
+      "length": 22702
+    },
+    "src/storage/shared/tests.rs": {
+      "sha256": "9185316438dd07910d3bd2e4245eec86d6e48ae632e7c0261e89f3fec63fc42b",
+      "length": 13432
+    },
+    "src/storage/shared/text.rs": {
+      "sha256": "eef9e2d62a07d37b261dd9b940b0a3662ba7d109a2bd76a2f3ac2e490d7106b0",
+      "length": 21274
+    },
+    "src/storage/shared/trees.rs": {
+      "sha256": "7320b2f320e7f42bd688b2bc77cc01e13dd830193b05e460cd44dd812f65fd89",
+      "length": 36016
+    },
+    "src/storage.rs": {
+      "sha256": "343bcbfe540b345e6e12918087339f12422362e19389f15f48cb92ac60714eea",
+      "length": 33183
+    },
+    "tests/impact_oracle.rs": {
+      "sha256": "7c1239a5f6e039e8348c1c312733383c6c51bdecf10ef3d45d16e4cf795454ad",
+      "length": 2018
+    },
+    "tests/internal/faults.rs": {
+      "sha256": "46e76e042f5d460b298b9f04ec7c3ee88634354fbdb88f2af57a46348e7242cd",
+      "length": 13160
+    },
+    "tests/internal/ontology_faults.rs": {
+      "sha256": "f90c973092935b889148522ee72f3731ad6957601b3000200c84e358cdda5aea",
+      "length": 10308
+    },
+    "tests/internal/shared_faults.rs": {
+      "sha256": "839776558e74131371df50206d557ef98699b72e565c54dbdb4d2571f0d70689",
+      "length": 14243
+    },
+    "tests/model_impact.rs": {
+      "sha256": "b3889529151e9435d9c9c74d7a2fc164cc4cc50a88f600a514321f7c77ffefac",
+      "length": 15270
+    },
+    "tests/neighbour_oracle/mod.rs": {
+      "sha256": "f491205ed66e36118489dff6a5423dc92433a86d7ea042525b213cbab2b2fe49",
+      "length": 12109
+    },
+    "tests/neighbours.rs": {
+      "sha256": "92e06e9d6fa0e7f95e50d8c8902cdd99027214df97297a06b8e7bf9cc7e0d7f0",
+      "length": 25226
+    },
+    "tests/ontology_contract.rs": {
+      "sha256": "bfe99a38002a9d5b102f012bd186313041b74eaf27263052f55904ffffbf2f3c",
+      "length": 67158
+    },
+    "tests/public_contract.rs": {
+      "sha256": "3209481138dab5d025aeb33a23ba5ad8850c6c5a41c86460015fcb6256046d39",
+      "length": 19507
+    },
+    "tests/rent_impact.rs": {
+      "sha256": "b93365590b029035ec7f5645d672ed126a8537bc9917384a23dcb3909b6b1e1d",
+      "length": 9541
+    },
+    "tests/shared_storage.rs": {
+      "sha256": "601f66d0c6b6882e2bf82908155a47d28d6532c69329e6a7751b3ece8999a8cb",
+      "length": 3555
+    },
+    "tests/support/mod.rs": {
+      "sha256": "0753fe2b71f35c7175e64eb1ababf1eb4525b94a872d4d6fb7964c4ed833ebea",
+      "length": 1276
+    }
+  }
+}

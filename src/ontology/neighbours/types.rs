@@ -169,6 +169,7 @@ pub struct NeighbourWork {
     pub index_objects_read: u64,
     pub index_bytes_read: u64,
     pub record_reads: u64,
+    pub record_bytes: u64,
     pub examined_postings: u64,
     pub postings_read: u64,
     pub index_rebuilt: bool,

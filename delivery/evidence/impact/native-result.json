@@ -1,0 +1,9 @@
+{
+  "command": [
+    "cargo",
+    "test",
+    "--offline"
+  ],
+  "exit_code": 0,
+  "seconds": 539.6021132999958
+}

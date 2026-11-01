@@ -22,6 +22,7 @@ pub(crate) struct Cursor {
     pub(crate) truncated: Option<String>,
     pub(crate) touched: Duration,
     pub(crate) neighbour: Option<super::neighbours::NeighbourCursor>,
+    pub(crate) impact: Option<super::impact::ImpactCursor>,
 }
 impl Cursors {
     pub fn new() -> Self {
@@ -369,6 +370,7 @@ impl OntologyHub {
                     truncated,
                     touched: now,
                     neighbour: None,
+                    impact: None,
                 };
                 if cursor.items.len() <= cursor.query.page_size {
                     return Ok(page(&mut cursor, None));
@@ -400,6 +402,7 @@ impl OntologyHub {
                 h.cursors.expire(&mut map, now);
                 let c = map.get_mut(&continuation).ok_or(Error::InvalidCursor)?;
                 if c.neighbour.is_some()
+                    || c.impact.is_some()
                     || c.actor != context.actor
                     || c.scope != h.scope
                     || c.fingerprint != fingerprint(&query, &h.scope, &context.actor)?
@@ -464,6 +467,7 @@ mod tests {
                 truncated: None,
                 touched: cursors.now(),
                 neighbour: None,
+                impact: None,
             },
         );
         cursors

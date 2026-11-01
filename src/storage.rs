@@ -139,6 +139,21 @@ pub(crate) trait Storage: Send + Sync {
     }
 }
 pub(crate) trait BranchStorage {
+    fn model_view(
+        &self,
+        _selection: &crate::ontology::Selection,
+    ) -> Result<crate::ontology::impact::ViewInfo, Error> {
+        Err(Error::Incompatible(
+            "deterministic model reads require files/3".into(),
+        ))
+    }
+    fn search_text(
+        &self,
+        _request: &crate::ontology::SearchText,
+        _prepare: bool,
+    ) -> Result<crate::ontology::SearchResult, Error> {
+        Err(Error::Incompatible("literal index requires files/3".into()))
+    }
     fn prepare_neighbours(
         &self,
         _request: &crate::ontology::Neighbours,

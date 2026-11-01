@@ -51,6 +51,7 @@ pub(crate) fn read_slice(
     slice.page.work.index_objects_read += prepared.index_objects_read;
     slice.page.work.index_bytes_read += prepared.index_bytes_read;
     slice.page.work.record_reads += prepared.record_reads;
+    slice.page.work.record_bytes += prepared.record_bytes;
     slice.page.work.index_rebuilt = true;
     slice.page.work.rebuild_reason = Some(reason);
     Ok(slice)
@@ -106,6 +107,7 @@ impl OntologyHub {
                         truncated: None,
                         touched: now,
                         neighbour: Some(NeighbourCursor { request, position }),
+                        impact: None,
                     },
                 );
                 slice.page.continuation = Some(id);

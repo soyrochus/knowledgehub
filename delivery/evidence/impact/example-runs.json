@@ -1,0 +1,30 @@
+[
+  {
+    "command": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "delivery/evidence/impact/rent_impact-resources.log",
+      "target/release/examples/rent_impact",
+      "/home/iwk/src/knowledgehub/target/kh-impact-evidence-x486cgrp/rent_impact"
+    ],
+    "exit_code": 0,
+    "seconds": 50.879065280998475,
+    "binary_sha256": "d22bfd9930c3ef92f730faa362c7f5e2dd87e55c583fdb883667d4051732f145",
+    "output": "rent_impact.json"
+  },
+  {
+    "command": [
+      "/usr/bin/time",
+      "-v",
+      "-o",
+      "delivery/evidence/impact/impact_benchmark-resources.log",
+      "target/release/examples/impact_benchmark",
+      "/home/iwk/src/knowledgehub/target/kh-impact-evidence-x486cgrp/impact_benchmark"
+    ],
+    "exit_code": 0,
+    "seconds": 295.39684254899475,
+    "binary_sha256": "5818895bed375faf1931088c81eadb1c4d16d8f0320555d9df8a4becf800724a",
+    "output": "impact_benchmark.json"
+  }
+]

@@ -457,6 +457,7 @@ pub(in crate::storage::shared) fn read(
     page.vertices = vertices.into_values().collect();
     page.records = projected.into_values().collect();
     page.work.record_reads = records.reads;
+    page.work.record_bytes = records.bytes as u64;
     let work = c.work.snapshot();
     page.work.index_objects_read = work.object_reads;
     page.work.index_bytes_read = work.encoded_bytes_read;

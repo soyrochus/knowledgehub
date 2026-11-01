@@ -1,0 +1,137 @@
+{
+  "filtered_fanout": {
+    "edges": 1000,
+    "exhausted": false,
+    "reached": [
+      "Examined"
+    ],
+    "work": {
+      "batch_lookups": 1,
+      "candidates_verified": 1,
+      "examined_associations": 78,
+      "expansion_attempts": 0,
+      "hydrated_bytes": 54434,
+      "index_bytes_read": 37402,
+      "index_objects_read": 33,
+      "prepared_bytes": 0,
+      "prepared_fields": 0,
+      "prepared_owners": 0,
+      "record_reads": 10,
+      "text_postings_examined": 22,
+      "visited_states": 1
+    }
+  },
+  "rows": [
+    {
+      "full_state_loads": 0,
+      "preparation": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 28296,
+        "index_objects_read": 35,
+        "prepared_bytes": 599631,
+        "prepared_fields": 11,
+        "prepared_owners": 462,
+        "record_reads": 49,
+        "text_postings_examined": 18,
+        "visited_states": 8
+      },
+      "public_requests": 1,
+      "ready_microseconds": 55591,
+      "response_bytes": 5734,
+      "unrelated": 0,
+      "work": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 28296,
+        "index_objects_read": 35,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 49,
+        "text_postings_examined": 18,
+        "visited_states": 8
+      }
+    },
+    {
+      "full_state_loads": 0,
+      "preparation": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 39230,
+        "index_objects_read": 47,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 49,
+        "text_postings_examined": 19,
+        "visited_states": 8
+      },
+      "public_requests": 1,
+      "ready_microseconds": 39757,
+      "response_bytes": 5734,
+      "unrelated": 100,
+      "work": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 39230,
+        "index_objects_read": 47,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 49,
+        "text_postings_examined": 19,
+        "visited_states": 8
+      }
+    },
+    {
+      "full_state_loads": 0,
+      "preparation": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 61019,
+        "index_objects_read": 66,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 49,
+        "text_postings_examined": 22,
+        "visited_states": 8
+      },
+      "public_requests": 1,
+      "ready_microseconds": 80164,
+      "response_bytes": 5734,
+      "unrelated": 1000,
+      "work": {
+        "batch_lookups": 8,
+        "candidates_verified": 1,
+        "examined_associations": 7,
+        "expansion_attempts": 7,
+        "hydrated_bytes": 232777,
+        "index_bytes_read": 61019,
+        "index_objects_read": 66,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 49,
+        "text_postings_examined": 22,
+        "visited_states": 8
+      }
+    }
+  ]
+}

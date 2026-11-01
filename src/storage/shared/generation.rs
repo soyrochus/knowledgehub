@@ -756,7 +756,7 @@ pub(super) fn record(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Re
     }
     Ok(result)
 }
-fn binding(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Binding, Error> {
+pub(super) fn binding(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Binding, Error> {
     let tree = Tree { objects };
     if !eligible(&tree, v, r)? {
         return Err(Error::NotFound);
@@ -769,6 +769,28 @@ fn binding(objects: &Objects<'_>, v: &View, r: &ExactRef) -> Result<Binding, Err
 }
 
 impl BranchStorage for SharedLease<'_> {
+    fn model_view(&self, selection: &Selection) -> Result<ontology::impact::ViewInfo, Error> {
+        let o = Objects::new(self.store);
+        let (id, g) = root(self.store, &self.scope, &o)?;
+        let v = view(&o, &id, &g, selection)?;
+        let (gaps, gaps_omitted) = projection::bounded_gaps(&o, &v.g.gaps_root)?;
+        Ok(ontology::impact::ViewInfo {
+            ontology: v.g.ontology,
+            profile: v.g.profile,
+            gaps,
+            gaps_omitted,
+        })
+    }
+    fn search_text(
+        &self,
+        q: &ontology::SearchText,
+        prepare: bool,
+    ) -> Result<ontology::SearchResult, Error> {
+        if prepare && self.shared {
+            return Err(storage("text preparation through read lease"));
+        }
+        super::text::search(self.store, &self.scope, q, prepare)
+    }
     fn prepare_neighbours(
         &self,
         request: &ontology::Neighbours,
@@ -972,6 +994,14 @@ impl BranchStorage for SharedLease<'_> {
                 .neighbour_failures
                 .fetch_add(1, Ordering::Relaxed);
         }
+        // Derived maintenance cannot invalidate an already durable accepted receipt.
+        let _ = super::text::after_commit(
+            self.store,
+            &g,
+            &next,
+            old.snapshot.ontology.as_deref().unwrap(),
+            plan.snapshot.ontology.as_deref().unwrap(),
+        );
         Ok(plan.receipt)
     }
 }

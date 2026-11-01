@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.6 · 31 October 2026 · Full ontology/self-model, shared immutable storage and exact indexed neighbours technically verified at their recorded boundaries; deterministic impact queries are next. Human acceptance remains separate.
+Draft 0.7 · 1 November 2026 · Full ontology/self-model, shared storage, indexed neighbours and deterministic impact queries technically verified at their recorded boundaries. Canonical rebuilding is next; human acceptance remains separate.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -209,7 +209,7 @@ handover. These earlier slices are not automatically marked complete or archived
 
 ## Next sequence: compact persistence and deterministic local navigation
 
-The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. The user subsequently authorised KH-SL-009 and then explicitly continued with KH-SL-010; both are implemented and technically verified at their recorded boundaries. KH-SL-011/012 remain planned. These implementations did not execute the canonical reset/rebuild; KH-SL-012 follows both indexed query outcomes.
+The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) and implementation planning for generic nearest-neighbour lookup, then selected canonical deletion/regeneration with the complete test suite instead of migration. Order: **KH-SL-009 → KH-SL-010 → KH-SL-011 → KH-SL-012**. The user authorised KH-SL-009, then KH-SL-010, and on 1 November continued with the next change, KH-SL-011. All three are implemented and technically verified at their recorded boundaries. KH-SL-012 remains planned; these changes did not execute the canonical reset/rebuild.
 
 | Journey / story | Need and completion |
 | --- | --- |
@@ -242,6 +242,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Hard prerequisite:** KH-SL-010. A rent example supplies explicit logical-to-physical mappings as an isolated demonstration, not a new universal ontology family or a claim about KnowledgeHub's own tables.
 - **Stories/rules:** KH-US-28–29; KH-DR-03/04/07/12/15/18/19/21/22. [Change](../openspec/changes/query-deterministic-model-impact/proposal.md).
 - **Acceptance:** one public request plus explicit pagination, deterministic results, bounded fan-out/cycles and missing-mapping/unsupported-external outcomes; no LLM, inferred edges, scripts or automatic schema-change decisions.
+- **Observed delivery:** [KH-SL-011 evidence](evidence/impact/README.md) records literal UTF-8/ASCII-only entry, disposable trigram candidates with exact narrative verification, state-aware mixed traversal, one-view grouped dependencies and finite shared cursors. The isolated rent fixture returns a seven-hop physical-schema witness with DDL evidence through ordinary registration. The full native run passed 92 tests plus one doctest, with final strengthened rent scenarios, formatting, Clippy and release examples. Across 0/100/1000 unrelated records, one ready public request used eight local batches, seven associations, one text candidate and zero full-State loads. Human acceptance, long-history stress and canonical regeneration are separate.
 
 ### KH-SL-012 — Rebuild and verify the canonical self-model
 

@@ -1,0 +1,8 @@
+{
+  "observed_store": "orig_hub/",
+  "canonical_hub_exists": false,
+  "original_files_checked": 426,
+  "mismatches": [],
+  "original_content_byte_exact": true,
+  "scope": "Read-only preservation check. No canonical reset, regeneration, authority handover or human acceptance in KH-SL-011."
+}

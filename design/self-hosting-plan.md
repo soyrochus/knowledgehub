@@ -55,13 +55,13 @@ This is already limited use of KnowledgeHub for its own definition. It is not th
 The user clarified that the library must express the entire ontology explicitly
 defined in the supplied PDF and then describe KnowledgeHub itself. The next
 proposed sequence is KH-SL-007 full ontology → KH-SL-008 self-model, detailed in
-[express-full-ontology-and-self-model](../openspec/changes/express-full-ontology-and-self-model/proposal.md).
-The [coverage inventory](../openspec/changes/express-full-ontology-and-self-model/ontology-coverage.md)
+[express-full-ontology-and-self-model](../openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/proposal.md).
+The [coverage inventory](../openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/ontology-coverage.md)
 enumerates all kernel/type/signature/rule obligations, including schemas and
 visible refinements where the source leaves detail open. Full support cannot
 mean accepting a larger label list or deferring unused UI/AI families.
 
-The [self-model map](../openspec/changes/express-full-ontology-and-self-model/self-model-map.md)
+The [self-model map](../openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/self-model-map.md)
 names actual library records, source/code/test bindings, exact A/B explanations
 and public inspection questions. It covers all applicable library responsibilities,
 while retaining proposed domain analysis, historical evidence and inapplicability

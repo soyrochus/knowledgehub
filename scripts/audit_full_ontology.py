@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Reconcile source denominators with public consumer results and observed native checks."""
 import argparse,collections,hashlib,json,pathlib,re
+from host_sources import change_dir
 root=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('catalogue');p.add_argument('model');p.add_argument('input');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--output',default='delivery/evidence/full-ontology-coverage.json');a=p.parse_args()
 load=lambda path:json.loads(pathlib.Path(path).read_text())
@@ -14,7 +15,7 @@ def key(ref):return (ref['model'],ref['id'],ref['revision'])
 digests={key(ref):sha for ref,sha in catalogue['definition_digests']}
 records={key(r['reference']):r for r in catalogue['specimens']}
 rows={};families=collections.Counter();field_count=0
-inventory=(root/'openspec/changes/express-full-ontology-and-self-model/ontology-coverage.md').read_text()
+inventory=(change_dir(root,'express-full-ontology-and-self-model')/'ontology-coverage.md').read_text()
 expected=set(re.findall(r'^\| ([KTRP]\d+) \|',inventory,re.M))
 for definition in data['types']:
  ref=('sdo','sdo:type:'+definition['name'],'catalogue-1');assert ref in digests

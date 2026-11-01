@@ -193,7 +193,7 @@ KH-DR-16–19 make that obligation explicit; they do not imply adoption of every
 new schema refinement or implementation of those capabilities.
 
 Use the [slice plan](../delivery/slice-plan.md) for KH-SL-007/008 and the
-[new change](../openspec/changes/express-full-ontology-and-self-model/proposal.md)
+[new change](../openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/proposal.md)
 for the bounded delta. Its exhaustive coverage inventory refines type/property
 details without revising the original sources. The [self-hosting plan](self-hosting-plan.md#decisions-to-resolve)
 owns proposed KH-D-11–15 and bootstrap authority. Existing context/aggregate

@@ -101,12 +101,38 @@ fn source_key(path: &str) -> String {
             format!("library-source:{}", module_id(path))
         };
     }
-    if path.starts_with("openspec/changes/") || path.starts_with("openspec/deferred/") {
-        let parts = path.split('/').collect::<Vec<_>>();
-        return if parts.get(3) == Some(&"specs") {
-            format!("change:{}:specification:{}", parts[2], parts[4])
+    if let Some(spec) = path.strip_prefix("openspec/specs/") {
+        return format!("specification:{}", spec.trim_end_matches("/spec.md"));
+    }
+    if let Some(relative) = path
+        .strip_prefix("openspec/changes/")
+        .or_else(|| path.strip_prefix("openspec/deferred/"))
+    {
+        let (change, document) = if let Some(archived) = relative.strip_prefix("archive/") {
+            let (dated, document) = archived.split_once('/').expect("archived change document");
+            let bytes = dated.as_bytes();
+            assert!(
+                bytes.len() > 11
+                    && bytes[..11].iter().enumerate().all(|(i, b)| {
+                        if [4, 7, 10].contains(&i) {
+                            *b == b'-'
+                        } else {
+                            b.is_ascii_digit()
+                        }
+                    }),
+                "dated OpenSpec archive origin"
+            );
+            (&dated[11..], document)
         } else {
-            format!("change:{}:{}", parts[2], parts[3].trim_end_matches(".md"))
+            relative.split_once('/').expect("change document")
+        };
+        return if let Some(spec) = document.strip_prefix("specs/") {
+            format!(
+                "change:{change}:specification:{}",
+                spec.trim_end_matches("/spec.md")
+            )
+        } else {
+            format!("change:{change}:{}", document.trim_end_matches(".md"))
         };
     }
     if let Some(key) = origins().sources.get(path) {
@@ -171,6 +197,14 @@ pub struct Builder {
     pub groups: BTreeMap<String, Vec<ExactRef>>,
 }
 impl Builder {
+    fn source_reference(&self, path: &str) -> ExactRef {
+        let reference = capture_ref(path);
+        assert!(
+            self.sources.values().any(|value| *value == reference),
+            "required captured source: {path}"
+        );
+        reference
+    }
     pub fn new(state: State) -> Self {
         Self {
             state,
@@ -1567,10 +1601,9 @@ pub fn author(
             ("slice", Value::Ref(r("kh:slice:KH-SL-008"))),
             (
                 "specifications",
-                artifact_list([
-                    b.sources["openspec/changes/express-full-ontology-and-self-model/proposal.md"]
-                        .clone(),
-                ]),
+                artifact_list([b.source_reference(
+                    "openspec/changes/express-full-ontology-and-self-model/proposal.md",
+                )]),
             ),
         ]),
     )?;
@@ -2357,9 +2390,9 @@ pub fn author(
             ("slice", Value::Ref(r("kh:slice:KH-SL-001"))),
             (
                 "specifications",
-                artifact_list([
-                    b.sources["openspec/changes/retain-first-self-definition/proposal.md"].clone(),
-                ]),
+                artifact_list([b.source_reference(
+                    "openspec/changes/retain-first-self-definition/proposal.md",
+                )]),
             ),
         ]),
     )?;
@@ -2452,4 +2485,31 @@ pub fn author(
     }
     let _ = (datatype, result_schema);
     Ok(b)
+}
+
+#[cfg(test)]
+mod archive_paths {
+    use super::*;
+
+    #[test]
+    fn capture_identity_survives_archive_and_main_specs_are_distinct() {
+        for document in [
+            "proposal.md",
+            "ontology-coverage.md",
+            "specs/model-baselines/spec.md",
+        ] {
+            let active =
+                format!("openspec/changes/express-full-ontology-and-self-model/{document}");
+            let archived = format!(
+                "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/{document}"
+            );
+            assert_eq!(capture_ref(&active), capture_ref(&archived));
+        }
+        assert_ne!(
+            capture_ref("openspec/specs/model-baselines/spec.md"),
+            capture_ref(
+                "openspec/changes/express-full-ontology-and-self-model/specs/model-baselines/spec.md"
+            )
+        );
+    }
 }

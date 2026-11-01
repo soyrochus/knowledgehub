@@ -1,6 +1,6 @@
 # KH-SL-013 — sealed derived index packs
 
-Observed on 1 November 2026 under the existing Rust 1.99.1 and declared local ext4 profile. [Change](../../../openspec/changes/pack-derived-index-storage/proposal.md), [format and bounds](../../../design/packed-cache-storage.md). This run changes disposable index storage against an existing historical model; it does not reset or recapture the canonical Hub.
+Observed on 1 November 2026 under the existing Rust 1.99.1 and declared local ext4 profile. [Change](../../../openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md), [format and bounds](../../../design/packed-cache-storage.md). This run changes disposable index storage against an existing historical model; it does not reset or recapture the canonical Hub.
 
 ## Actual canonical data
 

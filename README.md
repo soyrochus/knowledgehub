@@ -117,7 +117,7 @@ cargo run --offline --release --example rent_impact -- /absolute/unused/rent-fix
 See the [query contract and limits](design/deterministic-query-api.md),
 [executable fixture/request](examples/rent_support/mod.rs) and
 [technical evidence](delivery/evidence/impact/README.md).
-The [canonical rebuild](design/canonical-rebuild.md) is complete after the [sealed-pack change](openspec/changes/pack-derived-index-storage/proposal.md). [Fresh evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new instance and exact captured checkpoint; the older failed attempt remains historical.
+The [canonical rebuild](design/canonical-rebuild.md) is complete after the [sealed-pack change](openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md). [Fresh evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new instance and exact captured checkpoint; the older failed attempt remains historical.
 
 ## Compatibility and supported boundary
 
@@ -154,7 +154,7 @@ project acceptance remain distinct.
 
 [Domain analysis](design/domain-analysis.md) →
 [journeys and outcome slices](delivery/slice-plan.md) →
-[bounded OpenSpec change](openspec/changes/retain-first-self-definition/proposal.md) →
+[bounded OpenSpec change](openspec/changes/archive/2026-11-01-retain-first-self-definition/proposal.md) →
 authorised implementation and evidence → review and revised sequence.
 The [self-hosting plan](design/self-hosting-plan.md) owns bootstrap authority and
 decisions; [implementation record](design/implementation-record.md) records the

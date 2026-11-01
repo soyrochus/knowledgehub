@@ -20,7 +20,7 @@ for output in (a.output,a.derived):
 origins=json.loads((ROOT/'examples/self_model_support/origins.json').read_text())
 for path in paths:
  rel=str(path.relative_to(ROOT));parts=path.relative_to(ROOT).parts
- declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/')) or (parts[:3]==('delivery','evidence','hub-rebuild') and len(parts)==5 and parts[-1] in origins['run_artifacts']))
+ declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/','openspec/specs/')) or (parts[:3]==('delivery','evidence','hub-rebuild') and len(parts)==5 and parts[-1] in origins['run_artifacts']))
  if not declared:raise ValueError('declare semantic source binding for '+rel)
 
 for historical in ['delivery/evidence/kh-sl-001-run.txt','delivery/evidence/full-ontology-start.txt','delivery/evidence/full-ontology-start.json','delivery/evidence/full-ontology-start.tar.gz']:

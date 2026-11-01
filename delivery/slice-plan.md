@@ -15,7 +15,7 @@ Use the progression domain understanding → journey and story map → outcome s
 The user explicitly wants the whole source ontology expressible, then KnowledgeHub
 itself expressed through it. Next priority is **KH-SL-001 → KH-SL-007 → KH-SL-008**.
 The new IDs preserve earlier slice identities; numeric order is not priority.
-The [full-ontology change](../openspec/changes/express-full-ontology-and-self-model/proposal.md)
+The [full-ontology change](../openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/proposal.md)
 specifies these two ordered outcomes. Its inventory enumerates all source types,
 relationships and rules; its self-model map names actual library records and reads.
 Planning is not implementation or human acceptance.
@@ -151,7 +151,7 @@ These establish supported boundaries rather than inventing additional user outco
 5. Implement and verify the selected change only when requested. Use the result to deepen the next ready slice and its specifications.
 6. Progress from a small self-description seed to the explicit authority handover in KH-SL-006. Keep code and native run evidence in their owning tools with exact Hub references.
 
-The [first change](../openspec/changes/retain-first-self-definition/proposal.md) specifies only KH-SL-001. The later descriptions above are a rolling plan, not an approved backlog of implementation-ready changes. Main specifications under `openspec/specs/` are populated through the normal adoption/archive workflow, not by declaring every proposed future behaviour already current.
+The [first change](../openspec/changes/archive/2026-11-01-retain-first-self-definition/proposal.md) specifies only KH-SL-001. The later descriptions above are a rolling plan, not an approved backlog of implementation-ready changes. Main specifications under `openspec/specs/` are populated through the normal adoption/archive workflow, not by declaring every proposed future behaviour already current.
 
 ## Review after KH-SL-001
 
@@ -222,7 +222,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Actor/trigger:** maintainer observes approximately 116 MB for the current full-generation demonstration.
 - **Outcome:** explicit files/3 create/commit/read/reopen retains shared records/artifacts, compact baselines, original receipts and history, including packing, full scrub and safe cleanup.
 - **Hard prerequisites:** implemented files/2 ontology/record/request contracts; source file-storage §§3–6/8–13. No dependency on future query shapes or future associations.
-- **Stories/rules:** KH-US-25–26; KH-DR-01–15/17/20. [Change](../openspec/changes/share-immutable-file-storage/proposal.md).
+- **Stories/rules:** KH-US-25–26; KH-DR-01–15/17/20. [Change](../openspec/changes/archive/2026-11-01-share-immutable-file-storage/proposal.md).
 - **Acceptance:** byte/digest/replay equality, full-history recovery tests and structural sharing/allocation measurements. Does not convert `hub/` or change definition authority.
 - **Observed delivery:** explicit files/3, exact A/B/retry/reopen, packs/scrub/cleanup, 68 tests plus one doctest, process-fault boundaries and fixed-input measurements are recorded in [KH-SL-009 evidence](evidence/files3/README.md). The 64-edit fixture retained 67 generations in 1,112,693 packed encoded bytes versus 78,170,264 with files/2; its fixed point read stayed at five objects. This is technical verification, not human acceptance or a canonical-size claim. Root `hub/` remains byte-exact files/2; proceed to KH-SL-010 planning/authorisation next.
 
@@ -231,7 +231,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Actor/trigger:** reader follows local associations whose future routes were unknown at insertion time.
 - **Outcome:** generic batch incoming/outgoing lookup returns exact assertions and reference occurrences using snapshot-bound adjacency, including late insertion and new registered types.
 - **Hard prerequisite:** KH-SL-009 root-bound point reads, immutable maps and read coordination; deriving all selected records through files/2 on every lookup would defeat the outcome.
-- **Stories/rules:** KH-US-27; KH-DR-03/04/07/12/15/17/19/21. [Change](../openspec/changes/index-ontology-neighbours/proposal.md).
+- **Stories/rules:** KH-US-27; KH-DR-03/04/07/12/15/17/19/21. [Change](../openspec/changes/archive/2026-11-01-index-ontology-neighbours/proposal.md).
 - **Acceptance:** scan-equivalent results, exact old/new views, rebuild/corruption behaviour and measured lookup work independent of unrelated edges except tree height. No transitive closure cache or per-question index.
 - **Observed delivery:** [KH-SL-010 evidence](evidence/neighbours/README.md) records owned batch operations, generic extraction, incremental indexes, selective reads, finite cursors, legacy equivalence, 81 native tests plus one doctest and public examples. Adding 3,000 unrelated assertions left the fixed neighbourhood at seven required records/three examined candidates with zero full-state materialisations; index reads rose from eight to nine. Cache allocation and cold-build costs are explicitly reported. Human acceptance and KH-SL-011 impact/search remain separate.
 
@@ -240,7 +240,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Actor/trigger:** human or external AI asks which physical tables are linked to a story containing a phrase.
 - **Outcome:** type/phrase selection and typed mixed-direction traversal execute locally over indexed hops and return grouped targets, origin paths, compact evidence and explicit ambiguity/coverage limits.
 - **Hard prerequisite:** KH-SL-010. A rent example supplies explicit logical-to-physical mappings as an isolated demonstration, not a new universal ontology family or a claim about KnowledgeHub's own tables.
-- **Stories/rules:** KH-US-28–29; KH-DR-03/04/07/12/15/18/19/21/22. [Change](../openspec/changes/query-deterministic-model-impact/proposal.md).
+- **Stories/rules:** KH-US-28–29; KH-DR-03/04/07/12/15/18/19/21/22. [Change](../openspec/changes/archive/2026-11-01-query-deterministic-model-impact/proposal.md).
 - **Acceptance:** one public request plus explicit pagination, deterministic results, bounded fan-out/cycles and missing-mapping/unsupported-external outcomes; no LLM, inferred edges, scripts or automatic schema-change decisions.
 - **Observed delivery:** [KH-SL-011 evidence](evidence/impact/README.md) records literal UTF-8/ASCII-only entry, disposable trigram candidates with exact narrative verification, state-aware mixed traversal, one-view grouped dependencies and finite shared cursors. The isolated rent fixture returns a seven-hop physical-schema witness with DDL evidence through ordinary registration. The full native run passed 92 tests plus one doctest, with final strengthened rent scenarios, formatting, Clippy and release examples. Across 0/100/1000 unrelated records, one ready public request used eight local batches, seven associations, one text candidate and zero full-State loads. Human acceptance, long-history stress and canonical regeneration are separate.
 
@@ -249,7 +249,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Actor/trigger:** maintainer regenerates the root `hub/` demonstration after shared storage and indexed query implementation.
 - **Outcome:** run the full native suite/checks on final code, capture current verified sources, delete all previous canonical content, populate a fresh files/3 self-model, then drain/reopen/scrub and execute public/catalogue/indexed walkthroughs.
 - **Hard prerequisites:** verified KH-SL-009/010/011/013; current capture/loader/source bindings and successful exact-source native checks. No general migration or recovery-backup implementation is needed.
-- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md).
+- **Stories/rules:** KH-US-30; KH-DR-02/04–13/15/17–23. [Change](../openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md).
 - **Acceptance:** old generated content removed; new replay domain/history and actual new A/B/receipts/source/gap counts; all required tests/walkthroughs pass with new evidence. Preflight failure preserves old data; post-reset failure remains explicitly incomplete. Older evidence is not relabelled. KH-SL-005 backup/interchange and KH-SL-006 authority scope remain deferred.
 
 - **Resumed scope:** the user authorised a fresh checked/captured reset on 1 November 2026 after KH-SL-013. Reuse three implemented tooling tasks and rerun eight execution tasks, including sealed-cache quotas/hashes and cold/warm reopen equivalence. The previous failed attempt remains historical.
@@ -260,7 +260,7 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 
 - **Actor/trigger:** maintainer/reader prepares indexes for the actual library self-model after small-file allocation exhausts the cache quota.
 - **Outcome:** variable-size sealed packs with bounded compression blocks retain exact query semantics under unchanged allocated-space quotas, with reusable warm location metadata.
-- **Dependencies:** KH-SL-009–011. [Change](../openspec/changes/pack-derived-index-storage/proposal.md). The user explicitly authorised proposing and implementing this outcome on 1 November 2026.
+- **Dependencies:** KH-SL-009–011. [Change](../openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md). The user explicitly authorised proposing and implementing this outcome on 1 November 2026.
 - **Acceptance:** bounded publication/failure/quota handling, old/new cache equivalence, unchanged accepted Hub data, actual canonical queries and full technical evidence.
-- **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; the user subsequently authorised the refreshed KH-SL-012 scope above.
+- **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; the user subsequently authorised the refreshed KH-SL-012 scope above.
 - **Observed delivery:** [KH-SL-013 evidence](evidence/packed-cache/README.md) records 100 native tests, one doctest, 11 host tests, formatting, Clippy and release builds. The existing canonical model passes public neighbour/text/three-hop composite reads, reopen and full scrub, with all 22,842 non-cache files unchanged. The completed neighbour cache allocates 26,177,536 bytes across 306 files; text allocates 1,269,760 bytes. Cold metadata is loaded once per namespace and warm batches load none. Human acceptance and authority handover remain separate.

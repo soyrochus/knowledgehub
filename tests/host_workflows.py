@@ -16,6 +16,18 @@ import verify_full_ontology as native
 
 
 class HostWorkflows(unittest.TestCase):
+    def test_change_origin_survives_archive_and_refuses_ambiguity(self):
+        active = self.root / "openspec/changes/example"
+        active.mkdir(parents=True)
+        self.assertEqual(sources.change_dir(self.root, "example"), active)
+        archived = active.parent / "archive/2026-11-01-example"
+        archived.parent.mkdir()
+        active.rename(archived)
+        self.assertEqual(sources.change_dir(self.root, "example"), archived)
+        active.mkdir()
+        with self.assertRaises(ValueError):
+            sources.change_dir(self.root, "example")
+
     def setUp(self):
         self.temporary = tempfile.TemporaryDirectory(dir=ROOT / "target")
         self.root = pathlib.Path(self.temporary.name)

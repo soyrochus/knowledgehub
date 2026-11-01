@@ -1,6 +1,6 @@
 # KH-SL-012 — completed fresh canonical rebuild
 
-Verified on 1 November 2026 after the user resumed [rebuild-canonical-hub-and-verify](../../../../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md) following KH-SL-013. [status.json](status.json) is `verified`; [result.json](result.json) records the fresh instance, physical measurements and reopened indexed work. The earlier failed attempt remains unchanged under [20261101T123801Z-d7b406f3](../20261101T123801Z-d7b406f3/status.json); it has not been relabelled as a successful run.
+Verified on 1 November 2026 after the user resumed [rebuild-canonical-hub-and-verify](../../../../openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md) following KH-SL-013. [status.json](status.json) is `verified`; [result.json](result.json) records the fresh instance, physical measurements and reopened indexed work. The earlier failed attempt remains unchanged under [20261101T123801Z-d7b406f3](../20261101T123801Z-d7b406f3/status.json); it has not been relabelled as a successful run.
 
 ## Exact inputs and execution
 

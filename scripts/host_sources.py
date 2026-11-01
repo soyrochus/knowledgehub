@@ -11,6 +11,15 @@ def digest(data):
     return {"sha256": hashlib.sha256(data).hexdigest(), "length": len(data)}
 
 
+def change_dir(root, name):
+    """Resolve a unique change origin before or after OpenSpec archiving."""
+    changes = root / "openspec/changes"
+    matches = [p for p in [changes / name, *(changes / "archive").glob("????-??-??-" + name)] if p.is_dir()]
+    if len(matches) != 1:
+        raise ValueError(f"expected one active or archived change for {name}; found {len(matches)}")
+    return matches[0]
+
+
 def source_paths(root):
     """Enumerate declared source trees only; never recursively include output/evidence."""
     paths = {root / "Cargo.toml", root / "Cargo.lock", root / "README.md", root / ".gitignore"}

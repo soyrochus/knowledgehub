@@ -1,6 +1,6 @@
 # Packed derived indexes
 
-KH-SL-013 implements `pack-derived-index-storage`. This is an adapter storage policy for disposable `hub/cache/neighbours/` and `hub/cache/text/`; accepted objects, generations, baselines, receipts and their identities retain the files/3 contract. See [files/3](files3-guide.md) and the [change](../openspec/changes/pack-derived-index-storage/design.md).
+KH-SL-013 implements `pack-derived-index-storage`. This is an adapter storage policy for disposable `hub/cache/neighbours/` and `hub/cache/text/`; accepted objects, generations, baselines, receipts and their identities retain the files/3 contract. See [files/3](files3-guide.md) and the [change](../openspec/changes/archive/2026-11-01-pack-derived-index-storage/design.md).
 
 ## Files and write protocol
 
@@ -24,6 +24,6 @@ Many tiny incremental operations can still make many small sealed packs. Quota/v
 
 ## Canonical verification boundary
 
-The previous [rebuild attempt](../openspec/changes/rebuild-canonical-hub-and-verify/proposal.md) was deferred at 7/11; the user has since resumed a fresh KH-SL-012 run after this implementation. Its failed run is retained. Packing is tested against the existing captured self-model without reset, recapture, successor generation or accepted-object compaction. The new verification establishes storage/query behaviour against that historical checkpoint, with accepted-file hashes compared before and after. It does not make the captured sources current or establish human acceptance or authority handover. Actual results are recorded in [packed-cache evidence](../delivery/evidence/packed-cache/README.md).
+The previous [rebuild attempt](../openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md) was deferred at 7/11; the user has since resumed a fresh KH-SL-012 run after this implementation. Its failed run is retained. Packing is tested against the existing captured self-model without reset, recapture, successor generation or accepted-object compaction. The new verification establishes storage/query behaviour against that historical checkpoint, with accepted-file hashes compared before and after. It does not make the captured sources current or establish human acceptance or authority handover. Actual results are recorded in [packed-cache evidence](../delivery/evidence/packed-cache/README.md).
 
 The subsequently resumed KH-SL-012 rebuild is now complete; [its evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) describes the fresh current canonical instance. The measurements above remain evidence for KH-SL-013 against the older checkpoint, before the newly authorised reset.

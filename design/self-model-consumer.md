@@ -1,6 +1,10 @@
 # Sourced self-model consumer
 
-Status: the resumed canonical rebuild is implemented and technically verified on 1 November 2026. [Fresh run evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new replay domain, exact captured checkpoint, full checks and packed-cache reopen verification. The older failed attempt remains historical; no human acceptance or authority handover is claimed.
+The sole 0.10.0 full API/files/4 canonical model is technically verified under
+[KH-SL-017 evidence](../delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md).
+Its 197-artifact checked capture, A/B, original outcomes, complete scrub, packed
+indexes and second-backend reads passed. The head has 9,578 selected records and
+3,452 explicit draft gaps. Earlier completed runs retain their historical scope.
 
 `examples/full_self_description.rs` authors through public owned contracts only.
 It never reads private backend files. The host's `capture_self_model.py` reads the
@@ -12,12 +16,13 @@ subcase timings are not invented.
 
 The canonical persisted instance is the repository-root [`hub/`](../hub/README.md),
 including all accepted generations, original artifacts, A/B and receipts. Run
-`cargo run --offline --release --example inspect_self_model -- --format files3` to reopen it through
+`cargo run --offline --release --example inspect_self_model --` to reopen it through
 the public API without authoring changes. The inspector reads both explanations,
 compares the exact baselines and recovers the original operation outcomes.
 The recorded source baseline remains exact; moving the store or editing current
-repository files does not refresh its historical model or evidence. The
-[relocation inventory](../delivery/evidence/hub-relocation.json) describes the older files/2 store now retained under `orig_hub/`. The current files/3 dataset comes from the completed fresh rebuild; [new evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) binds its sources, checks and original receipts. Earlier [packed-cache evidence](../delivery/evidence/packed-cache/README.md) describes the older instance before this reset.
+repository files does not refresh its historical model or evidence. The user's previous instance is retained in old_hub, outside capture and the
+supported current decoder. Historical relocation/rebuild/packed-cache reports
+retain their original source versions. The new Hub imports none of its history.
 
 To reproduce authoring separately, run the commands in [README](../README.md)
 with fresh store paths, outside the existing canonical Hub. The verifier
@@ -30,8 +35,8 @@ manifest. Extraction consistency establishes the declared binding, not human ade
 
 The model separates the vocabulary (`sdo:ontology:system-definition`), this governed
 Hub (`kh:hub:self-description`) and the described library (`urn:knowledgehub:library`).
-The seed's requirement, use case, assertion, document and ontology source keep their
-semantic IDs in a fresh files/3 replay domain. Public types, named/tuple/enum payload
+The original demonstration requirement, use case, assertion, document and ontology source keep their
+semantic IDs in a fresh files/4 replay domain. Public types, named/tuple/enum payload
 fields, constants, I/O operations and modules have individual typed source bindings.
 Rules, terms, candidate contexts/aggregates, decisions, journeys, stories, slices,
 tasks and actual cases expand the selected owning documents. Private file manifests
@@ -65,7 +70,7 @@ walkthrough interpretation; it does not rewrite original material or transfer
 routine authority. Human review, full exchange/backup reconstruction and explicit
 KH-SL-006 handover remain separate work. Use release mode for the larger walkthrough:
 the host validates the full generated model and retained history, and debug builds
-are slow at this model size. Selective files/3 reads avoid full-State materialisation. No broad performance or untested durability claim follows.
+are slow at this model size. Selective files/4 reads avoid full-State materialisation. No broad performance or untested durability claim follows.
 
 Semantic identity bindings are declared by `module_id`, `namespace` and `source_key`
 and the explicit origins.json inventory shared with capture/audit. They map current origins to stable source/module/contract

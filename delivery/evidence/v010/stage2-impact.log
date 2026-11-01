@@ -1,0 +1,13 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running tests/model_impact.rs (target/debug/deps/model_impact-546e804fe13a5ded)
+
+running 6 tests
+test strict_owned_contracts_reject_unknown_modes_fields_and_unbounded_plans ... ok
+test finite_work_unknown_selectors_unresolved_starts_and_compact_large_targets ... ok
+test literal_modes_exact_fields_candidate_verification_and_incremental_successors ... ok
+test mixed_seven_hop_plan_cycles_parallel_origins_and_nearer_targets ... ok
+test composite_ambiguity_grouping_paging_full_intent_and_pin ... ok
+test pinned_results_survive_reopen_rebuild_and_late_link_without_full_state_loads ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 23.11s
+

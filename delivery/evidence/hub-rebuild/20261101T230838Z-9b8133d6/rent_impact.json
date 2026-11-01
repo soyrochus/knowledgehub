@@ -1,0 +1,535 @@
+{
+  "version": "knowledgehub-model-impact/1",
+  "matching": "literal-ascii-fold/1",
+  "selection": {
+    "selection": "Snapshot",
+    "reference": "a11a72792f6dea3484f847b15e05f9f3fc24cb41a4701e9738e8c6fc68320dbb"
+  },
+  "ontology": {
+    "model": "rent-fixture",
+    "id": "ontology",
+    "revision": "1"
+  },
+  "profile": {
+    "model": "rent-fixture",
+    "id": "profile",
+    "revision": "1"
+  },
+  "match_status": "Matched",
+  "starts": [
+    {
+      "model": "specimen",
+      "id": "specimen:UserStory",
+      "revision": "1"
+    }
+  ],
+  "hits": [
+    {
+      "record": {
+        "model": "specimen",
+        "id": "specimen:UserStory",
+        "revision": "1"
+      },
+      "field": "/need",
+      "start": 31,
+      "end": 48,
+      "source": {
+        "document": {
+          "model": "rent-fixture",
+          "id": "story-document",
+          "revision": "1"
+        },
+        "anchor": {
+          "model": "rent-fixture",
+          "id": "story-anchor",
+          "revision": "1"
+        },
+        "span_document": {
+          "model": "rent-fixture",
+          "id": "story-document",
+          "revision": "1"
+        },
+        "content": {
+          "sha256": "644ddb4f270ca5c8e238938b401cdcdd13433aa804a31e0169511f8c41493b83",
+          "length": 92
+        },
+        "start": 40,
+        "end": 57,
+        "original_location": null
+      },
+      "snippet": "INCREASE THE RENT",
+      "omitted": false
+    }
+  ],
+  "dependencies": [
+    {
+      "start": {
+        "model": "specimen",
+        "id": "specimen:UserStory",
+        "revision": "1"
+      },
+      "target": {
+        "model": "rent-fixture",
+        "id": "rent-table",
+        "revision": "1"
+      },
+      "witnesses": [
+        [
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:UserStory",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Assertion",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:relationship:Requirement.formalises",
+                "revision": "catalogue-1"
+              }
+            },
+            "opposite": {
+              "model": "specimen",
+              "id": "specimen:Requirement",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "specimen",
+                "id": "specimen:edge:R07",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:RelationshipAssertion",
+                "revision": "catalogue-1"
+              },
+              "occurrence": ""
+            },
+            "category": "Association",
+            "directions": [
+              "Incoming"
+            ]
+          },
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:Requirement",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Assertion",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:relationship:UseCase.satisfies",
+                "revision": "catalogue-1"
+              }
+            },
+            "opposite": {
+              "model": "specimen",
+              "id": "specimen:UseCase",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "specimen",
+                "id": "specimen:edge:R08",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:RelationshipAssertion",
+                "revision": "catalogue-1"
+              },
+              "occurrence": ""
+            },
+            "category": "Association",
+            "directions": [
+              "Incoming"
+            ]
+          },
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:UseCase",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Assertion",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:relationship:UseCase.invokes",
+                "revision": "catalogue-1"
+              }
+            },
+            "opposite": {
+              "model": "specimen",
+              "id": "specimen:FunctionDefinition",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "specimen",
+                "id": "specimen:edge:R12",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:RelationshipAssertion",
+                "revision": "catalogue-1"
+              },
+              "occurrence": ""
+            },
+            "category": "Association",
+            "directions": [
+              "Outgoing"
+            ]
+          },
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:FunctionDefinition",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Assertion",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:relationship:FunctionDefinition.operatesOn",
+                "revision": "catalogue-1"
+              }
+            },
+            "opposite": {
+              "model": "specimen",
+              "id": "specimen:AggregateDefinition",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "specimen",
+                "id": "specimen:edge:R13",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:RelationshipAssertion",
+                "revision": "catalogue-1"
+              },
+              "occurrence": ""
+            },
+            "category": "Association",
+            "directions": [
+              "Outgoing"
+            ]
+          },
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:AggregateDefinition",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Assertion",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:relationship:AggregateDefinition.hasRoot",
+                "revision": "catalogue-1"
+              }
+            },
+            "opposite": {
+              "model": "specimen",
+              "id": "specimen:EntityType",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "specimen",
+                "id": "specimen:edge:R14",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:RelationshipAssertion",
+                "revision": "catalogue-1"
+              },
+              "occurrence": ""
+            },
+            "category": "Association",
+            "directions": [
+              "Outgoing"
+            ]
+          },
+          {
+            "subject": {
+              "model": "specimen",
+              "id": "specimen:EntityType",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Property",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:type:MappingRule",
+                "revision": "catalogue-1"
+              },
+              "path": "/source/subject"
+            },
+            "opposite": {
+              "model": "rent-fixture",
+              "id": "mapping:rent-table",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "rent-fixture",
+                "id": "mapping:rent-table",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:MappingRule",
+                "revision": "catalogue-1"
+              },
+              "occurrence": "/source/subject"
+            },
+            "category": "Property",
+            "directions": [
+              "Incoming"
+            ]
+          },
+          {
+            "subject": {
+              "model": "rent-fixture",
+              "id": "mapping:rent-table",
+              "revision": "1"
+            },
+            "selector": {
+              "kind": "Property",
+              "definition": {
+                "model": "sdo",
+                "id": "sdo:type:MappingRule",
+                "revision": "catalogue-1"
+              },
+              "path": "/target/subject"
+            },
+            "opposite": {
+              "model": "rent-fixture",
+              "id": "rent-table",
+              "revision": "1"
+            },
+            "origin": {
+              "owner": {
+                "model": "rent-fixture",
+                "id": "mapping:rent-table",
+                "revision": "1"
+              },
+              "owner_type": {
+                "model": "sdo",
+                "id": "sdo:type:MappingRule",
+                "revision": "catalogue-1"
+              },
+              "occurrence": "/target/subject"
+            },
+            "category": "Property",
+            "directions": [
+              "Outgoing"
+            ]
+          }
+        ]
+      ],
+      "omitted": false
+    }
+  ],
+  "records": [
+    {
+      "reference": {
+        "model": "rent-fixture",
+        "id": "rent-table",
+        "revision": "1"
+      },
+      "type_ref": {
+        "model": "rent-fixture",
+        "id": "type:PhysicalTable",
+        "revision": "1"
+      },
+      "predecessor": null,
+      "provenance": [
+        {
+          "model": "sdo",
+          "id": "sdo:anchor:catalogue",
+          "revision": "catalogue-1"
+        }
+      ],
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "compatibility": {
+              "kind": "Record",
+              "value": {
+                "policy": {
+                  "kind": "Enum",
+                  "value": "exact"
+                },
+                "schemas": {
+                  "kind": "List",
+                  "value": []
+                }
+              }
+            },
+            "database": {
+              "kind": "Text",
+              "value": "rental"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "model": "sdo",
+                  "id": "urn:source:ontology:capture",
+                  "revision": "catalogue-1"
+                },
+                "fragment": {
+                  "model": "sdo",
+                  "id": "sdo:anchor:catalogue",
+                  "revision": "catalogue-1"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "model": "specimen",
+                    "id": "specimen:FieldDefinition",
+                    "revision": "1"
+                  }
+                }
+              ]
+            },
+            "identity_fields": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "model": "specimen",
+                    "id": "specimen:FieldDefinition",
+                    "revision": "1"
+                  }
+                }
+              ]
+            },
+            "name": {
+              "kind": "Text",
+              "value": "rent_schedule"
+            },
+            "native_artifact": {
+              "kind": "Artifact",
+              "value": {
+                "model": "rent-fixture",
+                "id": "ddl",
+                "revision": "1"
+              }
+            },
+            "schema": {
+              "kind": "Text",
+              "value": "public"
+            },
+            "table": {
+              "kind": "Text",
+              "value": "rent_schedule"
+            }
+          },
+          "owners": [
+            {
+              "path": "/compatibility",
+              "owner": "Graph"
+            },
+            {
+              "path": "/compatibility/policy",
+              "owner": "Graph"
+            },
+            {
+              "path": "/compatibility/schemas",
+              "owner": "Graph"
+            },
+            {
+              "path": "/database",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            },
+            {
+              "path": "/fields/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/identity_fields",
+              "owner": "Graph"
+            },
+            {
+              "path": "/identity_fields/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/native_artifact",
+              "owner": "Graph"
+            },
+            {
+              "path": "/schema",
+              "owner": "Graph"
+            },
+            {
+              "path": "/table",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "sha256": "a281d2acaad13efc4b7c7e06f1e9fc55a2b667f50262ebeb669d0b523770954f"
+    }
+  ],
+  "omitted_records": [],
+  "reached": [],
+  "exhausted": true,
+  "coverage": {
+    "meaning": "candidate_dependency",
+    "domain_complete": false,
+    "no_witnessed_dependency": false,
+    "gaps": [],
+    "unresolved": [],
+    "dead_ends": [],
+    "omitted": false
+  },
+  "work": {
+    "text_postings_examined": 15,
+    "expansion_attempts": 7,
+    "batch_lookups": 7,
+    "examined_associations": 7,
+    "candidates_verified": 1,
+    "visited_states": 8,
+    "record_reads": 50,
+    "hydrated_bytes": 230439,
+    "index_objects_read": 42,
+    "index_bytes_read": 659003,
+    "index_metadata_bytes_read": 0,
+    "prepared_owners": 796,
+    "prepared_fields": 1,
+    "prepared_bytes": 869977
+  },
+  "continuation": null
+}

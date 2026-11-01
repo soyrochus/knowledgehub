@@ -7,27 +7,21 @@ pub(crate) struct NeighbourCursor {
     pub request: Neighbours,
     pub position: Position,
 }
-fn supported(h: &OntologyHub, q: &Neighbours) -> Result<(), Error> {
-    validate(q)?;
-    if h.store.version() != SHARED_FILE_FORMAT {
-        return Err(Error::Incompatible(
-            "neighbours require explicit files/3 capability".into(),
-        ));
-    }
-    Ok(())
+fn supported(_h: &KnowledgeHub, q: &Neighbours) -> Result<(), Error> {
+    validate(q)
 }
-fn fingerprint(h: &OntologyHub, q: &Neighbours, actor: &str) -> Result<String, Error> {
+fn fingerprint(h: &KnowledgeHub, q: &Neighbours, actor: &str) -> Result<String, Error> {
     codec::hash_value("knowledgehub-neighbours/1", &(&h.scope, actor, q))
 }
 pub(crate) fn read_slice(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     context: &Context,
     q: &Neighbours,
     p: &Position,
 ) -> Result<Slice, Error> {
     supported(h, q)?;
-    context.check(&h.scope.transport(), Action::Read)?;
-    let first = h.store.acquire_read(&h.scope.transport())?.neighbours(q, p);
+    context.check(&h.scope, Action::Read)?;
+    let first = h.store.acquire_read(&h.scope)?.neighbours(q, p);
     let reason = match first {
         Ok(slice) => return Ok(slice),
         Err(Error::IndexNotReady { reason }) => reason,
@@ -37,15 +31,12 @@ pub(crate) fn read_slice(
         return Err(Error::IndexNotReady { reason });
     }
     let prepared = {
-        let lease = h.store.acquire(&h.scope.transport())?;
-        context.check(&h.scope.transport(), Action::Read)?;
+        let lease = h.store.acquire(&h.scope)?;
+        context.check(&h.scope, Action::Read)?;
         lease.prepare_neighbours(q, true)?
     };
-    context.check(&h.scope.transport(), Action::Read)?;
-    let mut slice = h
-        .store
-        .acquire_read(&h.scope.transport())?
-        .neighbours(q, p)?;
+    context.check(&h.scope, Action::Read)?;
+    let mut slice = h.store.acquire_read(&h.scope)?.neighbours(q, p)?;
     slice.page.work.prepared_owners = prepared.prepared_owners;
     slice.page.work.prepared_facts = prepared.prepared_facts;
     slice.page.work.index_objects_read += prepared.index_objects_read;
@@ -57,7 +48,7 @@ pub(crate) fn read_slice(
     slice.page.work.rebuild_reason = Some(reason);
     Ok(slice)
 }
-impl OntologyHub {
+impl KnowledgeHub {
     /// Prepare a disposable exact-view index within the request's finite cold-build budget.
     pub async fn prepare_neighbours(
         &self,
@@ -68,9 +59,9 @@ impl OntologyHub {
         self.jobs
             .run(move || {
                 supported(&h, &request)?;
-                context.check(&h.scope.transport(), Action::Read)?;
-                let lease = h.store.acquire(&h.scope.transport())?;
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
+                let lease = h.store.acquire(&h.scope)?;
+                context.check(&h.scope, Action::Read)?;
                 lease.prepare_neighbours(&request, false)
             })
             .await
@@ -83,7 +74,7 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let mut slice = read_slice(&h, &context, &request, &Position::default())?;
                 let Some(position) = slice.next else {
                     return Ok(slice.page);
@@ -126,7 +117,7 @@ impl OntologyHub {
         self.jobs
             .run(move || {
                 supported(&h, &request)?;
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let now = h.cursors.now();
                 let fp = fingerprint(&h, &request, &context.actor)?;
                 let (position, epoch) = {

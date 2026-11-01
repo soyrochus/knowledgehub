@@ -17,7 +17,7 @@ import time
 import uuid
 os.environ["PYTHONDONTWRITEBYTECODE"] = "1"
 sys.dont_write_bytecode = True
-from host_sources import checked_run, digest, require_checkpoint
+from host_sources import checked_run, digest, require_checkpoint, package_identity, retained_inventory
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 SCOPE = dict(hub="kh:hub:self-description", model="urn:knowledgehub:library", branch="main", owner="host:maintainer")
@@ -71,7 +71,7 @@ def target_info(root, target):
         if metadata.stat().st_size > 1048576:
             raise ValueError("unexpected Hub metadata size")
         data = json.loads(metadata.read_text())
-        if data.get("format") not in ("knowledgehub-files/2", "knowledgehub-files/3") or any(data.get("scope", {}).get(k) != v for k, v in SCOPE.items()):
+        if data.get("format") != "knowledgehub-files/4" or any(data.get("scope", {}).get(k) != v for k, v in SCOPE.items()):
             raise ValueError("unexpected generated Hub scope/format")
     else:
         previous = marker(root)
@@ -99,7 +99,7 @@ def reset(root, target, before):
     creation = root / (".knowledgehub-create-" + hashlib.sha256(b"hub").hexdigest() + ".lock")
     with exclusive(creation), contextlib.ExitStack() as stack:
         if before["exists"]:
-            lock = target / ("locks/store.lock" if before.get("format") == "knowledgehub-files/3" else "branch.lock")
+            lock = target / "locks/store.lock"
             if before.get("format"):
                 if not lock.is_file() or lock.is_symlink():
                     raise ValueError("expected stable backend lock")
@@ -115,13 +115,18 @@ def reset(root, target, before):
 
 def lifecycle(root, target, directory, preflight, populate, verify):
     """Injectable phases permit disposable tests; the CLI always supplies the real full batch."""
+    before = target_info(root, pathlib.Path(target))
+    if before["exists"] and marker(root).get("library_version") != "0.10.0":
+        raise ValueError("first 0.10.0 cutover requires hub absent; retain the previous instance outside hub")
+    retained = retained_inventory(root)
     directory.mkdir(parents=True, exist_ok=True)
+    write_json(directory / "old-hub-before.json", retained)
     status_path = directory / "status.json"
     if status_path.exists():
         raise ValueError("use a new attempt directory; previous evidence is retained")
     target = pathlib.Path(target)
     before = target_info(root, target)
-    status = dict(format=SCHEMA, state="preflight", target=str(target), scope=SCOPE,
+    status = dict(format=SCHEMA, library_version="0.10.0", state="preflight", target=str(target), scope=SCOPE,
                   started_at=now(), reset_started=False, before=before,
                   partial_scope_verified=before["exists"] and before.get("format") is None)
     def phase(state, **extra):
@@ -143,6 +148,10 @@ def lifecycle(root, target, directory, preflight, populate, verify):
             populate()
             phase("populated")
             result = verify()
+            after = retained_inventory(root)
+            write_json(directory / "old-hub-after.json", after)
+            if after != retained:
+                raise ValueError("retained old_hub file inventory changed")
             phase("verified", completed_at=now(), result=result)
             return status
         except BaseException as error:
@@ -234,28 +243,32 @@ def main():
     relative = directory.relative_to(ROOT)
     if ".." in relative.parts or relative.parts[:3] != ("delivery", "evidence", "hub-rebuild") or len(relative.parts) != 4 or directory.exists():
         raise ValueError("use a new direct run directory under delivery/evidence/hub-rebuild/")
+    target_info(ROOT, args.target)
+    if args.target.exists() and marker(ROOT).get("library_version") != "0.10.0":
+        raise ValueError("first 0.10.0 cutover requires hub absent after the user rename")
     results = []
     checked = {}
     binaries = ROOT / "target/release/examples"
     def preflight():
+        package_identity(ROOT)
         subprocess.run([sys.executable, ROOT / "scripts/verify_full_ontology.py", "--run-dir", directory], cwd=ROOT, check=True)
         checked.update(checked_run(ROOT, directory / "checked.json", directory / "native.log"))
         capture_args = [sys.executable, ROOT / "examples/capture_self_model.py", "--output", str(relative / "self-model-input.json"),
                         "--derived", str(relative / "ontology-pdf-extracted.txt"), "--log", str(relative / "native.log"),
                         "--checked-manifest", str(relative / "checked.json")]
         command(ROOT, directory, "capture", capture_args, results)
-        command(ROOT, directory, "validate-input", [binaries / "full_self_description", "--format", "files3", "--validate-input", directory / "self-model-input.json"], results)
+        command(ROOT, directory, "validate-input", [binaries / "full_self_description", "--validate-input", directory / "self-model-input.json"], results)
         require_checkpoint(ROOT, checked["files"])
     def populate():
-        command(ROOT, directory, "populate", [binaries / "full_self_description", "--format", "files3", directory / "self-model-input.json", args.target, "--result", directory / "self-model-result.json"], results)
+        command(ROOT, directory, "populate", [binaries / "full_self_description", directory / "self-model-input.json", args.target, "--result", directory / "self-model-result.json"], results)
         metadata = json.loads((args.target / "hub.json").read_text())
-        if metadata["format"] != "knowledgehub-files/3" or metadata["replay_domain"] == marker(ROOT)["before"].get("replay_domain"):
-            raise ValueError("expected a fresh files/3 replay domain")
+        if metadata["format"] != "knowledgehub-files/4" or metadata["replay_domain"] == marker(ROOT)["before"].get("replay_domain"):
+            raise ValueError("expected a fresh files/4 replay domain")
     def verify():
-        inspection = command(ROOT, directory, "inspect", [binaries / "inspect_self_model", "--format", "files3", "--verify", "--compact", args.target], results)
+        inspection = command(ROOT, directory, "inspect", [binaries / "inspect_self_model", "--verify", "--compact", args.target], results)
         report = json.loads(inspection.read_text())
         caches = packed_cache_report(args.target, report)
-        reopened = command(ROOT, directory, "inspect-reopened", [binaries / "inspect_self_model", "--format", "files3", "--verify", args.target], results)
+        reopened = command(ROOT, directory, "inspect-reopened", [binaries / "inspect_self_model", "--verify", args.target], results)
         reopened_report = json.loads(reopened.read_text())
         reads = verify_reopened(report, reopened_report)
         after = packed_cache_report(args.target, reopened_report)
@@ -263,14 +276,16 @@ def main():
             raise ValueError("sealed packs changed during read-only reopen")
         # Fixtures live on the supported repository filesystem, never in the canonical store.
         fixture_root = pathlib.Path(tempfile.mkdtemp(prefix="kh-rebuild-", dir=ROOT / "target"))
-        catalogue = command(ROOT, directory, "catalogue", [binaries / "catalogue_conformance", "--format", "files3", fixture_root / "catalogue"], results)
+        catalogue = command(ROOT, directory, "catalogue", [binaries / "catalogue_conformance", fixture_root / "catalogue"], results)
         for example in ("neighbours", "rent_impact"):
             command(ROOT, directory, example, [binaries / example, fixture_root / example], results)
         command(ROOT, directory, "coverage", [sys.executable, ROOT / "scripts/audit_full_ontology.py", catalogue, directory / "self-model-result.json", directory / "self-model-input.json",
                 "--log", directory / "native.log", "--output", directory / "coverage-audit.json"], results)
         meta = json.loads((args.target / "hub.json").read_text())
         capture = json.loads((directory / "self-model-input.json").read_text())
-        final = dict(format=SCHEMA, replay_domain=meta["replay_domain"], scope=meta["scope"], native=checked["log"],
+        if retained_inventory(ROOT) != json.loads((directory / "old-hub-before.json").read_text()):
+            raise ValueError("old_hub changed before verified result publication")
+        final = dict(format=SCHEMA, library_version=package_identity(ROOT), file_format=meta["format"], old_hub_unchanged=retained_inventory(ROOT) == json.loads((directory / "old-hub-before.json").read_text()), replay_domain=meta["replay_domain"], scope=meta["scope"], native=checked["log"],
                      captured_at=capture["captured_at"], capture=digest((directory / "self-model-input.json").read_bytes()),
                      selected_records=report["selected_records"], retained_revisions=report["retained_revisions"],
                      explicit_gaps=report["explicit_gaps"], scrub=report["scrub"],
@@ -281,19 +296,19 @@ def main():
                      human_acceptance=False, authority_handover=False, migration_continuity=False)
         guide = f"""# Canonical KnowledgeHub demonstration
 
-Fresh files/3 instance. Replay domain: {meta['replay_domain']}.
+Fresh files/4 instance. Replay domain: {meta['replay_domain']}.
 Captured checkpoint: {capture['captured_at']}; exact sources, native runs and original receipts are retained in this Hub.
 
 Read it through the public API:
 
 ~~~sh
-cargo run --offline --release --example inspect_self_model -- --format files3
+cargo run --offline --release --example inspect_self_model --
 ~~~
 
 Full scrub and actual model neighbour/literal/composite reads:
 
 ~~~sh
-cargo run --offline --release --example inspect_self_model -- --format files3 --verify
+cargo run --offline --release --example inspect_self_model -- --verify
 ~~~
 
 This run has {report['selected_records']} selected records and {report['explicit_gaps']} explicit draft gaps.

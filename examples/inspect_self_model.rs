@@ -1,4 +1,4 @@
-//! Read the canonical persisted self-model through the public files/2 API.
+//! Read the canonical persisted self-model through the public full-model API.
 mod file_format;
 #[path = "self_model_support/mod.rs"]
 mod host;
@@ -37,20 +37,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         std::env::current_dir()?.join(store)
     };
     eprintln!("Opening persisted self-model at {}", store.display());
-    if (options.verify || options.compact) && options.format != file_format::Format::Files3 {
-        return Err("--verify/--compact require --format files3".into());
-    }
-    let backend = options.format.backend(&store)?;
+    let backend = knowledgehub::backends::files::FileBackend::new(
+        &store,
+        knowledgehub::backends::files::FileOptions::local_ext4(),
+    )?;
     let compacted = if options.compact {
-        Some(
-            backend
-                .compact_ontology(seed::context(), host::scope())
-                .await?,
-        )
+        Some(backend.compact(seed::context(), host::scope()).await?)
     } else {
         None
     };
-    let hub = OntologyHub::open(backend.clone(), seed::context(), host::scope()).await?;
+    let hub = KnowledgeHub::open(backend.clone(), seed::context(), host::scope()).await?;
     let (head, state) = hub.snapshot(seed::context()).await?;
     let report = assess(&state);
     if !report.is_valid() {
@@ -101,11 +97,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         None
     };
     let scrub = if options.verify {
-        Some(
-            backend
-                .scrub_ontology(seed::context(), host::scope())
-                .await?,
-        )
+        Some(backend.scrub(seed::context(), host::scope()).await?)
     } else {
         None
     };
@@ -114,7 +106,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "{}",
         serde_json::to_string_pretty(&json!({
             "store": store,
-            "format":options.format.name(),
+            "format":knowledgehub::FILE_FORMAT,
             "compaction":compacted,
             "scrub":scrub,
             "indexed":indexed,

@@ -1,0 +1,61 @@
+   Compiling knowledgehub v0.10.0 (/home/iwk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 7.82s
+     Running tests/neighbours.rs (target/debug/deps/neighbours-e2fb283ae41bf5fd)
+
+running 6 tests
+test strict_current_contract_bounds_and_readiness ... ok
+test current_query_order_filters_and_paging_match_independent_oracle ... ok
+test late_links_exact_scopes_and_ready_point_reads ... ok
+test paging_is_bounded_and_survives_head_movement_and_cache_eviction ... ok
+test successors_selection_and_schema_versions_equal_clean_rebuilds ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle has been running for over 60 seconds
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 146.05s
+
+     Running tests/ontology_contract.rs (target/debug/deps/ontology_contract-bccd9d2f88771fb8)
+
+running 25 tests
+test every_family_has_a_complete_connected_typed_specimen ... ok
+test every_declared_signature_rejects_wrong_direction_and_targets ... ok
+test nested_owner_paths_distinguish_literal_slashes_and_tildes ... ok
+test kernel_codecs_are_closed_and_missing_catalogue_family_is_reported ... ok
+test retained_definitions_do_not_hide_a_missing_active_family ... ok
+test native_decision_tables_remain_exact_and_definitions_do_not_become_observations ... ok
+test every_declared_property_has_independent_missing_and_invalid_evidence ... ok
+test invalid_baseline_closures_and_competing_ownership_are_rejected ... ok
+test superseded_formats_are_refused_without_mutation ... ok
+test scalar_encodings_closed_requests_and_revision_tokens_are_lossless ... ok
+test full_catalogue_registration_reopen_and_original_receipt ... ok
+test damaged_typed_binary_is_integrity_failure_and_never_operation_absence ... ok
+test cycles_process_membership_transformation_kinds_and_contracts ... ok
+test binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes ... ok
+test specialised_integrity_draft_gaps_and_native_roles ... ok
+test registration_is_atomic_recursive_guarded_and_currently_authorised ... ok
+test selection_restores_exact_history_and_refuses_a_second_origin ... ok
+test all_families_and_kernel_relationships_commit_and_reopen ... ok
+test baseline_comparison_reports_unicode_additions_removals_and_stable_order ... ok
+test each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity ... ok
+test directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact ... FAILED
+test typed_same_base_root_and_baseline_race_has_one_winner ... ok
+test bounded_navigation_cursors_policy_and_selection_binding ... ok
+test coherent_successors_baselines_and_replay_multithreaded ... ok
+test coherent_successors_baselines_and_replay_current_thread ... ok
+
+failures:
+
+---- directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact stdout ----
+
+thread 'directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact' (704) panicked at tests/ontology_contract.rs:1844:13:
+assertion `left == right` failed
+  left: Some("edge/work budget")
+ right: Some("edge budget")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact
+
+test result: FAILED. 24 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 46.83s
+
+error: test failed, to rerun pass `--test ontology_contract`

@@ -72,12 +72,12 @@ handover retain their own gates in the owning slice plan.
 Capture both source documents and retained PDF bytes with independent original-
 content hashes and explicit representation relationships; similar filenames do
 not establish byte or semantic equivalence. These additions now exist in the
-opt-in files/2 API; files/1 remains a separate compatibility path. Actual runs and
+then opt-in files/2 API; that historical split is removed by KH-SL-014/015. Actual runs and
 coverage are recorded in [full-ontology evidence](../delivery/evidence/full-ontology.md).
 The loaded model remains a draft with explicit gaps. Technical completion does
 not close the B3 authority/acceptance/reconstruction gates.
 
-The user requested a visible canonical dogfooding instance at the repository root. The original files/2 relocation is recorded as [historical evidence](../delivery/evidence/hub-relocation.json). The later verified files/3 instance has now been renamed by the user to old_hub; hub is absent at planning inspection. Its existing history/source baseline remains unchanged, and the new implementation will not decode or import it. The planned final change creates a separate current instance only after fresh 0.10.0 verification/capture. Repository edits do not refresh stored model revisions or transfer definition authority.
+The user requested a visible canonical dogfooding instance at the repository root. The original files/2 relocation is recorded as [historical evidence](../delivery/evidence/hub-relocation.json). The later verified files/3 instance has now been renamed by the user to old_hub; hub is absent at planning inspection. Its existing history/source baseline remains unchanged, and the new implementation will not decode or import it. The authorised final change creates a separate current instance only after fresh 0.10.0 verification/capture. Repository edits do not refresh stored model revisions or transfer definition authority.
 
 Map the authored model through the following families as needed:
 
@@ -244,13 +244,21 @@ KH-SL-013 is implemented and technically verified; see [packed-cache evidence](.
 
 The resumed KH-SL-012 run is technically verified. [Evidence](../delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records new public-API population after complete deletion, 149 captured artifacts, 100 Rust tests, one doctest, 11 host tests and full reopened/scrub/indexed/catalogue/fixture verification. The new canonical model retains 3,815 draft gaps and repository definition ownership. Its captured checkpoint precedes final task/report/guide edits; no acceptance or authority transfer follows from the rebuild.
 
-### Sole full API / 0.10.0 — planned sequence
+### Sole full API / 0.10.0 — verified sequence
 
-The user selected a single current full API before the first supported release, package version 0.10.0, and a fresh canonical instance after their own hub → old_hub rename. [KH-SL-014–017](../delivery/slice-plan.md#single-full-api-sequence--planned-0100-cutover) own the ordered execution. Current Cargo metadata and historical Hub evidence remain unchanged until implementation; planning is not native verification or human acceptance.
+The user selected a single current full API before the first supported release, package version 0.10.0, and a fresh canonical instance after their own hub → old_hub rename. [KH-SL-014–017](../delivery/slice-plan.md#single-full-api-sequence--0100-cutover) own the ordered execution. Cargo and lock identity are now 0.10.0 and the sole full API/default files/4 backend are implemented. [Current evidence](../delivery/evidence/v010/README.md) records focused checks, the complete native batch and verified new canonical dataset. Historical Hub evidence remains unchanged.
 
 | ID | Selection/status | Consequence and boundary |
 | --- | --- | --- |
-| KH-D-21 | User-selected: one full KnowledgeHub API, no seed/backward API or old-storage support, and unpublished crate version 0.10.0. Planned implementation in KH-SL-014–017. | Remove aliases/flags/old implementations; keep actual schema/source/policy/history/recovery/query guarantees within the current implementation. No converter, crate publication, new adapter, compiler installation or authority transfer. |
-| KH-D-22 | Proposed concrete serialization boundary: knowledgehub-files/4 for the simplified full scope/state/receipt contract; unchanged record/request/object codecs retain their actual identifiers. | A new payload is never written under a misleading old file version. Only the current contract is supported; older metadata is refused without mutation. The user's old_hub remains outside current capture, reset and import; a new Hub supplies new original outcomes. This choice is an implementation plan, not a claimed source-ontology requirement or completed format change. |
+| KH-D-21 | User-selected: one full KnowledgeHub API, no seed/backward API or old-storage support, and unpublished crate version 0.10.0. Implemented API/storage in KH-SL-014/015, current tooling in KH-SL-016; final verification/rebuild completed in KH-SL-017. | Remove aliases/flags/old implementations; keep actual schema/source/policy/history/recovery/query guarantees within the current implementation. No converter, crate publication, new adapter, compiler installation or authority transfer. |
+| KH-D-22 | Implemented concrete serialization boundary: knowledgehub-files/4 for the simplified full scope/state/receipt contract; unchanged record/request/object codecs retain their actual identifiers. | A new payload is never written under a misleading old file version. Only the current contract is supported; older metadata is refused without mutation. The user's old_hub remains outside current capture, reset and import; a new Hub supplies new original outcomes. This is a concrete implementation choice; the source ontology does not dictate its physical codec. |
 
 The repository still owns definitions. Original source books, archived plans and execution reports retain their original status. The new stored self-model will bind a checked checkpoint before final task/report/guide edits; it will not be an automatically refreshed live mirror. Existing Rust 1.99.1, host Tokio and the user's platform-compliance assumption remain separate from observed evidence.
+
+The KH-SL-017 current-only rebuild is technically verified. Its new replay domain,
+exact sources/builds, original A/B/history/receipts, scrub/indexed/reopen results,
+183-row catalogue audit, isolated examples and unchanged 362-file old_hub inventory
+are retained in [the final run](../delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md).
+The current head retains 3,452 explicit draft gaps. Repository documents still own
+definitions; no human acceptance or authority handover follows. Final status/task
+prose follows the captured checkpoint, which remains exact inside the new Hub.

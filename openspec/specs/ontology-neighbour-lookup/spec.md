@@ -75,10 +75,9 @@ With a ready index, lookup SHALL enumerate the relevant endpoint/selector neighb
 - **WHEN** unrelated graph size grows while a queried neighbourhood remains fixed
 - **THEN** measured posting/record reads stay tied to that neighbourhood plus lookup-path overhead, without hidden full graph/history scans
 
-### Requirement: Existing navigation compatibility
-Existing assertion-only Query/Page operations SHALL retain their established filters, ordering, maximum depth, authority and continuation semantics. Additive neighbour operations SHALL report unsupported backend capabilities explicitly rather than reinterpret legacy requests.
+### Requirement: Unified current navigation semantics
+Maintained Query/Page selection and traversal SHALL use current full-model/indexed semantics. Enumeration, type/ID filtering and finite paging SHALL remain available. The old assertion-order/four-hop implementation and compatibility-only traversal dispatch SHALL NOT remain.
 
-#### Scenario: Legacy query uses an indexed backend
-- **WHEN** the same supported legacy query runs through its original semantics over files/3
-- **THEN** its ordered records/assertions and truncation match the independent established traversal result
-
+#### Scenario: Use current selection and traversal
+- **WHEN** a caller enumerates typed records or follows recorded relationships through the full API
+- **THEN** it receives deterministic exact-view bounded results without a separate legacy traversal engine

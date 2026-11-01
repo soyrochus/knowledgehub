@@ -92,16 +92,6 @@ pub(crate) fn omit_content_bytes(value: &mut Value) {
     }
 }
 
-pub(crate) fn record_revision(record: &impl Serialize) -> Result<String, Error> {
-    let mut value = serde_json::to_value(record).map_err(encoding)?;
-    value["reference"]
-        .as_object_mut()
-        .ok_or_else(|| encoding("reference"))?
-        .remove("revision");
-    omit_content_bytes(&mut value);
-    hash_value("knowledgehub-record/1", &value)
-}
-
 // Parsing through Value normally loses duplicate keys. This visitor rejects them at every depth.
 struct Strict(Value);
 impl<'de> de::Deserialize<'de> for Strict {

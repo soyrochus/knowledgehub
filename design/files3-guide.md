@@ -1,8 +1,13 @@
-# Shared immutable file storage
+# Current shared immutable file storage
 
 Implementation guide for KH-SL-009, `share-immutable-file-storage`. The wire grammar follows [file-storage proposal draft 0.3](../source/file-storage-proposal.md). Implementation and automated verification do not establish human acceptance or transfer document authority.
 
-Use `FileBackend::new_shared_ontology(absolute_path, FileOptions::local_ext4())` explicitly. `new` remains files/1 and `new_ontology` remains files/2. Opening through another constructor fails without conversion. The canonical root `hub/` stays files/2 during this change; KH-SL-012 owns its later deletion and regeneration. No Rust compiler installation is required.
+Use `FileBackend::new(absolute_path, FileOptions::local_ext4())` with the full
+`knowledgehub::KnowledgeHub` API. Crate 0.10.0 supports only files/4. Older
+constructors, modes and decoders are removed; open rejects older stores without
+changing them. A fresh root hub is generated only after the final checked batch.
+The user-retained old_hub is excluded from capture and remains untouched. Use the
+existing Rust 1.99.1; install no compiler.
 
 A generation is one accepted atomic change: an opaque snapshot ID, immutable roots, its original receipt and a parent generation. A baseline is a model record naming an exact selection and supporting closure. Creating a baseline normally creates a generation. Packing creates neither. All accepted history and lifetime operation outcomes remain retained.
 
@@ -39,4 +44,4 @@ The fault harness actually kills a separate writer process at eight publication 
 
 Diagnostics count unique logical OIDs separately from encoded regular-file bytes and allocated regular-file blocks (`st_blocks * 512`; directory blocks and Git storage excluded). Temporary hard-link aliases count once by device/inode. Reports separate artifact blob bytes, generic record data, baseline data, anchor data and the remaining envelopes/history/tree overhead. Shared derived location bytes and readable views are identified separately. New-object counters split logical payload bytes from structural metadata and report actual loose encoded writes. Compaction records encoded and allocated high-water observations after the replacement pack/index/catalogue are installed while original encodings remain. Final external benchmark runs record process peak RSS, actual timing and cache conditions.
 
-`FileWork` counts decoded object requests requiring physical retrieval, encoded object/block bytes, loose-object writes and cold location-index work. It does not count every filesystem metadata call, directory enumeration, head/reference fsync or returned allocation. Legacy files/1–2 do not populate these new object counters; their comparison uses measured file growth, wall time and process RSS, rather than interpreting zero as no I/O. Full candidate validation/materialisation remains proportional to model size even when disk writes share all unchanged content.
+`FileWork` counts decoded object requests requiring physical retrieval, encoded object/block bytes, loose-object writes and cold location-index work. It does not count every filesystem metadata call, directory enumeration, head/reference fsync or returned allocation. Full candidate validation/materialisation remains proportional to model size even when disk writes share all unchanged content.

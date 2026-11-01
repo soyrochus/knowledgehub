@@ -53,10 +53,9 @@ Packed and loose representations SHALL return identical neighbours, text hits, o
 - **WHEN** matching requests run after reopening, cache eviction or location-index damage
 - **THEN** their complete semantic results agree with the original pinned read
 
-### Requirement: Existing canonical data remains immutable
-Verification SHALL exercise the existing canonical self-model through public APIs without reset, recapture, successor generation or receipt import. It SHALL report actual encoded/allocated/peak space and cold/warm work. The unfinished rebuild SHALL remain explicitly postponed with its failed attempt and uncompleted tasks preserved.
+### Requirement: Derived maintenance preserves accepted knowledge
+Index preparation, reconstruction and physical cache maintenance SHALL leave the current instance's accepted objects, history, baselines and receipts unchanged. A separately authorised host demonstration rebuild SHALL establish a new instance and SHALL NOT be presented as an ordinary cache update.
 
-#### Scenario: The canonical index is prepared successfully
-- **WHEN** packing resolves the previous allocation limit
-- **THEN** actual neighbour, phrase and composite reads pass while original accepted files, head, baselines and operation outcomes remain unchanged
-
+#### Scenario: Rebuild a current derived index
+- **WHEN** a cache is evicted or corrupted and then prepared against an existing exact view
+- **THEN** verified semantic query results return without accepted-data mutation or another model generation

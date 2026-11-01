@@ -1,0 +1,19 @@
+    Blocking waiting for file lock on build directory
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.69s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-05524adf3741f322)
+
+running 7 tests
+test shared_fault_tests::process_race_worker ... ok
+test shared_fault_tests::process_worker ... ok
+test shared_fault_tests::two_process_same_base_race_has_one_winner ... ok
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state has been running for over 60 seconds
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes has been running for over 60 seconds
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary has been running for over 60 seconds
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary has been running for over 60 seconds
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary ... ok
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary ... ok
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state ... ok
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 130.62s
+

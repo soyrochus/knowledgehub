@@ -1,5 +1,10 @@
 # Full ontology implementation record
 
+Historical implementation record. The current 0.10.0 contract is documented in
+[the full API guide](typed-ontology-api.md) and [current file storage](files3-guide.md).
+Earlier seed APIs/decoders and the runnable files/1 fixture have been removed; this
+record retains the scope of its original implementation and evidence.
+
 31 October 2026 · `express-full-ontology-and-self-model`.
 
 The user explicitly requested “Apply express-full-ontology-and-self-model”.

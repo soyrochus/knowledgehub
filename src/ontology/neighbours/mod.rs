@@ -4,7 +4,7 @@ pub(crate) mod facts;
 mod types;
 use super::*;
 use crate::Error;
-pub(crate) use api::{NeighbourCursor, read_slice};
+pub(crate) use api::NeighbourCursor;
 pub use types::*;
 
 #[derive(Clone, Debug, Default, PartialEq, Eq)]

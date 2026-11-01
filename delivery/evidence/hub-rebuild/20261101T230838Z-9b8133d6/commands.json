@@ -1,0 +1,177 @@
+[
+  {
+    "name": "capture",
+    "command": [
+      "/usr/bin/python3",
+      "/home/iwk/src/knowledgehub/examples/capture_self_model.py",
+      "--output",
+      "delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-input.json",
+      "--derived",
+      "delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/ontology-pdf-extracted.txt",
+      "--log",
+      "delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/native.log",
+      "--checked-manifest",
+      "delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/checked.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.6064825159992324,
+    "output": {
+      "sha256": "f56a102e0104b29bdbfa197bdd8acaa87b48fd4b19abff467b2f8a0673b920e1",
+      "length": 139
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "validate-input",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "--validate-input",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-input.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.860440196993295,
+    "output": {
+      "sha256": "2e9c2ba3ee5a8c674ccdb8bac6da858342f54e64971d97b6ab1da08a90f2c61b",
+      "length": 66
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "populate",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/full_self_description",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-input.json",
+      "/home/iwk/src/knowledgehub/hub",
+      "--result",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-result.json"
+    ],
+    "exit_code": 0,
+    "seconds": 400.03766142400127,
+    "output": {
+      "sha256": "73cc09a3a10230d044ff253a8a47a8cdfcc9b44ece824a734b0299e828c2ba8c",
+      "length": 247
+    },
+    "stderr": {
+      "sha256": "c1aa05f3b93fdb5a1347aa6ee8b484a911f4d70124933ffbccab07d7edd15e0c",
+      "length": 557
+    }
+  },
+  {
+    "name": "inspect",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--verify",
+      "--compact",
+      "/home/iwk/src/knowledgehub/hub"
+    ],
+    "exit_code": 0,
+    "seconds": 222.14566429999832,
+    "output": {
+      "sha256": "845cc12f650b901a31af1c35b11b0737ae73ecacf8aafac3fe5e1d62114ed92a",
+      "length": 96011
+    },
+    "stderr": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    }
+  },
+  {
+    "name": "inspect-reopened",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--verify",
+      "/home/iwk/src/knowledgehub/hub"
+    ],
+    "exit_code": 0,
+    "seconds": 104.02129114299896,
+    "output": {
+      "sha256": "1371e08a08362df5be0d268bff7c82b72bab0c2538d3d13da448ee3c6905bf3b",
+      "length": 95301
+    },
+    "stderr": {
+      "sha256": "170c5f74d6221ecbace3ce78c3018e99eff36908affeb90942952cb264dabe88",
+      "length": 135
+    }
+  },
+  {
+    "name": "catalogue",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/catalogue_conformance",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-c84j7ux_/catalogue"
+    ],
+    "exit_code": 0,
+    "seconds": 5.655088291998254,
+    "output": {
+      "sha256": "dec1cfe36f5acf32269ed2faa7a4d4a61b2028f946ed334e212c9f7c986f3810",
+      "length": 484756
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "neighbours",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/neighbours",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-c84j7ux_/neighbours"
+    ],
+    "exit_code": 0,
+    "seconds": 6.560437882006227,
+    "output": {
+      "sha256": "5972f5760cabb78185a0a9732b09827badb1b087e322ebdb88c24c4ec88f4560",
+      "length": 21309
+    },
+    "stderr": {
+      "sha256": "ca706c575b7b26f82cee613dd79817be0196a8fe60c8e2876fc101b8c1e77dcb",
+      "length": 121
+    }
+  },
+  {
+    "name": "rent_impact",
+    "command": [
+      "/home/iwk/src/knowledgehub/target/release/examples/rent_impact",
+      "/home/iwk/src/knowledgehub/target/kh-rebuild-c84j7ux_/rent_impact"
+    ],
+    "exit_code": 0,
+    "seconds": 10.10125805700227,
+    "output": {
+      "sha256": "e294cfc2f3129dab5b0db15ccb808a9bdecb708a2028af9aaf7c5f812f5c8209",
+      "length": 14370
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "coverage",
+    "command": [
+      "/usr/bin/python3",
+      "/home/iwk/src/knowledgehub/scripts/audit_full_ontology.py",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/catalogue.json",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-result.json",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/self-model-input.json",
+      "--log",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/native.log",
+      "--output",
+      "/home/iwk/src/knowledgehub/delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/coverage-audit.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.10251989899552427,
+    "output": {
+      "sha256": "98113748544c2596df0a490b0461024f4b219f2a75cdb4804772d1156b9ca549",
+      "length": 168
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  }
+]

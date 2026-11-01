@@ -1,0 +1,1142 @@
+{
+  "format": "knowledgehub-observed-native-run/2",
+  "library_version": "0.10.0",
+  "started_at": "2026-11-01T23:08:38.450469+00:00",
+  "ended_at": "2026-11-01T23:17:51.287497+00:00",
+  "source_status": "exact working tree before capture/final task and generated-report updates",
+  "files": {
+    ".gitignore": {
+      "sha256": "a3f3d889091ceb74c097c4145e7bcab5c20a6f61aa4719ea7d938a2f0a7a812b",
+      "length": 174
+    },
+    "Cargo.lock": {
+      "sha256": "09bf2b070e442e576672c4638160c4d59e20374c0cb8cbbbab6d388256b47dd7",
+      "length": 7816
+    },
+    "Cargo.toml": {
+      "sha256": "90226b55315a85dce403a4ac6f3176d35a12622fe4c272d2c5da514b309592ac",
+      "length": 556
+    },
+    "README.md": {
+      "sha256": "20dc33f1e1c65a2c62ff29e77cf6d7b64eb36d77eee86d7c7a2bc13933810819",
+      "length": 3176
+    },
+    "delivery/slice-plan.md": {
+      "sha256": "65d1ea5f52f443c53b3a413881ae09a729029b712c18c7837afebca4cb547bae",
+      "length": 40282
+    },
+    "design/canonical-rebuild.md": {
+      "sha256": "fa0c34027d35f3d51cb12ba124da0c81f806f40c00f4129ca1adfd8343612eb9",
+      "length": 3301
+    },
+    "design/deterministic-query-api.md": {
+      "sha256": "f90344e1a975a02fb4c5c850b59f5d3a039cfa299134ded14d71aca871daadb1",
+      "length": 11294
+    },
+    "design/domain-analysis.md": {
+      "sha256": "57a38645636b53de7eecdbd829d4aa9cd545a4f9b163a8988f6101f6cf1b2d44",
+      "length": 28492
+    },
+    "design/file-backend.md": {
+      "sha256": "c8ffcf8b5280f0b730265844838ee49f273dbc8ff9320d8e321bff9994659a54",
+      "length": 12669
+    },
+    "design/files3-guide.md": {
+      "sha256": "13864c93e8fa89dd363a5923bca2104296cb2a7904535cabe3a243641392a82a",
+      "length": 9358
+    },
+    "design/full-ontology-implementation.md": {
+      "sha256": "f7f7e18ab7209ae6d692e4af6830eca125c0535afe2b4b26755a12ee3e1f29e1",
+      "length": 2901
+    },
+    "design/implementation-record.md": {
+      "sha256": "ff8f8f6545ccfe8d86678f1dde2caa880c109df5dbc67a41ed93ae8392e7360b",
+      "length": 3600
+    },
+    "design/neighbour-api.md": {
+      "sha256": "f3ab9aba3e0d46cde2ce5f7a1b364c0349fc7921e9451531a341c038925469e3",
+      "length": 8956
+    },
+    "design/packed-cache-storage.md": {
+      "sha256": "e6aef71b067d309bd1b6dd65fd62490e5cb1a93fe9e2fd1d36496ea3d43e20f6",
+      "length": 6168
+    },
+    "design/self-hosting-plan.md": {
+      "sha256": "d1e2e8cc748bd2c7d4c7c79c798dee605f4173542bf476ff61c5d86bf70cb525",
+      "length": 41908
+    },
+    "design/self-model-consumer.md": {
+      "sha256": "855f9f4858be4663ed30662019e08db249e03c729449f4a323f21bb1bfc5d5ad",
+      "length": 6076
+    },
+    "design/typed-ontology-api.md": {
+      "sha256": "c4ae900d38170b8a762059271c6389c4ab997228f42bd960dcf988aafbbbdb8f",
+      "length": 7105
+    },
+    "examples/capture_self_model.py": {
+      "sha256": "cf6c0a17013b59bce3039001ad3f25cb069941737fdab5bc771d84f541d6ee1a",
+      "length": 12349
+    },
+    "examples/catalogue_conformance.rs": {
+      "sha256": "3b707db6a307b4caf09cbc196bb993bcfc88c10919597d89723af96abb20f2a4",
+      "length": 3404
+    },
+    "examples/file_format/mod.rs": {
+      "sha256": "8e293eb26aa5390f6a906af51ca62e6b2382204ab7a7032841df77de4971eaf0",
+      "length": 2137
+    },
+    "examples/full_self_description.rs": {
+      "sha256": "01d8204ad45ca8c5e791ce36efed94a6e5f80c5c5880c2cc17ef7700f62b092e",
+      "length": 15681
+    },
+    "examples/impact_benchmark.rs": {
+      "sha256": "b2a0405b0b044a586b2bb0c1b01a9f5bc2f0e7ac0625ce9994dd951403eafc88",
+      "length": 4538
+    },
+    "examples/inspect_self_model.rs": {
+      "sha256": "ff0e829c850b24105efd2c3e3f054a62b8914c55644712487fa1a13643325037",
+      "length": 5144
+    },
+    "examples/minimal_model.rs": {
+      "sha256": "8d941fe9a2e1c85edafb1fda4fc6b126bedfb33b3a00d52d4a5a6c45112b88d2",
+      "length": 855
+    },
+    "examples/neighbour_benchmark.rs": {
+      "sha256": "6bfe8ee9eaf683add02e479fdbbd47f10336f1f01136eb61d4852db75768fc38",
+      "length": 7160
+    },
+    "examples/neighbour_support/mod.rs": {
+      "sha256": "c4bab88edc09911473568a9d63880773de88be21534ae39d6f8ccb1c06bdfd95",
+      "length": 11315
+    },
+    "examples/neighbours.rs": {
+      "sha256": "e9f6cde87065ed8428216e6e923437ca184c317c74bdc73e5b800ae3286a170c",
+      "length": 7120
+    },
+    "examples/ontology_support/mod.rs": {
+      "sha256": "231e6ab26cd738f4898ae5e4ba0bd9d07d34ee6d2befe1c60ce8c4bb4c8e6b71",
+      "length": 18794
+    },
+    "examples/rent_impact.rs": {
+      "sha256": "79d66fac4d2188a48df0ed04108d0876ef363181008b49fdc1902162bd3403db",
+      "length": 600
+    },
+    "examples/rent_support/mod.rs": {
+      "sha256": "c5f928e30c72054687cbe5417778899521de091b98f109ed964c725f1a26376d",
+      "length": 10549
+    },
+    "examples/self_model_support/mod.rs": {
+      "sha256": "4f3476c486ac6e46c7b191dcedd464d66f906c366c38fcd60a4425eed045f535",
+      "length": 88504
+    },
+    "examples/self_model_support/origins.json": {
+      "sha256": "dfdc04bcce1f4f6425ca8576b546c231d9710809791b1ac433a0a7cd6da4478f",
+      "length": 9533
+    },
+    "examples/self_model_support/verify.rs": {
+      "sha256": "dcd1c11424c5b85e7832e32487525083ca532414a8cfc6b532d915291b4dddc4",
+      "length": 5103
+    },
+    "examples/shared_storage.rs": {
+      "sha256": "5cf243621b8fd50eb01a4c4166d24edb02c4406afb83c12ef667fb055bc42125",
+      "length": 6848
+    },
+    "examples/storage_benchmark.rs": {
+      "sha256": "e9c4a0280561c3ce35b66aab719da1fac6cb401de263d31dda006879d03074fb",
+      "length": 8212
+    },
+    "examples/support/mod.rs": {
+      "sha256": "becac4ed859d5383bc7dea7e011ea91f4ab31ba838f5365f02e538dc12af64c7",
+      "length": 704
+    },
+    "openspec/changes/align-current-api-tooling/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/align-current-api-tooling/design.md": {
+      "sha256": "6ad8d0688037916f47046d7e16dacb97d3249b85cc98fbb2871953ed253db8ed",
+      "length": 4683
+    },
+    "openspec/changes/align-current-api-tooling/proposal.md": {
+      "sha256": "60676d3ddc5907df116b916c5b2c59351e6752796d87446d812e40a3b8353d55",
+      "length": 2479
+    },
+    "openspec/changes/align-current-api-tooling/specs/current-api-host-tooling/spec.md": {
+      "sha256": "59cb41da4a632900ce44c9fd72127fbd42cfbf0b1ab15f8730ea0f317123c501",
+      "length": 3393
+    },
+    "openspec/changes/align-current-api-tooling/specs/source-bound-definitions/spec.md": {
+      "sha256": "b562e0c71b48692c5cc675187bd133968557d5cf2aaf4968f21c65ee8f949398",
+      "length": 6554
+    },
+    "openspec/changes/align-current-api-tooling/tasks.md": {
+      "sha256": "f34c2e21147966104b40edf61d68e35b4edfd8743d41209cf9d2cd6af077540a",
+      "length": 1900
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/design.md": {
+      "sha256": "8576b3cccc34ac8db90e28e5574403212217cf584241c73fa9a2fb10a5e3df4e",
+      "length": 20585
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/ontology-coverage.md": {
+      "sha256": "a95d920e6fc9ac3d0690f9d2bb0e443f12919c62ca4a2b7bb207ebe998ecac68",
+      "length": 42986
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/proposal.md": {
+      "sha256": "66005ae5f90381ae23c23dc45757890d0f584f8b34e95b774b2905dbb4985cb0",
+      "length": 6158
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/self-model-map.md": {
+      "sha256": "864cd6173d760520ad57a49ceb1bb74ea99ad486f9fae503abc4a97c043a0d5b",
+      "length": 17699
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "75af331726b77d57524ee86b52ac9a17ef04f2aeff81334c13b20fe64cac5af9",
+      "length": 5011
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/model-baselines/spec.md": {
+      "sha256": "a0a1f9e10ce8438f0501e6254addde4961435d144ca34622db17b356be095df4",
+      "length": 4959
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/model-navigation/spec.md": {
+      "sha256": "eb96d8a81bd9b1d9112e13faa149e6860a0f027edec174138a9f07c34d4e5eea",
+      "length": 4933
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/ontology-conformance/spec.md": {
+      "sha256": "7bebb79d710bba38c4bf371e635d795c7c3bcf5e4b487227638b3855b58835b3",
+      "length": 8954
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/ontology-definitions/spec.md": {
+      "sha256": "82ac8f1893d81dc5dce8fa4c22da3ea774fd8dd330cbeb6dfdb3f1850e0fe694",
+      "length": 6094
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/tasks.md": {
+      "sha256": "9dfadf45d6d346a89872343c94cbe3fdaa3c80d7f5ba8779c2ae66af3504f5d8",
+      "length": 14533
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/design.md": {
+      "sha256": "cabbcd3fe6faaaaa16cd0a86657fd8246956d4625d0546b644d90133d8256823",
+      "length": 7171
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/proposal.md": {
+      "sha256": "9308c5882e661bc5869005143f77460d3f000192efa682fc68656c25e4ca87b1",
+      "length": 3585
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "9beb47fbe86a2ee069741a040e76049b0cebe51799b5ae0da0aa206f65b6890e",
+      "length": 6353
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/tasks.md": {
+      "sha256": "1923679c33517d3a27754804542da0433487b5d8d84ea71aac30ec9147b5dd8b",
+      "length": 3894
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/design.md": {
+      "sha256": "94c899054dbc8639912561411835e1d0debec995b6d8beafb7d2ec19ebc50048",
+      "length": 5609
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md": {
+      "sha256": "356501560c31ced62f544ee2d362d87b7d3777f3e33fa306b409ff14a6dfc616",
+      "length": 3341
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "3474d8e1a1cd662bbbd242a9536209a0f8e244a78afb7819608cdfc55b0357ed",
+      "length": 4381
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/tasks.md": {
+      "sha256": "ec144d9fe71014457b871eea2ec942e63a89f79ece1adaca79c382e7a6551d24",
+      "length": 2471
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/design.md": {
+      "sha256": "66342baabc3496a89512386067dde8d3faad4289a35edb0cf96c0c092e502c9f",
+      "length": 8316
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/proposal.md": {
+      "sha256": "d3c57209d7fce4c7cedb70600bd6a98fde331a7fbde43e4ee9329ed1013f31fa",
+      "length": 3862
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/bounded-model-traversal/spec.md": {
+      "sha256": "3cc1d8feb0d6c88f6550e88bf2e8d4fdef0108986726cca4c3e80003d8c8c574",
+      "length": 4940
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/composite-model-queries/spec.md": {
+      "sha256": "a37c83527c56b0fdf6dba837e7a78c99c65c9d4457a5ff79b096af9589762943",
+      "length": 4756
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/model-text-search/spec.md": {
+      "sha256": "f9196317ec61f81a786a3913b3bcbfbf08d4e116563724b4aff2a9bab3ae5897",
+      "length": 3666
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/tasks.md": {
+      "sha256": "1bad360d53f38ac3e15006d27c97795f68028164f651e9399860ce2bb1ad451d",
+      "length": 4167
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/design.md": {
+      "sha256": "8f0e6936c0e758d79a618c97049450b68ae374ea380ced3b181bfe4eae270827",
+      "length": 10739
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md": {
+      "sha256": "22d8a35f8be54d9db1dabac42d8473a4c0f5efa17df25d2e5fb7e28854cd6e05",
+      "length": 4624
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "bd1520ec46b2ef764fb9727e4062bd8a57fc1e5fbfe537c74d79ed906c76bc34",
+      "length": 7134
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/tasks.md": {
+      "sha256": "e59a1952aaa26d76a02548f16a8bbd18c2aa949d7fbc31efb75df1115fa3cb33",
+      "length": 5246
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/.openspec.yaml": {
+      "sha256": "6803193cd4b83f73d2d65d3e3ce1f3b116fb4dba2543ef44a3ad6cc9791547ed",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/design.md": {
+      "sha256": "25649c930da5b7186fdc12d2392e10ce3d4e5cc1b8209c75806a967e6f60e5b3",
+      "length": 11390
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/proposal.md": {
+      "sha256": "3d2c3d981d01ea5e34d38b48e8f5a088540711aabc71f43c960188d9b9480b43",
+      "length": 3918
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/branch-commits/spec.md": {
+      "sha256": "d7d62be0c8bb82ad19226d9c9bea03a350411e13bce4224718b0b29c53b33850",
+      "length": 8545
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "1ff352e6478aa9011a6019fd30fc1292a29c1ff357e3db13cc6aaf78a3b93183",
+      "length": 7524
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/source-bound-definitions/spec.md": {
+      "sha256": "177cb923b2c4cb15daf95e79f5932e6d0e79cfcb32ebc7cc34d00f9aa680ec46",
+      "length": 9760
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/tasks.md": {
+      "sha256": "0bd68d0ab66b8e7737500719804243d6a387f3ac97ed0315ba1668ec284946cd",
+      "length": 6694
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/design.md": {
+      "sha256": "7a51be7dbd6aa8baa007bbd5ef316d38729948153201a23a93c9684e09fbd3cb",
+      "length": 6631
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/proposal.md": {
+      "sha256": "1bb368dd7e002f32e5f92aa99123f6ea5bf9979fdb0fe0ef453af9e28f1dbba1",
+      "length": 3910
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/specs/immutable-storage-maintenance/spec.md": {
+      "sha256": "0bfdb9c012fb3803ee7d396b39874b4b07e3b954b0bfdf7675f78c95ad96d670",
+      "length": 4511
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/specs/shared-file-storage/spec.md": {
+      "sha256": "057bb1c60ba854e1211ebb3ac48133380775a4819cee9d62e866309e7183a08d",
+      "length": 5507
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/tasks.md": {
+      "sha256": "c3cb16d393587a5dc2ba4a74500dfe04c5d1b93797a7914db3f75dd5d846ecbc",
+      "length": 4634
+    },
+    "openspec/changes/make-full-model-api-default/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/make-full-model-api-default/design.md": {
+      "sha256": "bef853356378f73f60bacbf89fcafbeb8835df11880367345df73306d201d1be",
+      "length": 4984
+    },
+    "openspec/changes/make-full-model-api-default/proposal.md": {
+      "sha256": "a10089dfda2d63a81b45e657f50fd46ed6ac5f877d296374be094a1331f07dac",
+      "length": 2660
+    },
+    "openspec/changes/make-full-model-api-default/specs/full-model-public-api/spec.md": {
+      "sha256": "b57e915fec9b5e3f2c8f8b31ae69377390212b19f480f3c2c6099b0540525ab6",
+      "length": 3365
+    },
+    "openspec/changes/make-full-model-api-default/specs/library-release-metadata/spec.md": {
+      "sha256": "41c78d8a6cfe6b69190c5d1b631fb9c932a6c0a8fe28f1ab9216fa1e67c8e645",
+      "length": 1231
+    },
+    "openspec/changes/make-full-model-api-default/specs/ontology-definitions/spec.md": {
+      "sha256": "20740eaaa3026c0c8018bde1faf97b8979d1deaba3aeec3d8d9717fb10aa440f",
+      "length": 365
+    },
+    "openspec/changes/make-full-model-api-default/specs/source-bound-definitions/spec.md": {
+      "sha256": "31670ab98314b715180a7ab838ad02800417e13fd20d9b16a329ce33a944a1d4",
+      "length": 696
+    },
+    "openspec/changes/make-full-model-api-default/tasks.md": {
+      "sha256": "ec9097b92cdeeeb0186237be80ee01b8e8e79a9e9a794699fba4f1b4b02f44c0",
+      "length": 2023
+    },
+    "openspec/changes/remove-legacy-storage-paths/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/remove-legacy-storage-paths/design.md": {
+      "sha256": "99f0e4de7b468c729a093f144489f747ec41ae2541f4247c89046ad6a7b54a94",
+      "length": 4384
+    },
+    "openspec/changes/remove-legacy-storage-paths/proposal.md": {
+      "sha256": "02d5e7cddb8173782f0187112db052ce0794688eb6db94f9ddb684830844d0ce",
+      "length": 2934
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/bounded-model-traversal/spec.md": {
+      "sha256": "0d0551ff113c4e9fbcce5d4c12984c3f343f6dfe8592c199bcd6258f11e446c4",
+      "length": 1840
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "7aa7e0fe09e8bbc01eafba97df8fc18f651b8a9e0256d8ce4720003fe4ebb31b",
+      "length": 1890
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/full-model-storage-port/spec.md": {
+      "sha256": "8a235e644db2f60dcb937b3a714d20e8de72c30480918c9d461559333375cb2d",
+      "length": 1730
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "120f86365215886a949288eaa0250ab38cfa248e3b1c3ce9e760de4df5d6d46d",
+      "length": 986
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/shared-file-storage/spec.md": {
+      "sha256": "8e654f4337b9f29c69d0fe2ed08016038287f2c498591b22766b4069150fffea",
+      "length": 1720
+    },
+    "openspec/changes/remove-legacy-storage-paths/tasks.md": {
+      "sha256": "6324b308badd09961a1695f3df9e428beed11e327c3447b7da58917151ac6a0d",
+      "length": 1980
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/design.md": {
+      "sha256": "0651155943eed9cb5a1f4d39d9991a28bcafaaede93f95acb9b69de9d61b193b",
+      "length": 5186
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/proposal.md": {
+      "sha256": "5effe03ce6c7dd7075e73ae50d7421bbad2eac49eef1af32ce354c05fa340d80",
+      "length": 2844
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "9a9211d2167be11a7b7a81d4f3f4b234edcf022dcdfb2b38d2f160494e28ff8c",
+      "length": 5660
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "ecad3d10f7232bca37bdb1ad96da0a2e9f27eaf7568ceddc2fa69884dfbd65e3",
+      "length": 1034
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/single-api-verification/spec.md": {
+      "sha256": "03c412bf09c2c8d0b23c39b9d5d67f52d0fac1b45ba5ea2113332da37c2ef947",
+      "length": 2561
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/tasks.md": {
+      "sha256": "9167e0b626ace9ea340b5cf08ef4d11d62a86ac677cefd4c03d3e2c4339c7ae3",
+      "length": 2792
+    },
+    "openspec/config.yaml": {
+      "sha256": "75c97f8de2826fc035649c904bea0450dfe74dba84b41f81ae8af7a09ce3b84c",
+      "length": 4417
+    },
+    "openspec/specs/bounded-model-traversal/spec.md": {
+      "sha256": "af465863c9bec25ad9f506597d65b95761f64cab902ced99546ee207c0bfb804",
+      "length": 4940
+    },
+    "openspec/specs/branch-commits/spec.md": {
+      "sha256": "02eb7fda905e759baa63b1ee4a81a1f0a9d675e0d44229ca8ffdb54aa4b72eb0",
+      "length": 8554
+    },
+    "openspec/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "49f396b09b87a54e510ab487dc3797313e9efea3e9f801cd2703245b8d5eb181",
+      "length": 7535
+    },
+    "openspec/specs/composite-model-queries/spec.md": {
+      "sha256": "62731270c1ddf7ce8f79f3992e71e46e441db01c5d206bc7fab931d58802838b",
+      "length": 4792
+    },
+    "openspec/specs/current-api-host-tooling/spec.md": {
+      "sha256": "9caa9784621f04780605d542313980878f77506e9e02782014ddce8195371285",
+      "length": 3428
+    },
+    "openspec/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "5f3ebffb0ab3b881bb773cf59c9533343bf5631a0b197f6be45e12b5d14aea16",
+      "length": 6885
+    },
+    "openspec/specs/full-model-public-api/spec.md": {
+      "sha256": "7ea29806875ce31f5171670367cfd9663db7fc1ed5a78a8765c6ce2071ee340a",
+      "length": 3397
+    },
+    "openspec/specs/full-model-storage-port/spec.md": {
+      "sha256": "cd51cec68de07c486b981522343bfb54e4bc2ae0dc3f549af49179f324211970",
+      "length": 1764
+    },
+    "openspec/specs/immutable-storage-maintenance/spec.md": {
+      "sha256": "4d94de16038e37cab8333bfbe28fb18792882e1bed53523270b6bf8e717a9803",
+      "length": 4553
+    },
+    "openspec/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "057181cd625dbb7b6abdcfb5d077daa6ca5b468ff3f75bd6907b9ba92bd002b3",
+      "length": 5053
+    },
+    "openspec/specs/library-release-metadata/spec.md": {
+      "sha256": "5f69aaa675906a0704f0fb3d1b368e14785abd47cf4feee300a6d5d3b8f20cd0",
+      "length": 1266
+    },
+    "openspec/specs/model-baselines/spec.md": {
+      "sha256": "645d8819a2bb5bc815d8207fd8252f270442a80f22e88f6a1747cb6ce7bc4668",
+      "length": 4987
+    },
+    "openspec/specs/model-navigation/spec.md": {
+      "sha256": "3c3444a7be225636e642d9d8fb5d21fb31f086d1db199bf0dff27548de660bbb",
+      "length": 4962
+    },
+    "openspec/specs/model-text-search/spec.md": {
+      "sha256": "9fd7550ba3db6007eb025260a2710c05182e3e85b2590213234ceb040ab7803b",
+      "length": 3696
+    },
+    "openspec/specs/ontology-conformance/spec.md": {
+      "sha256": "794356bc9d87a0b42b1626def3bd0bd070abb2258006c7d23d7d03967efbfb11",
+      "length": 8987
+    },
+    "openspec/specs/ontology-definitions/spec.md": {
+      "sha256": "a852247053c1c0ba65c4b9924d556fb4d59965306621f5e10b6ba5a0a9d56f5b",
+      "length": 5304
+    },
+    "openspec/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "d87db6b80624771e192720b31589eb31c7b89d79a554c493ea64bacb84d7261c",
+      "length": 6397
+    },
+    "openspec/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "e766f61266a51908432fe10a3654144bc4e638fafc3101fc6b028c6a34c481b8",
+      "length": 4375
+    },
+    "openspec/specs/shared-file-storage/spec.md": {
+      "sha256": "befd6c0b1f2f508686602550b68fd1c220fe3de995ac87eec0ebdb3690e8d679",
+      "length": 5692
+    },
+    "openspec/specs/single-api-verification/spec.md": {
+      "sha256": "20e3d865bbee1115f147ba621e6e36ab4c9b878591a694244f8c98b2ef7c2236",
+      "length": 2595
+    },
+    "openspec/specs/source-bound-definitions/spec.md": {
+      "sha256": "2423be7865dd229eede240fab2d57f2b8643bb1f884dbc483d07e371737ed2ad",
+      "length": 6822
+    },
+    "scripts/audit_full_ontology.py": {
+      "sha256": "c513f99969a754385db979b7eee2ce836c724bc8d27606b1dd840762cf0f365d",
+      "length": 10622
+    },
+    "scripts/host_sources.py": {
+      "sha256": "6ab0f1d756b84d47d8c3d2497d3efd8ba80a5f40bfac190d83e6d1de5cd9aef5",
+      "length": 6131
+    },
+    "scripts/rebuild_canonical_hub.py": {
+      "sha256": "c6b351b78ac821fc3f824b662909a77633654338492b529035a92d2738c90d00",
+      "length": 18509
+    },
+    "scripts/verify_full_ontology.py": {
+      "sha256": "52f5aea4a17137bacb95bb10fde32c01f642bc92cc047d561b5a552e4138532e",
+      "length": 4724
+    },
+    "source/file-storage-proposal.md": {
+      "sha256": "87f113eb8eb6c58d4ca3b7045ed418eb3a2fa00bfd797088880ce1ae2a2ba063",
+      "length": 75272
+    },
+    "source/practical-design-manual.md": {
+      "sha256": "ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15",
+      "length": 72094
+    },
+    "source/practical-design-manual.pdf": {
+      "sha256": "5c4124476b3abe1ba41a1d053bc676ab34eafeac18d98f3e7842abe0c9d9f704",
+      "length": 268152
+    },
+    "source/system-definition-ontology-proposal.md": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "source/system-definition-ontology-proposal.pdf": {
+      "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+      "length": 479613
+    },
+    "src/codec.rs": {
+      "sha256": "dcd29b9078d867b93e33fbed4ed6283501bbcb95848242887401adf27acb5e28",
+      "length": 6502
+    },
+    "src/contracts.rs": {
+      "sha256": "87a4ec77341ed69b7a64ea5f29d8450046f714100f479c926903f8ea0f754bf4",
+      "length": 3904
+    },
+    "src/jobs.rs": {
+      "sha256": "22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857",
+      "length": 4889
+    },
+    "src/lib.rs": {
+      "sha256": "06787b23b95e29b8281a5546360bb9f08980d2582e7afe598b16cb4ed95ffdd8",
+      "length": 1086
+    },
+    "src/model.rs": {
+      "sha256": "51e7dbced83bf236ca41573a60750a5c36cf1b1faa748d372fb7f6f3980807fe",
+      "length": 1893
+    },
+    "src/ontology/api.rs": {
+      "sha256": "e18b05308097ee5259bfd9e82c7974e00339e909f2bc644a5c86179a49b97e2c",
+      "length": 16947
+    },
+    "src/ontology/catalogue.json": {
+      "sha256": "1ea6d1ac92dc8199b0763b90f51b04e399d6b00609bada665f79fe38ad779d9d",
+      "length": 633748
+    },
+    "src/ontology/catalogue.rs": {
+      "sha256": "dc790ec93a911e22b3ac8fb944ccd29338ad68a1605b75ca324be3af28b7d0a1",
+      "length": 10454
+    },
+    "src/ontology/impact/api.rs": {
+      "sha256": "fac3ae9b8c00f64bc672592578019730b675cf26c1759b820d3f82ae7ed40cfc",
+      "length": 8986
+    },
+    "src/ontology/impact/engine.rs": {
+      "sha256": "e0e43c47a58acf51fbd90ce36d6eea431548a97da018f9ae51df5383ca6135f0",
+      "length": 23133
+    },
+    "src/ontology/impact/mod.rs": {
+      "sha256": "c953cbc8cf0783a20f14782e7750a6393d10894e777f770ac4a7af61214cbabf",
+      "length": 255
+    },
+    "src/ontology/impact/tests.rs": {
+      "sha256": "34f14040ca468f0f97fc8502112394634fbbefd8b6512b8ba8903780c3201f94",
+      "length": 6426
+    },
+    "src/ontology/impact/text.rs": {
+      "sha256": "b1d37dbd185c0e0f58ff6a94d6991841205c94f36bea009fbdbeef7e02d22d3c",
+      "length": 7852
+    },
+    "src/ontology/impact/types.rs": {
+      "sha256": "b84a43fb17a47dc0dd25eecf7d18b1a0dad5528afb9d23515c6e99a176f6f82d",
+      "length": 13250
+    },
+    "src/ontology/mod.rs": {
+      "sha256": "f9d3ad3ed58b5382bde6c6f087951e4eec263b1ae85027df3f936625bb0049f4",
+      "length": 533
+    },
+    "src/ontology/navigation.rs": {
+      "sha256": "f939a5a64720247f6c619f5be3d125c0806e6baa897d5a0b6930baeb79bd92bf",
+      "length": 9622
+    },
+    "src/ontology/neighbours/api.rs": {
+      "sha256": "5b03041b59474dadf14432c540d97f364b6c315dc9cca8b2b63f325ec9cb0684",
+      "length": 6199
+    },
+    "src/ontology/neighbours/facts.rs": {
+      "sha256": "527c319544e390dbfa189566a2c4d542bf99739c3ca8a4748d490880aee1811e",
+      "length": 20133
+    },
+    "src/ontology/neighbours/mod.rs": {
+      "sha256": "429a686f09f5b219652e054739c1165a4d3bcc36a5184d5ea5c2d6ed2330ed23",
+      "length": 2213
+    },
+    "src/ontology/neighbours/types.rs": {
+      "sha256": "6983a8d8452a2c5685a47aa31606bf860757cf8375d9fd8a7f46b2aabad0f687",
+      "length": 7414
+    },
+    "src/ontology/types.rs": {
+      "sha256": "63985c311bc40fe2f3a74d1235a520add28d3e8d3be09bea3a89ddcf19fffe37",
+      "length": 25294
+    },
+    "src/ontology/validation.rs": {
+      "sha256": "0e51410ac1017c80b51f27edb62b84881bda802cecb61fbcf3a55f169bd104de",
+      "length": 92069
+    },
+    "src/storage/shared/content.rs": {
+      "sha256": "ed0a545ba3bcd5b7c7c62d10eaae63e27b6b1afb843b681e74cf54f5560b91f2",
+      "length": 7083
+    },
+    "src/storage/shared/generation.rs": {
+      "sha256": "34323bed07055352a956180bb55d0d3d9a54c135a8abb53c17843d009cf11829",
+      "length": 32346
+    },
+    "src/storage/shared/maintenance.rs": {
+      "sha256": "34c30bc193a485d1487996f91f8268a562504ee8f75e58cc22ee3931567ec6c0",
+      "length": 24633
+    },
+    "src/storage/shared/mod.rs": {
+      "sha256": "5acccdca7aa565faaa2c786887f76070e5ab2d126879e53a634a9aaaa70d5d05",
+      "length": 5146
+    },
+    "src/storage/shared/neighbours/mod.rs": {
+      "sha256": "a8e59a6e99b4d62e2f86eaeec768f3bb99033f72133aa5a986a1baec28d13e85",
+      "length": 20756
+    },
+    "src/storage/shared/neighbours/read.rs": {
+      "sha256": "8f022ebf5a022db5101cd903e92ec69169eb17d9dfdc129972a5adceafc9567c",
+      "length": 15508
+    },
+    "src/storage/shared/neighbours/tests.rs": {
+      "sha256": "c630470b3e46f10a1d6b23a64b7a2aa4e980f1345bf30d6d8e03358d1c3c9e8a",
+      "length": 13559
+    },
+    "src/storage/shared/objects.rs": {
+      "sha256": "3074270ed78a326ff8a9d0b0819576f0fed4d578cafff096801b4d57bb6267ef",
+      "length": 28100
+    },
+    "src/storage/shared/packed_cache.rs": {
+      "sha256": "7a82e60d2be984a67870b0953a9321c975efe84d4baf109fbccc0ddb9f663bfe",
+      "length": 19391
+    },
+    "src/storage/shared/projection.rs": {
+      "sha256": "6536bc683bc732538291cf1b3bdf778e4633c6f6172be8e06d0a3e14d96b9259",
+      "length": 22148
+    },
+    "src/storage/shared/tests.rs": {
+      "sha256": "9c8a59618b4820434d15272e62bdab309f7a865a7ec970bda6773e5a0c3ea80a",
+      "length": 12478
+    },
+    "src/storage/shared/text.rs": {
+      "sha256": "c535132ad5429e91fe36eae735027b53b4f018e2e8d9d777c91aa10abea1192e",
+      "length": 21783
+    },
+    "src/storage/shared/trees.rs": {
+      "sha256": "46df4c6fbfb45d0dda4673d4eaae2005b7fe89c67cdbdb0d5fe50c195be4931b",
+      "length": 35829
+    },
+    "src/storage.rs": {
+      "sha256": "b87d5d4ca7f2b778df28dcf0d3b79621112618a9b9494fd0a580dfeab9fd40b3",
+      "length": 10851
+    },
+    "tests/host_workflows.py": {
+      "sha256": "70b7846f8c09861be17b71a5aaa3d77771e0a3bb2911379364bc5ecd28ac0b2c",
+      "length": 12302
+    },
+    "tests/impact_oracle.rs": {
+      "sha256": "7c1239a5f6e039e8348c1c312733383c6c51bdecf10ef3d45d16e4cf795454ad",
+      "length": 2018
+    },
+    "tests/internal/shared_faults.rs": {
+      "sha256": "8de9503493e2b8cca7f46fa788cfb1e8463f58b68e8e0fa0a25fac33cd11b349",
+      "length": 18044
+    },
+    "tests/model_impact.rs": {
+      "sha256": "eacc8bff56dd74f41e5ea07e9bd10139f00efe0e4f444c6a2576770187461d39",
+      "length": 15273
+    },
+    "tests/neighbour_oracle/mod.rs": {
+      "sha256": "11c07f531be5291feb49e8466ff12eb86ae3d0d4f955218b0a35c761cfa75381",
+      "length": 14720
+    },
+    "tests/neighbours.rs": {
+      "sha256": "52e3971e297dfb9296d31fc41b2be3792b7161140fd231aaae0dc13b582187b1",
+      "length": 25502
+    },
+    "tests/ontology_contract.rs": {
+      "sha256": "842f392d3cb31323cae657254801ed2df328df0e91ec79265724858cfae9faf1",
+      "length": 66492
+    },
+    "tests/public_contract.rs": {
+      "sha256": "61321f91370bdfe41601e4b7aa74968b6f37224707f03dca550f9770e33fe944",
+      "length": 12780
+    },
+    "tests/rent_impact.rs": {
+      "sha256": "1a24ee723756cafcc75a75ccefe14b1bc20738fa478694c5644c635a3040cfaa",
+      "length": 9955
+    },
+    "tests/shared_storage.rs": {
+      "sha256": "c8abbd1574f673416cacc1353069b661037f41596810cc50cd9852b425c4d77c",
+      "length": 3468
+    },
+    "tests/support/mod.rs": {
+      "sha256": "0753fe2b71f35c7175e64eb1ababf1eb4525b94a872d4d6fb7964c4ed833ebea",
+      "length": 1276
+    }
+  },
+  "executables": {
+    "target/debug/deps/knowledgehub-05524adf3741f322": {
+      "sha256": "b94973e37e4d709733113c57868c005f11a57b3c384515a96faee2967d3d5a88",
+      "length": 116952160
+    },
+    "target/debug/examples/storage_benchmark-ddadc3cd9456c76f": {
+      "sha256": "df4e4d4ddd74fbde05485a98f926bd6de5a5277535003c00a604b4b208727faa",
+      "length": 7206000
+    },
+    "target/debug/deps/impact_oracle-b347489bbbd547fd": {
+      "sha256": "d6126dadbf68d6edaf093afb9fbe4d0537be95c375799443d9cbcd467796a221",
+      "length": 7205872
+    },
+    "target/debug/deps/public_contract-20810fa4957e4bc3": {
+      "sha256": "ee61d9a132121a71bdd05fa0d8d384f83a9253416ebf020595adb3b306f638f9",
+      "length": 85358016
+    },
+    "target/debug/deps/neighbours-e2fb283ae41bf5fd": {
+      "sha256": "36367322f6db3095ae54beb0ffd447638a5b772782575a2628c08710015b3819",
+      "length": 92417320
+    },
+    "target/debug/examples/shared_storage-b5689b4278c316ea": {
+      "sha256": "9bb874f223aff83105ef28552e11ecf9274d36ebc8660910c3535c7de54f788a",
+      "length": 67186216
+    },
+    "target/debug/examples/rent_impact-80cc0c965090c0f9": {
+      "sha256": "2afb720bcc4eed6985da4f5135d298d844ff1c75610d0a64c2dd892f93fe9702",
+      "length": 61935712
+    },
+    "target/debug/deps/model_impact-546e804fe13a5ded": {
+      "sha256": "073c29aec7edc33007f535c16be8ee8186a9296fcb3e3ffac97bc890941c7396",
+      "length": 91306440
+    },
+    "target/debug/examples/neighbours-dfdbd9d185c16038": {
+      "sha256": "de1fe2b3b94b1b16d0831f6abc4242205ed59eca04956885575037bf66e4ca7c",
+      "length": 60827232
+    },
+    "target/debug/examples/neighbour_benchmark-19eb7bd03fb9b3fc": {
+      "sha256": "c013766e690df9bc323dfdcf8e66a1bfe458b4833c19206fee3515c02b7a4934",
+      "length": 60876784
+    },
+    "target/debug/examples/minimal_model-93dccb353a1ecf96": {
+      "sha256": "e18b4f7619dd8af5ffe398a63fd4df71623e05741c06ea4941f81009dbf17f0d",
+      "length": 7205880
+    },
+    "target/debug/examples/inspect_self_model-e969817d49406731": {
+      "sha256": "dfe69f6a406b4e2414f624a6672bf443387b376cccdae38666c0204ecd27f354",
+      "length": 60083016
+    },
+    "target/debug/examples/impact_benchmark-15586e5dfbf3a022": {
+      "sha256": "4b4dd748982fc98bbd6a8e7e9070b3b07ee99dad485d2c8cde703dc317f3db07",
+      "length": 60864224
+    },
+    "target/debug/examples/full_self_description-aa9e3df2cbf51aae": {
+      "sha256": "c77870bd30be1bcecd1a6e406210cfb5a5b73f007680ba3d77c32431ba20a7ed",
+      "length": 60099760
+    },
+    "target/debug/examples/catalogue_conformance-e735cca99198055f": {
+      "sha256": "a4e92334fe67fcde5bd08712467bcb0b9c17c790366e939e2bce5b82283c92d5",
+      "length": 52588624
+    },
+    "target/debug/deps/ontology_contract-bccd9d2f88771fb8": {
+      "sha256": "ac5993e4d139fd51ab839681b52eccdba8694ff6130d91d55c628e8e1043d52d",
+      "length": 100665792
+    },
+    "target/debug/deps/shared_storage-e7d152cbaaaef206": {
+      "sha256": "dede21c5fe598250dfd4cff3d0dd864035f34580e665ad8e257b1aa1976f021d",
+      "length": 90498016
+    },
+    "target/debug/deps/rent_impact-c73e62e3a70ed62e": {
+      "sha256": "93cd6715143283732ce269a9603dfa1d5c6cdfd49c8668dfd84ba7d6604de36a",
+      "length": 90917736
+    },
+    "target/release/examples/full_self_description": {
+      "sha256": "437cc3cb23c28f39fd9446b7812229395d5387c90a097e6099f006669b39c0ab",
+      "length": 9928208
+    },
+    "target/release/examples/minimal_model": {
+      "sha256": "642299c9263cebb40b51091c8968a41740a5ad672b518a2945ac4b5d3d3d2563",
+      "length": 7642312
+    },
+    "target/release/examples/catalogue_conformance": {
+      "sha256": "c62c5eef9e984c43d778684adc2242f5b79cc8ec079390930e3383a42361dfc4",
+      "length": 8413272
+    },
+    "target/release/examples/storage_benchmark": {
+      "sha256": "4976cd36bd9093d8dc91ef6e9396b9b4e489d80cfab02fa823d7d099909884a3",
+      "length": 8587200
+    },
+    "target/release/examples/neighbours": {
+      "sha256": "900cff9edf1a0b17a37d76805e2bcf5f77f0e369cc30ff7843065dfa17b303ea",
+      "length": 8562864
+    },
+    "target/release/examples/neighbour_benchmark": {
+      "sha256": "7e0eb244c31789e71f45f0e22632a484076e40e07079a173456804a7f5cfc143",
+      "length": 8594616
+    },
+    "target/release/examples/rent_impact": {
+      "sha256": "08d67af41b9ef7d004d6cac156b99d241744e2930b1563584d3c33db10f34ba4",
+      "length": 8812728
+    },
+    "target/release/examples/impact_benchmark": {
+      "sha256": "b867679b84752acdc4326fe3a106286e7d0a99aeb36d445d2d29b8352da6c6b9",
+      "length": 8616024
+    },
+    "target/release/examples/inspect_self_model": {
+      "sha256": "b44abdf4d042ebcee1c515e4fc719198246c77e35ee7bab4218d7698ef66d68c",
+      "length": 9290000
+    },
+    "target/release/examples/shared_storage": {
+      "sha256": "c4e403a5191d93094bc7092f5f16720168c05b8b551142f39eb28d846774030b",
+      "length": 9433936
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "findmnt",
+        "-T",
+        "/home/iwk/src/knowledgehub",
+        "-J",
+        "-o",
+        "TARGET,SOURCE,FSTYPE,OPTIONS"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "python3",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "host_workflows.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets",
+        "--no-run",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "0a80c1c5595f967608957e624284efd897d9112b7629bb501ae80b096584dba7",
+        "length": 48100
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--examples",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "618af2756e90ec0eab498bdffb3bc96dfaad92f456ac2f136402be48a0759a7a",
+        "length": 44002
+      }
+    }
+  ],
+  "log": {
+    "sha256": "29a84a9c655eb7bfeb50e0d4a0036a9fcc356be0bf621eb5e3d363227ad418cc",
+    "length": 16340
+  },
+  "native_test_counts": [
+    33,
+    0,
+    6,
+    7,
+    25,
+    12,
+    3,
+    1,
+    2,
+    3,
+    0,
+    3,
+    0,
+    0,
+    0,
+    0,
+    0,
+    0,
+    1,
+    2
+  ],
+  "guarantee_coverage": {
+    "format": "knowledgehub-current-safety-coverage/1",
+    "guarantees": {
+      "Canonical intent, authored bytes and actor-bound retry": [
+        "canonical_retries_bytes_actor_and_operation_order",
+        "canonical_rfc8785_subset_vectors",
+        "original_retry_absence_orphans_missing_receipts_and_point_read_work"
+      ],
+      "Current scope policy, default denial, revocation and policy failure": [
+        "default_denial_revocation_and_policy_failure",
+        "recheck_policy_inside_publication_lock",
+        "registration_is_atomic_recursive_guarded_and_currently_authorised"
+      ],
+      "One-head atomic publication and invalid candidate preservation": [
+        "invalid_current_changes_preserve_head_independently",
+        "registration_is_atomic_recursive_guarded_and_currently_authorised",
+        "every_declared_signature_rejects_wrong_direction_and_targets"
+      ],
+      "Exact/absence guards, same-base and graph/baseline conflicts": [
+        "explicit_revision_and_absence_guards",
+        "separately_opened_instances_race_and_later_stale_conflict",
+        "typed_same_base_root_and_baseline_race_has_one_winner",
+        "two_process_same_base_race_has_one_winner"
+      ],
+      "Exact source bytes, digests, anchors, binary ranges and ownership": [
+        "binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes",
+        "damaged_typed_binary_is_integrity_failure_and_never_operation_absence",
+        "invalid_baseline_closures_and_competing_ownership_are_rejected",
+        "nested_owner_paths_distinguish_literal_slashes_and_tildes",
+        "ranges_skip_unrelated_content_and_scrub_finds_retained_corruption"
+      ],
+      "Immutable successors, retained selection/baselines and original outcomes": [
+        "coherent_successors_baselines_and_replay_current_thread",
+        "coherent_successors_baselines_and_replay_multithreaded",
+        "baseline_comparison_reports_unicode_additions_removals_and_stable_order",
+        "selection_restores_exact_history_and_refuses_a_second_origin",
+        "original_retry_absence_orphans_missing_receipts_and_point_read_work"
+      ],
+      "Process interruption, lost response, pre/post-publication uncertainty": [
+        "sigkill_typed_artifact_and_baseline_at_every_boundary",
+        "injected_typed_publication_and_cancellation_on_both_runtimes"
+      ],
+      "Cancellation retains publication resources, capacity and drain": [
+        "injected_typed_publication_and_cancellation_on_both_runtimes",
+        "cancelled_wait_keeps_capacity_and_drain_waits"
+      ],
+      "Host runtime, scheduler configurations and exclusive creation": [
+        "public_walkthrough_current_thread",
+        "public_walkthrough_multithreaded",
+        "file_adapter_requires_the_host_runtime_and_creates_none",
+        "coordinated_exclusive_scope_creation",
+        "refuses_unsupported_declared_filesystem"
+      ],
+      "Current metadata refusal and damaged-state non-recreation": [
+        "superseded_formats_are_refused_without_mutation",
+        "incompatible_and_damaged_stores_are_not_recreated"
+      ],
+      "Current compaction, reconstruction and retained closure": [
+        "public_shared_walkthrough_pack_reindex_and_materialise",
+        "sigkill_pack_install_and_cleanup_at_every_boundary",
+        "injected_maintenance_errors_preserve_original_state",
+        "coordinated_reader_and_maintenance_on_both_host_runtimes",
+        "frames_are_strict_bounded_lossless_and_kind_separated"
+      ],
+      "Authority/intent/pin-bound finite cursors and shared capacity": [
+        "bounded_navigation_cursors_policy_and_selection_binding",
+        "finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query",
+        "composite_cursors_share_capacity_expire_and_recheck_disclosure",
+        "directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact"
+      ],
+      "Independent semantics, finite traversal, selective work and future links": [
+        "current_query_order_filters_and_paging_match_independent_oracle",
+        "current_query_follows_six_hops_without_a_format_switch",
+        "generic_registered_nested_native_and_parallel_facts_match_independent_oracle",
+        "late_links_exact_scopes_and_ready_point_reads",
+        "ready_lookup_ignores_unrelated_artifacts_and_reports_no_state_materialisation",
+        "mixed_seven_hop_plan_cycles_parallel_origins_and_nearer_targets",
+        "limits_count_filtered_and_duplicate_work_and_bound_every_response"
+      ],
+      "Full ontology properties, schemas, rules, gaps and evidence distinctions": [
+        "every_declared_property_has_independent_missing_and_invalid_evidence",
+        "closed_constraint_primitives_have_independent_positive_and_negative_cases",
+        "every_family_has_a_complete_connected_typed_specimen",
+        "each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity",
+        "native_decision_tables_remain_exact_and_definitions_do_not_become_observations"
+      ],
+      "Derived cache integrity, quotas, cold/warm metadata and immutability": [
+        "large_packed_index_is_bounded_selective_and_immutable",
+        "publication_faults_quota_and_sidecar_reconstruction_are_safe",
+        "corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity",
+        "readers_coordinate_cache_eviction_on_both_runtime_configurations",
+        "preparation_budgets_quota_and_view_eviction_preserve_knowledge"
+      ]
+    },
+    "retired": [
+      "files/1 successful reopen and frozen cross-version hash matrix",
+      "seed-only required profile/types and adapter modes"
+    ],
+    "boundary": "Selective authoritative paths establish operation outcomes; required receipt/index corruption is integrity, unrelated artifact integrity is established by exact artifact reads and full scrub. No compatibility decoder is required."
+  },
+  "coverage_map": {
+    "sha256": "2dc9595330ad41b5a4bbbc3713b409b8c66240a4c11a209db9bbb86b28739134",
+    "length": 5682
+  },
+  "limits": [
+    "host-declared local ext4; actual platform observations in log",
+    "no power-loss, remote-adapter, acceptance or authority-handover claim"
+  ]
+}

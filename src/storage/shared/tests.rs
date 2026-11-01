@@ -11,7 +11,7 @@ impl crate::Policy for RevokedOnAdmission {
     fn allows(
         &self,
         _: &str,
-        _: &Scope,
+        _: &ModelScope,
         action: crate::Action,
     ) -> Result<bool, crate::PolicyFailure> {
         Ok(action != crate::Action::Commit || self.0.fetch_add(1, Ordering::SeqCst) == 0)
@@ -19,11 +19,11 @@ impl crate::Policy for RevokedOnAdmission {
 }
 
 fn backend(s: &Sandbox) -> FileBackend {
-    FileBackend::new_shared_ontology(&s.store, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap()
 }
-async fn create(s: &Sandbox) -> (FileBackend, OntologyHub) {
+async fn create(s: &Sandbox) -> (FileBackend, KnowledgeHub) {
     let b = backend(s);
-    let h = OntologyHub::create(b.clone(), seed::context(), specimens::scope())
+    let h = KnowledgeHub::create(b.clone(), seed::context(), specimens::scope())
         .await
         .unwrap();
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
@@ -51,28 +51,10 @@ fn extra(state: &State, head: SnapshotId, id: &str) -> Change {
 }
 
 #[tokio::test]
-async fn explicit_formats_guards_current_policy_and_same_base_race() {
+async fn current_default_guards_policy_and_same_base_race() {
     let s = Sandbox::new();
     let (_b, h) = create(&s).await;
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
-    assert!(matches!(
-        OntologyHub::open(
-            FileBackend::new_ontology(&s.store, FileOptions::local_ext4()).unwrap(),
-            seed::context(),
-            specimens::scope()
-        )
-        .await,
-        Err(Error::Incompatible(_))
-    ));
-    assert!(matches!(
-        OntologyHub::open(
-            FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap(),
-            seed::context(),
-            specimens::scope()
-        )
-        .await,
-        Err(Error::Incompatible(_))
-    ));
     let denied = Context::new("test:denied", Arc::new(DenyAll));
     assert!(matches!(
         h.read(
@@ -140,18 +122,14 @@ async fn explicit_formats_guards_current_policy_and_same_base_race() {
         after.get(&ExactRef::new("test", "first", "1")).is_some(),
         after.get(&ExactRef::new("test", "second", "1")).is_some()
     );
-    // A legacy store refuses the shared constructor and remains exact through its old constructor.
-    let old = Sandbox::new();
-    let legacy = FileBackend::new_ontology(&old.store, FileOptions::local_ext4()).unwrap();
-    let lh = OntologyHub::create(legacy, seed::context(), specimens::scope())
+    // A separately constructed default backend reopens the same current state.
+    let reopened = KnowledgeHub::open(backend(&s), seed::context(), specimens::scope())
         .await
         .unwrap();
-    let oldhead = lh.head(seed::context()).await.unwrap();
-    assert!(matches!(
-        OntologyHub::open(backend(&old), seed::context(), specimens::scope()).await,
-        Err(Error::Incompatible(_))
-    ));
-    assert_eq!(lh.head(seed::context()).await.unwrap(), oldhead);
+    assert_eq!(
+        reopened.head(seed::context()).await.unwrap(),
+        h.head(seed::context()).await.unwrap()
+    );
 }
 
 #[tokio::test]
@@ -214,11 +192,7 @@ async fn ranges_skip_unrelated_content_and_scrub_finds_retained_corruption() {
     )
     .await
     .unwrap();
-    assert!(
-        b.scrub_ontology(seed::context(), specimens::scope())
-            .await
-            .is_err()
-    );
+    assert!(b.scrub(seed::context(), specimens::scope()).await.is_err());
     fs::write(path, saved).unwrap();
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
     let mut unselect = Change::at(&state, head, "unselect");
@@ -226,7 +200,7 @@ async fn ranges_skip_unrelated_content_and_scrub_finds_retained_corruption() {
         .operations
         .push(Operation::Unselect(source.clone()));
     h.commit(seed::context(), unselect).await.unwrap();
-    b.compact_ontology(seed::context(), specimens::scope())
+    b.compact(seed::context(), specimens::scope())
         .await
         .unwrap();
     assert_eq!(
@@ -307,11 +281,7 @@ async fn original_retry_absence_orphans_missing_receipts_and_point_read_work() {
         h.operation_result(seed::context(), "first".into()).await,
         Err(Error::Integrity(_))
     ));
-    assert!(
-        b.scrub_ontology(seed::context(), specimens::scope())
-            .await
-            .is_err()
-    );
+    assert!(b.scrub(seed::context(), specimens::scope()).await.is_err());
     fs::write(&p, saved).unwrap();
     let p = objects.path(&g.operations_root).unwrap();
     let saved = fs::read(&p).unwrap();
@@ -328,7 +298,7 @@ async fn original_retry_absence_orphans_missing_receipts_and_point_read_work() {
             .0,
         id
     );
-    b.compact_ontology(seed::context(), specimens::scope())
+    b.compact(seed::context(), specimens::scope())
         .await
         .unwrap();
     assert_eq!(
@@ -374,14 +344,14 @@ fn coordinated_reader_and_maintenance_on_both_host_runtimes() {
             }
             assert!(matches!(
                 backend(&s)
-                    .compact_ontology(seed::context(), specimens::scope())
+                    .compact(seed::context(), specimens::scope())
                     .await,
                 Err(Error::Busy)
             ));
             release.send(()).unwrap();
             task.await.unwrap().unwrap();
             b.set_hook(|_| Ok(()));
-            b.compact_ontology(seed::context(), specimens::scope())
+            b.compact(seed::context(), specimens::scope())
                 .await
                 .unwrap();
             h.drain().await;

@@ -82,6 +82,9 @@ impl Default for ReadBudgets {
 }
 impl ReadBudgets {
     pub(crate) fn validate(&self) -> Result<(), Error> {
+        self.validate_bounds(false)
+    }
+    fn validate_bounds(&self, query: bool) -> Result<(), Error> {
         if [
             (self.hops, 32),
             (self.starts, 1000),
@@ -94,7 +97,8 @@ impl ReadBudgets {
             (self.bytes, 1_048_576),
         ]
         .iter()
-        .any(|(n, m)| *n == 0 || n > m)
+        .enumerate()
+        .any(|(i, (n, m))| (*n == 0 && !(query && i == 0)) || n > m)
             || self.preparation.owner_limit > 100000
             || self.preparation.fact_limit > 100000
             || self.preparation.byte_limit > 64 * 1024 * 1024
@@ -294,7 +298,10 @@ impl ModelImpact {
         Ok(q)
     }
     pub(crate) fn validate(&self) -> Result<(), Error> {
-        self.budgets.validate()?;
+        self.validate_mode(false)
+    }
+    pub(crate) fn validate_mode(&self, query: bool) -> Result<(), Error> {
+        self.budgets.validate_bounds(query)?;
         match &self.starts {
             ImpactStarts::Exact { references }
                 if references.is_empty() || references.len() > 1000 =>
@@ -323,7 +330,7 @@ impl ModelImpact {
         }
         refs.extend(self.target.type_ref.iter());
         refs.extend(self.target.ids.iter());
-        if self.target.type_ref.is_none() && self.target.ids.is_empty()
+        if (!query && self.target.type_ref.is_none() && self.target.ids.is_empty())
             || self.target.include_subtypes && self.target.type_ref.is_none()
             || self.target.ids.len() > 1000
         {
@@ -332,7 +339,7 @@ impl ModelImpact {
             ));
         }
         for s in positions.into_iter().flatten() {
-            if s.selectors.is_empty()
+            if (!query && s.selectors.is_empty())
                 || s.selectors.len() > 64
                 || s.categories.is_empty()
                 || s.include_subtypes && s.opposite_type.is_none()

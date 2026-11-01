@@ -1,4 +1,4 @@
-//! Complete, schema-governed System Definition Ontology and model API (opt-in files/2).
+//! Complete, schema-governed System Definition Ontology and model API (default full API).
 mod api;
 mod catalogue;
 pub(crate) mod impact;
@@ -6,8 +6,7 @@ pub(crate) mod navigation;
 pub(crate) mod neighbours;
 mod types;
 mod validation;
-pub use api::OntologyHub;
-pub(crate) use catalogue::meta_profile;
+pub use api::KnowledgeHub;
 pub use catalogue::{
     Catalogue, builtin_catalogue, ontology_ref, profile_ref, relationship_ref, self_profile_ref,
     type_ref,

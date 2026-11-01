@@ -356,3 +356,75 @@ pub fn neighbours(state: &State, q: &Neighbours) -> Vec<Neighbour> {
     }
     all.into_values().collect()
 }
+
+/// Independent assertion graph BFS over the selected in-memory records.
+/// No production traversal, extractor, neighbour API or index is called.
+pub fn query(state: &State, q: &Query) -> (Vec<Record>, Vec<Record>, Option<String>, bool) {
+    let mut frontier = q
+        .starts
+        .iter()
+        .map(|r| (r.clone(), r.clone()))
+        .collect::<Vec<_>>();
+    let mut seen = BTreeSet::new();
+    let mut owners = BTreeSet::new();
+    let mut records = Vec::new();
+    let mut assertions = Vec::new();
+    let mut bounded = false;
+    for depth in 0..=q.depth {
+        frontier.sort();
+        let mut active = Vec::new();
+        for (start, subject) in frontier {
+            if !seen.insert(subject.clone()) {
+                continue;
+            }
+            let record = state.get(&subject).unwrap();
+            if q.type_ref.as_ref().is_none_or(|t| *t == record.type_ref)
+                && (q.ids.is_empty() || q.ids.contains(&record.reference.id))
+            {
+                records.push(record.clone());
+            }
+            if depth == q.depth {
+                bounded = true;
+            } else {
+                active.push((start, subject));
+            }
+        }
+        let mut next = Vec::new();
+        for (start, subject) in active {
+            let mut adjacent = state
+                .selected_records()
+                .filter_map(|record| {
+                    let RecordData::Assertion(a) = &record.data else {
+                        return None;
+                    };
+                    if !q.signatures.is_empty() && !q.signatures.contains(&a.signature) {
+                        return None;
+                    }
+                    let (from, to) = match q.direction {
+                        Direction::Forward => (&a.from, &a.to),
+                        Direction::Reverse => (&a.to, &a.from),
+                    };
+                    (from == &subject).then_some((a.signature.clone(), to.clone(), record))
+                })
+                .collect::<Vec<_>>();
+            adjacent
+                .sort_by(|a, b| (&a.0, &a.1, &a.2.reference).cmp(&(&b.0, &b.1, &b.2.reference)));
+            for (_, target, record) in adjacent {
+                if owners.insert(record.reference.clone()) {
+                    assertions.push(record.clone());
+                }
+                next.push((start.clone(), target));
+            }
+        }
+        if next.is_empty() {
+            break;
+        }
+        frontier = next;
+    }
+    (
+        records,
+        assertions,
+        bounded.then(|| "depth bound".into()),
+        !bounded,
+    )
+}

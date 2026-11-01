@@ -71,7 +71,93 @@ pub(crate) fn evaluate(
     selection: Selection,
     prepare: bool,
 ) -> Result<ImpactPage, Error> {
-    q.validate()?;
+    Ok(evaluate_inner(lease, q, selection, prepare, None)?.0)
+}
+
+/// Selection/traversal use the same indexed frontier and finite work accounting as impact.
+pub(crate) fn evaluate_query(
+    lease: &dyn BranchStorage,
+    q: &Query,
+    prepare: bool,
+) -> Result<(Vec<Record>, Option<String>), Error> {
+    for r in &q.starts {
+        lease.record(&q.selection, r)?;
+    }
+    let plan = ModelImpact {
+        selection: Some(q.selection.clone()),
+        starts: ImpactStarts::Exact {
+            references: q.starts.clone(),
+        },
+        match_policy: MatchPolicy::AllGrouped,
+        plan: TraversalPlan::Repeated {
+            alternatives: vec![TraversalStep {
+                direction: match q.direction {
+                    Direction::Forward => NeighbourDirection::Outgoing,
+                    Direction::Reverse => NeighbourDirection::Incoming,
+                },
+                selectors: q
+                    .signatures
+                    .iter()
+                    .cloned()
+                    .map(|definition| NeighbourSelector::Assertion { definition })
+                    .collect(),
+                categories: BTreeSet::from([NeighbourCategory::Association]),
+                opposite_type: None,
+                include_subtypes: false,
+            }],
+        },
+        target: TargetPredicate {
+            type_ref: q.type_ref.clone(),
+            ..TargetPredicate::default()
+        },
+        fact_scope: FactScope::Selected,
+        projection: ImpactProjection {
+            target_records: false,
+            witness_records: false,
+            snippets: false,
+        },
+        budgets: ReadBudgets {
+            hops: q.depth,
+            starts: q.starts.len().max(1),
+            states: q.subject_limit,
+            examined: 10000,
+            candidates: 10000,
+            targets: 10000,
+            witnesses: 1,
+            page_size: q.page_size,
+            bytes: 1_048_576,
+            preparation: q.preparation.clone(),
+        },
+    };
+    let (page, items) = evaluate_inner(lease, &plan, q.selection.clone(), prepare, Some(q))?;
+    let truncated = page
+        .reached
+        .iter()
+        .find(|r| **r != ReadLimit::Witnesses)
+        .map(|r| {
+            match r {
+                ReadLimit::Hops => "depth bound",
+                ReadLimit::States => "subject budget",
+                ReadLimit::Examined => "edge/work budget",
+                ReadLimit::Bytes => "byte budget",
+                _ => "query budget",
+            }
+            .to_owned()
+        });
+    Ok((items, truncated))
+}
+
+fn evaluate_inner(
+    lease: &dyn BranchStorage,
+    q: &ModelImpact,
+    selection: Selection,
+    prepare: bool,
+    query: Option<&Query>,
+) -> Result<(ImpactPage, Vec<Record>), Error> {
+    q.validate_mode(query.is_some())?;
+    let mut query_items = Vec::new();
+    let mut query_subjects = BTreeSet::new();
+    let mut query_edges = BTreeSet::new();
     let view = lease.model_view(&selection)?;
     let mut records = Records {
         lease,
@@ -224,7 +310,18 @@ pub(crate) fn evaluate(
         for f in frontier {
             let state_key = (f.start.clone(), f.subject.clone(), f.position);
             let depth = f.path.len();
-            if let Some((previous, n)) = visited.get_mut(&state_key) {
+            if let Some(query) = query {
+                if query_subjects.contains(&f.subject) {
+                    continue;
+                }
+                if query_subjects.len() == query.subject_limit {
+                    page.reached.insert(ReadLimit::States);
+                    stopped = true;
+                    break;
+                }
+                query_subjects.insert(f.subject.clone());
+                page.work.visited_states += 1;
+            } else if let Some((previous, n)) = visited.get_mut(&state_key) {
                 if depth > *previous || *n >= q.budgets.witnesses {
                     page.reached.insert(ReadLimit::Witnesses);
                     continue;
@@ -240,12 +337,19 @@ pub(crate) fn evaluate(
                 page.work.visited_states += 1;
             }
             let r = records.get(&f.subject)?;
+            if let Some(query) = query {
+                if query.type_ref.as_ref().is_none_or(|t| *t == r.type_ref)
+                    && (query.ids.is_empty() || query.ids.contains(&r.reference.id))
+                {
+                    query_items.push(r.clone());
+                }
+            }
             let is_target = (q.target.ids.is_empty() || q.target.ids.contains(&r.reference))
                 && match &q.target.type_ref {
                     Some(t) => records.is_type(&r.type_ref, t, q.target.include_subtypes)?,
                     None => true,
                 };
-            if is_target && !f.path.is_empty() {
+            if query.is_none() && is_target && !f.path.is_empty() {
                 let k = (f.start.clone(), f.subject.clone());
                 if !targets.contains_key(&k) && targets.len() >= q.budgets.targets {
                     page.reached.insert(ReadLimit::Targets);
@@ -413,6 +517,17 @@ pub(crate) fn evaluate(
                     if page.coverage.unresolved.contains(&edge.opposite) {
                         continue;
                     }
+                    if let Some(query) = query {
+                        if !query_edges.contains(&edge.origin.owner) {
+                            if query_edges.len() == query.edge_limit {
+                                page.reached.insert(ReadLimit::Examined);
+                                stopped = true;
+                                break;
+                            }
+                            query_edges.insert(edge.origin.owner.clone());
+                            query_items.push(records.get(&edge.origin.owner)?);
+                        }
+                    }
                     let mut path = f.path.clone();
                     path.push(edge.clone());
                     frontier_bytes += serde_json::to_vec(&path)
@@ -478,5 +593,5 @@ pub(crate) fn evaluate(
     page.work.record_reads += records.reads;
     page.work.hydrated_bytes += records.bytes as u64;
     page.exhausted = !page.reached.iter().any(|r| *r != ReadLimit::Witnesses);
-    Ok(page)
+    Ok((page, query_items))
 }

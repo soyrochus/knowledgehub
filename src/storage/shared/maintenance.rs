@@ -16,7 +16,7 @@ impl FileBackend {
     }
 
     /// Verify all accepted generations, semantic/source digests, receipts and physical dependencies.
-    pub async fn scrub_ontology(
+    pub async fn scrub(
         &self,
         context: Context,
         scope: ModelScope,
@@ -28,7 +28,7 @@ impl FileBackend {
     }
     /// Pack retained objects and remove preparation debris/redundant encodings under exclusive coordination.
     /// This creates no model generation and preserves all historical operation outcomes.
-    pub async fn compact_ontology(
+    pub async fn compact(
         &self,
         context: Context,
         scope: ModelScope,
@@ -98,7 +98,7 @@ fn dependencies(object: &objects::Object) -> Result<Vec<String>, Error> {
             "artifacts_root",
             "gaps_root",
         ],
-        "receipt" => &["affected_root", "qualified_affected_root"],
+        "receipt" => &["affected_root"],
         "blob-manifest" => &["chunks_root"],
         "anchor-data" | "record-data" | "gap" | "map-node" | "sequence-node" => &[],
         _ => return Err(integrity("unknown dependency grammar")),
@@ -191,7 +191,7 @@ fn dependencies(object: &objects::Object) -> Result<Vec<String>, Error> {
                             }
                             out.push(id.into());
                         }
-                        Some("exact-refs/1" | "legacy-refs/1") => {}
+                        Some("exact-refs/1") => {}
                         _ => return Err(integrity("sequence dependency item type")),
                     }
                 }
@@ -537,13 +537,8 @@ fn maintain(
     scope: &ModelScope,
     compact: bool,
 ) -> Result<FileStorageReport, Error> {
-    if backend.store.version() != crate::ontology::SHARED_FILE_FORMAT {
-        return Err(Error::Incompatible(
-            "files/3 maintenance requires explicit shared backend".into(),
-        ));
-    }
     context.check(
-        &scope.transport(),
+        scope,
         if compact {
             Action::Commit
         } else {
@@ -551,9 +546,9 @@ fn maintain(
         },
     )?;
     // Even scrub is exclusive: a stable finite inventory also covers debris and complete pack hashes.
-    let _lease = backend.store.acquire(&scope.transport())?;
+    let _lease = backend.store.acquire(scope)?;
     context.check(
-        &scope.transport(),
+        scope,
         if compact {
             Action::Commit
         } else {

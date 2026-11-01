@@ -1,0 +1,28 @@
+   Compiling knowledgehub v0.10.0 (/home/iwk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.37s
+     Running unittests examples/catalogue_conformance.rs (target/debug/examples/catalogue_conformance-e735cca99198055f)
+
+running 2 tests
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/full_self_description.rs (target/debug/examples/full_self_description-aa9e3df2cbf51aae)
+
+running 3 tests
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+test host::archive_paths::capture_identity_survives_archive_and_main_specs_are_distinct ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/inspect_self_model.rs (target/debug/examples/inspect_self_model-e969817d49406731)
+
+running 3 tests
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+test host::archive_paths::capture_identity_survives_archive_and_main_specs_are_distinct ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

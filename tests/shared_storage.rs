@@ -9,8 +9,8 @@ use walkthrough::{seed, specimens};
 async fn public_shared_walkthrough_pack_reindex_and_materialise() {
     let s = support::Sandbox::new();
     walkthrough::walkthrough(&s.store).await.unwrap();
-    let b = FileBackend::new_shared_ontology(&s.store, FileOptions::local_ext4()).unwrap();
-    let h = OntologyHub::open(b.clone(), seed::context(), specimens::scope())
+    let b = FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap();
+    let h = KnowledgeHub::open(b.clone(), seed::context(), specimens::scope())
         .await
         .unwrap();
     let (head, before) = h.snapshot(seed::context()).await.unwrap();
@@ -18,13 +18,10 @@ async fn public_shared_walkthrough_pack_reindex_and_materialise() {
         .operation_result(seed::context(), "catalogue".into())
         .await
         .unwrap();
-    let loose = b
-        .scrub_ontology(seed::context(), specimens::scope())
-        .await
-        .unwrap();
+    let loose = b.scrub(seed::context(), specimens::scope()).await.unwrap();
     eprintln!("test: packing");
     let packed = b
-        .compact_ontology(seed::context(), specimens::scope())
+        .compact(seed::context(), specimens::scope())
         .await
         .unwrap();
     eprintln!("test: packed; comparing state");
@@ -82,7 +79,5 @@ async fn public_shared_walkthrough_pack_reindex_and_materialise() {
             .unwrap(),
         original
     );
-    b.scrub_ontology(seed::context(), specimens::scope())
-        .await
-        .unwrap();
+    b.scrub(seed::context(), specimens::scope()).await.unwrap();
 }

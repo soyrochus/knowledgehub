@@ -1,7 +1,7 @@
 use super::*;
 use crate::{Action, Context, Error, codec};
 use std::{
-    collections::{BTreeMap, BTreeSet, VecDeque},
+    collections::BTreeMap,
     sync::Mutex,
     time::{Duration, Instant},
 };
@@ -93,12 +93,12 @@ fn materialise(state: &State, q: &Query) -> Result<(Vec<Record>, Option<String>)
 fn query_bounds(q: &Query) -> Result<(), Error> {
     if q.page_size == 0
         || q.page_size > 1000
-        || q.depth > 4
+        || q.depth > 32
         || q.subject_limit == 0
         || q.subject_limit > 10000
         || q.edge_limit == 0
         || q.edge_limit > 10000
-        || q.starts.len() > 10000
+        || q.starts.len() > 1000
     {
         return Err(Error::InvalidInput(
             "query exceeds finite page/depth/subject/edge bounds".into(),
@@ -128,236 +128,39 @@ fn scan(state: &State, q: &Query) -> Result<(Vec<Record>, Option<String>), Error
             .collect();
         return Ok((items, truncated));
     }
-    let mut starts = q.starts.clone();
-    starts.sort();
-    starts.dedup();
-    let mut queue = VecDeque::new();
-    let mut visited = BTreeSet::new();
-    let mut seen_edges = BTreeSet::new();
-    let mut items = vec![];
-    let mut truncated = None;
-    for r in starts {
-        let node = state.resolve(&r).ok_or(Error::NotFound)?;
-        if visited.len() == q.subject_limit {
-            truncated = Some("subject budget".into());
-            break;
-        }
-        visited.insert(r.clone());
-        queue.push_back((r, 0));
-        if matches(&node) {
-            items.push(node)
-        }
-    }
-    let mut edges = state
-        .selected_records()
-        .filter(|r| matches!(r.data, RecordData::Assertion(_)))
-        .collect::<Vec<_>>();
-    edges.sort_by(|a, b| {
-        let sig = |r: &Record| {
-            if let RecordData::Assertion(a) = &r.data {
-                a.signature.clone()
-            } else {
-                unreachable!()
-            }
-        };
-        sig(a)
-            .cmp(&sig(b))
-            .then_with(|| a.reference.cmp(&b.reference))
-    });
-    while let Some((subject, depth)) = queue.pop_front() {
-        for edge in &edges {
-            let RecordData::Assertion(a) = &edge.data else {
-                unreachable!()
-            };
-            if !q.signatures.is_empty() && !q.signatures.contains(&a.signature) {
-                continue;
-            }
-            let target = match q.direction {
-                Direction::Forward if a.from == subject => &a.to,
-                Direction::Reverse if a.to == subject => &a.from,
-                _ => continue,
-            };
-            if seen_edges.contains(&edge.reference) {
-                continue;
-            }
-            if depth == q.depth {
-                if truncated.is_none() {
-                    truncated = Some("depth bound".into())
-                }
-                continue;
-            }
-            if seen_edges.len() == q.edge_limit {
-                truncated = Some("edge budget".into());
-                return Ok((items, truncated));
-            }
-            if !visited.contains(target) && visited.len() == q.subject_limit {
-                truncated = Some("subject budget".into());
-                return Ok((items, truncated));
-            }
-            seen_edges.insert(edge.reference.clone());
-            items.push((*edge).clone());
-            if visited.insert(target.clone()) {
-                let node = state.resolve(target).ok_or(Error::NotFound)?;
-                queue.push_back((target.clone(), depth + 1));
-                if matches(&node) {
-                    items.push(node)
-                }
-            }
-        }
-    }
-    Ok((items, truncated))
+    unreachable!("traversal is handled by the current graph engine")
 }
-fn indexed(
-    h: &OntologyHub,
+fn expand(
+    h: &KnowledgeHub,
     context: &Context,
     q: &Query,
 ) -> Result<(Vec<Record>, Option<String>), Error> {
     query_bounds(q)?;
-    {
-        let lease = h.store.acquire_read(&h.scope.transport())?;
-        if let Some(t) = &q.type_ref {
-            match lease.record(&q.selection, t) {
-                Ok(r) if matches!(r.data, RecordData::Type(_)) => {}
-                Ok(_) | Err(Error::NotFound) => {
-                    return Err(Error::InvalidInput("unknown exact query type".into()));
-                }
-                Err(e) => return Err(e),
-            }
-        }
-        for s in &q.signatures {
-            match lease.record(&q.selection, s) {
-                Ok(r) if matches!(r.data, RecordData::Relationship(_)) => {}
-                Ok(_) | Err(Error::NotFound) => {
-                    return Err(Error::InvalidInput(
-                        "unknown exact relationship signature".into(),
-                    ));
-                }
-                Err(e) => return Err(e),
-            }
-        }
-    }
-    let mut starts = q.starts.clone();
-    starts.sort();
-    starts.dedup();
-    let request = |r: ExactRef| {
-        let mut n = Neighbours::new(q.selection.clone(), vec![r]);
-        n.direction = match q.direction {
-            Direction::Forward => NeighbourDirection::Outgoing,
-            Direction::Reverse => NeighbourDirection::Incoming,
-        };
-        n.categories = BTreeSet::from([NeighbourCategory::Association]);
-        n.selectors = q
-            .signatures
-            .iter()
-            .map(|r| NeighbourSelector::Assertion {
-                definition: r.clone(),
-            })
-            .collect();
-        n.page_size = 1000;
-        n.byte_limit = 1_048_576;
-        n
+    let first = {
+        let lease = h.store.acquire_read(&h.scope)?;
+        super::impact::evaluate_query(lease.as_ref(), q, false)
     };
-    // Prepare before holding the traversal's shared lease, then pin all remaining reads against maintenance.
-    let first_request = request(starts[0].clone());
-    super::neighbours::read_slice(
-        h,
-        context,
-        &first_request,
-        &super::neighbours::Position::default(),
-    )?;
-    let lease = h.store.acquire_read(&h.scope.transport())?;
-    let matches = |r: &Record| {
-        q.type_ref.as_ref().is_none_or(|t| r.type_ref == *t)
-            && (q.ids.is_empty() || q.ids.contains(&r.reference.id))
-    };
-    let mut queue = VecDeque::new();
-    let mut visited = BTreeSet::new();
-    let mut seen_edges = BTreeSet::new();
-    let mut items = Vec::new();
-    let mut truncated = None;
-    for r in starts {
-        let node = lease.record(&q.selection, &r)?;
-        if visited.len() == q.subject_limit {
-            truncated = Some("subject budget".into());
-            break;
+    match first {
+        Err(Error::IndexNotReady { .. }) if q.preparation.allow_rebuild => {
+            let lease = h.store.acquire(&h.scope)?;
+            context.check(&h.scope, Action::Read)?;
+            super::impact::evaluate_query(lease.as_ref(), q, true)
         }
-        visited.insert(r.clone());
-        queue.push_back((r, 0));
-        if matches(&node) {
-            items.push(node);
-        }
+        other => other,
     }
-    while let Some((subject, depth)) = queue.pop_front() {
-        let n = request(subject);
-        let mut position = super::neighbours::Position::default();
-        // Legacy order is signature then assertion reference (the additive operation orders opposite first).
-        let mut edges: BTreeMap<(ExactRef, ExactRef), ExactRef> = BTreeMap::new();
-        loop {
-            let slice = lease.neighbours(&n, &position)?;
-            let mut at_depth = false;
-            for fact in slice.page.neighbours {
-                if seen_edges.contains(&fact.origin.owner) {
-                    continue;
-                }
-                if depth == q.depth {
-                    at_depth = true;
-                    break;
-                }
-                let NeighbourSelector::Assertion { definition } = fact.selector else {
-                    return Err(Error::Integrity(
-                        "legacy adjacency contains a non-assertion".into(),
-                    ));
-                };
-                edges.insert((definition, fact.origin.owner), fact.opposite);
-                let needed = q.edge_limit - seen_edges.len() + 1;
-                if edges.len() > needed {
-                    edges.pop_last();
-                }
-            }
-            if at_depth {
-                if truncated.is_none() {
-                    truncated = Some("depth bound".into());
-                }
-                break;
-            }
-            let Some(next) = slice.next else {
-                break;
-            };
-            position = next;
-        }
-        for ((_, reference), target) in edges {
-            if seen_edges.len() == q.edge_limit {
-                return Ok((items, Some("edge budget".into())));
-            }
-            if !visited.contains(&target) && visited.len() == q.subject_limit {
-                return Ok((items, Some("subject budget".into())));
-            }
-            seen_edges.insert(reference.clone());
-            items.push(lease.record(&q.selection, &reference)?);
-            if visited.insert(target.clone()) {
-                let node = lease.record(&q.selection, &target)?;
-                queue.push_back((target, depth + 1));
-                if matches(&node) {
-                    items.push(node);
-                }
-            }
-        }
-    }
-    Ok((items, truncated))
 }
-impl OntologyHub {
+impl KnowledgeHub {
     pub async fn query(&self, context: Context, query: Query) -> Result<Page, Error> {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
-                let (items, truncated) =
-                    if h.store.version() == SHARED_FILE_FORMAT && !query.starts.is_empty() {
-                        indexed(&h, &context, &query)?
-                    } else {
-                        let (_, state) = h.select(&query.selection)?;
-                        materialise(&state, &query)?
-                    };
+                context.check(&h.scope, Action::Read)?;
+                let (items, truncated) = if !query.starts.is_empty() {
+                    expand(&h, &context, &query)?
+                } else {
+                    let (_, state) = h.select(&query.selection)?;
+                    materialise(&state, &query)?
+                };
                 let now = h.cursors.now();
                 let fp = fingerprint(&query, &h.scope, &context.actor)?;
                 let mut cursor = Cursor {
@@ -396,7 +199,7 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let now = h.cursors.now();
                 let mut map = h.cursors.entries.lock().unwrap();
                 h.cursors.expire(&mut map, now);
@@ -426,7 +229,7 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let mut map = h.cursors.entries.lock().unwrap();
                 if map
                     .get(&continuation)

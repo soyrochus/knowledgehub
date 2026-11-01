@@ -1,175 +1,42 @@
 # KnowledgeHub
 
-`knowledgehub` is an embedded Rust library for governed, source-bound system
-definitions. The explicit files/3 backend shares immutable storage and implements the System Definition Ontology:
-17 kernel kinds, 128 family types, 32 catalogue relationships and 6 explicit
-prose refinements. It supports typed values and constraints, exact binary and
-Markdown artifacts, immutable revisions, named baselines and bounded navigation.
-A public consumer loads KnowledgeHub's own sourced model, records observed native
-evidence, revises an explanation and recovers both exact baselines after reopening.
+`knowledgehub` 0.10.0 is an unpublished embedded Rust library for governed, source-bound system definitions. Its ordinary `KnowledgeHub` API supports the complete System Definition Ontology: 17 kernel kinds, 128 family types, 32 catalogue relationships and six explicit prose refinements.
 
-Implementation was authorised on 31 October 2026. The self-model retains explicit
-draft gaps and source status; human acceptance and authority handover remain pending.
-The [ontology proposal](source/system-definition-ontology-proposal.md) remains the
-source draft. The [Practical Design Manual](source/practical-design-manual.md)
-supplies the method; its Memento examples are not KnowledgeHub requirements.
+The single current file backend uses `knowledgehub-files/4`, shared immutable objects, sealed packs and bounded derived indexes. Earlier APIs and stores have no conversion or compatibility facade. Existing current-store revisions, baselines, exact source bytes and original operation outcomes remain immutable.
 
-## Inspect the canonical self-model
-
-The repository's actual persisted KnowledgeHub is in [`hub/`](hub/README.md).
-It contains the ontology catalogue and KnowledgeHub's own sourced model, exact
-artifacts, immutable revision history, A/B baselines and original operation receipts.
-It is repository data, preserved independently of Cargo's `target/` directory.
-
-Open it through the public library API:
-
-```sh
-cargo run --offline --release --example inspect_self_model -- --format files3
-```
-
-This read-only example reports the model, draft gaps and original receipts, and
-reads both versions of the atomic-change explanation. The stored model captures
-the verified source snapshot described in its evidence; it is not automatically
-updated when repository files change. See the [files/3 guide](design/files3-guide.md)
-for its layout and update rules.
-
-Neighbour and text indexes use [sealed variable-size packs](design/packed-cache-storage.md)
-with bounded compression blocks. The canonical Hub has now been deleted and freshly
-rebuilt from current checked sources, then reopened, compacted and fully verified.
-It has 9,264 selected records and 3,815 explicit draft gaps; its accepted data and
-caches allocate about 40.1 MiB in regular files. The [rebuild evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md)
-records the complete test suite, fresh source checkpoint and exact measurements.
-See [hub/README.md](hub/README.md) for this instance's replay domain and commands.
-
-## Reproduce the full public walkthrough
-
-Use the existing Rust compiler, Python 3 and installed Poppler `pdftotext`.
-Choose fresh absolute store paths with an existing parent on the supported local
-ext4 platform. These commands compile and run with the existing toolchain:
-
-```sh
-python3 scripts/verify_full_ontology.py --run-dir delivery/evidence/hub-rebuild/manual-run
-python3 examples/capture_self_model.py --log delivery/evidence/hub-rebuild/manual-run/native.log --checked-manifest delivery/evidence/hub-rebuild/manual-run/checked.json
-mkdir -p target/ontology-demo
-cargo run --offline --release --example catalogue_conformance -- --format files3 "$PWD/target/ontology-demo/catalogue"
-cargo run --offline --release --example full_self_description -- --format files3 target/self-model-input.json "$PWD/target/ontology-demo/library"
-```
-
-The first consumer retains complete synthetic specimens for every family and
-signature. The second captures exact project sources, original PDF/Markdown and
-PDF extraction manifests, loads the applicable self-model, follows its real
-requirement/case/run path, creates A/B, closes/reopens, compares them and recovers
-original receipts. Its result JSON contains group bindings, Q01–Q08 answers and
-explicit gaps. Structural conformance does not manufacture execution or acceptance.
-These commands create separate disposable demonstrations. The canonical `hub/`
-already exists; do not pass it as the new-store destination to either loader.
-
-Read the [typed API and version contract](design/typed-ontology-api.md) and
-[self-model walkthrough](design/self-model-consumer.md) for exact addresses,
-authoring, source capture, query budgets and review boundaries.
-
-## Use the typed library
-
-Host composition creates `FileBackend::new_shared_ontology` for files/3;
-`FileBackend::new_ontology` retains files/2 compatibility. The host supplies
-qualified actor identity, a current scoped `Policy` and its own Tokio runtime.
-Stored roles never grant runtime access. Ontology registration has a separate
-`RegisterOntology` admission action.
+Use the existing Rust 1.99.1 toolchain; install no compiler. The trusted host supplies current scoped policy, qualified actor identity and its own Tokio runtime. The declared filesystem profile is coordinated single-host Linux x86_64/local ext4. Observed checks and the user's platform-compliance assumption remain separate.
 
 ```rust,no_run
-use knowledgehub::{Context, Error};
-use knowledgehub::ontology::{ModelScope, OntologyHub, State};
+use knowledgehub::{KnowledgeHub, Context, ModelScope, State, Error};
 use knowledgehub::backends::files::FileBackend;
 
-async fn inspect(
-    backend: FileBackend,
-    context: Context,
-    scope: ModelScope,
-) -> Result<State, Error> {
-    let hub = OntologyHub::open(backend, context.clone(), scope).await?;
-    let (_, snapshot) = hub.snapshot(context).await?;
+async fn inspect(backend: FileBackend, context: Context, scope: ModelScope) -> Result<State, Error> {
+    let hub = KnowledgeHub::open(backend, context.clone(), scope).await?;
+    let (_, state) = hub.snapshot(context).await?;
     hub.drain().await;
-    Ok(snapshot)
+    Ok(state)
 }
 ```
 
-Public I/O operations return owned values. A caller retains `Change::at` and its
-complete ordered operations before validation/commit. Guarded publication covers
-typed records, exact artifacts, selections and the original actor-bound receipt.
-Exact retries recover that receipt before stale-base checks. Current access still
-applies. The host drains admitted work before stopping Tokio; defaults are 4 active
-and 32 waiting blocking jobs per backend. Both scheduler configurations are tested.
+Create a backend with `FileBackend::new(path, FileOptions::local_ext4())`. Register `builtin_catalogue().operations()` through a guarded `Change`; ontology/profile selection remains explicit model data. The API includes exact/range reads, immutable successors, baseline comparison, typed selection, batch neighbours, deterministic traversal, literal text entry and composite impact queries. Reads use owned values, finite budgets, current authority and exact selection; modelled roles or agents do not confer runtime capabilities.
 
-## Deterministic dependency reads
+The four [0.10.0 changes](delivery/slice-plan.md#single-full-api-sequence--0100-cutover)
+are implemented in order (22/22 tasks). [Exact verification evidence](delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md)
+records 95 Rust tests, 3 documentation tests, 17 host tests and successful format,
+Clippy, release builds and canonical dataset checks.
 
-The additive files/3 operations `search_text`, `traverse` and `model_impact`
-combine literal text entry, bounded typed traversal and exact evidence. A composite
-request returns grouped candidate dependencies in one pinned view, with explicit
-ambiguity, coverage gaps and work limits. The engine follows recorded facts and
-does not infer whether a database migration is necessary.
+The fresh persisted [hub](hub/README.md) has 9,578 selected records,
+9,584 retained revisions, eight generations and three baselines.
+It uses 42.02 MB encoded regular-file storage, including derived
+indexes and location metadata; exact encoded/allocated/peak figures are in the evidence.
+The user's previous old_hub remains byte-for-byte unchanged and outside current capture,
+mutation and import. Repository edits do not automatically refresh either captured model.
 
-Run the isolated fictional rent example with an absent absolute destination:
+Inspect the current store through the public API:
 
 ~~~sh
-cargo run --offline --release --example rent_impact -- /absolute/unused/rent-fixture
+cargo run --offline --release --example inspect_self_model
+cargo run --offline --release --example inspect_self_model -- --verify
 ~~~
 
-See the [query contract and limits](design/deterministic-query-api.md),
-[executable fixture/request](examples/rent_support/mod.rs) and
-[technical evidence](delivery/evidence/impact/README.md).
-The [canonical rebuild](design/canonical-rebuild.md) is complete after the [sealed-pack change](openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md). [Fresh evidence](delivery/evidence/hub-rebuild/20261101T190114Z-9b3a2f55/README.md) records the new instance and exact captured checkpoint; the older failed attempt remains historical.
-
-## Compatibility and supported boundary
-
-The original `KnowledgeHub` and `FileBackend::new` preserve the files/1 seed API,
-canonical hashes and original receipts. Its independent walkthrough remains:
-
-```sh
-cargo run --offline --example seed -- /absolute/new/seed/store
-```
-
-Files/2 explicitly opts into new file/request/record codecs and preallocated opaque
-revision tokens with independent content digests. It does not migrate files/1 or
-copy its operation identities into a new replay domain. Each API refuses the other
-format. The [first-slice contract](design/file-backend.md) and its
-[historical evidence](delivery/evidence/kh-sl-001.md) remain separate.
-
-One crate and default file adapter support coordinated single-host writers on
-Linux x86_64/local ext4. Stable locks, immutable generations, synced atomic head
-publication and retained original receipts protect accepted changes. Query pages,
-depth, visited subjects/edges and temporary cursor capacity/lifetime are bounded.
-The larger sourced model is a scoped demonstration, not a scale benchmark.
-
-Rust 2024 declares a Rust 1.85 minimum. Verification uses the existing Rust 1.99.1
-at the user's direction, with no compiler installation; minimum-compiler execution
-is not claimed. Platform compliance is the user's assumption. Native observations
-and process-interruption checks do not establish power-loss or kernel-crash durability.
-
-Portable interchange, broader query/review workflows, MongoDB/PostgreSQL adapters,
-services, remote SDKs, FFI and publication remain deferred. Repository definitions
-retain their authority until an explicit scoped handover. Technical checks and
-project acceptance remain distinct.
-
-## Development model
-
-[Domain analysis](design/domain-analysis.md) →
-[journeys and outcome slices](delivery/slice-plan.md) →
-[bounded OpenSpec change](openspec/changes/archive/2026-11-01-retain-first-self-definition/proposal.md) →
-authorised implementation and evidence → review and revised sequence.
-The [self-hosting plan](design/self-hosting-plan.md) owns bootstrap authority and
-decisions; [implementation record](design/implementation-record.md) records the
-authorisation and contract review. Original material under `source/` remains
-unchanged. Implementation, technical verification and human acceptance remain
-separate facts.
-
-## Principles of Participation
-
-Everyone is invited and welcome to contribute: open issues, propose pull requests, share ideas, or help improve documentation. Participation is open to all, regardless of background or viewpoint. 
-
-This project follows the [FOSS Pluralism Manifesto](./FOSS_PLURALISM_MANIFESTO.md), which affirms respect for people, freedom to critique ideas, and space for diverse perspectives. 
-
-## License and Copyright
-
-Copyright (c) 2026, Iwan van der Kleijn
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+The [ontology proposal](source/system-definition-ontology-proposal.md) and [Practical Design Manual](source/practical-design-manual.md) retain their original draft/source status. The manual's Memento examples are not library requirements. Definition ownership remains in repository documents; structural validity, explicit draft gaps, observed technical checks, human acceptance and authority handover are distinct.

@@ -11,7 +11,7 @@ Traversal SHALL accept exact starts, a pinned selection, target predicates and f
 
 #### Scenario: Follow mixed directions across several families
 - **WHEN** a caller supplies inverse formalises/satisfies followed by supported forward/property steps
-- **THEN** traversal follows only actual eligible facts and can return targets beyond the legacy four-hop limit through the additive operation
+- **THEN** traversal follows only actual eligible facts and can return targets within the current documented finite plan/hop bounds
 
 #### Scenario: Future query uses an existing association type
 - **WHEN** a new permitted step plan is submitted for already stored facts
@@ -57,10 +57,9 @@ Traversal and every continuation SHALL bind exact selection, policy, parameters,
 - **WHEN** an eligible association names an unsupported external binding
 - **THEN** the result identifies that limitation without silently accessing a remote source or substituting another record
 
-### Requirement: Indexed local work and compatibility
-Ready-view traversal SHALL compose batched local neighbour lookups rather than rescan all graph associations per subject. The additive operation SHALL preserve existing Query/Page contracts and SHALL NOT perform autonomous planning, execute stored code or infer causal impact.
+### Requirement: Indexed current local work
+Ready-view traversal SHALL compose batched local neighbour lookups rather than rescan all graph associations per subject. Current Query/Page expansion SHALL use that engine. Reads SHALL NOT perform autonomous planning, execute stored code or infer causal impact.
 
 #### Scenario: Unrelated model grows
 - **WHEN** the same finite neighbourhood is traversed while unrelated facts/history increase
-- **THEN** instrumentation reports neighbourhood and lookup-path work rather than repeated full graph/history loads, while old Query results remain unchanged
-
+- **THEN** instrumentation reports neighbourhood and lookup-path work rather than repeated full graph/history loads under the current bounded query semantics

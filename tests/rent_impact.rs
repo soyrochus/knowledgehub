@@ -64,8 +64,8 @@ async fn narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl() {
         .await
         .unwrap();
     std::fs::remove_dir_all(s.store.join("cache/text")).unwrap();
-    let reopened = OntologyHub::open(
-        knowledgehub::backends::files::FileBackend::new_shared_ontology(
+    let reopened = KnowledgeHub::open(
+        knowledgehub::backends::files::FileBackend::new(
             &s.store,
             knowledgehub::backends::files::FileOptions::local_ext4(),
         )

@@ -43,6 +43,7 @@ pub struct PdfPage {
 }
 #[derive(Deserialize)]
 pub struct Capture {
+    pub library_version: String,
     pub captured_at: String,
     pub source_status: String,
     pub compiler: String,
@@ -66,6 +67,7 @@ pub fn scope() -> ModelScope {
 // Explicit semantic bindings shared with host capture and the coverage auditor.
 #[derive(Deserialize)]
 struct Origins {
+    changes: BTreeMap<String, String>,
     modules: BTreeMap<String, String>,
     sources: BTreeMap<String, String>,
     public_namespaces: BTreeMap<String, String>,
@@ -92,6 +94,17 @@ fn namespace(path: &str) -> String {
         .get(path)
         .cloned()
         .unwrap_or_else(|| format!("knowledgehub::internal::{}", module_id(path)))
+}
+fn change_name(path: &str) -> Result<String, String> {
+    let key = source_key(path);
+    let name = key
+        .strip_prefix("change:")
+        .and_then(|s| s.split(':').next())
+        .ok_or_else(|| format!("task has no change origin: {path}"))?;
+    if !origins().changes.contains_key(name) {
+        return Err(format!("unknown change origin: {name}"));
+    }
+    Ok(name.to_owned())
 }
 fn source_key(path: &str) -> String {
     if path.starts_with("src/") {
@@ -960,7 +973,7 @@ pub fn author(
         "architecture",
         "SoftwareComponent",
         "kh:component:knowledgehub-crate",
-        "knowledgehub Rust crate",
+        &format!("knowledgehub {} Rust crate", capture.library_version),
         b.anchors["Cargo.toml"].clone(),
         properties([
             ("modules", list([])),
@@ -1092,7 +1105,7 @@ pub fn author(
         root_anchor.clone(),
     )?;
     let explanation=b"# Atomic governed change\n\nAn admitted change publishes its definitions, exact source captures, selected revisions and original operation receipt together. The trusted host supplies current authority. This explanation is derived from ontology section 21.4; project acceptance is separate.\n".to_vec();
-    let explanation_source=b.capture("urn:document:knowledgehub-seed",explanation.clone(),"text/markdown","design-decision",None,Some("Repository-owned walkthrough explanation derived from ontology section 21.4; fresh files/2 replay domain".into()))?;
+    let explanation_source=b.capture("urn:document:knowledgehub-seed",explanation.clone(),"text/markdown","design-decision",None,Some("Repository-owned walkthrough explanation derived from ontology section 21.4; fresh current files/4 replay domain".into()))?;
     let explanation_anchor = b.anchor(
         "kh:anchor:atomic-explanation",
         explanation_source,
@@ -1162,6 +1175,40 @@ pub fn author(
         ]),
     )?;
     let mut operations = vec![r("kh:command:commit-change-set")];
+    if capture.library_version != env!("CARGO_PKG_VERSION") {
+        return Err("captured library version differs from the running author".into());
+    }
+    for (name, slice) in &origins().changes {
+        if [
+            "retain-first-self-definition",
+            "express-full-ontology-and-self-model",
+        ]
+        .contains(&name.as_str())
+        {
+            continue;
+        }
+        let proposal = capture
+            .files
+            .iter()
+            .find(|f| source_key(&f.path) == format!("change:{name}:proposal"))
+            .ok_or_else(|| format!("missing actual proposal for {name}"))?;
+        b.make(
+            "delivery",
+            "ChangeDefinition",
+            &format!("kh:change:{name}"),
+            name,
+            b.anchors[&proposal.path].clone(),
+            properties([
+                ("affected_subjects", list([r("urn:knowledgehub:library")])),
+                ("rationale", list([])),
+                ("slice", Value::Ref(r(&format!("kh:slice:{slice}")))),
+                (
+                    "specifications",
+                    artifact_list([b.sources[&proposal.path].clone()]),
+                ),
+            ]),
+        )?;
+    }
     for unit in &capture.units {
         if matches!(unit.kind.as_str(), "contract" | "function" | "operation")
             && !unit.path.starts_with("src/")
@@ -1458,11 +1505,7 @@ pub fn author(
                     properties([
                         (
                             "change",
-                            Value::Ref(r(if unit.path.contains("retain-first-self-definition") {
-                                "kh:change:retain-first-self-definition"
-                            } else {
-                                "kh:change:express-full-ontology-and-self-model"
-                            })),
+                            Value::Ref(r(&format!("kh:change:{}", change_name(&unit.path)?))),
                         ),
                         ("implementation_references", artifact_list([])),
                         (
@@ -1550,7 +1593,7 @@ pub fn author(
             ("schema", Value::Ref(schema.clone())),
             (
                 "protocol",
-                Value::text("knowledgehub-files/2; file and directory sync, coordinated writers"),
+                Value::text("knowledgehub-files/4; file and directory sync, coordinated writers"),
             ),
             ("translation", list([])),
         ]),
@@ -1611,7 +1654,7 @@ pub fn author(
         .units
         .iter()
         .find(|u| u.kind == "test" && u.name.contains("sigkill_typed_artifact"))
-        .ok_or("missing actual files/2 interruption test")?;
+        .ok_or("missing actual current interruption test")?;
     let a = b.anchor(
         "kh:anchor:interruption-case",
         b.sources[&test_source.path].clone(),
@@ -2150,7 +2193,10 @@ pub fn author(
             &inputs,
         )?;
         let output_contract = if name == "snapshot-encoding" {
-            r(&contract_id("src/storage.rs", "Manifest"))
+            r(&contract_id(
+                "src/storage/shared/generation.rs",
+                "Generation",
+            ))
         } else {
             signature_schema(
                 &mut b,
@@ -2191,7 +2237,7 @@ pub fn author(
                         (
                             "path",
                             Value::text(if name == "snapshot-encoding" {
-                                "files"
+                                "selected_root"
                             } else {
                                 "sha256"
                             }),
@@ -2484,6 +2530,40 @@ pub fn author(
         }
     }
     let _ = (datatype, result_schema);
+    // Source-denominator coverage is checked before any persisted authoring.
+    for unit in &capture.units {
+        let id = match unit.kind.as_str() {
+            "rule" => Some(format!("kh:rule:{}:BusinessRule", unit.name)),
+            "decision" => Some(format!("kh:decision:{}", unit.name)),
+            "slice" => Some(format!("kh:slice:{}", unit.name)),
+            "story" => Some(format!("kh:story:{}", unit.name)),
+            "contract" | "native-contract" if unit.path.starts_with("src/") => {
+                Some(contract_id(&unit.path, &unit.name))
+            }
+            "constant" if unit.path.starts_with("src/") => {
+                Some(format!("kh:constant:{}", unit.name))
+            }
+            _ => None,
+        };
+        if let Some(id) = id {
+            if b.state.get(&r(&id)).is_none() {
+                return Err(format!("unmodelled source unit: {}::{}", unit.path, unit.name).into());
+            }
+            if matches!(unit.kind.as_str(), "contract" | "native-contract") {
+                for field in unit.fields.iter().flatten() {
+                    let id = format!(
+                        "kh:field:{}::{}::{}",
+                        namespace(&unit.path),
+                        unit.name,
+                        field.name
+                    );
+                    if b.state.get(&r(&id)).is_none() {
+                        return Err(format!("unmodelled source field: {id}").into());
+                    }
+                }
+            }
+        }
+    }
     Ok(b)
 }
 

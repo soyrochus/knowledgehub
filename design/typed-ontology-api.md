@@ -1,12 +1,13 @@
-# Typed ontology API and files/2
+# Current full ontology API
 
-Implementation record · 31 October 2026 · technical checks do not record project acceptance.
+Current contract · 2 November 2026 · technical checks do not record project acceptance.
 
-`knowledgehub::ontology::OntologyHub` is the storage-independent typed API.
-`FileBackend::new_ontology(path, FileOptions::local_ext4())` opts into
-`knowledgehub-files/2`; the original `KnowledgeHub`/`FileBackend::new` remain
-files/1. Each API refuses the other format. There is no in-place migration or
-rollback of a v2 store to v1. Retain the original store when adopting v2.
+`knowledgehub::KnowledgeHub` is the sole storage-independent full API in crate
+0.10.0. All typed contracts are exported at the crate root; the ontology module
+organises the same implementation. `FileBackend::new(path,
+FileOptions::local_ext4())` selects the sole `knowledgehub-files/4` backend.
+Older APIs, constructors and store readers are removed. Unsupported metadata is
+refused unchanged; create a fresh store. No converter or facade is provided.
 
 A host provides its existing Tokio runtime, owned `Context` and current `Policy`.
 Both current-thread and multithread runtimes use the same bounded blocking-job

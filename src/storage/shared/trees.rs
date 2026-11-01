@@ -20,10 +20,9 @@ fn spaces() -> [&'static str; 10] {
         "text-fields/1",
     ]
 }
-fn item_types() -> [&'static str; 6] {
+fn item_types() -> [&'static str; 5] {
     [
         "exact-refs/1",
-        "legacy-refs/1",
         "gap-oids/1",
         "chunks/1",
         "neighbour-postings/1",
@@ -42,8 +41,6 @@ fn item_valid(t: &str, v: &Value) -> bool {
         }
         "exact-refs/1" => serde_json::from_value::<crate::ontology::ExactRef>(v.clone())
             .is_ok_and(|r| r.is_valid()),
-        "legacy-refs/1" => serde_json::from_value::<RevisionRef>(v.clone())
-            .is_ok_and(|r| !r.id.trim().is_empty() && !r.revision.trim().is_empty()),
         "gap-oids/1" => v.as_str().is_some_and(model::hash),
         "chunks/1" => v.as_object().is_some_and(|m| {
             m.len() == 2

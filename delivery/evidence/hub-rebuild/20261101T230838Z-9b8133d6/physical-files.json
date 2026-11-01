@@ -1,0 +1,32 @@
+{
+  "metadata/guide": {
+    "files": 2,
+    "encoded_bytes": 1842,
+    "allocated_bytes": 8192
+  },
+  "cache/neighbours": {
+    "files": 325,
+    "encoded_bytes": 27287902,
+    "allocated_bytes": 27738112
+  },
+  "cache/text": {
+    "files": 48,
+    "encoded_bytes": 2146726,
+    "allocated_bytes": 2240512
+  },
+  "locks": {
+    "files": 1,
+    "encoded_bytes": 0,
+    "allocated_bytes": 0
+  },
+  "objects": {
+    "files": 3,
+    "encoded_bytes": 12587057,
+    "allocated_bytes": 12595200
+  },
+  "refs": {
+    "files": 1,
+    "encoded_bytes": 328,
+    "allocated_bytes": 4096
+  }
+}

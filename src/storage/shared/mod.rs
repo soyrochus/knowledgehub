@@ -1,4 +1,4 @@
-//! Shared immutable files/3 adapter. The model remains independent of these codecs.
+//! Shared immutable files/4 adapter. The model remains independent of these codecs.
 use super::*;
 use std::sync::atomic::{AtomicU64, Ordering};
 
@@ -138,8 +138,7 @@ fn reserve_file(store: &FileStore, bytes: usize) -> Result<(), Error> {
 #[cfg(test)]
 fn object_backend(_name: &str) -> (crate::test_support::Sandbox, FileBackend) {
     let sandbox = crate::test_support::Sandbox::new();
-    let backend =
-        FileBackend::new_shared_ontology(&sandbox.store, FileOptions::local_ext4()).unwrap();
+    let backend = FileBackend::new(&sandbox.store, FileOptions::local_ext4()).unwrap();
     for dir in ["objects/loose", "objects/packs", "staging"] {
         fs::create_dir_all(sandbox.store.join(dir)).unwrap();
     }

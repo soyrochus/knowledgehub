@@ -90,7 +90,7 @@ for unit in capture['units']:
  if unit['kind']=='decision':assert 'kh:decision:'+unit['name'] in ids
  if unit['kind']=='slice':assert 'kh:slice:'+unit['name'] in ids
  if unit['kind']=='story':assert 'kh:story:'+unit['name'] in ids
- if unit['kind']=='contract' and unit['path'].startswith('src/'):
+ if unit['kind'] in ('contract','native-contract') and unit['path'].startswith('src/'):
   assert 'kh:schema:'+namespace(unit['path'])+'::'+unit['name'] in ids,unit['name']
   for field in unit['fields']:assert 'kh:field:'+namespace(unit['path'])+'::'+unit['name']+'::'+field['name'] in ids,(unit['name'],field['name'])
  if unit['kind']=='constant' and unit['path'].startswith('src/'):assert 'kh:constant:'+unit['name'] in ids

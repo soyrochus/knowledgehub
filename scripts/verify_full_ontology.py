@@ -4,11 +4,12 @@ import argparse
 import datetime
 import json
 import pathlib
+import os
 import re
 import subprocess
 import sys
 sys.dont_write_bytecode = True
-from host_sources import checkpoint, digest, require_checkpoint
+from host_sources import checkpoint, digest, require_checkpoint, package_identity
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 COMMANDS = [
@@ -25,6 +26,7 @@ def verify(root, directory):
     output, manifest = directory / "native.log", directory / "checked.json"
     if output.exists() or manifest.exists():
         raise ValueError("fresh evidence paths required; older native evidence is never overwritten")
+    version = package_identity(root)
     files = checkpoint(root)
     started = datetime.datetime.now(datetime.timezone.utc).isoformat()
     results = []
@@ -33,8 +35,8 @@ def verify(root, directory):
             log.write(("\n$ " + " ".join(command) + "\n").encode())
             log.flush()
             print("$ " + " ".join(command), flush=True)
-            result = subprocess.run(command, cwd=root, stdout=log, stderr=subprocess.STDOUT)
-            results.append({"command": command, "exit_code": result.returncode})
+            result = subprocess.run(command, cwd=root, stdout=log, stderr=subprocess.STDOUT, env={**os.environ, "RUST_TEST_THREADS": "4"})
+            results.append({"command": command, "exit_code": result.returncode, "environment": {"RUST_TEST_THREADS": "4"}})
             if result.returncode:
                 raise RuntimeError(f"required check failed ({result.returncode}): {command}; output: {output}")
     require_checkpoint(root, files)
@@ -54,11 +56,18 @@ def verify(root, directory):
                 executables[str(path.relative_to(root))] = digest(path.read_bytes())
     require_checkpoint(root, files)
     counts = [int(n) for n in re.findall(r"test result: ok\. (\d+) passed", output.read_text())]
-    data = dict(format="knowledgehub-observed-native-run/2", started_at=started,
+    coverage_path = root / "delivery/evidence/v010/coverage-map.json"
+    coverage = json.loads(coverage_path.read_text())
+    passed = set(re.findall(r"^test ([\w:]+) \.\.\. ok$", output.read_text(), re.M))
+    for guarantee, cases in coverage["guarantees"].items():
+        for case in cases:
+            if not any(name == case or name.endswith("::" + case) for name in passed):
+                raise ValueError("unobserved current safety case: " + guarantee + ": " + case)
+    data = dict(format="knowledgehub-observed-native-run/2", library_version=version, started_at=started,
                 ended_at=datetime.datetime.now(datetime.timezone.utc).isoformat(),
                 source_status="exact working tree before capture/final task and generated-report updates",
                 files=files, executables=executables, commands=results, log=digest(output.read_bytes()),
-                native_test_counts=counts,
+                native_test_counts=counts, guarantee_coverage=coverage, coverage_map=digest(coverage_path.read_bytes()),
                 limits=["host-declared local ext4; actual platform observations in log", "no power-loss, remote-adapter, acceptance or authority-handover claim"])
     manifest.write_text(json.dumps(data, indent=2) + "\n")
     return manifest

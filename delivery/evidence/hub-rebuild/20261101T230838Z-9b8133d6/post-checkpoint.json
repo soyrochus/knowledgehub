@@ -1,0 +1,65 @@
+{
+  "format": "knowledgehub-post-checkpoint-status/1",
+  "changes": {
+    "design/self-model-consumer.md": {
+      "checked": {
+        "sha256": "855f9f4858be4663ed30662019e08db249e03c729449f4a323f21bb1bfc5d5ad",
+        "length": 6076
+      },
+      "final": {
+        "sha256": "2c184e8df72629b498e48e7398ea70ee0490bf861e2e571b30c9fe4f9928f52f",
+        "length": 6258
+      }
+    },
+    "README.md": {
+      "checked": {
+        "sha256": "20dc33f1e1c65a2c62ff29e77cf6d7b64eb36d77eee86d7c7a2bc13933810819",
+        "length": 3176
+      },
+      "final": {
+        "sha256": "e92b65ce9c1c4fb4f57f5abdf31b8052353f5d695682f74fe7f61180748a5c6c",
+        "length": 3319
+      }
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/tasks.md": {
+      "checked": {
+        "sha256": "9167e0b626ace9ea340b5cf08ef4d11d62a86ac677cefd4c03d3e2c4339c7ae3",
+        "length": 2792
+      },
+      "final": {
+        "sha256": "ace9a9326921fd481a562689a4be40c55e493fa3d83a72b7c309883107f0bfab",
+        "length": 2792
+      }
+    },
+    "delivery/slice-plan.md": {
+      "checked": {
+        "sha256": "65d1ea5f52f443c53b3a413881ae09a729029b712c18c7837afebca4cb547bae",
+        "length": 40282
+      },
+      "final": {
+        "sha256": "b0af3867aeea0bd3e531e89c2e23e70108e8ab872e40dabbf62686d7b417c984",
+        "length": 40878
+      }
+    },
+    "design/self-hosting-plan.md": {
+      "checked": {
+        "sha256": "d1e2e8cc748bd2c7d4c7c79c798dee605f4173542bf476ff61c5d86bf70cb525",
+        "length": 41908
+      },
+      "final": {
+        "sha256": "d169da0f3c21cf8202fc6d6fdf959f416541553c5ac7683c1660b86e00f1b482",
+        "length": 42506
+      }
+    }
+  },
+  "scope": "Final task checkboxes and descriptive status/evidence links only; no implementation, requirements, command logic or Rust documentation example changed. Generated hub guide and external reports are excluded from source capture.",
+  "captured_checkpoint_remains_exact": true,
+  "old_hub_unchanged": true,
+  "new_generated_reports": [
+    "README.md",
+    "physical-files.json",
+    "post-checkpoint.json",
+    "openspec-changes-final.log",
+    "openspec-specs-final.log"
+  ]
+}

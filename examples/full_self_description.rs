@@ -1,4 +1,4 @@
-//! Public files/2 consumer. Prepare exact host input with capture_self_model.py first.
+//! Public current full-model consumer. Prepare exact host input with capture_self_model.py first.
 mod file_format;
 #[path = "self_model_support/mod.rs"]
 mod host;
@@ -9,7 +9,7 @@ mod specimens;
 use knowledgehub::{ontology::*, *};
 use std::path::PathBuf;
 async fn submit(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     id: &str,
     operations: Vec<knowledgehub::ontology::Operation>,
 ) -> Result<Receipt, Error> {
@@ -25,7 +25,7 @@ async fn submit(
     eprintln!("Committed {id}: sequence {}", receipt.sequence);
     Ok(receipt)
 }
-async fn baseline(h: &OntologyHub, name: &str) -> Result<ExactRef, Error> {
+async fn baseline(h: &KnowledgeHub, name: &str) -> Result<ExactRef, Error> {
     let (_, state) = h.snapshot(seed::context()).await?;
     let reference = host::r(&format!("kh:baseline:{name}"));
     let r = Record::new(
@@ -63,6 +63,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
         state.artifacts = catalogue.artifacts;
         let authored = host::author(&root, &capture, state, input_bytes)?;
+        assert!(catalogue_coverage(&authored.state).is_empty());
         let report = assess(&authored.state);
         if !report.is_valid() {
             return Err(Error::Invalid(report.violations).into());
@@ -73,9 +74,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
         return Ok(());
     }
-    let store = PathBuf::from(args.next().ok_or(
-        "usage: full_self_description [--format files3] INPUT_JSON NEW_STORE [--result OUTPUT]",
-    )?);
+    let store = PathBuf::from(
+        args.next()
+            .ok_or("usage: full_self_description INPUT_JSON NEW_STORE [--result OUTPUT]")?,
+    );
     if args.next().is_some() {
         return Err("unexpected positional argument".into());
     }
@@ -85,8 +87,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         .and_then(serde_json::Value::as_str)
         .ok_or("checked run has no actual start time")?;
 
-    let backend = options.format.backend(&store)?;
-    let hub = OntologyHub::create(backend, seed::context(), host::scope()).await?;
+    let backend = knowledgehub::backends::files::FileBackend::new(
+        &store,
+        knowledgehub::backends::files::FileOptions::local_ext4(),
+    )?;
+    let hub = KnowledgeHub::create(backend, seed::context(), host::scope()).await?;
     submit(
         &hub,
         "register-catalogue",
@@ -206,8 +211,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let differences = hub.compare(seed::context(), a.clone(), b.clone()).await?;
     hub.drain().await;
     drop(hub);
-    let reopened = OntologyHub::open(
-        options.format.backend(&store)?,
+    let reopened = KnowledgeHub::open(
+        knowledgehub::backends::files::FileBackend::new(
+            &store,
+            knowledgehub::backends::files::FileOptions::local_ext4(),
+        )?,
         seed::context(),
         host::scope(),
     )
@@ -322,6 +330,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         relationship_ref("TestRun", "executes"),
     ];
     q.depth = 3;
+    q.preparation.owner_limit = 100000;
     q.page_size = 1000;
     let path = reopened.query(seed::context(), q).await?;
     assert!(

@@ -1,0 +1,27 @@
+✓ spec/bounded-model-traversal
+✓ spec/branch-commits
+  ⚠ [WARNING] requirements[0]: Requirement text is very long (>500 characters). Move examples and edge cases into scenarios, or split it into separate requirements that each state one behavior.
+  ⚠ [WARNING] requirements[3]: Requirement text is very long (>500 characters). Move examples and edge cases into scenarios, or split it into separate requirements that each state one behavior.
+✓ spec/canonical-hub-rebuild
+✓ spec/composite-model-queries
+✓ spec/current-api-host-tooling
+✓ spec/file-snapshot-recovery
+  ⚠ [WARNING] requirements[0]: Requirement text is very long (>500 characters). Move examples and edge cases into scenarios, or split it into separate requirements that each state one behavior.
+✓ spec/full-model-public-api
+✓ spec/full-model-storage-port
+✓ spec/immutable-storage-maintenance
+✓ spec/knowledgehub-self-description
+✓ spec/library-release-metadata
+✓ spec/model-baselines
+✓ spec/model-navigation
+✓ spec/model-text-search
+✓ spec/ontology-conformance
+✓ spec/ontology-definitions
+✓ spec/ontology-neighbour-lookup
+✓ spec/packed-derived-index-storage
+✓ spec/shared-file-storage
+✓ spec/single-api-verification
+✓ spec/source-bound-definitions
+  ⚠ [WARNING] requirements[1]: Requirement text is very long (>500 characters). Move examples and edge cases into scenarios, or split it into separate requirements that each state one behavior.
+  ⚠ [WARNING] requirements[4]: Requirement text is very long (>500 characters). Move examples and edge cases into scenarios, or split it into separate requirements that each state one behavior.
+Totals: 21 passed, 0 failed (21 items)

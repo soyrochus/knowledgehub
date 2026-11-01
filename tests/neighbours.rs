@@ -248,39 +248,28 @@ async fn successors_selection_and_schema_versions_equal_clean_rebuilds() {
 }
 
 #[tokio::test]
-async fn legacy_assertion_traversal_order_filters_and_limits_match_files2() {
-    let old = support::Sandbox::new();
-    let (_, legacy) = fixture::populate(
-        knowledgehub::backends::files::FileBackend::new_ontology(
-            &old.store,
-            knowledgehub::backends::files::FileOptions::local_ext4(),
-        )
-        .unwrap(),
+async fn current_query_order_filters_and_paging_match_independent_oracle() {
+    let sandbox = support::Sandbox::new();
+    let (backend, hub) = fixture::create(&sandbox.store).await.unwrap();
+    fixture::commit(
+        &hub,
+        "edges",
+        vec![
+            Operation::Put(fixture::edge("z:a-b", "a", "b")),
+            Operation::Put(fixture::edge("a:a-c", "a", "c")),
+            Operation::Put(fixture::edge("b:c-a", "c", "a")),
+            Operation::Put(fixture::edge("c:self", "b", "b")),
+            Operation::Put(fixture::edge("d:parallel", "a", "b")),
+        ],
     )
     .await
     .unwrap();
-    let new = support::Sandbox::new();
-    let (b, indexed) = fixture::create(&new.store).await.unwrap();
-    let operations = vec![
-        Operation::Put(fixture::edge("z:a-b", "a", "b")),
-        Operation::Put(fixture::edge("a:a-c", "a", "c")),
-        Operation::Put(fixture::edge("b:c-a", "c", "a")),
-        Operation::Put(fixture::edge("c:self", "b", "b")),
-        Operation::Put(fixture::edge("d:parallel", "a", "b")),
-    ];
-    fixture::commit(&legacy, "edges", operations.clone())
-        .await
-        .unwrap();
-    fixture::commit(&indexed, "edges", operations)
-        .await
-        .unwrap();
-    let old_head = legacy.head(fixture::context()).await.unwrap();
-    let new_head = indexed.head(fixture::context()).await.unwrap();
+    let (head, state) = hub.snapshot(fixture::context()).await.unwrap();
     for case in 0..14 {
-        let mut q = Query::select(Selection::Snapshot(old_head.clone()));
+        let mut q = Query::select(Selection::Snapshot(head.clone()));
         q.starts = vec![fixture::reference("a"), fixture::reference("b")];
         q.page_size = 2;
-        q.depth = case % 5;
+        q.depth = case % 7;
         q.direction = if case % 2 == 0 {
             Direction::Forward
         } else {
@@ -293,36 +282,71 @@ async fn legacy_assertion_traversal_order_filters_and_limits_match_files2() {
             q.type_ref = Some(fixture::node_type());
             q.ids.insert("a".into());
         }
-        if case > 8 {
-            q.subject_limit = 2;
-            q.edge_limit = 2;
+        let expected = neighbour_oracle::query(&state, &q);
+        let before = backend.file_work();
+        let mut page = hub.query(fixture::context(), q.clone()).await.unwrap();
+        let mut records = page.records;
+        let mut assertions = page.assertions;
+        while let Some(cursor) = page.continuation {
+            page = hub
+                .continue_query(fixture::context(), q.clone(), cursor)
+                .await
+                .unwrap();
+            records.extend(page.records);
+            assertions.extend(page.assertions);
         }
-        let mut modern = q.clone();
-        modern.selection = Selection::Snapshot(new_head.clone());
-        let before = b.file_work();
-        async fn pages(
-            h: &OntologyHub,
-            q: Query,
-        ) -> (Vec<Record>, Vec<Record>, Option<String>, bool) {
-            let mut p = h.query(fixture::context(), q.clone()).await.unwrap();
-            let mut records = p.records;
-            let mut assertions = p.assertions;
-            while let Some(c) = p.continuation {
-                p = h
-                    .continue_query(fixture::context(), q.clone(), c)
-                    .await
-                    .unwrap();
-                records.extend(p.records);
-                assertions.extend(p.assertions);
-            }
-            (records, assertions, p.truncated, p.exhausted)
-        }
-        assert_eq!(pages(&legacy, q).await, pages(&indexed, modern).await);
+        assert_eq!(
+            (records, assertions, page.truncated, page.exhausted),
+            expected,
+            "case {case}"
+        );
         assert_eq!(
             before.state_materialisations,
-            b.file_work().state_materialisations
+            backend.file_work().state_materialisations
         );
     }
+    for subject_limit in [1, 2] {
+        let mut q = Query::select(Selection::Snapshot(head.clone()));
+        q.starts = vec![fixture::reference("a")];
+        q.depth = 6;
+        q.subject_limit = subject_limit;
+        q.edge_limit = 1;
+        let p = hub.query(fixture::context(), q).await.unwrap();
+        assert!(!p.exhausted);
+        assert!(p.truncated.is_some());
+        assert!(p.records.len() <= subject_limit);
+        assert!(p.assertions.len() <= 1);
+    }
+}
+
+#[tokio::test]
+async fn current_query_follows_six_hops_without_a_format_switch() {
+    let s = support::Sandbox::new();
+    let (_, h) = fixture::create(&s.store).await.unwrap();
+    let mut operations = (0..=6)
+        .map(|i| Operation::Put(fixture::node(&format!("chain:{i}"), "a", false)))
+        .collect::<Vec<_>>();
+    operations.extend((0..6).map(|i| {
+        Operation::Put(fixture::edge(
+            &format!("chain:edge:{i}"),
+            &format!("chain:{i}"),
+            &format!("chain:{}", i + 1),
+        ))
+    }));
+    fixture::commit(&h, "chain", operations).await.unwrap();
+    let mut q = Query::select(Selection::Snapshot(
+        h.head(fixture::context()).await.unwrap(),
+    ));
+    q.starts = vec![fixture::reference("chain:0")];
+    q.depth = 6;
+    let page = h.query(fixture::context(), q).await.unwrap();
+    assert_eq!(page.records.len(), 7);
+    assert_eq!(page.assertions.len(), 6);
+    assert!(
+        page.records
+            .iter()
+            .any(|r| r.reference == fixture::reference("chain:6"))
+    );
 }
 
 #[tokio::test]
@@ -498,9 +522,9 @@ async fn generic_registered_nested_native_and_parallel_facts_match_independent_o
 }
 
 #[tokio::test]
-async fn strict_contract_bounds_and_explicit_legacy_capability() {
+async fn strict_current_contract_bounds_and_readiness() {
     let s = support::Sandbox::new();
-    let h = OntologyHub::create(
+    let h = KnowledgeHub::create(
         fixture::backend(&s.store),
         fixture::context(),
         fixture::scope(),
@@ -566,27 +590,7 @@ async fn strict_contract_bounds_and_explicit_legacy_capability() {
             .work
             .index_rebuilt
     );
-    let old = support::Sandbox::new();
-    let h = OntologyHub::create(
-        knowledgehub::backends::files::FileBackend::new_ontology(
-            &old.store,
-            knowledgehub::backends::files::FileOptions::local_ext4(),
-        )
-        .unwrap(),
-        fixture::context(),
-        fixture::scope(),
-    )
-    .await
-    .unwrap();
     let head = h.head(fixture::context()).await.unwrap();
-    assert!(matches!(
-        h.neighbours(
-            fixture::context(),
-            fixture::query(Selection::Snapshot(head.clone()), "a")
-        )
-        .await,
-        Err(Error::Incompatible(_))
-    ));
     let query = Query::select(Selection::Snapshot(head));
     let fields = serde_json::to_value(&query)
         .unwrap()
@@ -607,7 +611,8 @@ async fn strict_contract_bounds_and_explicit_legacy_capability() {
             "depth",
             "page_size",
             "subject_limit",
-            "edge_limit"
+            "edge_limit",
+            "preparation"
         ]
         .map(String::from)
         .into_iter()
@@ -710,7 +715,7 @@ async fn late_links_exact_scopes_and_ready_point_reads() {
             .any(|n| n.origin.owner == fixture::reference("edge:ab"))
     );
     h.drain().await;
-    let reopened = OntologyHub::open(
+    let reopened = KnowledgeHub::open(
         fixture::backend(&s.store),
         fixture::context(),
         fixture::scope(),

@@ -47,23 +47,18 @@ fn representation_bindings(record: Option<&Record>) -> Vec<(String, serde_json::
 }
 
 #[derive(Clone)]
-pub struct OntologyHub {
+pub struct KnowledgeHub {
     pub(crate) scope: ModelScope,
     pub(crate) store: Arc<dyn Storage>,
     pub(crate) jobs: Arc<Jobs>,
     pub(crate) cursors: Arc<super::navigation::Cursors>,
 }
-impl OntologyHub {
+impl KnowledgeHub {
     pub async fn create(
         backend: FileBackend,
         context: Context,
         scope: ModelScope,
     ) -> Result<Self, Error> {
-        if !matches!(backend.store.version(), FILE_FORMAT | SHARED_FILE_FORMAT) {
-            return Err(Error::Incompatible(
-                "explicit files/2 or files/3 backend required".into(),
-            ));
-        }
         let h = Self {
             scope,
             store: backend.store,
@@ -73,9 +68,8 @@ impl OntologyHub {
         let job = h.clone();
         h.jobs
             .run(move || {
-                context.check(&job.scope.transport(), Action::Create)?;
-                let mut s = crate::model::empty(job.scope.transport(), job.store.allocate_id()?);
-                s.ontology = Some(Box::new(State::empty(job.scope.clone())));
+                context.check(&job.scope, Action::Create)?;
+                let s = crate::model::empty(job.scope.clone(), job.store.allocate_id()?);
                 job.store.create(s)
             })
             .await?;
@@ -86,11 +80,6 @@ impl OntologyHub {
         context: Context,
         scope: ModelScope,
     ) -> Result<Self, Error> {
-        if !matches!(backend.store.version(), FILE_FORMAT | SHARED_FILE_FORMAT) {
-            return Err(Error::Incompatible(
-                "explicit files/2 or files/3 backend required".into(),
-            ));
-        }
         let h = Self {
             scope,
             store: backend.store,
@@ -100,8 +89,8 @@ impl OntologyHub {
         let job = h.clone();
         h.jobs
             .run(move || {
-                context.check(&job.scope.transport(), Action::Open)?;
-                job.store.acquire_read(&job.scope.transport())?.head()?;
+                context.check(&job.scope, Action::Open)?;
+                job.store.acquire_read(&job.scope)?.head()?;
                 Ok(())
             })
             .await?;
@@ -114,16 +103,10 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
-                let current = h.store.acquire_read(&h.scope.transport())?.current()?;
+                context.check(&h.scope, Action::Read)?;
+                let current = h.store.acquire_read(&h.scope)?.current()?;
                 let s = &current.snapshot;
-                Ok((
-                    s.id.clone(),
-                    s.ontology
-                        .as_deref()
-                        .ok_or_else(|| Error::Incompatible("not a typed ontology snapshot".into()))?
-                        .clone(),
-                ))
+                Ok((s.id.clone(), s.state.clone()))
             })
             .await
     }
@@ -131,24 +114,22 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
-                Ok(h.store.acquire_read(&h.scope.transport())?.head()?.snapshot)
+                context.check(&h.scope, Action::Read)?;
+                Ok(h.store.acquire_read(&h.scope)?.head()?.snapshot)
             })
             .await
     }
     pub(crate) fn select(&self, selection: &Selection) -> Result<(Selection, State), Error> {
         Ok((
             selection.clone(),
-            self.store
-                .acquire_read(&self.scope.transport())?
-                .state(selection)?,
+            self.store.acquire_read(&self.scope)?.state(selection)?,
         ))
     }
     pub async fn read_state(&self, context: Context, selection: Selection) -> Result<State, Error> {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 Ok(h.select(&selection)?.1)
             })
             .await
@@ -162,9 +143,9 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 h.store
-                    .acquire_read(&h.scope.transport())?
+                    .acquire_read(&h.scope)?
                     .record(&selection, &reference)
             })
             .await
@@ -178,9 +159,9 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 h.store
-                    .acquire_read(&h.scope.transport())?
+                    .acquire_read(&h.scope)?
                     .artifact(&selection, &reference)
             })
             .await
@@ -197,9 +178,9 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 h.store
-                    .acquire_read(&h.scope.transport())?
+                    .acquire_read(&h.scope)?
                     .artifact_range(&selection, &reference, offset, length)
             })
             .await
@@ -208,7 +189,7 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Validate)?;
+                context.check(&h.scope, Action::Validate)?;
                 let (_, state) = h.select(&Selection::Snapshot(change.expected_head.clone()))?;
                 Ok(super::validation::candidate(&state, &change)?.1)
             })
@@ -218,21 +199,16 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                let scope = h.scope.transport();
+                let scope = h.scope.clone();
                 context.check(&scope, Action::Commit)?;
                 context.check(&scope, Action::OperationResult)?;
-                if change.scope != h.scope {
+                if change.scope != scope {
                     return Err(Error::Incompatible("scope differs".into()));
                 }
                 let lease = h.store.acquire(&scope)?;
                 context.check(&scope, Action::Commit)?;
                 context.check(&scope, Action::OperationResult)?;
-                let shared = h.store.version() == SHARED_FILE_FORMAT;
-                let history = if shared { None } else { Some(lease.recover()?) };
-                let current_head = match &history {
-                    Some(hist) => hist.current().reference.clone(),
-                    None => lease.head()?,
-                };
+                let current_head = lease.head()?;
                 let definition = |r: &Record| {
                     matches!(
                         r.data,
@@ -244,74 +220,57 @@ impl OntologyHub {
                     )
                 };
                 let mut register = false;
-                for o in &change.operations {
-                    let target = if let Operation::Select(reference) = o {
-                        match &history {
-                            Some(hist) => hist
-                                .current()
-                                .snapshot
-                                .ontology
-                                .as_deref()
-                                .and_then(|s| s.get(reference))
-                                .cloned(),
-                            None => match lease.record(
-                                &Selection::Snapshot(current_head.snapshot.clone()),
-                                reference,
-                            ) {
-                                Ok(r) => Some(r),
-                                Err(Error::NotFound) => None,
-                                Err(error) => return Err(error),
-                            },
+                for op in &change.operations {
+                    let selected = if let Operation::Select(reference) = op {
+                        match lease.record(
+                            &Selection::Snapshot(current_head.snapshot.clone()),
+                            reference,
+                        ) {
+                            Ok(r) => Some(r),
+                            Err(Error::NotFound) => None,
+                            Err(e) => return Err(e),
                         }
                     } else {
                         None
                     };
-                    register |= target.as_ref().is_some_and(definition)
-                        || o.record().is_some_and(definition)
-                        || matches!(o, Operation::SelectProfile { .. });
+                    register |= selected.as_ref().is_some_and(definition)
+                        || op.record().is_some_and(definition)
+                        || matches!(op, Operation::SelectProfile { .. });
                 }
                 if register {
-                    context.check(&scope, Action::RegisterOntology)?
+                    context.check(&scope, Action::RegisterOntology)?;
                 }
                 let fp = change.fingerprint(&context.actor)?;
-                let original = match &history {
-                    Some(hist) => hist.operation(&change.operation_id).cloned(),
-                    None => lease.operation(&change.operation_id)?,
-                };
-                if let Some(r) = original {
-                    if r.actor != context.actor || r.fingerprint != fp {
+                if let Some(receipt) = lease.operation(&change.operation_id)? {
+                    if receipt.actor != context.actor || receipt.fingerprint != fp {
                         return Err(Error::OperationReuse);
                     }
-                    return Ok(r);
+                    return Ok(receipt);
                 }
-                let current = match history {
-                    Some(mut hist) => hist.entries.pop().expect("accepted genesis"),
-                    None => lease.current()?,
-                };
+                let current = lease.current()?;
                 if current.snapshot.id != change.expected_head {
                     return Err(Error::Conflict {
-                        expected: change.expected_head.clone(),
-                        actual: current.snapshot.id.clone(),
+                        expected: change.expected_head,
+                        actual: current.snapshot.id,
                     });
                 }
-                let base = current
-                    .snapshot
-                    .ontology
-                    .as_deref()
-                    .ok_or_else(|| Error::Incompatible("ontology snapshot absent".into()))?;
-                let (next, report) = super::validation::candidate(base, &change)?;
+                let (next, report) =
+                    super::validation::candidate(&current.snapshot.state, &change)?;
                 if !report.is_valid() {
                     return Err(Error::Invalid(report.violations));
                 }
                 let id = h.store.allocate_id()?;
-                let mut snapshot = crate::model::empty(scope.clone(), id.clone());
-                snapshot.sequence = current
-                    .snapshot
-                    .sequence
-                    .checked_add(1)
-                    .filter(|n| *n <= 9_007_199_254_740_991)
-                    .ok_or_else(|| Error::Unavailable("sequence exhausted".into()))?;
-                snapshot.ontology = Some(Box::new(next));
+                let snapshot = crate::model::Snapshot {
+                    scope: scope.clone(),
+                    id: id.clone(),
+                    state: next,
+                    sequence: current
+                        .snapshot
+                        .sequence
+                        .checked_add(1)
+                        .filter(|n| *n <= 9_007_199_254_740_991)
+                        .ok_or_else(|| Error::Unavailable("sequence exhausted".into()))?,
+                };
                 let receipt = Receipt {
                     scope,
                     operation_id: change.operation_id.clone(),
@@ -325,22 +284,10 @@ impl OntologyHub {
                         .operations
                         .iter()
                         .filter_map(Operation::record)
-                        .map(|r| crate::RevisionRef {
-                            id: r.reference.id.clone(),
-                            revision: r.reference.revision.clone(),
-                        })
-                        .collect(),
-                    qualified_affected: change
-                        .operations
-                        .iter()
-                        .filter_map(Operation::record)
                         .map(|r| r.reference.clone())
                         .collect(),
                 };
-                lease.publish(
-                    ValidatedPlan { snapshot, receipt },
-                    current.reference.clone(),
-                )
+                lease.publish(ValidatedPlan { snapshot, receipt }, current.reference)
             })
             .await
     }
@@ -352,30 +299,18 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::OperationResult)?;
+                context.check(&h.scope, Action::OperationResult)?;
                 if id.trim().is_empty() {
                     return Err(Error::InvalidInput("operation ID required".into()));
                 }
-                if h.store.version() == SHARED_FILE_FORMAT {
-                    let lease = h.store.acquire_read(&h.scope.transport())?;
-                    return match lease.operation(&id)? {
-                        Some(r) if r.actor == context.actor => {
-                            Ok(OperationOutcome::Committed(Box::new(r)))
-                        }
-                        Some(_) => Err(Error::OperationReuse),
-                        None => Ok(OperationOutcome::Absent {
-                            recovered_head: lease.head()?.snapshot,
-                        }),
-                    };
-                }
-                let hist = h.store.acquire(&h.scope.transport())?.recover()?;
-                match hist.operation(&id) {
+                let lease = h.store.acquire_read(&h.scope)?;
+                match lease.operation(&id)? {
                     Some(r) if r.actor == context.actor => {
-                        Ok(OperationOutcome::Committed(Box::new(r.clone())))
+                        Ok(OperationOutcome::Committed(Box::new(r)))
                     }
                     Some(_) => Err(Error::OperationReuse),
                     None => Ok(OperationOutcome::Absent {
-                        recovered_head: hist.current().snapshot.id.clone(),
+                        recovered_head: lease.head()?.snapshot,
                     }),
                 }
             })
@@ -390,7 +325,7 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let a = h.select(&Selection::Baseline(before))?.1;
                 let b = h.select(&Selection::Baseline(after))?.1;
                 let mut ids = a

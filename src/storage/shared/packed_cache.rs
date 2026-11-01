@@ -91,8 +91,7 @@ mod tests {
             assert_eq!(fs::read(path).unwrap(), bytes);
         }
         // Independent readers notice atomic catalog replacement; eviction invalidates the epoch.
-        let mut other =
-            FileBackend::new_shared_ontology(&b.store.root, FileOptions::local_ext4()).unwrap();
+        let mut other = FileBackend::new(&b.store.root, FileOptions::local_ext4()).unwrap();
         packed(&mut other, 256 * 1024 * 1024);
         Objects::new(&other.store).get(&id).unwrap();
         let update = Objects::new(&b.store);

@@ -3,7 +3,7 @@
 import argparse,ast,datetime,hashlib,json,mimetypes,pathlib,re,subprocess,sys
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/"scripts"))
 sys.dont_write_bytecode=True
-from host_sources import source_paths,checked_run
+from host_sources import source_paths,checked_run,load_origins,package_identity
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--output',default='target/self-model-input.json');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--checked-manifest');p.add_argument('--derived',default='target/ontology-pdf-extracted.txt');a=p.parse_args()
 def digest(b):return {'sha256':hashlib.sha256(b).hexdigest(),'length':len(b)}
@@ -15,9 +15,11 @@ if a.checked_manifest:
 else:checked=None
 for output in (a.output,a.derived):
  relative=(ROOT/output).relative_to(ROOT)
+ if {'old_hub','hub','orig_hub'}.intersection(relative.parts):raise ValueError('generated output cannot target retained stores')
  if relative.parts[0]!='target' and relative.parts[:3]!=('delivery','evidence','hub-rebuild'):
   raise ValueError('generated capture output must be under target/ or a run evidence directory')
-origins=json.loads((ROOT/'examples/self_model_support/origins.json').read_text())
+origins=load_origins(ROOT)
+version=package_identity(ROOT)
 for path in paths:
  rel=str(path.relative_to(ROOT));parts=path.relative_to(ROOT).parts
  declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/','openspec/specs/')) or (parts[:3]==('delivery','evidence','hub-rebuild') and len(parts)==5 and parts[-1] in origins['run_artifacts']))
@@ -140,13 +142,14 @@ for file in paths:
       elif payload.startswith('('):
        for i,typ in enumerate(split_top(payload[1:-1])):fields.append({'name':v[1]+'.'+str(i),'rust_type':re.sub(r'\s+',' ',typ).strip()})
    unit(rel,'contract',m[2],len(text[:m.start()].encode()),len(text[:end].encode()),rust_kind=m[1],fields=fields)
-  if rel=='src/storage.rs':
-   for m in re.finditer(r'(?m)^struct (Metadata|Manifest)\b',text):
-    bounds=block(text,m.end());fields=[]
-    for part in split_top(text[bounds[0]+1:bounds[1]-1]):
-     f=re.search(r'(\w+)\s*:\s*(.+)',part,re.S)
-     if f:fields.append({'name':f[1],'rust_type':re.sub(r'\s+',' ',f[2]).strip()})
-    unit(rel,'native-contract',m[1],len(text[:m.start()].encode()),len(text[:bounds[1]].encode()),rust_kind='struct',fields=fields)
+  for name in origins['native_contracts'].get(rel,[]):
+   m=re.search(r'(?m)^\s*(?:pub(?:\([^)]*\))?\s+)?struct '+re.escape(name)+r'\b',text)
+   if not m:raise ValueError('stale native contract origin: '+rel+'::'+name)
+   bounds=block(text,m.end());fields=[]
+   for part in split_top(text[bounds[0]+1:bounds[1]-1]):
+    f=re.search(r'(?:pub(?:\([^)]*\))?\s+)?(\w+)\s*:\s*(.+)',part,re.S)
+    if f:fields.append({'name':f[1],'rust_type':re.sub(r'\s+',' ',f[2]).strip()})
+   unit(rel,'native-contract',name,len(text[:m.start()].encode()),len(text[:bounds[1]].encode()),rust_kind='struct',fields=fields)
   for m in re.finditer(r'pub const (\w+)\s*:\s*([^=]+)=\s*(.*?);',text,re.S):
    literals=re.findall(r'"([^"]*)"',m[3]);value=literals if '[' in m[2] else literals[0] if literals else None
    unit(rel,'constant',m[1],len(text[:m.start()].encode()),len(text[:m.end()].encode()),fields=[{'name':'value','rust_type':m[2].strip()}],value=value)
@@ -184,6 +187,6 @@ off=0;pages=[]
 for i,page in enumerate(proc.stdout.split(b'\x0c')):
  if page.strip():pages.append(dict(index=i,start=off,end=off+len(page),label=f'physical PDF page {i+1}'))
  off+=len(page)+1
-capture={'format':'knowledgehub-host-inventory/1','captured_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_status':'exact working tree; modified files are not identified as Git HEAD','git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'compiler':subprocess.check_output(['rustc','-Vv'],cwd=ROOT,text=True),'filesystem':subprocess.check_output(['findmnt','-T',str(ROOT),'-J','-o','TARGET,SOURCE,FSTYPE,OPTIONS'],text=True),'kernel':subprocess.check_output(['uname','-a'],text=True).strip(),'extractor':subprocess.run(['pdftotext','-v'],capture_output=True,text=True).stderr.strip(),'files':files,'units':units,'pdf_pages':pages,'checked':checked,'log':a.log}
+capture={'format':'knowledgehub-host-inventory/1','library_version':version,'captured_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_status':'exact working tree; modified files are not identified as Git HEAD','git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'compiler':subprocess.check_output(['rustc','-Vv'],cwd=ROOT,text=True),'filesystem':subprocess.check_output(['findmnt','-T',str(ROOT),'-J','-o','TARGET,SOURCE,FSTYPE,OPTIONS'],text=True),'kernel':subprocess.check_output(['uname','-a'],text=True).strip(),'extractor':subprocess.run(['pdftotext','-v'],capture_output=True,text=True).stderr.strip(),'files':files,'units':units,'pdf_pages':pages,'checked':checked,'log':a.log}
 out=ROOT/a.output;out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(capture,indent=2)+'\n')
 print(f'{len(files)} exact files, {len(units)} source units, {len(pages)} retained PDF pages -> {out.relative_to(ROOT)}')

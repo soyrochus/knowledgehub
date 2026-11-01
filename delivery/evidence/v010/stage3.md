@@ -1,0 +1,7 @@
+# Current commands, source bindings and retained-store isolation
+
+KH-SL-016 uses only KnowledgeHub/FileBackend::new and files/4. Maintained commands reject obsolete --format, benchmarks have no old-backend matrix, and the minimal_model example uses ordinary catalogue registration. The current API/storage/navigation/self-model/rebuild guides and agent guidance describe 0.10.0. Original source books, archived plans and prior logs remain historical.
+
+Actual focused results: 17 disposable host workflow cases pass, current command argument/archive identity cases pass, all-target Clippy -D warnings passes. Fresh dry capture contains 196 exact files, 2,757 units and 26 PDF pages. Release in-memory authoring, source-denominator/field coverage, full catalogue and typed-state assessment pass with 9,568 selected records and 3,452 explicit draft gaps. This dry validation creates no store and is not final native/dataset evidence.
+
+Current captures bind the actual Generation.selected_root and StoredReceipt native schemas, root public contracts and each of eleven active/archived changes to its actual slice. Unknown, duplicate or stale module/change/native origins are refused. Source capture prunes root/nested old_hub, generated outputs cannot target retained stores, and the first canonical cutover requires an absent destination. The retained 362-file old_hub inventory equals the initial SHA-256/path/length inventory. Main specs were synced to the four selected deltas (21 valid capabilities); no change was archived.

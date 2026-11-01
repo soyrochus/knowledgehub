@@ -297,7 +297,7 @@ async fn finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query() 
         let mut pool = h.cursors.entries.lock().unwrap();
         for i in 0..64 {
             pool.insert(
-                format!("legacy-{i}"),
+                format!("query-{i}"),
                 crate::ontology::navigation::Cursor {
                     actor: f::context().actor,
                     scope: f::scope(),
@@ -317,14 +317,14 @@ async fn finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query() 
         h.neighbours(f::context(), q).await,
         Err(Error::Capacity)
     ));
-    let mut legacy = Query::select(Selection::Snapshot(head));
-    legacy.page_size = 1;
+    let mut query = Query::select(Selection::Snapshot(head));
+    query.page_size = 1;
     assert!(matches!(
-        h.query(f::context(), legacy).await,
+        h.query(f::context(), query).await,
         Err(Error::Capacity)
     ));
     for i in 0..64 {
-        h.release_cursor(f::context(), format!("legacy-{i}"))
+        h.release_cursor(f::context(), format!("query-{i}"))
             .await
             .unwrap();
     }

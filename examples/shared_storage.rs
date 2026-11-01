@@ -6,7 +6,7 @@ pub(crate) mod specimens;
 use knowledgehub::{OperationOutcome, backends::files::*, ontology::*};
 use std::path::Path;
 
-async fn baseline(h: &OntologyHub, name: &str) -> Result<ExactRef, knowledgehub::Error> {
+async fn baseline(h: &KnowledgeHub, name: &str) -> Result<ExactRef, knowledgehub::Error> {
     let (head, state) = h.snapshot(seed::context()).await?;
     let r = ExactRef::new("demo", format!("baseline:{name}"), "1");
     let b = Record::new(
@@ -21,8 +21,8 @@ async fn baseline(h: &OntologyHub, name: &str) -> Result<ExactRef, knowledgehub:
     Ok(r)
 }
 pub async fn walkthrough(path: &Path) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
-    let backend = FileBackend::new_shared_ontology(path, FileOptions::local_ext4())?;
-    let h = OntologyHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
+    let backend = FileBackend::new(path, FileOptions::local_ext4())?;
+    let h = KnowledgeHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
     let genesis = h.head(seed::context()).await?;
     for (id, operations) in [
         ("catalogue", builtin_catalogue()?.operations()),
@@ -54,8 +54,8 @@ pub async fn walkthrough(path: &Path) -> Result<serde_json::Value, Box<dyn std::
     let final_head = h.head(seed::context()).await?;
     eprintln!("shared_storage: baselines A/B and exact retry verified");
     h.drain().await;
-    let backend = FileBackend::new_shared_ontology(path, FileOptions::local_ext4())?;
-    let reopened = OntologyHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
+    let backend = FileBackend::new(path, FileOptions::local_ext4())?;
+    let reopened = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     assert!(
         reopened
             .read_state(seed::context(), Selection::Snapshot(genesis))
@@ -106,13 +106,11 @@ pub async fn walkthrough(path: &Path) -> Result<serde_json::Value, Box<dyn std::
         .await?;
     assert_eq!(range.bytes, &seed::ONTOLOGY[..31]);
     eprintln!("shared_storage: exact reopen, historical reads and bytes verified; scrubbing");
-    let report = backend
-        .scrub_ontology(seed::context(), specimens::scope())
-        .await?;
+    let report = backend.scrub(seed::context(), specimens::scope()).await?;
     eprintln!("shared_storage: full retained-history scrub verified");
     reopened.drain().await;
     Ok(
-        serde_json::json!({"format":SHARED_FILE_FORMAT,"scope":"synthetic fixtures; no human acceptance","baseline_a":a,"baseline_b":b,"head":final_head,"reopen":"exact","retry":"original receipt","storage":report}),
+        serde_json::json!({"format":FILE_FORMAT,"scope":"synthetic fixtures; no human acceptance","baseline_a":a,"baseline_b":b,"head":final_head,"reopen":"exact","retry":"original receipt","storage":report}),
     )
 }
 
@@ -127,24 +125,16 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("{}", walkthrough(&path).await?);
         return Ok(());
     }
-    let backend = FileBackend::new_shared_ontology(&path, FileOptions::local_ext4())?;
-    let hub = OntologyHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
+    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
+    let hub = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     match mode {
         "pack" => println!(
             "{}",
-            serde_json::to_string(
-                &backend
-                    .compact_ontology(seed::context(), specimens::scope())
-                    .await?
-            )?
+            serde_json::to_string(&backend.compact(seed::context(), specimens::scope()).await?)?
         ),
         "scrub" => println!(
             "{}",
-            serde_json::to_string(
-                &backend
-                    .scrub_ontology(seed::context(), specimens::scope())
-                    .await?
-            )?
+            serde_json::to_string(&backend.scrub(seed::context(), specimens::scope()).await?)?
         ),
         "export" => {
             let out = std::path::PathBuf::from(

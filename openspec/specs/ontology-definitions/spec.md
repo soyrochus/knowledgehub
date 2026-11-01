@@ -66,15 +66,3 @@ The complete ontology SHALL remain available independently of which families app
 #### Scenario: Library has no product screens
 - **WHEN** the KnowledgeHub library profile declares product UI inapplicable with a reason
 - **THEN** the self-model requires no invented screen, while the ontology still permits correctly constrained ScreenDefinition instances in other models
-
-### Requirement: Compatible seed semantics
-The original seed profile and its exact definition revisions SHALL retain their existing meaning. Full-ontology registration SHALL NOT add mandatory atomic-change seed records to every model or silently broaden the seed profile's vocabulary. Unsupported versions SHALL produce explicit incompatibility.
-
-#### Scenario: Create an unrelated system model
-- **WHEN** an authorised author selects the full ontology for a service-scheduling model
-- **THEN** the model can satisfy its selected profile without a fabricated KnowledgeHub Commit Change Set use case
-
-#### Scenario: Existing seed reopens
-- **WHEN** a compatible files/1 seed is reopened after the library gains full ontology support
-- **THEN** its original definitions, semantic hashes and operation receipts remain exact
-

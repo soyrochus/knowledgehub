@@ -86,24 +86,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = std::env::args().collect::<Vec<_>>();
     let path = std::path::PathBuf::from(
         args.get(1)
-            .ok_or("provide unused absolute store path, small|large|history, 2|3")?,
+            .ok_or("provide unused absolute store path, small|large|history")?,
     );
     let case = args.get(2).ok_or("provide case")?;
-    let format = args.get(3).ok_or("provide format 2 or 3")?;
+    if args.len() != 3 {
+        return Err("provide only store path and fixed case".into());
+    }
+    let format = knowledgehub::FILE_FORMAT;
     let (count, size, edits) = match case.as_str() {
         "small" => (4, 2048, 8),
         "large" => (96, 16384, 8),
         "history" => (8, 2048, 64),
         _ => return Err("unknown fixed case".into()),
     };
-    let backend = if format == "3" {
-        FileBackend::new_shared_ontology(&path, FileOptions::local_ext4())?
-    } else if format == "2" {
-        FileBackend::new_ontology(&path, FileOptions::local_ext4())?
-    } else {
-        return Err("format must be 2 or 3".into());
-    };
-    let h = OntologyHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
+    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
+    let h = KnowledgeHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
     let initial = Instant::now();
     let operations = fixture(count, size);
     let input_hash = digest(&serde_json::to_vec(&operations)?);
@@ -153,33 +150,21 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let (head, state) = h.snapshot(seed::context()).await?;
     let before = disk(&path);
-    let mut storage = serde_json::Value::Null;
-    let mut packing = serde_json::Value::Null;
-    if format == "3" {
-        let start = Instant::now();
-        let scrub = backend
-            .scrub_ontology(seed::context(), specimens::scope())
-            .await?;
-        storage = serde_json::json!({"scrub_ms":start.elapsed().as_millis(),"report":scrub});
-        let start = Instant::now();
-        let packed = backend
-            .compact_ontology(seed::context(), specimens::scope())
-            .await?;
-        packing = serde_json::json!({"pack_ms":start.elapsed().as_millis(),"report":packed});
-        assert_eq!(
-            h.snapshot(seed::context()).await?,
-            (head.clone(), state.clone())
-        );
-    }
+    let start = Instant::now();
+    let scrub = backend.scrub(seed::context(), specimens::scope()).await?;
+    let storage = serde_json::json!({"scrub_ms":start.elapsed().as_millis(),"report":scrub});
+    let start = Instant::now();
+    let packed = backend.compact(seed::context(), specimens::scope()).await?;
+    let packing = serde_json::json!({"pack_ms":start.elapsed().as_millis(),"report":packed});
+    assert_eq!(
+        h.snapshot(seed::context()).await?,
+        (head.clone(), state.clone())
+    );
     let logical_state = digest(&serde_json::to_vec(&state)?);
     h.drain().await;
-    let backend = if format == "3" {
-        FileBackend::new_shared_ontology(&path, FileOptions::local_ext4())?
-    } else {
-        FileBackend::new_ontology(&path, FileOptions::local_ext4())?
-    };
+    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
     let start = Instant::now();
-    let reopened = OntologyHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
+    let reopened = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     let open_us = start.elapsed().as_micros();
     assert_eq!(
         reopened.snapshot(seed::context()).await?,

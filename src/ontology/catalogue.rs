@@ -207,18 +207,6 @@ pub fn builtin_catalogue() -> Result<Catalogue, Error> {
     Ok(out)
 }
 
-pub(crate) fn meta_profile() -> crate::Profile {
-    crate::Profile {
-        version: "knowledgehub-meta/1".into(),
-        ontology: crate::RevisionRef {
-            id: "knowledgehub:meta-schema".into(),
-            revision: codec::digest(
-                b"knowledgehub-meta/1:closed-native-records-and-schema-descriptors",
-            ),
-        },
-        definitions: vec![],
-    }
-}
 pub(crate) fn supports_role(state: &State, r: &ExactRef, allowed: &[String]) -> bool {
     let Some(kind) = state.kind(r) else {
         return false;

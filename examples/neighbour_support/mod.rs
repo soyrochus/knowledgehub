@@ -1,13 +1,13 @@
 //! Synthetic registered vocabulary for neighbour conformance. No project acceptance is modelled.
 #![allow(dead_code)]
 use knowledgehub::{
-    Action, Content, Context, Error, Policy, PolicyFailure, Receipt, Scope, backends::files::*,
-    ontology::*,
+    Action, Content, Context, Error, ModelScope, Policy, PolicyFailure, Receipt,
+    backends::files::*, ontology::*,
 };
 use std::{collections::BTreeMap, path::Path, sync::Arc};
 pub struct Permit;
 impl Policy for Permit {
-    fn allows(&self, _: &str, _: &Scope, _: Action) -> Result<bool, PolicyFailure> {
+    fn allows(&self, _: &str, _: &ModelScope, _: Action) -> Result<bool, PolicyFailure> {
         Ok(true)
     }
 }
@@ -38,10 +38,10 @@ pub fn anchor() -> ExactRef {
     ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-1")
 }
 pub fn backend(path: &Path) -> FileBackend {
-    FileBackend::new_shared_ontology(path, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(path, FileOptions::local_ext4()).unwrap()
 }
 pub async fn commit(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     id: &str,
     operations: Vec<Operation>,
 ) -> Result<(Change, Receipt), Error> {
@@ -262,11 +262,11 @@ pub fn edge(id: &str, from: &str, to: &str) -> Record {
     )
     .unwrap()
 }
-pub async fn create(path: &Path) -> Result<(FileBackend, OntologyHub), Error> {
+pub async fn create(path: &Path) -> Result<(FileBackend, KnowledgeHub), Error> {
     populate(backend(path)).await
 }
-pub async fn populate(b: FileBackend) -> Result<(FileBackend, OntologyHub), Error> {
-    let h = OntologyHub::create(b.clone(), context(), scope()).await?;
+pub async fn populate(b: FileBackend) -> Result<(FileBackend, KnowledgeHub), Error> {
+    let h = KnowledgeHub::create(b.clone(), context(), scope()).await?;
     commit(&h, "catalogue", builtin_catalogue()?.operations()).await?;
     commit(&h, "vocabulary", vocabulary()).await?;
     commit(
@@ -281,7 +281,7 @@ pub async fn populate(b: FileBackend) -> Result<(FileBackend, OntologyHub), Erro
     .await?;
     Ok((b, h))
 }
-pub async fn baseline(h: &OntologyHub, name: &str) -> Result<ExactRef, Error> {
+pub async fn baseline(h: &KnowledgeHub, name: &str) -> Result<ExactRef, Error> {
     let (head, state) = h.snapshot(context()).await?;
     let reference = reference(&format!("baseline:{name}"));
     let mut c = Change::at(&state, head, format!("baseline:{name}"));
@@ -298,7 +298,7 @@ pub fn query(selection: Selection, subject: &str) -> Neighbours {
     Neighbours::new(selection, vec![reference(subject)])
 }
 pub async fn collect(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     q: Neighbours,
 ) -> Result<(Vec<Neighbour>, NeighbourWork), Error> {
     let mut p = h.neighbours(context(), q.clone()).await?;

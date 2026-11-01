@@ -1,0 +1,7 @@
+# Current-only storage and navigation checks
+
+KH-SL-015: files/4 is the only metadata schema and FileBackend::new the only constructor. Mandatory typed storage ports, single qualified receipt root, current loose/pack encodings, complete retained scrub and immutable baselines remain. Older fixtures/decoders/dispatch and four-hop assertion traversal are removed. Query expansions use the same bounded indexed engine as impact; enumeration/type/ID filtering and authority-bound cursors remain. The depth maximum is 32, with explicit preparation budgets. Maintenance methods are scrub/compact.
+
+Observed offline checks: independent current query and generic fact oracles, selected closure/readiness/cursor checks (6 neighbour cases); six-hop query (1); model impact (6); storage pack/reindex/materialise (1); corrected policy/default/same-base case (1); corrected pinned query truncation case (1); all seven publication/maintenance/process/cancellation/race cases; all-target Clippy with -D warnings. No final canonical or full-batch claim.
+
+The initial development run exposed removed-format assertions and a changed query limit label; both were corrected and rerun. Two child-process launches failed because another Cargo invocation replaced the running parent executable. The replacement seven-case run completed with no concurrent rebuild. The original 30-second child readiness bound is retained. Full final verification belongs to KH-SL-017.

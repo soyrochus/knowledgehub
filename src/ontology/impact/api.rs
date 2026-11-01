@@ -7,15 +7,7 @@ pub(crate) struct ImpactCursor {
     result: ImpactPage,
     position: usize,
 }
-fn supported(h: &OntologyHub) -> Result<(), Error> {
-    if h.store.version() != SHARED_FILE_FORMAT {
-        return Err(Error::Incompatible(
-            "deterministic reads require files/3".into(),
-        ));
-    }
-    Ok(())
-}
-fn fp(h: &OntologyHub, q: &ModelImpact, actor: &str) -> Result<String, Error> {
+fn fp(h: &KnowledgeHub, q: &ModelImpact, actor: &str) -> Result<String, Error> {
     codec::hash_value("knowledgehub-model-impact-cursor/1", &(&h.scope, actor, q))
 }
 fn size(v: &impl serde::Serialize) -> Result<usize, Error> {
@@ -91,7 +83,7 @@ fn cut(c: &mut ImpactCursor) -> Result<ImpactPage, Error> {
     p.exhausted = p.exhausted && c.position == c.result.dependencies.len();
     Ok(p)
 }
-impl OntologyHub {
+impl KnowledgeHub {
     /// Literal entry on explicitly selected Text/Narrative fields. No relevance ranking.
     pub async fn search_text(
         &self,
@@ -101,21 +93,17 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                supported(&h)?;
                 request.text.validate()?;
                 request.budgets.validate()?;
-                context.check(&h.scope.transport(), Action::Read)?;
-                let first = h
-                    .store
-                    .acquire_read(&h.scope.transport())?
-                    .search_text(&request, false);
+                context.check(&h.scope, Action::Read)?;
+                let first = h.store.acquire_read(&h.scope)?.search_text(&request, false);
                 match first {
                     Ok(v) => Ok(v),
                     Err(Error::IndexNotReady { .. })
                         if request.budgets.preparation.allow_rebuild =>
                     {
-                        let lease = h.store.acquire(&h.scope.transport())?;
-                        context.check(&h.scope.transport(), Action::Read)?;
+                        let lease = h.store.acquire(&h.scope)?;
+                        context.check(&h.scope, Action::Read)?;
                         lease.search_text(&request, true)
                     }
                     Err(e) => Err(e),
@@ -132,11 +120,10 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                supported(&h)?;
                 request.validate()?;
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let (selection, first) = {
-                    let lease = h.store.acquire_read(&h.scope.transport())?;
+                    let lease = h.store.acquire_read(&h.scope)?;
                     let selection = match &request.selection {
                         Some(v) => v.clone(),
                         None => Selection::Snapshot(lease.head()?.snapshot),
@@ -150,8 +137,8 @@ impl OntologyHub {
                     Err(Error::IndexNotReady { .. })
                         if request.budgets.preparation.allow_rebuild =>
                     {
-                        let lease = h.store.acquire(&h.scope.transport())?;
-                        context.check(&h.scope.transport(), Action::Read)?;
+                        let lease = h.store.acquire(&h.scope)?;
+                        context.check(&h.scope, Action::Read)?;
                         engine::evaluate(lease.as_ref(), &request, selection, true)?
                     }
                     Err(e) => return Err(e),
@@ -166,7 +153,7 @@ impl OntologyHub {
                     position: 0,
                 };
                 let mut p = cut(&mut c)?;
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 if c.position < c.result.dependencies.len() {
                     let now = h.cursors.now();
                     let mut entries = h.cursors.entries.lock().unwrap();
@@ -205,9 +192,8 @@ impl OntologyHub {
         let h = self.clone();
         self.jobs
             .run(move || {
-                supported(&h)?;
                 request.validate()?;
-                context.check(&h.scope.transport(), Action::Read)?;
+                context.check(&h.scope, Action::Read)?;
                 let now = h.cursors.now();
                 let mut entries = h.cursors.entries.lock().unwrap();
                 h.cursors.expire(&mut entries, now);

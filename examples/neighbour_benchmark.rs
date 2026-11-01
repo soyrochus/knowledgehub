@@ -27,7 +27,7 @@ fn rss() -> u64 {
         * 1024
 }
 async fn measured(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     b: &FileBackend,
     q: Neighbours,
 ) -> Result<serde_json::Value, Error> {
@@ -105,7 +105,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         let usage = disk(&path.join("cache/neighbours"));
         h.drain().await;
         backend = fixture::backend(&path);
-        h = OntologyHub::open(backend.clone(), fixture::context(), fixture::scope()).await?;
+        h = KnowledgeHub::open(backend.clone(), fixture::context(), fixture::scope()).await?;
         let cold = measured(&h, &backend, query(head.clone())).await?;
         assert_eq!(cold["results"], 3);
         let mut warm = Vec::new();

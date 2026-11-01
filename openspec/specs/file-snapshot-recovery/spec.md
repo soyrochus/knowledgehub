@@ -47,23 +47,6 @@ The file backend SHALL expose only complete accepted snapshots whose manifests r
 - **WHEN** a host attempts create/open at that location
 - **THEN** the adapter reports the incompatibility/integrity failure and does not overwrite it with an empty store
 
-### Requirement: Durable acknowledgement covers content and receipt
-Within the declared supported durability profile, the file backend SHALL acknowledge success only after the complete snapshot, original operation result and branch publication meet its specified persistence protocol. File replacement alone SHALL not be presented as proof of multi-file durability. Acknowledged content and its receipt SHALL be recoverable together. Under adopted KH-D-04 the adapter SHALL persist candidate files, manifests, artifacts, receipt and containing directories before publishing the reference; sync its temporary reference; atomically replace the head on the same filesystem; and sync the reference directory before acknowledgement. A failure after replacement SHALL report uncertainty unless the authoritative outcome is established. `knowledgehub-files/1`, exact profile and fingerprint versions SHALL be persisted separately and checked on open. The initial required failure evidence SHALL cover process termination and lost responses; it SHALL not establish power-loss, kernel-crash or hardware-corruption guarantees.
-
-#### Scenario: Reopen after acknowledged commit
-- **GIVEN** the host received a success receipt for B
-- **WHEN** a failure covered by the supported profile occurs and the store reopens
-- **THEN** B is complete, all exact seed content resolves and the same original operation receipt is retrievable
-
-#### Scenario: Persistence fails before a successful acknowledgement
-- **WHEN** the required persistence protocol cannot establish a durable outcome
-- **THEN** the caller receives no confirmed durable success, and the backend reports the established prior state or an uncertain outcome suitable for original-operation lookup
-
-#### Scenario: Persistence fails after head replacement
-- **GIVEN** the new complete generation and receipt were persisted and the reference replacement occurred
-- **WHEN** the reference-directory sync fails before acknowledgement
-- **THEN** no durable success or confirmed non-commit is reported, and the caller is directed to resolve the original operation after authoritative recovery
-
 ### Requirement: Publication interruption preserves an established outcome
 Within its supported failure profile, the file backend SHALL recover interruption at staging, content persistence, head publication and acknowledgement into a complete prior or new snapshot without mixed content. A recovered new head SHALL resolve its complete content and original receipt. Damage outside that guarantee SHALL be reported explicitly and SHALL not count as successful recovery evidence.
 
@@ -80,3 +63,20 @@ Within its supported failure profile, the file backend SHALL recover interruptio
 - **WHEN** the process stops before replying and then reopens
 - **THEN** the permitted caller resolves B through the original operation identity, and an exact retry returns that receipt without another change
 
+### Requirement: Durable current-format acknowledgement
+Within the declared current support profile, success SHALL require durable complete content, original receipt and reference publication. The adapter SHALL sync required candidate files/directories, sync its temporary reference, atomically replace the same-filesystem head, then sync its directory before acknowledgement. Content and receipt SHALL recover together.
+
+#### Scenario: Reopen an acknowledged current commit
+- **WHEN** a covered failure follows a successful current acknowledgement
+- **THEN** the complete accepted content and exact original receipt recover together
+
+#### Scenario: Persistence fails before acknowledgement
+- **WHEN** the protocol cannot establish a durable outcome
+- **THEN** it reports the established prior outcome or uncertainty without confirmed durable success
+
+### Requirement: Current metadata and uncertain publication
+Metadata SHALL pin the sole current file, request and profile/schema identities. A failure after possible head publication SHALL report uncertainty until original-operation recovery establishes the outcome. Required process-interruption/lost-response evidence SHALL NOT imply power-loss, kernel-crash or hardware guarantees.
+
+#### Scenario: Directory sync fails after replacement
+- **WHEN** the new complete head is replaced but reference-directory sync fails
+- **THEN** the caller receives uncertainty and resolves its original operation rather than repeating new intent

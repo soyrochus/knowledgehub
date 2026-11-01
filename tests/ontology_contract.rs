@@ -7,10 +7,10 @@ fn model_scope() -> ModelScope {
     specimens::scope()
 }
 fn backend(s: &Sandbox) -> FileBackend {
-    FileBackend::new_ontology(&s.store, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap()
 }
-async fn register(s: &Sandbox) -> (OntologyHub, Receipt) {
-    let h = OntologyHub::create(backend(s), seed::context(), model_scope())
+async fn register(s: &Sandbox) -> (KnowledgeHub, Receipt) {
+    let h = KnowledgeHub::create(backend(s), seed::context(), model_scope())
         .await
         .unwrap();
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
@@ -56,7 +56,7 @@ async fn full_catalogue_registration_reopen_and_original_receipt() {
         seed::ONTOLOGY
     );
     h.drain().await;
-    let h = OntologyHub::open(backend(&s), seed::context(), model_scope())
+    let h = KnowledgeHub::open(backend(&s), seed::context(), model_scope())
         .await
         .unwrap();
     assert_eq!(
@@ -139,7 +139,7 @@ async fn all_families_and_kernel_relationships_commit_and_reopen() {
         );
     }
     hub.drain().await;
-    let reopened = OntologyHub::open(backend(&sandbox), seed::context(), model_scope())
+    let reopened = KnowledgeHub::open(backend(&sandbox), seed::context(), model_scope())
         .await
         .unwrap();
     let (_, loaded) = reopened.snapshot(seed::context()).await.unwrap();
@@ -417,7 +417,7 @@ struct Access {
     registration: bool,
 }
 impl Policy for Access {
-    fn allows(&self, _: &str, _: &Scope, action: Action) -> Result<bool, PolicyFailure> {
+    fn allows(&self, _: &str, _: &ModelScope, action: Action) -> Result<bool, PolicyFailure> {
         use std::sync::atomic::Ordering::SeqCst;
         if self.failed.load(SeqCst) {
             return Err(PolicyFailure);
@@ -661,7 +661,7 @@ async fn registration_is_atomic_recursive_guarded_and_currently_authorised() {
     h.commit(seed::context(), c).await.unwrap();
 }
 
-async fn full_model(s: &Sandbox) -> OntologyHub {
+async fn full_model(s: &Sandbox) -> KnowledgeHub {
     let (h, _) = register(s).await;
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
     let mut c = Change::at(&state, head, "model");
@@ -669,7 +669,7 @@ async fn full_model(s: &Sandbox) -> OntologyHub {
     h.commit(seed::context(), c).await.unwrap();
     h
 }
-async fn baseline(h: &OntologyHub, name: &str) -> (ExactRef, Receipt) {
+async fn baseline(h: &KnowledgeHub, name: &str) -> (ExactRef, Receipt) {
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
     let reference = ExactRef::new("conformance", format!("baseline:{name}"), "1");
     let record = Record::new(
@@ -759,7 +759,7 @@ async fn revision_walkthrough() {
             .is_valid()
     );
     h.drain().await;
-    let reopened = OntologyHub::open(backend(&s), seed::context(), model_scope())
+    let reopened = KnowledgeHub::open(backend(&s), seed::context(), model_scope())
         .await
         .unwrap();
     assert_eq!(
@@ -825,7 +825,7 @@ async fn bounded_navigation_cursors_policy_and_selection_binding() {
         Err(Error::InvalidCursor)
     ));
     let mut excessive = q.clone();
-    excessive.depth = 5;
+    excessive.depth = 33;
     assert!(matches!(
         h.query(seed::context(), excessive).await,
         Err(Error::InvalidInput(_))
@@ -861,7 +861,7 @@ async fn bounded_navigation_cursors_policy_and_selection_binding() {
         .continuation
         .unwrap();
     h.drain().await;
-    let reopened = OntologyHub::open(backend(&s), seed::context(), model_scope())
+    let reopened = KnowledgeHub::open(backend(&s), seed::context(), model_scope())
         .await
         .unwrap();
     assert!(matches!(
@@ -930,7 +930,7 @@ async fn binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes()
                     },
                     LocatorKind::CodeSymbol => SourceLocation::CodeSymbol {
                         language: "Rust".into(),
-                        symbol: "OntologyHub::commit".into(),
+                        symbol: "KnowledgeHub::commit".into(),
                     },
                     LocatorKind::UiElement => SourceLocation::UiElement {
                         screen: "Publication form".into(),
@@ -1049,7 +1049,7 @@ async fn binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes()
     }
     let receipt = h.commit(seed::context(), c).await.unwrap();
     h.drain().await;
-    let reopened = OntologyHub::open(backend(&s), seed::context(), model_scope())
+    let reopened = KnowledgeHub::open(backend(&s), seed::context(), model_scope())
         .await
         .unwrap();
     assert_eq!(
@@ -1277,62 +1277,29 @@ async fn each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integr
 }
 
 #[tokio::test]
-async fn frozen_files1_generations_hashes_and_original_receipt_are_unchanged() {
-    fn copy(from: &std::path::Path, to: &std::path::Path) {
-        std::fs::create_dir_all(to).unwrap();
-        for e in std::fs::read_dir(from).unwrap() {
-            let e = e.unwrap();
-            if e.file_type().unwrap().is_dir() {
-                copy(&e.path(), &to.join(e.file_name()));
-            } else {
-                std::fs::copy(e.path(), to.join(e.file_name())).unwrap();
-            }
-        }
+async fn superseded_formats_are_refused_without_mutation() {
+    for version in [1, 2, 3] {
+        let s = Sandbox::new();
+        std::fs::create_dir(&s.store).unwrap();
+        let path = s.store.join("hub.json");
+        let bytes = format!("{{\"format\":\"knowledgehub-files/{version}\"}}").into_bytes();
+        std::fs::write(&path, &bytes).unwrap();
+        std::fs::write(s.store.join("retained-data"), b"unchanged").unwrap();
+        assert!(matches!(
+            KnowledgeHub::open(backend(&s), seed::context(), model_scope()).await,
+            Err(Error::Incompatible(_))
+        ));
+        assert!(
+            KnowledgeHub::create(backend(&s), seed::context(), model_scope())
+                .await
+                .is_err()
+        );
+        assert_eq!(std::fs::read(path).unwrap(), bytes);
+        assert_eq!(
+            std::fs::read(s.store.join("retained-data")).unwrap(),
+            b"unchanged"
+        );
     }
-    fn files(dir: &std::path::Path) -> std::collections::BTreeMap<std::path::PathBuf, Vec<u8>> {
-        let mut out = std::collections::BTreeMap::new();
-        for e in std::fs::read_dir(dir).unwrap() {
-            let e = e.unwrap();
-            if e.file_type().unwrap().is_dir() {
-                for (p, b) in files(&e.path()) {
-                    out.insert(e.file_name().into_string().unwrap().into(), Vec::new());
-                    out.insert(std::path::PathBuf::from(e.file_name()).join(p), b);
-                }
-            } else {
-                out.insert(e.file_name().into(), std::fs::read(e.path()).unwrap());
-            }
-        }
-        out
-    }
-    let s = Sandbox::new();
-    let original = std::path::Path::new(env!("CARGO_MANIFEST_DIR")).join("tests/fixtures/files1");
-    copy(&original, &s.store);
-    let before = files(&s.store);
-    let hub = s.open().await.unwrap();
-    let OperationOutcome::Committed(receipt) = hub
-        .operation_result(seed::context(), "self-definition:1".into())
-        .await
-        .unwrap()
-    else {
-        panic!("original receipt absent")
-    };
-    let snapshot = hub
-        .read_snapshot(seed::context(), receipt.head.clone())
-        .await
-        .unwrap();
-    assert!(snapshot.seed_complete());
-    assert_eq!(snapshot.sources[0].content.bytes, seed::ONTOLOGY);
-    assert_eq!(
-        receipt.fingerprint,
-        "c06eddd11156f41a1e2cc8b373801f21f298dfd48ab37b5e987890d6db780e0d"
-    );
-    let c = seed::seed(
-        seed::scope(),
-        receipt.previous_head.clone(),
-        "self-definition:1",
-    );
-    assert_eq!(hub.commit(seed::context(), c).await.unwrap(), *receipt);
-    assert_eq!(before, files(&s.store));
 }
 
 #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
@@ -1386,7 +1353,7 @@ async fn typed_same_base_root_and_baseline_race_has_one_winner() {
     // The original root is already superseded; remove only the selected successor.
     draft.operations.retain(|op|!matches!(op,knowledgehub::ontology::Operation::Unselect(r) if *r==specimens::reference("edge:R14")));
     h.commit(seed::context(), draft).await.unwrap();
-    let second = OntologyHub::open(backend(&s), seed::context(), model_scope())
+    let second = KnowledgeHub::open(backend(&s), seed::context(), model_scope())
         .await
         .unwrap();
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
@@ -1442,21 +1409,6 @@ async fn typed_same_base_root_and_baseline_race_has_one_winner() {
 
 #[tokio::test]
 async fn damaged_typed_binary_is_integrity_failure_and_never_operation_absence() {
-    fn binary(dir: &std::path::Path) -> Option<std::path::PathBuf> {
-        for item in std::fs::read_dir(dir).unwrap() {
-            let p = item.unwrap().path();
-            if p.is_dir() {
-                if let Some(found) = binary(&p) {
-                    return Some(found);
-                }
-            } else if p.extension().is_some_and(|s| s == "bin")
-                && std::fs::metadata(&p).unwrap().len() > 10000
-            {
-                return Some(p);
-            }
-        }
-        None
-    }
     let s = Sandbox::new();
     let (h, _) = register(&s).await;
     let denied = Context::new("host:denied", std::sync::Arc::new(DenyAll));
@@ -1469,17 +1421,50 @@ async fn damaged_typed_binary_is_integrity_failure_and_never_operation_absence()
         h.query(denied, q).await,
         Err(Error::Denied { .. })
     ));
-    let path = binary(&s.store).expect("retained original PDF");
-    let mut bytes = std::fs::read(&path).unwrap();
-    bytes[0] ^= 1;
-    std::fs::write(path, bytes).unwrap();
+    let (head, state) = h.snapshot(seed::context()).await.unwrap();
+    let (key, content) = state
+        .artifacts
+        .iter()
+        .find(|(_, c)| c.bytes.starts_with(b"%PDF"))
+        .expect("retained original PDF");
+    let reference = state.records[key].reference.clone();
+    let bytes = &content.bytes[..content.bytes.len().min(1_048_576)];
+    use sha2::{Digest, Sha256};
+    let mut hash = Sha256::new();
+    hash.update(format!("knowledgehub-object/1\nblob\n{}\n", bytes.len()).as_bytes());
+    hash.update(bytes);
+    let oid = format!("{:x}", hash.finalize());
+    let path = s
+        .store
+        .join("objects/loose")
+        .join(&oid[..2])
+        .join(format!("{}.obj", &oid[2..]));
+    let mut frame = std::fs::read(&path).unwrap();
+    frame[0] ^= 1;
+    std::fs::write(path, frame).unwrap();
     assert!(matches!(
-        h.operation_result(seed::context(), "never-committed".into())
-            .await,
+        h.read_artifact(
+            seed::context(),
+            Selection::Snapshot(head.clone()),
+            reference
+        )
+        .await,
         Err(Error::Integrity(_))
     ));
     assert!(matches!(
-        OntologyHub::open(backend(&s), seed::context(), model_scope()).await,
+        h.read_state(seed::context(), Selection::Snapshot(head))
+            .await,
+        Err(Error::Integrity(_))
+    ));
+    // Selective receipt resolution never turns this known committed operation into absence.
+    assert!(matches!(
+        h.operation_result(seed::context(), "register".into())
+            .await
+            .unwrap(),
+        OperationOutcome::Committed(_)
+    ));
+    assert!(matches!(
+        backend(&s).scrub(seed::context(), model_scope()).await,
         Err(Error::Integrity(_))
     ));
 }
@@ -1856,7 +1841,7 @@ async fn directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact()
         cursor = page.continuation;
         if cursor.is_none() {
             assert!(!page.exhausted);
-            assert_eq!(page.truncated.as_deref(), Some("edge budget"));
+            assert_eq!(page.truncated.as_deref(), Some("edge/work budget"));
             break;
         }
     }

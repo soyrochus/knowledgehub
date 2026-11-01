@@ -59,19 +59,9 @@ struct Ancestor {
     sequence: String,
 }
 
-fn scope(s: &Scope) -> Result<ModelScope, Error> {
+fn scope(s: &ModelScope) -> Result<ModelScope, Error> {
     model::check_scope(s)?;
-    if s.profile != Profile::meta() {
-        return Err(Error::Incompatible(
-            "files/3 requires typed ontology scope".into(),
-        ));
-    }
-    Ok(ModelScope {
-        hub: s.hub.clone(),
-        model: s.model.clone(),
-        branch: s.branch.clone(),
-        owner: s.owner.clone(),
-    })
+    Ok(s.clone())
 }
 pub(super) fn head_path(store: &FileStore, s: &ModelScope) -> Result<PathBuf, Error> {
     Ok(store.root.join("refs").join(format!(
@@ -107,19 +97,19 @@ fn features() -> Vec<String> {
         .map(String::from)
         .collect()
 }
-pub(super) fn metadata(store: &FileStore, s: &Scope) -> Result<(), Error> {
+pub(super) fn metadata(store: &FileStore, s: &ModelScope) -> Result<(), Error> {
     paths(store)?;
     store.check_profile(&store.root)?;
     let expected = scope(s)?;
     let bytes = bounded_file(&store.root.join("hub.json"), 1_048_576)?;
     let declared: Value = parse(&bytes)?;
-    if declared.get("format").and_then(Value::as_str) != Some(ontology::SHARED_FILE_FORMAT) {
+    if declared.get("format").and_then(Value::as_str) != Some(ontology::FILE_FORMAT) {
         return Err(Error::Incompatible(
             "explicit shared backend format differs".into(),
         ));
     }
     let meta: Metadata = parse(&bytes)?;
-    if meta.format != ontology::SHARED_FILE_FORMAT
+    if meta.format != ontology::FILE_FORMAT
         || meta.hub_identity != expected.hub
         || meta.scope != expected
         || !model::hash(&meta.replay_domain)
@@ -131,7 +121,7 @@ pub(super) fn metadata(store: &FileStore, s: &Scope) -> Result<(), Error> {
         || meta.filesystem_profile != "linux-x86_64/local-ext4/single-host/1"
     {
         return Err(Error::Incompatible(
-            "files/3 metadata, exact scope or required codec/features differ".into(),
+            "files/4 metadata, exact scope or required codec/features differ".into(),
         ));
     }
     let dev = fs::metadata(&store.root)
@@ -155,7 +145,7 @@ pub(super) fn metadata(store: &FileStore, s: &Scope) -> Result<(), Error> {
             != dev
         {
             return Err(Error::Incompatible(
-                "files/3 directories cross filesystems".into(),
+                "files/4 directories cross filesystems".into(),
             ));
         }
     }
@@ -184,7 +174,7 @@ pub(super) struct SharedLease<'a> {
 }
 pub(in crate::storage) fn acquire<'a>(
     store: &'a FileStore,
-    s: &Scope,
+    s: &ModelScope,
     read: bool,
 ) -> Result<Box<dyn BranchStorage + 'a>, Error> {
     metadata(store, s)?;
@@ -200,9 +190,9 @@ pub(in crate::storage) fn acquire<'a>(
 
 pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result<(), Error> {
     let s = scope(&initial.scope)?;
-    if initial.sequence != 0 || initial.ontology.as_deref() != Some(&State::empty(s.clone())) {
+    if initial.sequence != 0 || initial.state != State::empty(s.clone()) {
         return Err(Error::InvalidInput(
-            "files/3 genesis must be empty typed state".into(),
+            "files/4 genesis must be empty typed state".into(),
         ));
     }
     paths(store)?;
@@ -241,7 +231,7 @@ pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result
     }
     persist(&store.root.join("locks/store.lock"), b"")?;
     let meta = Metadata {
-        format: ontology::SHARED_FILE_FORMAT.into(),
+        format: ontology::FILE_FORMAT.into(),
         hub_identity: s.hub.clone(),
         replay_domain: store.allocate_id()?.0,
         scope: s.clone(),
@@ -326,7 +316,7 @@ pub(super) fn root(
 ) -> Result<(String, Generation), Error> {
     let path = head_path(store, s)?;
     let r: Reference = parse(&bounded_file(&path, 1_048_576)?)?;
-    if r.format != ontology::SHARED_FILE_FORMAT || r.scope != *s {
+    if r.format != ontology::FILE_FORMAT || r.scope != *s {
         return Err(Error::Incompatible(
             "shared branch reference format/scope".into(),
         ));
@@ -361,7 +351,7 @@ fn publish_reference(
     persist(
         &temp,
         &json(&Reference {
-            format: ontology::SHARED_FILE_FORMAT.into(),
+            format: ontology::FILE_FORMAT.into(),
             scope: g.scope.clone(),
             snapshot_id: g.snapshot_id.clone(),
             sequence: g.sequence.clone(),
@@ -389,12 +379,9 @@ fn write_generation(
     receipt: Option<&Receipt>,
     parent: Option<(&str, &Generation)>,
 ) -> Result<String, Error> {
-    let state = snapshot
-        .ontology
-        .as_deref()
-        .ok_or_else(|| integrity("shared typed state absent"))?;
+    let state = &snapshot.state;
     let tree = Tree { objects };
-    if state.scope.transport() != snapshot.scope {
+    if state.scope.clone() != snapshot.scope {
         return Err(integrity("snapshot scope differs"));
     }
     let empty = || -> std::iter::Empty<(Value, Value)> { std::iter::empty() };
@@ -539,7 +526,7 @@ fn original(
     let (_, g) = ancestor(objects, head_id, head, &r.head)
         .map_err(|_| integrity("receipt references unaccepted history"))?;
     if r.operation_id != id
-        || r.scope != head.scope.transport()
+        || r.scope != head.scope.clone()
         || r.fingerprint_version != ontology::REQUEST_FORMAT
         || !model::hash(&r.fingerprint)
         || r.actor.trim().is_empty()
@@ -614,12 +601,10 @@ pub(super) fn materialise(
             .insert(r.key(), content::read(objects, &binding)?);
     }
     state.gaps = projection::read_gaps(objects, &g.gaps_root)?;
-    let mut snapshot = model::empty(g.scope.transport(), g.snapshot_id.clone());
+    let mut snapshot = model::empty(g.scope.clone(), g.snapshot_id.clone());
     snapshot.sequence = number(&g.sequence)?;
-    snapshot.ontology = Some(Box::new(state));
-    if snapshot.sequence == 0
-        && snapshot.ontology.as_deref() != Some(&State::empty(g.scope.clone()))
-    {
+    snapshot.state = state;
+    if snapshot.sequence == 0 && snapshot.state != State::empty(g.scope.clone()) {
         return Err(integrity("nonempty shared genesis"));
     }
     if !model::validate_snapshot(&snapshot).is_empty() {
@@ -821,12 +806,6 @@ impl BranchStorage for SharedLease<'_> {
         let (id, g) = root(self.store, &self.scope, &objects)?;
         materialise(&objects, &g, &id)
     }
-    fn snapshot(&self, id: &SnapshotId) -> Result<Stored, Error> {
-        let objects = Objects::new(self.store);
-        let (head, g) = root(self.store, &self.scope, &objects)?;
-        let (id, g) = ancestor(&objects, &head, &g, id)?;
-        materialise(&objects, &g, &id)
-    }
     fn operation(&self, id: &str) -> Result<Option<Receipt>, Error> {
         let objects = Objects::new(self.store);
         let (head, g) = root(self.store, &self.scope, &objects)?;
@@ -837,7 +816,7 @@ impl BranchStorage for SharedLease<'_> {
         let (id, g) = root(self.store, &self.scope, &objects)?;
         if let Selection::Snapshot(snapshot) = selection {
             let (id, g) = ancestor(&objects, &id, &g, snapshot)?;
-            return Ok(*materialise(&objects, &g, &id)?.snapshot.ontology.unwrap());
+            return Ok(materialise(&objects, &g, &id)?.snapshot.state);
         }
         let v = view(&objects, &id, &g, selection)?;
         let tree = Tree { objects: &objects };
@@ -909,39 +888,6 @@ impl BranchStorage for SharedLease<'_> {
             full_content_verified,
         })
     }
-    fn recover(&self) -> Result<History, Error> {
-        let objects = Objects::new(self.store);
-        let (mut id, mut g) = root(self.store, &self.scope, &objects)?;
-        let mut entries = Vec::new();
-        let mut seen = BTreeSet::new();
-        loop {
-            if !seen.insert(id.clone()) || seen.len() > 1_000_000 {
-                return Err(integrity("generation cycle"));
-            }
-            entries.push(materialise(&objects, &g, &id)?);
-            let Some(parent) = g.parent else {
-                break;
-            };
-            id = parent;
-            g = load_generation(&objects, &id, &self.scope)?;
-        }
-        entries.reverse();
-        for pair in entries.windows(2) {
-            if pair[0].snapshot.sequence + 1 != pair[1].snapshot.sequence
-                || !model::verify_affected(
-                    &pair[0].snapshot,
-                    &pair[1].snapshot,
-                    pair[1]
-                        .receipt
-                        .as_ref()
-                        .ok_or_else(|| integrity("history receipt"))?,
-                )
-            {
-                return Err(integrity("inconsistent accepted shared history"));
-            }
-        }
-        Ok(History { entries })
-    }
     fn publish(&self, plan: ValidatedPlan, parent: HeadRef) -> Result<Receipt, Error> {
         if self.shared {
             return Err(storage("publication through read lease"));
@@ -984,8 +930,8 @@ impl BranchStorage for SharedLease<'_> {
             self.store,
             &g,
             &next,
-            old.snapshot.ontology.as_deref().unwrap(),
-            plan.snapshot.ontology.as_deref().unwrap(),
+            &old.snapshot.state,
+            &plan.snapshot.state,
         )
         .is_err()
         {
@@ -999,8 +945,8 @@ impl BranchStorage for SharedLease<'_> {
             self.store,
             &g,
             &next,
-            old.snapshot.ontology.as_deref().unwrap(),
-            plan.snapshot.ontology.as_deref().unwrap(),
+            &old.snapshot.state,
+            &plan.snapshot.state,
         );
         Ok(plan.receipt)
     }

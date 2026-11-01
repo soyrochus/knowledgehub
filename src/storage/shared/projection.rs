@@ -83,7 +83,6 @@ struct StoredReceipt {
     schema: String,
     fields: Value,
     affected_root: String,
-    qualified_affected_root: String,
 }
 
 pub(super) fn encode_record(
@@ -496,27 +495,17 @@ pub(super) fn bounded_gaps(objects: &Objects<'_>, root: &str) -> Result<(Vec<Gap
 }
 pub(super) fn encode_receipt(objects: &Objects<'_>, receipt: &Receipt) -> Result<String, Error> {
     let mut fields = serde_json::to_value(receipt).map_err(codec::encoding)?;
-    let m = fields.as_object_mut().unwrap();
-    m.remove("affected");
-    m.remove("qualified_affected");
+    fields.as_object_mut().unwrap().remove("affected");
     let tree = Tree { objects };
     objects.put_json(
         "receipt",
         &StoredReceipt {
-            schema: "knowledgehub-stored-receipt/1".into(),
+            schema: "knowledgehub-stored-receipt/2".into(),
             fields,
             affected_root: tree.sequence(
-                "legacy-refs/1",
-                &receipt
-                    .affected
-                    .iter()
-                    .map(|r| value!(r))
-                    .collect::<Vec<_>>(),
-            )?,
-            qualified_affected_root: tree.sequence(
                 "exact-refs/1",
                 &receipt
-                    .qualified_affected
+                    .affected
                     .iter()
                     .map(|r| value!(r))
                     .collect::<Vec<_>>(),
@@ -526,22 +515,17 @@ pub(super) fn encode_receipt(objects: &Objects<'_>, receipt: &Receipt) -> Result
 }
 pub(super) fn decode_receipt(objects: &Objects<'_>, id: &str) -> Result<Receipt, Error> {
     let mut r: StoredReceipt = objects.get_json(id, "receipt")?;
-    if r.schema != "knowledgehub-stored-receipt/1" {
+    if r.schema != "knowledgehub-stored-receipt/2" {
         return Err(integrity("receipt schema"));
     }
     let tree = Tree { objects };
-    let m = r
-        .fields
+    r.fields
         .as_object_mut()
-        .ok_or_else(|| integrity("receipt fields"))?;
-    m.insert(
-        "affected".into(),
-        Value::Array(tree.items(&r.affected_root, "legacy-refs/1")?),
-    );
-    let qualified = tree.items(&r.qualified_affected_root, "exact-refs/1")?;
-    if !qualified.is_empty() {
-        m.insert("qualified_affected".into(), Value::Array(qualified));
-    }
+        .ok_or_else(|| integrity("receipt fields"))?
+        .insert(
+            "affected".into(),
+            Value::Array(tree.items(&r.affected_root, "exact-refs/1")?),
+        );
     serde_json::from_value(r.fields).map_err(|_| integrity("receipt projection"))
 }
 

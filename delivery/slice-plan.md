@@ -265,13 +265,33 @@ The user requested [file-storage draft 0.3](../source/file-storage-proposal.md) 
 - **Sequence revision:** KH-SL-012's old completion plan is postponed at 7/11 after a 256 MiB neighbour-cache allocation failure. [Retained artifacts](../openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md) and failed evidence remain historical. No reset/recapture is part of KH-SL-013; the user subsequently authorised the refreshed KH-SL-012 scope above.
 - **Observed delivery:** [KH-SL-013 evidence](evidence/packed-cache/README.md) records 100 native tests, one doctest, 11 host tests, formatting, Clippy and release builds. The existing canonical model passes public neighbour/text/three-hop composite reads, reopen and full scrub, with all 22,842 non-cache files unchanged. The completed neighbour cache allocates 26,177,536 bytes across 306 files; text allocates 1,269,760 bytes. Cold metadata is loaded once per namespace and warm batches load none. Human acceptance and authority handover remain separate.
 
-## Single full API sequence — planned 0.10.0 cutover
+## Single full API sequence — 0.10.0 cutover
 
-The user selected removal of backward API/storage support and requested four ordered changes, package version 0.10.0 and a fresh Hub after their own rename to old_hub. The following planning is implementation-ready; unchecked tasks and completed proposal artifacts do not claim that the package or stored model has changed. Existing source/domain rules remain in force for the sole current implementation.
+The user selected removal of backward API/storage support and requested four ordered changes, package version 0.10.0 and a fresh Hub after their own rename to old_hub. All four changes are implemented and technically verified; all 22 tasks are complete. [Final evidence](evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md) binds 0.10.0 native checks and the fresh current canonical dataset, including retained old_hub equality. Existing source/domain rules remain in force for the sole current implementation.
 
-1. **KH-SL-014 — Ordinary consumers use the full API.** [make-full-model-api-default](../openspec/changes/make-full-model-api-default/proposal.md). Actor: library consumer/host. Outcome: one full KnowledgeHub, direct typed scope/state/receipts and consistent unpublished 0.10.0 metadata. No prerequisite change; current publication/source/policy/query guarantees remain. Acceptance: ordinary imports and full-model operations work, old public facades are absent and focused checks pass. Relevant rules: KH-DR-01–13/15–19.
-2. **KH-SL-015 — One current persistence implementation.** [remove-legacy-storage-paths](../openspec/changes/remove-legacy-storage-paths/proposal.md). Hard prerequisite: KH-SL-014. Actor: host creating/opening a current model. Outcome: one default constructor/format, direct complete storage port and current indexed navigation. Acceptance: no old-format dispatcher/decoder/alias, safe refusal of older stores, current selective reads, compaction and recovery. Relevant rules: KH-DR-02–12/15/17/19–22.
-3. **KH-SL-016 — Commands and provenance use the sole API.** [align-current-api-tooling](../openspec/changes/align-current-api-tooling/proposal.md). Hard prerequisite: KH-SL-015. Actor: maintainer authoring/capturing/inspecting. Outcome: latest-only commands and actual source bindings, with old_hub excluded and untouched. Acceptance: maintained invocations, capture/model/coverage and retained-directory guard tests pass; historical evidence remains labelled. Relevant rules: KH-DR-01/02/05/07/12/13/15/18/23.
-4. **KH-SL-017 — Verify and retain the new canonical model.** [verify-v010-and-rebuild-hub](../openspec/changes/verify-v010-and-rebuild-hub/proposal.md). Hard prerequisite: KH-SL-016 and therefore all earlier changes. Actor: maintainer delivering the first sole full API demonstration. Outcome: exact 0.10.0 full-suite/capture evidence and fresh public-API Hub with new A/B/history/receipts. Acceptance: coverage map, all required checks, reopen/scrub/indexed/catalogue/fixture results and unchanged old_hub inventory; explicit gaps and no invented acceptance/authority handover. Relevant rules: KH-DR-01–13/15–23.
+### KH-SL-014 — Ordinary consumers use the full API
+
+[make-full-model-api-default](../openspec/changes/make-full-model-api-default/proposal.md). Actor: library consumer/host. Outcome: one full KnowledgeHub, direct typed scope/state/receipts and consistent unpublished 0.10.0 metadata. No prerequisite change; current publication/source/policy/query guarantees remain. Acceptance: ordinary imports and full-model operations work, old public facades are absent and focused checks pass. Relevant rules: KH-DR-01–13/15–19.
+
+### KH-SL-015 — One current persistence implementation
+
+[remove-legacy-storage-paths](../openspec/changes/remove-legacy-storage-paths/proposal.md). Hard prerequisite: KH-SL-014. Actor: host creating/opening a current model. Outcome: one default constructor/format, direct complete storage port and current indexed navigation. Acceptance: no old-format dispatcher/decoder/alias, safe refusal of older stores, current selective reads, compaction and recovery. Relevant rules: KH-DR-02–12/15/17/19–22.
+
+### KH-SL-016 — Commands and provenance use the sole API
+
+[align-current-api-tooling](../openspec/changes/align-current-api-tooling/proposal.md). Hard prerequisite: KH-SL-015. Actor: maintainer authoring/capturing/inspecting. Outcome: latest-only commands and actual source bindings, with old_hub excluded and untouched. Acceptance: maintained invocations, capture/model/coverage and retained-directory guard tests pass; historical evidence remains labelled. Relevant rules: KH-DR-01/02/05/07/12/13/15/18/23.
+
+### KH-SL-017 — Verify and retain the new canonical model
+
+[verify-v010-and-rebuild-hub](../openspec/changes/verify-v010-and-rebuild-hub/proposal.md). Hard prerequisite: KH-SL-016 and therefore all earlier changes. Actor: maintainer delivering the first sole full API demonstration. Outcome: exact 0.10.0 full-suite/capture evidence and fresh public-API Hub with new A/B/history/receipts. Acceptance: coverage map, all required checks, reopen/scrub/indexed/catalogue/fixture results and unchanged old_hub inventory; explicit gaps and no invented acceptance/authority handover. Relevant rules: KH-DR-01–13/15–23.
+
 
 Necessary caller/test adjustments land with the change that breaks compilation. KH-SL-017 supplies final cross-cutting proof, not the first tests for earlier work. No older-store migration is planned. The old_hub rename was observed during planning, but absence of hub and retained-data boundaries must be rechecked immediately before new creation.
+
+Observed KH-SL-014–017 outcome: one full root API and unpublished 0.10.0 identity;
+one current files/4 constructor/required storage port and unified bounded traversal;
+current-only tools/source bindings/retained-directory guards; full 95-test native,
+3-test documentation and 17-test host batch plus release builds and actual fresh
+Hub/catalogue/fixture verification. The new head has 9,578 selected records and
+3,452 explicit draft gaps. Final task/report/status edits follow the captured
+checkpoint; no human acceptance, authority handover or archive is implied.

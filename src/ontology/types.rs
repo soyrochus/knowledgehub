@@ -1,3 +1,4 @@
+use super::NeighbourPreparation;
 use crate::{Content, ContentRef, Error, SnapshotId, Violation, codec};
 use serde::{Deserialize, Serialize};
 use std::collections::{BTreeMap, BTreeSet};
@@ -22,8 +23,7 @@ pub const KERNEL_KINDS: &[&str] = &[
     "ReviewDecision",
 ];
 
-pub const FILE_FORMAT: &str = "knowledgehub-files/2";
-pub const SHARED_FILE_FORMAT: &str = "knowledgehub-files/3";
+pub const FILE_FORMAT: &str = "knowledgehub-files/4";
 pub const REQUEST_FORMAT: &str = "knowledgehub-request/2";
 pub const RECORD_FORMAT: &str = "knowledgehub-record/2";
 
@@ -67,17 +67,6 @@ pub struct ModelScope {
     pub model: String,
     pub branch: String,
     pub owner: String,
-}
-impl ModelScope {
-    pub(crate) fn transport(&self) -> crate::Scope {
-        crate::Scope {
-            hub: self.hub.clone(),
-            model: self.model.clone(),
-            branch: self.branch.clone(),
-            owner: self.owner.clone(),
-            profile: crate::Profile::meta(),
-        }
-    }
 }
 
 #[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
@@ -855,6 +844,7 @@ pub struct Query {
     pub page_size: usize,
     pub subject_limit: usize,
     pub edge_limit: usize,
+    pub preparation: NeighbourPreparation,
 }
 impl Query {
     pub fn select(selection: Selection) -> Self {
@@ -869,6 +859,7 @@ impl Query {
             page_size: 100,
             subject_limit: 10000,
             edge_limit: 10000,
+            preparation: NeighbourPreparation::default(),
         }
     }
 }

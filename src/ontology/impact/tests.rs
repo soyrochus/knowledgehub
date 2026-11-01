@@ -1,7 +1,7 @@
 use super::*;
 use crate::{
-    Action, Context, DenyAll, Error, Policy, PolicyFailure, Scope, neighbour_test_support as f,
-    ontology::*, test_support::Sandbox,
+    Action, Context, DenyAll, Error, ModelScope, Policy, PolicyFailure,
+    neighbour_test_support as f, ontology::*, test_support::Sandbox,
 };
 use std::{
     collections::BTreeSet,
@@ -42,7 +42,7 @@ fn request() -> ModelImpact {
 }
 struct Switch(AtomicBool);
 impl Policy for Switch {
-    fn allows(&self, _: &str, _: &Scope, _: Action) -> Result<bool, PolicyFailure> {
+    fn allows(&self, _: &str, _: &ModelScope, _: Action) -> Result<bool, PolicyFailure> {
         Ok(self.0.load(Ordering::SeqCst))
     }
 }
@@ -86,7 +86,7 @@ async fn composite_cursors_share_capacity_expire_and_recheck_disclosure() {
         .unwrap_err(),
         Error::InvalidCursor
     );
-    // Neither legacy cursor API can consume a composite token.
+    // Neither other cursor API can consume a composite token.
     let head = h.head(f::context()).await.unwrap();
     assert_eq!(
         h.continue_query(

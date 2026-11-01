@@ -14,8 +14,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             .cloned()
             .ok_or("provide a new absolute store path with an existing parent")?,
     );
-    let h = OntologyHub::create(
-        args.format.backend(&path)?,
+    let h = KnowledgeHub::create(
+        knowledgehub::backends::files::FileBackend::new(
+            &path,
+            knowledgehub::backends::files::FileOptions::local_ext4(),
+        )?,
         seed::context(),
         specimens::scope(),
     )
@@ -33,8 +36,11 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
     let (head, before) = h.snapshot(seed::context()).await?;
     h.drain().await;
-    let reopened = OntologyHub::open(
-        args.format.backend(&path)?,
+    let reopened = KnowledgeHub::open(
+        knowledgehub::backends::files::FileBackend::new(
+            &path,
+            knowledgehub::backends::files::FileOptions::local_ext4(),
+        )?,
         seed::context(),
         specimens::scope(),
     )

@@ -74,7 +74,7 @@ fn missing(e: impl std::fmt::Display) -> Error {
 fn cache(s: &FileStore) -> FileStore {
     FileStore {
         root: s.root.join("cache/text"),
-        format: s.format,
+
         support: s.support.clone(),
         work: Counters {
             locations: s.work.text_locations.clone(),

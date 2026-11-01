@@ -165,7 +165,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
     assert_eq!(h.commit(fixture::context(), change.clone()).await?, receipt);
     h.drain().await;
-    let reopened = OntologyHub::open(
+    let reopened = KnowledgeHub::open(
         fixture::backend(&path),
         fixture::context(),
         fixture::scope(),

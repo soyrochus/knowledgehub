@@ -53,7 +53,7 @@ fn text(selection: Selection, phrase: &str) -> SearchText {
         budgets: ReadBudgets::default(),
     }
 }
-async fn collect(h: &OntologyHub, q: ModelImpact) -> Vec<Dependency> {
+async fn collect(h: &KnowledgeHub, q: ModelImpact) -> Vec<Dependency> {
     let mut p = h.model_impact(fixture::context(), q.clone()).await.unwrap();
     let mut all = p.dependencies;
     while let Some(c) = p.continuation {
@@ -354,7 +354,7 @@ async fn composite_ambiguity_grouping_paging_full_intent_and_pin() {
     );
     let first = h.model_impact(fixture::context(), q.clone()).await.unwrap();
     let token = first.continuation.unwrap();
-    let reopened = OntologyHub::open(
+    let reopened = KnowledgeHub::open(
         fixture::backend(&s.store),
         fixture::context(),
         fixture::scope(),
@@ -451,7 +451,7 @@ async fn pinned_results_survive_reopen_rebuild_and_late_link_without_full_state_
     b.clear_neighbour_cache(fixture::context(), fixture::scope())
         .await
         .unwrap();
-    let h = OntologyHub::open(
+    let h = KnowledgeHub::open(
         fixture::backend(&s.store),
         fixture::context(),
         fixture::scope(),

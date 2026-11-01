@@ -1,4 +1,17 @@
 {
+  "changes": {
+    "align-current-api-tooling": "KH-SL-016",
+    "express-full-ontology-and-self-model": "KH-SL-008",
+    "index-ontology-neighbours": "KH-SL-010",
+    "make-full-model-api-default": "KH-SL-014",
+    "pack-derived-index-storage": "KH-SL-013",
+    "query-deterministic-model-impact": "KH-SL-011",
+    "rebuild-canonical-hub-and-verify": "KH-SL-012",
+    "remove-legacy-storage-paths": "KH-SL-015",
+    "retain-first-self-definition": "KH-SL-001",
+    "share-immutable-file-storage": "KH-SL-009",
+    "verify-v010-and-rebuild-hub": "KH-SL-017"
+  },
   "function_namespaces": {
     "src/ontology/impact/api.rs": "knowledgehub::internal::ontology-impact-application",
     "src/ontology/impact/engine.rs": "knowledgehub::internal::ontology-traversal-engine",
@@ -25,7 +38,6 @@
     "src/storage/shared/trees.rs": "knowledgehub::internal::shared-trees"
   },
   "modules": {
-    "src/application.rs": "application",
     "src/codec.rs": "codec",
     "src/contracts.rs": "contracts",
     "src/jobs.rs": "jobs",
@@ -62,18 +74,26 @@
     "src/storage/shared/text.rs": "file-text-index",
     "src/storage/shared/trees.rs": "shared-trees"
   },
+  "native_contracts": {
+    "src/storage/shared/generation.rs": [
+      "Metadata",
+      "Generation"
+    ],
+    "src/storage/shared/projection.rs": [
+      "StoredReceipt"
+    ]
+  },
   "public_namespaces": {
-    "src/application.rs": "knowledgehub",
     "src/contracts.rs": "knowledgehub",
-    "src/ontology/api.rs": "knowledgehub::ontology",
-    "src/ontology/catalogue.rs": "knowledgehub::ontology",
-    "src/ontology/impact/api.rs": "knowledgehub::ontology",
-    "src/ontology/impact/types.rs": "knowledgehub::ontology",
-    "src/ontology/navigation.rs": "knowledgehub::ontology",
-    "src/ontology/neighbours/api.rs": "knowledgehub::ontology",
-    "src/ontology/neighbours/types.rs": "knowledgehub::ontology",
-    "src/ontology/types.rs": "knowledgehub::ontology",
-    "src/ontology/validation.rs": "knowledgehub::ontology",
+    "src/ontology/api.rs": "knowledgehub",
+    "src/ontology/catalogue.rs": "knowledgehub",
+    "src/ontology/impact/api.rs": "knowledgehub",
+    "src/ontology/impact/types.rs": "knowledgehub",
+    "src/ontology/navigation.rs": "knowledgehub",
+    "src/ontology/neighbours/api.rs": "knowledgehub",
+    "src/ontology/neighbours/types.rs": "knowledgehub",
+    "src/ontology/types.rs": "knowledgehub",
+    "src/ontology/validation.rs": "knowledgehub",
     "src/storage.rs": "knowledgehub::backends::files",
     "src/storage/shared/mod.rs": "knowledgehub::backends::files"
   },
@@ -111,13 +131,13 @@
     "examples/full_self_description.rs": "self-model-consumer",
     "examples/impact_benchmark.rs": "query-benchmark",
     "examples/inspect_self_model.rs": "self-model-inspector",
+    "examples/minimal_model.rs": "seed-consumer",
     "examples/neighbour_benchmark.rs": "neighbour-benchmark",
     "examples/neighbour_support/mod.rs": "neighbour-specimens",
     "examples/neighbours.rs": "neighbour-consumer",
     "examples/ontology_support/mod.rs": "catalogue-specimens",
     "examples/rent_impact.rs": "rent-query-consumer",
     "examples/rent_support/mod.rs": "rent-specimens",
-    "examples/seed.rs": "seed-consumer",
     "examples/self_model_support/mod.rs": "self-model-author",
     "examples/self_model_support/origins.json": "host-origin-bindings",
     "examples/self_model_support/verify.rs": "self-model-indexed-verifier",
@@ -139,8 +159,6 @@
     "target/ontology-pdf-extracted.txt": "ontology-pdf-extraction",
     "tests/host_workflows.py": "host-lifecycle-cases",
     "tests/impact_oracle.rs": "query-reference-oracle",
-    "tests/internal/faults.rs": "seed-publication-cases",
-    "tests/internal/ontology_faults.rs": "ontology-publication-cases",
     "tests/internal/shared_faults.rs": "shared-publication-cases",
     "tests/model_impact.rs": "query-api-cases",
     "tests/neighbour_oracle/mod.rs": "neighbour-reference-oracle",

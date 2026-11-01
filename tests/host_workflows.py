@@ -41,10 +41,12 @@ class HostWorkflows(unittest.TestCase):
     def tearDown(self):
         self.temporary.cleanup()
 
-    def old(self, scope=None):
+    def current(self, scope=None):
         self.hub.mkdir()
-        (self.hub / "hub.json").write_text(json.dumps({"format": "knowledgehub-files/2", "scope": scope or rebuild.SCOPE}))
-        (self.hub / "branch.lock").touch()
+        (self.hub / "hub.json").write_text(json.dumps({"format": "knowledgehub-files/4", "scope": scope or rebuild.SCOPE}))
+        (self.hub / "locks").mkdir()
+        (self.hub / "locks/store.lock").touch()
+        (self.root / ".hub-rebuild-state.json").write_text(json.dumps({"library_version": "0.10.0"}))
         (self.hub / "old-history").write_text("sentinel")
 
     def run_attempt(self, preflight=lambda: None, populate=None, verify=lambda: {"verified": True}):
@@ -56,8 +58,8 @@ class HostWorkflows(unittest.TestCase):
         with contextlib.redirect_stdout(io.StringIO()):
             return rebuild.lifecycle(self.root, self.hub, self.root / f"run-{self.attempt}", preflight, populate or default_population, verify)
 
-    def test_reset_removes_old_content_and_preserves_external_evidence(self):
-        self.old()
+    def test_explicit_current_reset_removes_prior_content_and_preserves_external_evidence(self):
+        self.current()
         evidence = self.root / "historical-evidence"
         evidence.write_bytes(b"older run stays exact")
         status = self.run_attempt()
@@ -66,11 +68,11 @@ class HostWorkflows(unittest.TestCase):
         self.assertEqual(evidence.read_bytes(), b"older run stays exact")
 
     def test_unsafe_parent_repository_unrelated_and_symlink_targets(self):
-        self.old()
+        self.current()
         other = self.root / "unrelated"
         other.mkdir()
         (other / "sentinel").write_text("keep")
-        for target in (self.root, self.root.parent, other, self.root / ".." / self.root.name / "hub"):
+        for target in (self.root, self.root.parent, self.root / "old_hub", other, self.root / ".." / self.root.name / "hub"):
             with self.subTest(target=target), self.assertRaises(ValueError):
                 rebuild.target_info(self.root, target)
         import shutil
@@ -81,7 +83,7 @@ class HostWorkflows(unittest.TestCase):
         self.assertEqual((other / "sentinel").read_text(), "keep")
 
     def test_subtree_symlinks_and_unexpected_scope_are_refused(self):
-        self.old()
+        self.current()
         (self.hub / "escape").symlink_to(self.root)
         with self.assertRaises(ValueError):
             rebuild.target_info(self.root, self.hub)
@@ -93,8 +95,8 @@ class HostWorkflows(unittest.TestCase):
             rebuild.target_info(self.root, self.hub)
         self.assertTrue((self.hub / "old-history").exists())
 
-    def test_failed_preflight_preserves_the_old_hub(self):
-        self.old()
+    def test_failed_preflight_preserves_current_store(self):
+        self.current()
         def fail():
             raise RuntimeError("a required check failed")
         with self.assertRaises(RuntimeError):
@@ -105,13 +107,13 @@ class HostWorkflows(unittest.TestCase):
         self.assertEqual((self.hub / "old-history").read_text(), "sentinel")
 
     def test_active_backend_writer_prevents_deletion(self):
-        self.old()
-        with rebuild.exclusive(self.hub / "branch.lock"), self.assertRaises(BlockingIOError):
+        self.current()
+        with rebuild.exclusive(self.hub / "locks/store.lock"), self.assertRaises(BlockingIOError):
             self.run_attempt()
         self.assertTrue((self.hub / "old-history").exists())
 
     def test_interrupted_population_is_failed_and_explicit_retry_is_fresh(self):
-        self.old()
+        self.current()
         def partial():
             self.hub.mkdir()
             (self.hub / "partial").write_text("unfinished")
@@ -131,7 +133,7 @@ class HostWorkflows(unittest.TestCase):
             rebuild.target_info(self.root, self.hub)
 
     def test_failed_dataset_verification_never_marks_the_new_store_verified(self):
-        self.old()
+        self.current()
         def fail():
             raise ValueError("scrub or indexed read failed")
         with self.assertRaises(ValueError):
@@ -142,7 +144,7 @@ class HostWorkflows(unittest.TestCase):
         self.assertTrue((self.hub/"new-generation").exists())
 
     def test_outputs_cache_and_evidence_cannot_recurse_into_capture(self):
-        for group in ("hub", "orig_hub", "target", "delivery/evidence/old", "src/cache", "examples/__pycache__"):
+        for group in ("hub", "old_hub", "src/old_hub", "examples/old_hub", "orig_hub", "target", "delivery/evidence/old", "src/cache", "examples/__pycache__"):
             directory = self.root / group
             directory.mkdir(parents=True, exist_ok=True)
             (directory / "recursive.json").write_text("{}")
@@ -178,6 +180,59 @@ class HostWorkflows(unittest.TestCase):
         with self.assertRaises(ValueError):
             sources.checked_run(self.root,manifest,log)
         (self.root/"src/lib.rs").write_bytes(original)
+
+    def test_first_cutover_refuses_occupied_and_old_destinations_without_writes(self):
+        self.hub.mkdir()
+        sentinel = self.hub / "hub.json"
+        for version in (1, 2, 3, 4):
+            original = json.dumps({"format": f"knowledgehub-files/{version}", "scope": rebuild.SCOPE})
+            sentinel.write_text(original)
+            with self.assertRaises(ValueError):
+                self.run_attempt()
+            self.assertEqual(sentinel.read_text(), original)
+            self.assertFalse((self.root / ".hub-rebuild-state.json").exists())
+
+    def test_old_hub_inventory_is_unchanged_and_never_captured(self):
+        directory = self.root / "old_hub"
+        directory.mkdir()
+        (directory / "payload.json").write_text("retained original bytes")
+        before = sources.retained_inventory(self.root)
+        self.assertEqual(self.run_attempt()["state"], "verified")
+        self.assertEqual(sources.retained_inventory(self.root), before)
+        self.assertFalse(any("old_hub" in p for p in sources.checkpoint(self.root)))
+        self.assertEqual(json.loads((self.root / "run-1/old-hub-before.json").read_text()), before)
+
+    def test_origins_refuse_duplicates_unknown_changes_and_stale_modules(self):
+        path = self.root / "examples/self_model_support/origins.json"
+        path.parent.mkdir(parents=True)
+        data = {"modules": {"src/lib.rs": "lib"}, "public_namespaces": {}, "function_namespaces": {}, "native_contracts": {}, "changes": {}}
+        path.write_text(json.dumps(data))
+        self.assertEqual(sources.load_origins(self.root), data)
+        path.write_text('{"modules":{},"modules":{}}')
+        with self.assertRaises(ValueError): sources.load_origins(self.root)
+        data["modules"]["src/missing.rs"] = "missing"
+        path.write_text(json.dumps(data))
+        with self.assertRaises(ValueError): sources.load_origins(self.root)
+        del data["modules"]["src/missing.rs"]
+        path.write_text(json.dumps(data))
+        proposal = self.root / "openspec/changes/unknown/proposal.md"
+        proposal.parent.mkdir(parents=True)
+        proposal.write_text("# Unknown\n")
+        with self.assertRaises(ValueError): sources.load_origins(self.root)
+
+    def test_package_identity_requires_matching_unpublished_v010(self):
+        (self.root / "Cargo.toml").write_text('[package]\nname="knowledgehub"\nversion="0.10.0"\npublish=false\n')
+        (self.root / "Cargo.lock").write_text('version=4\n[[package]]\nname="knowledgehub"\nversion="0.10.0"\n')
+        self.assertEqual(sources.package_identity(self.root), "0.10.0")
+        (self.root / "Cargo.lock").write_text('[[package]]\nname="knowledgehub"\nversion="0.1.0"\n')
+        with self.assertRaises(ValueError): sources.package_identity(self.root)
+
+    def test_capture_output_refuses_retained_directory_names(self):
+        import subprocess
+        for output in ("target/old_hub/input.json", "target/hub/input.json"):
+            result = subprocess.run([sys.executable, ROOT / "examples/capture_self_model.py", "--output", output], capture_output=True, text=True)
+            self.assertNotEqual(result.returncode, 0)
+            self.assertIn("cannot target retained stores", result.stderr)
 
     def test_historical_native_evidence_is_not_overwritten(self):
         directory = self.root / "run"

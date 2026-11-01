@@ -1,8 +1,10 @@
 # Exact ontology neighbours
 
-KH-SL-010 adds owned, deterministic one-hop reads over actual recorded facts. The existing Query/Page types retain their assertion-only meanings. The new operation requires the explicit files/3 backend; files/1–2 refuse its capability. Canonical regeneration remains KH-SL-012.
+Owned deterministic one-hop reads follow actual recorded facts through the sole
+0.10.0 full API and default files/4 backend. No capability opt-in or old backend
+fallback exists. Definition compatibility never supplies an absent edge.
 
-OntologyHub::neighbours(context, Neighbours::new(selection, starts)) accepts an exact snapshot or baseline, exact qualified starting references, outgoing/incoming/both directions, exact selectors, categories, an optional exact opposite type and explicit subtype inclusion. Definitions of legal endpoints do not create links. Plain text resembling an ID is never interpreted as a reference. Results contain owned references, selectors, origins and vertex availability/selection status. Records projection additionally returns deduplicated exact endpoint/origin records.
+KnowledgeHub::neighbours(context, Neighbours::new(selection, starts)) accepts an exact snapshot or baseline, exact qualified starting references, outgoing/incoming/both directions, exact selectors, categories, an optional exact opposite type and explicit subtype inclusion. Definitions of legal endpoints do not create links. Plain text resembling an ID is never interpreted as a reference. Results contain owned references, selectors, origins and vertex availability/selection status. Records projection additionally returns deduplicated exact endpoint/origin records.
 
 Selectors distinguish assertion signatures, registered property descriptors and native kernel fields. A property selector pins the owning element-type revision (including its pinned inherited fields), or the relationship-definition revision declaring a qualifier. Schema paths use escaped JSON-pointer components and * for collection items; origin occurrence paths retain concrete indices. Any exposes only explicitly tagged references and retains the path of its declared descriptor. Artifact/narrative links use the representation category. Provenance, native definition/header links and administrative metadata are separately selectable.
 
@@ -41,7 +43,15 @@ Preparation/publication/eviction hold the stable store's exclusive lease; a comp
 
 NeighbourWork separates prepared owners/facts, index node/byte reads, required record reads, examined candidates, physical postings read and rebuild diagnostics. FileWork.state_materialisations helps verify the selective boundary. Timings must distinguish cold preparation, a fresh backend/page read and subsequent lookup; index growth includes actual native/provenance facts, not merely user assertions.
 
-On files/3, existing assertion traversal uses adjacency while preserving its original signature/assertion ordering, filtering, depth-four and subject/edge/page limits. Empty-start type/enumeration queries keep their existing full-state implementation. New text entry and declarative multi-hop impact operations belong to KH-SL-011; this slice implements no AI calls, inferred edges, arbitrary execution or canonical rebuild.
+Query/Page retain enumeration and type/ID selection. Nonempty-start expansion uses
+the same current indexed frontier as impact traversal, with deterministic
+(start, subject, plan position) frontier ordering and exact selector/opposite/origin
+edge ordering. Unique subjects and assertion origins are returned once, preserving
+parallel origin witnesses. The maximum depth is 32, starts/page 1,000 and
+subjects/edges 10,000; default depth remains 1. At depth or work bounds the final
+page explicitly reports truncation. Query.preparation supplies finite cold-index
+budgets. Empty-start enumeration uses selected full state; prepared expansion does
+not materialise it. Cursors remain exact-view, intent, scope and actor bound.
 
 The isolated public command is:
 

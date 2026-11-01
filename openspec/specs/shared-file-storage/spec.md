@@ -6,13 +6,6 @@ Retain exact KnowledgeHub states and original operation results through shared i
 
 ## Requirements
 
-### Requirement: Explicit format selection and legacy preservation
-The file backend SHALL require explicit selection of files/3, reject incompatible required formats/codecs and preserve existing files/1–2 APIs, hashes and receipts. Ordinary open SHALL NOT convert, recreate or repair a damaged store as empty.
-
-#### Scenario: Legacy store passed to the new constructor
-- **WHEN** a caller opens a files/2 store through the files/3 path
-- **THEN** the operation refuses incompatibility without modifying the store and the original files/2 path remains usable
-
 ### Requirement: Lossless immutable record and artifact reconstruction
 Stored projections SHALL reconstruct exact accepted records under their original semantic codec and verify their digests. Original artifact bytes, ordered values, null/absence, ownership, provenance and opaque references SHALL remain unchanged. Logical reference cycles SHALL NOT require circular content hashes.
 
@@ -25,7 +18,7 @@ Stored projections SHALL reconstruct exact accepted records under their original
 - **THEN** the store retains and resolves them without changing their tokens or solving a physical hash cycle
 
 ### Requirement: Shared content and change-proportional writes
-Files/3 SHALL reuse unchanged record/content objects and persistent state structures. Repeated identical content SHALL NOT add another logical payload. A small definition change or baseline capture SHALL NOT write another complete graph/artifact copy; diagnostics SHALL distinguish new content from structural metadata.
+The current file backend SHALL reuse unchanged record/content objects and persistent state structures. Repeated identical content SHALL NOT add another logical payload. A small definition change or baseline capture SHALL NOT write another complete graph/artifact copy; diagnostics SHALL distinguish new content from structural metadata.
 
 #### Scenario: One explanation changes
 - **WHEN** an author changes one narrative and its required bindings in a model containing many unrelated artifacts
@@ -71,3 +64,13 @@ A point/range read SHALL remain bound to one accepted selection and verify requi
 - **WHEN** a caller loses required read or original-outcome authority before a new request
 - **THEN** the request is denied despite possession of earlier references or receipts
 
+### Requirement: One current default file format
+FileBackend::new SHALL construct the sole current knowledgehub-files/4 backend. Older-format constructors, selectors, aliases and automatic conversion SHALL be absent. Open SHALL reject any other required format without modifying or recreating it.
+
+#### Scenario: Construct without a format selector
+- **WHEN** a host constructs the default backend and creates a full Hub
+- **THEN** it uses the current complete implementation and its versioned metadata
+
+#### Scenario: Open an older instance
+- **WHEN** a caller passes a files/1, files/2 or files/3 store to the current backend
+- **THEN** open refuses it explicitly and leaves its bytes unchanged

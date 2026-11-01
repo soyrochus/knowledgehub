@@ -6,5 +6,5 @@ mod tests;
 pub(crate) mod text;
 mod types;
 pub(crate) use api::ImpactCursor;
-pub(crate) use engine::ViewInfo;
+pub(crate) use engine::{ViewInfo, evaluate_query};
 pub use types::*;

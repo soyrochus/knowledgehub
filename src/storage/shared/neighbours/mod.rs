@@ -6,7 +6,6 @@ use super::{
     trees::{Tree, exact_key, identity_key, ref_key},
 };
 use crate::ontology::{
-    self,
     neighbours::{Fact, Position, Posting, Slice, facts},
     *,
 };
@@ -109,7 +108,7 @@ fn derived(error: Error) -> Error {
 fn cache(store: &FileStore) -> FileStore {
     FileStore {
         root: store.root.join("cache/neighbours"),
-        format: ontology::SHARED_FILE_FORMAT,
+
         support: store.support.clone(),
         work: Counters {
             locations: store.work.neighbour_locations.clone(),
@@ -613,14 +612,9 @@ impl FileBackend {
         let b = self.clone();
         self.jobs
             .run(move || {
-                context.check(&scope.transport(), crate::Action::Commit)?;
-                if b.store.version() != ontology::SHARED_FILE_FORMAT {
-                    return Err(Error::Incompatible(
-                        "neighbour cache requires files/3".into(),
-                    ));
-                }
-                let _lease = b.store.acquire(&scope.transport())?;
-                context.check(&scope.transport(), crate::Action::Commit)?;
+                context.check(&scope, crate::Action::Commit)?;
+                let _lease = b.store.acquire(&scope)?;
+                context.check(&scope, crate::Action::Commit)?;
                 clear(&b.store)
             })
             .await

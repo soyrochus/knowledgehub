@@ -1,5 +1,10 @@
 # Calling and support boundary
 
+Historical implementation record. The current 0.10.0 contract is documented in
+[the full API guide](typed-ontology-api.md) and [current file storage](files3-guide.md).
+Earlier seed APIs/decoders and the runnable files/1 fixture have been removed; this
+record retains the scope of its original implementation and evidence.
+
 KH-SL-001 · `knowledgehub` 0.1.0 · 31 October 2026.
 
 The embedded API implements the fixed sourced seed and its guarded file commits.

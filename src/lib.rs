@@ -1,5 +1,11 @@
 #![doc = include_str!("../README.md")]
-mod application;
+// Removed API spellings are deliberately unavailable.
+#![doc = r#"```compile_fail
+use knowledgehub::OntologyHub;
+```"#]
+#![doc = r#"```compile_fail
+use knowledgehub::{ChangeSet, Profile, Scope, RevisionRef};
+```"#]
 mod codec;
 mod contracts;
 mod jobs;
@@ -7,14 +13,12 @@ mod model;
 pub mod ontology;
 mod storage;
 
-pub use application::KnowledgeHub;
 pub use contracts::*;
+pub(crate) use model::Snapshot;
+pub use ontology::*;
 
 #[cfg(test)]
 extern crate self as knowledgehub;
-#[cfg(test)]
-#[path = "../tests/internal/faults.rs"]
-mod fault_tests;
 #[cfg(test)]
 #[path = "../examples/support/mod.rs"]
 mod seed;
@@ -28,9 +32,6 @@ pub mod backends {
     }
 }
 
-#[cfg(test)]
-#[path = "../tests/internal/ontology_faults.rs"]
-mod ontology_fault_tests;
 #[cfg(test)]
 #[path = "../tests/internal/shared_faults.rs"]
 mod shared_fault_tests;

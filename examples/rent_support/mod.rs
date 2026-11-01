@@ -152,9 +152,9 @@ pub fn mapped_table(state: &State, id: &str, table: &str) -> (Record, Record) {
     specimens::put_property(&mut m, "target", selector(r.reference.clone(), "table"));
     (r, m)
 }
-pub async fn create(path: &Path) -> Result<(FileBackend, OntologyHub), Error> {
-    let b = FileBackend::new_shared_ontology(path, FileOptions::local_ext4())?;
-    let h = OntologyHub::create(b.clone(), fixture::context(), scope()).await?;
+pub async fn create(path: &Path) -> Result<(FileBackend, KnowledgeHub), Error> {
+    let b = FileBackend::new(path, FileOptions::local_ext4())?;
+    let h = KnowledgeHub::create(b.clone(), fixture::context(), scope()).await?;
     fixture::commit(&h, "catalogue", builtin_catalogue()?.operations()).await?;
     fixture::commit(&h, "fixture-vocabulary", vocabulary()).await?;
     let mut ops = specimens::specimens()?;

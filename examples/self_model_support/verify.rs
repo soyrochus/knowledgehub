@@ -5,7 +5,7 @@ use serde_json::json;
 use std::{collections::BTreeSet, time::Instant};
 
 pub async fn indexed(
-    h: &OntologyHub,
+    h: &KnowledgeHub,
     backend: &FileBackend,
     context: Context,
 ) -> Result<serde_json::Value, Box<dyn std::error::Error>> {

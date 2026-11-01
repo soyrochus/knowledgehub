@@ -1,0 +1,9 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.02s
+     Running tests/shared_storage.rs (target/debug/deps/shared_storage-e7d152cbaaaef206)
+
+running 1 test
+test public_shared_walkthrough_pack_reindex_and_materialise has been running for over 60 seconds
+test public_shared_walkthrough_pack_reindex_and_materialise ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 102.49s
+

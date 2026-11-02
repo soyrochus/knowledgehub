@@ -1,6 +1,7 @@
 //! Fixed actual neighbourhood with increasing unrelated facts and retained generations.
 #[path = "neighbour_support/mod.rs"]
 mod fixture;
+mod resource_usage;
 use knowledgehub::{backends::files::*, ontology::*, *};
 use sha2::{Digest, Sha256};
 use std::{collections::BTreeSet, os::unix::fs::MetadataExt, path::Path, time::Instant};
@@ -14,18 +15,7 @@ fn disk(path: &Path) -> (u64, u64, u64) {
         .map(|e| disk(&e.unwrap().path()))
         .fold((0, 0, 0), |a, b| (a.0 + b.0, a.1 + b.1, a.2 + b.2))
 }
-fn rss() -> u64 {
-    std::fs::read_to_string("/proc/self/status")
-        .unwrap()
-        .lines()
-        .find_map(|l| {
-            l.strip_prefix("VmHWM:")
-                .and_then(|s| s.split_whitespace().next())
-                .and_then(|s| s.parse::<u64>().ok())
-        })
-        .unwrap_or(0)
-        * 1024
-}
+
 async fn measured(
     h: &KnowledgeHub,
     b: &FileBackend,
@@ -155,7 +145,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
     println!(
         "{}",
-        serde_json::json!({"scope":"synthetic registered vocabulary; exact deterministic associations; no human acceptance","input_sha256":input_hash,"checkpoints":checkpoints,"unrelated_generations":generations,"high_fanout":high,"peak_process_rss_bytes":rss(),"cache_conditions":"fresh backend for cold page; subsequent calls share OS cache; decoded-object caches are per operation; OS page cache not flushed; shared host"})
+        serde_json::json!({"scope":"synthetic registered vocabulary; exact deterministic associations; no human acceptance","input_sha256":input_hash,"checkpoints":checkpoints,"unrelated_generations":generations,"high_fanout":high,"peak_process_rss_bytes":resource_usage::peak_rss_bytes(),"cache_conditions":"fresh backend for cold page; subsequent calls share OS cache; decoded-object caches are per operation; OS page cache not flushed; shared host"})
     );
     h.drain().await;
     Ok(())

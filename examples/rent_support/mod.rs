@@ -153,7 +153,7 @@ pub fn mapped_table(state: &State, id: &str, table: &str) -> (Record, Record) {
     (r, m)
 }
 pub async fn create(path: &Path) -> Result<(FileBackend, KnowledgeHub), Error> {
-    let b = FileBackend::new(path, FileOptions::local_ext4())?;
+    let b = FileBackend::new(path, FileOptions::native_local()?)?;
     let h = KnowledgeHub::create(b.clone(), fixture::context(), scope()).await?;
     fixture::commit(&h, "catalogue", builtin_catalogue()?.operations()).await?;
     fixture::commit(&h, "fixture-vocabulary", vocabulary()).await?;

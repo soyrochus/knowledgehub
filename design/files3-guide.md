@@ -1,5 +1,7 @@
 # Current shared immutable file storage
 
+[Native profiles and persistence](macos-file-backend.md) extend this sole files/4 backend to checked macOS arm64/local APFS; Linux x86_64/local ext4 retains its existing mechanism. Creation-profile metadata is provenance, with independent current-location admission.
+
 Implementation guide for KH-SL-009, `share-immutable-file-storage`. The wire grammar follows [file-storage proposal draft 0.3](../source/file-storage-proposal.md). Implementation and automated verification do not establish human acceptance or transfer document authority.
 
 Use `FileBackend::new(absolute_path, FileOptions::local_ext4())` with the full

@@ -1,0 +1,81 @@
+{
+  "format": "knowledgehub-post-check-report-relation/1",
+  "observed_at": "2026-11-02T08:25:52.865327+00:00",
+  "checked_manifest": {
+    "sha256": "3d3149201982b4ddabd312679650a42401f53e37cf461217891956af36442401",
+    "length": 52964
+  },
+  "files": {
+    "delivery/slice-plan.md": {
+      "checked": {
+        "sha256": "05049871f39751a5a97e67056a472c8a9db3c6097cb4c9ac7d3d801beea21234",
+        "length": 44388
+      },
+      "current": {
+        "sha256": "0236166eaeb69aeff7c33470dd68c3a4332253c3e0759608fed2173b5f360984",
+        "length": 44735
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    },
+    "design/domain-analysis.md": {
+      "checked": {
+        "sha256": "347ccf91f79ece95f35b927da237b47573ac6f9ecae6dd1c489409238a818908",
+        "length": 30216
+      },
+      "current": {
+        "sha256": "1c950772afdfb83bf27114bf17d655cfd5083a209238cfa6f2ef7a58445b7502",
+        "length": 30651
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    },
+    "design/self-hosting-plan.md": {
+      "checked": {
+        "sha256": "cae51bcc1d4007a80c7ad17e69d59a8175bbbaa8438df31f54dded2c10a3f27c",
+        "length": 45050
+      },
+      "current": {
+        "sha256": "a11d1bc116d2a903df20a1980de9500582664d4513fb7445312e857fdea8e9ca",
+        "length": 45407
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    },
+    "openspec/changes/support-macos-file-backend/design.md": {
+      "checked": {
+        "sha256": "b29eb5c30f7d49022082ebe61eef709ceb2cd307aadc06074063c3859827ed6c",
+        "length": 15141
+      },
+      "current": {
+        "sha256": "d564d31743cdce21b10adddeee8e1c8c141b7ad4008daa15e3b9c34acda63739",
+        "length": 16236
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    },
+    "openspec/changes/support-macos-file-backend/proposal.md": {
+      "checked": {
+        "sha256": "9f263900f31928cf6764ebb862c3d3b9bdcbfb9223a282e8be7cf08e040f9c48",
+        "length": 4446
+      },
+      "current": {
+        "sha256": "006ce69d4acd53d0f6f9da7693e9a3a1dcee93da3e4e5deb6c5dbbfe18e6aec4",
+        "length": 4842
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    },
+    "openspec/changes/support-macos-file-backend/tasks.md": {
+      "checked": {
+        "sha256": "9545891701e24124647af7bb136cd51ec46b6386efd4014fc666ec8f05a2d226",
+        "length": 9234
+      },
+      "current": {
+        "sha256": "b816ed2bcd132e3ec22cd1aea5a5e896443af7dd4dc430d71e332d1b8d22d352",
+        "length": 9960
+      },
+      "reason": "completion/status report only; no executable or behavioural contract change"
+    }
+  },
+  "executable_source_unchanged": true,
+  "captured_self_model_refreshed": false,
+  "source_books_unchanged": true,
+  "linux": "assumed at explicit user direction; native regression deferred",
+  "cross_host": "both native copy directions unverified"
+}

@@ -1,0 +1,10 @@
+[package]
+name="knowledgehub-apfs-probe"
+version="0.0.0"
+edition="2024"
+[dependencies]
+libc="=0.2.191"
+serde_json="=1.0.151"
+[[bin]]
+name="knowledgehub-apfs-probe"
+path="/Users/ivanderk/src/knowledgehub/scripts/probes/macos_filesystem.rs"

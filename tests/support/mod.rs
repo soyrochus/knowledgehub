@@ -23,7 +23,7 @@ impl Sandbox {
         Self { parent, store }
     }
     pub fn backend(&self) -> FileBackend {
-        FileBackend::new(&self.store, FileOptions::local_ext4()).unwrap()
+        FileBackend::new(&self.store, FileOptions::native_local().unwrap()).unwrap()
     }
     pub async fn create(&self) -> KnowledgeHub {
         KnowledgeHub::create(self.backend(), crate::seed::context(), crate::seed::scope())

@@ -262,3 +262,24 @@ are retained in [the final run](../delivery/evidence/hub-rebuild/20261101T230838
 The current head retains 3,452 explicit draft gaps. Repository documents still own
 definitions; no human acceptance or authority handover follows. Final status/task
 prose follows the captured checkpoint, which remains exact inside the new Hub.
+
+### Proposed macOS file support — 2 November 2026
+
+The original request prepared this change without application. The subsequent
+Apply request authorised KH-SL-018 and the bounded implementation choices below.
+[Native Mac evidence](../delivery/evidence/macos-file-backend/README.md) now verifies
+that outcome. The user directed Linux verification to be accepted as given for
+now and performed separately. Native Linux regression, both native fixture-copy
+directions and final cross-platform review remain open; no Mac log substitutes
+for them. This extends KH-D-04 under source proposal §20.4 without a second backend.
+
+| ID | Direction selected for bounded implementation | Observed result / remaining gate |
+| --- | --- | --- |
+| KH-D-23 | Extend the existing `FileBackend` with macOS arm64/local APFS, retaining Linux x86_64/local ext4, one files/4 format and host-owned Tokio. Add explicit APFS profile construction and a checked native-profile helper for maintained host code. | Native evidence uses macOS 26.6.2 build 25G83 arm64, writable local case-insensitive APFS; admission and the complete runtime/recovery journey passed. Earlier macOS versions and Intel Macs are not claimed. Use installed Rust 1.99.1 on both native hosts; install no compiler. |
+| KH-D-24 | Treat files/4 `filesystem_profile` as its recognised creation profile, while independently validating the actual current host/filesystem on every open/create. Keep both recognised profile labels and reject unknown ones. | Existing Linux metadata remains byte-exact. A quiescent complete synthetic current-format fixture can be copied between supported hosts without new identity/history, conversion or metadata rewriting. The implementation recognises both labels and synthetic parser tests preserve exact history/metadata. Actual native fixture copies in both directions remain unverified; older binaries and live copies are not promised. |
+| KH-D-25 | Use a documented, platform-specific file/directory persistence protocol with the same publication/uncertainty contract and native fault evidence. | The native feasibility gate passed before admission. Explicit Darwin F_FULLFSYNC, directory fsync and final fences now run under the existing prior/uncertain/original-recovery boundary; all eight publication and seven maintenance process-kill cases and injected sync errors passed. No suppressed sync errors or silent weaker fallback. Process-kill/injected-error checks establish only their stated failure boundary; power-loss/kernel-crash/hardware guarantees remain unverified. |
+
+These implemented choices and technical results do not transfer authority to the persisted self-model.
+`hub/`, `old_hub/`, their exact sources and historical evidence are outside the
+change's mutation scope. Implementation verification must use isolated stores;
+any later canonical rebuild or source refresh requires its own authorisation.

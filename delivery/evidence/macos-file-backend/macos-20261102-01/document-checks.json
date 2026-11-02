@@ -1,0 +1,20 @@
+{
+  "format": "knowledgehub-macos-document-checks/1",
+  "files": 17,
+  "local_links_and_anchors": 129,
+  "errors": [],
+  "openspec": {
+    "command": [
+      "openspec",
+      "validate",
+      "support-macos-file-backend",
+      "--strict",
+      "--no-interactive"
+    ],
+    "observed_exit_code": 0,
+    "observed_output": "Change 'support-macos-file-backend' is valid"
+  },
+  "formatting_and_diff_check": {
+    "observed_exit_code": 0
+  }
+}

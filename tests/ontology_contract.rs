@@ -7,7 +7,7 @@ fn model_scope() -> ModelScope {
     specimens::scope()
 }
 fn backend(s: &Sandbox) -> FileBackend {
-    FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(&s.store, FileOptions::native_local().unwrap()).unwrap()
 }
 async fn register(s: &Sandbox) -> (KnowledgeHub, Receipt) {
     let h = KnowledgeHub::create(backend(s), seed::context(), model_scope())

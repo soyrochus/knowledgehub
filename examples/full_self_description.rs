@@ -89,7 +89,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 
     let backend = knowledgehub::backends::files::FileBackend::new(
         &store,
-        knowledgehub::backends::files::FileOptions::local_ext4(),
+        knowledgehub::backends::files::FileOptions::native_local()?,
     )?;
     let hub = KnowledgeHub::create(backend, seed::context(), host::scope()).await?;
     submit(
@@ -214,7 +214,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let reopened = KnowledgeHub::open(
         knowledgehub::backends::files::FileBackend::new(
             &store,
-            knowledgehub::backends::files::FileOptions::local_ext4(),
+            knowledgehub::backends::files::FileOptions::native_local()?,
         )?,
         seed::context(),
         host::scope(),

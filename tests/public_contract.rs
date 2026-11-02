@@ -321,7 +321,7 @@ async fn incompatible_and_damaged_stores_are_not_recreated() {
 #[tokio::test]
 async fn refuses_unsupported_declared_filesystem() {
     let s = Sandbox::new();
-    let mut options = FileOptions::local_ext4();
+    let mut options = FileOptions::native_local().unwrap();
     options.support.coordinated_single_host = false;
     let b = FileBackend::new(&s.store, options).unwrap();
     assert!(matches!(

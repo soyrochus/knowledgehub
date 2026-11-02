@@ -91,7 +91,8 @@ mod tests {
             assert_eq!(fs::read(path).unwrap(), bytes);
         }
         // Independent readers notice atomic catalog replacement; eviction invalidates the epoch.
-        let mut other = FileBackend::new(&b.store.root, FileOptions::local_ext4()).unwrap();
+        let mut other =
+            FileBackend::new(&b.store.root, FileOptions::native_local().unwrap()).unwrap();
         packed(&mut other, 256 * 1024 * 1024);
         Objects::new(&other.store).get(&id).unwrap();
         let update = Objects::new(&b.store);
@@ -239,10 +240,11 @@ fn replace(store: &FileStore, path: &Path, bytes: &[u8]) -> Result<(), Error> {
         .root
         .join("staging")
         .join(format!("metadata-{}", store.allocate_id()?.0));
-    persist(&temp, bytes)?;
+    store.persist(&temp, bytes)?;
     fs::rename(&temp, path).map_err(|_| storage("install derived pack metadata"))?;
-    sync_dir(path.parent().unwrap())?;
-    sync_dir(&store.root.join("staging"))?;
+    store.sync_dir(path.parent().unwrap())?;
+    store.sync_dir(&store.root.join("staging"))?;
+    store.fence(path)?;
     if let Some(b) = &store.loose_budget {
         b.fetch_add(old, Ordering::Relaxed);
     }
@@ -370,7 +372,7 @@ impl Objects<'_> {
             .root
             .join("staging")
             .join(format!("pack-{}", self.store.allocate_id()?.0));
-        persist(&temporary, &frame)?;
+        self.store.persist(&temporary, &frame)?;
         self.store.point("cache-pack-staged")?;
         let path = self
             .store
@@ -382,7 +384,7 @@ impl Objects<'_> {
             Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => true,
             Err(_) => return Err(storage("install sealed cache pack")),
         };
-        sync_dir(path.parent().unwrap())?;
+        self.store.sync_dir(path.parent().unwrap())?;
         self.store.point("cache-pack-installed")?;
         let actual = objects::bounded_file(&path, (objects::MAX_OBJECT + 4096 + 256) as u64)?;
         if codec::digest(&actual) != id {
@@ -406,12 +408,13 @@ impl Objects<'_> {
             .root
             .join("staging")
             .join(format!("index-{}", self.store.allocate_id()?.0));
-        persist(&temp_index, &index)?;
+        self.store.persist(&temp_index, &index)?;
         fs::rename(&temp_index, &index_path).map_err(|_| storage("install cache sidecar"))?;
-        sync_dir(path.parent().unwrap())?;
+        self.store.sync_dir(path.parent().unwrap())?;
         self.store.point("cache-pack-indexed")?;
         fs::remove_file(&temporary).map_err(|_| storage("remove sealed cache staging"))?;
-        sync_dir(&self.store.root.join("staging"))?;
+        self.store.sync_dir(&self.store.root.join("staging"))?;
+        self.store.fence(&path)?;
         if let Some(b) = &self.store.loose_budget {
             b.fetch_add(
                 old + if duplicate {

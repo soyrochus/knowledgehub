@@ -1,0 +1,213 @@
+{
+  "format": "knowledgehub-macos-evidence-artifacts/1",
+  "files": {
+    "README.md": {
+      "sha256": "428d1c7c59fbef1cb6a09fb275c6d8678bb7dc92104dc0d522bc24b104ceaa00",
+      "length": 5385
+    },
+    "feasibility/README.md": {
+      "sha256": "17934ae2f9c71cb5f6e465f45bfdf5f1bb848bb2b49bd682891100e13ba30b2a",
+      "length": 2524
+    },
+    "feasibility/native.json": {
+      "sha256": "7c175a125836b55fd69e185a323e7d4ca685b156590b6807c174ae08ac59b3db",
+      "length": 3031
+    },
+    "feasibility/native.log": {
+      "sha256": "2cb4c4c9c08888d8e2eab116df5e8a7937b79e0ef84e390f6dff05db30293c97",
+      "length": 1207
+    },
+    "feasibility/probe-Cargo.lock": {
+      "sha256": "c7411b585989f97804f001476c2b4a0dd374f49272c25eb0470a988e7c5a5ad6",
+      "length": 2852
+    },
+    "feasibility/probe-Cargo.toml": {
+      "sha256": "c423879b42e598d7fbd6fd0ebaa41d83e294ba45b1782c4be1c9a5d5ca99785b",
+      "length": 239
+    },
+    "feasibility/retained-before.json": {
+      "sha256": "da9901b8f4b63b226469caf35017f0fd4b619737165502662607135a0a3c0e52",
+      "length": 121474
+    },
+    "macos-20261102-01/author.json": {
+      "sha256": "58ecccb8117a95433dfe1989b2dad1a195e2cf4c4ee1fa121fabd473827be40b",
+      "length": 252
+    },
+    "macos-20261102-01/author.stderr.log": {
+      "sha256": "67e1d76fb66d53df07dccca6ab4f69765fc19ada9e96abcae142ead3fa0a7526",
+      "length": 557
+    },
+    "macos-20261102-01/capture.json": {
+      "sha256": "e11ce0835d34121d8fb5af18307e586313dce98f5b5b2fecf860acc026f02230",
+      "length": 138
+    },
+    "macos-20261102-01/capture.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/catalogue.json": {
+      "sha256": "fd5c9c2c8d841636484835ef50fc3f3130b54a2c27b83aed4ad248602d441b20",
+      "length": 484773
+    },
+    "macos-20261102-01/catalogue.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/checked.json": {
+      "sha256": "3d3149201982b4ddabd312679650a42401f53e37cf461217891956af36442401",
+      "length": 52964
+    },
+    "macos-20261102-01/commands.json": {
+      "sha256": "e748a774e4a0ad999f8cb528317a9d1cc7839c8e27e0075b1c57dd7939707f2c",
+      "length": 10172
+    },
+    "macos-20261102-01/coverage-audit.json": {
+      "sha256": "69fa2ab97e71978f7d5dcff872a5f27ae7f909c2d7eb0da0a0ad4a6c39273aeb",
+      "length": 246434
+    },
+    "macos-20261102-01/coverage.json": {
+      "sha256": "46482adb9008192f4758b2a5990d99bc5c98242a7acf402ed5bd7690cf87ee24",
+      "length": 167
+    },
+    "macos-20261102-01/coverage.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/document-checks.json": {
+      "sha256": "76f24af303a97c0cc8f8f291a5207a8c5f448f7a8876d8c4f45e905aeb96d8e1",
+      "length": 445
+    },
+    "macos-20261102-01/inspect-before-compact.json": {
+      "sha256": "86f94476bb34988e5f11a338fb2db149d6e370c31500a9ede36fc8122775321a",
+      "length": 95043
+    },
+    "macos-20261102-01/inspect-before-compact.stderr.log": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    },
+    "macos-20261102-01/inspect-compacted.json": {
+      "sha256": "b7b3e07dc3ab8523c475f1f04eb407132ff1b1468460702bccb48ad425041108",
+      "length": 96357
+    },
+    "macos-20261102-01/inspect-compacted.stderr.log": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    },
+    "macos-20261102-01/inspect-reopened.json": {
+      "sha256": "242cc2128bda1838b86644e24784939096ac91e823d69657829172b7f4b01133",
+      "length": 95353
+    },
+    "macos-20261102-01/inspect-reopened.stderr.log": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    },
+    "macos-20261102-01/minimal.json": {
+      "sha256": "51decf3d951b6b01197dda696a7ecee6fd5fff655bbbf1fc63ea15cf34b22e5d",
+      "length": 23235
+    },
+    "macos-20261102-01/minimal.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/native.log": {
+      "sha256": "66cca27b734c0c2bb4e1da82c3ceafe2f384ebd2a8c2ff06ff5e366fc1d9be8a",
+      "length": 20883
+    },
+    "macos-20261102-01/neighbour-benchmark.json": {
+      "sha256": "e347d55b5dab590289b6bd6c6007959ea6a3063f9eb420f7a9effe1936149d11",
+      "length": 14106
+    },
+    "macos-20261102-01/neighbour-benchmark.stderr.log": {
+      "sha256": "8ac8162c974e49a3c9b979f9cea2b2d68f0f2737d7b9b4a6849eb91daef5c38a",
+      "length": 220
+    },
+    "macos-20261102-01/neighbours.json": {
+      "sha256": "6d591c71330d7349be905e9124c45a9c0715fe96eee890d49f5b87de77ededad",
+      "length": 21326
+    },
+    "macos-20261102-01/neighbours.stderr.log": {
+      "sha256": "ca706c575b7b26f82cee613dd79817be0196a8fe60c8e2876fc101b8c1e77dcb",
+      "length": 121
+    },
+    "macos-20261102-01/obsolete-format-catalogue_conformance.stderr.log": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    },
+    "macos-20261102-01/obsolete-format-full_self_description.stderr.log": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    },
+    "macos-20261102-01/obsolete-format-inspect_self_model.stderr.log": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    },
+    "macos-20261102-01/ontology-pdf-extracted.txt": {
+      "sha256": "890efb564773d0dc1a44399ab923b902695d8f7897e4b7bcd738815f71dd2bff",
+      "length": 90488
+    },
+    "macos-20261102-01/release-build.log": {
+      "sha256": "9787313101e5f9154d50717cabdaa6dfc9ec5fabee088f00d1e71df8f22fb866",
+      "length": 46362
+    },
+    "macos-20261102-01/rent-impact.json": {
+      "sha256": "10a03e55751dfe9a1dd828f2b3605977efff542b6448c2d2d9f93030e98850b0",
+      "length": 14370
+    },
+    "macos-20261102-01/rent-impact.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/report-relation.json": {
+      "sha256": "ee716f5a1d6eee17012b638755e3ef0601868d5e18c555db65a7854a4b4e6be9",
+      "length": 3063
+    },
+    "macos-20261102-01/retained-after.json": {
+      "sha256": "da9901b8f4b63b226469caf35017f0fd4b619737165502662607135a0a3c0e52",
+      "length": 121474
+    },
+    "macos-20261102-01/self-model-input.json": {
+      "sha256": "c5151212ddfda683abc892b0ae6a100e94fd6d6a26ab51acbe303e85733142bf",
+      "length": 1257732
+    },
+    "macos-20261102-01/self-model-result.json": {
+      "sha256": "659b89e21ca6a4edc91360a206e2a991d46da1237c785873499d86d8ded6384c",
+      "length": 3380808
+    },
+    "macos-20261102-01/shared-storage.json": {
+      "sha256": "0308883f32ad3dd47b1db14b5698c09c121cbacd8b9fe0425750170a42f03462",
+      "length": 1098
+    },
+    "macos-20261102-01/shared-storage.stderr.log": {
+      "sha256": "c918e6a4b816ce1b5ecb85260e069622ccabbe2d8fd78260b518fb9049703f13",
+      "length": 257
+    },
+    "macos-20261102-01/storage-benchmark.json": {
+      "sha256": "9e40f1d5afa4aa133088d562fbd33e58204f749c23efb7fe5c2b9a8d17d08cea",
+      "length": 3806
+    },
+    "macos-20261102-01/storage-benchmark.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/test-build.log": {
+      "sha256": "0dc5c3403ca347e5b932af07f5e30cd1766e1ac55790c97b72be2a9a248caa52",
+      "length": 49659
+    },
+    "macos-20261102-01/validate-input.json": {
+      "sha256": "70d2ff7d6ff0a317371431fc2a1efd9328275a2b36cd4483ba54cf3a11654bc7",
+      "length": 66
+    },
+    "macos-20261102-01/validate-input.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "macos-20261102-01/walkthrough-driver.py": {
+      "sha256": "7b7e478e3237ff1e016efdfefb1978f732f9dcaf3e8ba1a294e60707fc43917e",
+      "length": 5720
+    },
+    "macos-20261102-01/walkthrough.json": {
+      "sha256": "af986be14a6f04bfe1f301f14dcec210a26d037199a25703aac5c21e013e41c0",
+      "length": 99817
+    }
+  }
+}

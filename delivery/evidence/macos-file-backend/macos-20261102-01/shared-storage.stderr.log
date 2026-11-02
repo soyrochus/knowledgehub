@@ -1,0 +1,5 @@
+shared_storage: committed catalogue
+shared_storage: committed specimens
+shared_storage: baselines A/B and exact retry verified
+shared_storage: exact reopen, historical reads and bytes verified; scrubbing
+shared_storage: full retained-history scrub verified

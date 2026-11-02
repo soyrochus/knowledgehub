@@ -1,4 +1,5 @@
 //! Fixed synthetic inputs; run each case in a separate process for meaningful peak RSS.
+mod resource_usage;
 #[path = "support/mod.rs"]
 mod seed;
 #[path = "ontology_support/mod.rs"]
@@ -69,18 +70,7 @@ fn disk(path: &Path) -> (u64, u64, u64) {
         .map(|e| disk(&e.unwrap().path()))
         .fold((0, 0, 0), |a, b| (a.0 + b.0, a.1 + b.1, a.2 + b.2))
 }
-fn rss() -> u64 {
-    std::fs::read_to_string("/proc/self/status")
-        .unwrap()
-        .lines()
-        .find_map(|l| {
-            l.strip_prefix("VmHWM:")
-                .and_then(|s| s.split_whitespace().next())
-                .and_then(|s| s.parse::<u64>().ok())
-        })
-        .unwrap_or(0)
-        * 1024
-}
+
 #[tokio::main(flavor = "current_thread")]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let args = std::env::args().collect::<Vec<_>>();
@@ -99,7 +89,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         "history" => (8, 2048, 64),
         _ => return Err("unknown fixed case".into()),
     };
-    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(&path, FileOptions::native_local()?)?;
     let h = KnowledgeHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
     let initial = Instant::now();
     let operations = fixture(count, size);
@@ -162,7 +152,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     );
     let logical_state = digest(&serde_json::to_vec(&state)?);
     h.drain().await;
-    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(&path, FileOptions::native_local()?)?;
     let start = Instant::now();
     let reopened = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     let open_us = start.elapsed().as_micros();
@@ -171,7 +161,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         (head, state.clone())
     );
     let post = disk(&path);
-    let peak = rss();
+    let peak = resource_usage::peak_rss_bytes();
     println!(
         "{}",
         serde_json::json!({"case":case,"format":format,"input_sha256":input_hash,"logical_state_sha256":logical_state,"fixtures":{"sources":count,"bytes_each":size,"edits":edits,"content_policy":"each adjacent pair has identical bytes"},"fixture_ms":fixture_time,"selected":state.selected.len(),"retained":state.records.len(),"before_pack":{"encoded":before.0,"allocated":before.1,"files":before.2},"after_pack":{"encoded":post.0,"allocated":post.1,"files":post.2},"open_us":open_us,"peak_process_rss_bytes":peak,"point_reads":points,"writes":writes,"scrub":storage,"compaction":packing,"cache":"new backend instance for open; OS page cache uncontrolled; per-operation decoded cache; location cache shared by backend"})

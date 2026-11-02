@@ -1,0 +1,2638 @@
+{
+  "baseline_a": {
+    "narrative": {
+      "content": {
+        "length": 288,
+        "sha256": "6adc5dfd3fe18aec232ef22592f4e9db028f33477679c889e418a0b5dd882017"
+      },
+      "document": {
+        "id": "kh:capture:urn:document:knowledgehub-seed",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "text": "# Atomic governed change\n\nAn admitted change publishes its definitions, exact source captures, selected revisions and original operation receipt together. The trusted host supplies current authority. This explanation is derived from ontology section 21.4; project acceptance is separate.\n"
+    },
+    "reference": {
+      "id": "kh:baseline:A",
+      "model": "knowledgehub",
+      "revision": "self-1"
+    },
+    "requirement": {
+      "data": {
+        "data": {
+          "owners": [
+            {
+              "owner": "Graph",
+              "path": "/claim_kind"
+            },
+            {
+              "owner": "Document",
+              "path": "/description"
+            },
+            {
+              "owner": "Graph",
+              "path": "/name"
+            },
+            {
+              "owner": "Graph",
+              "path": "/rationale"
+            },
+            {
+              "owner": "Document",
+              "path": "/statement"
+            }
+          ],
+          "properties": {
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "urn:source:ontology:capture",
+                  "model": "sdo",
+                  "revision": "catalogue-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:source:ontology-original-markdown",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            },
+            "name": {
+              "kind": "Text",
+              "value": "Atomic governed change"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "kh:capture:urn:document:knowledgehub-seed",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:atomic-explanation",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            }
+          }
+        },
+        "kind": "Element"
+      },
+      "predecessor": null,
+      "provenance": [
+        {
+          "id": "kh:anchor:source:ontology-original-markdown",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        }
+      ],
+      "reference": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "sha256": "7449cfd09fa4b29cb17ae6d8e3881ca82f6d8a60f8f794dcd6cf2b255b2fe204",
+      "type_ref": {
+        "id": "sdo:type:Requirement",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      }
+    },
+    "selected_records": 9881
+  },
+  "baseline_b": {
+    "narrative": {
+      "content": {
+        "length": 406,
+        "sha256": "0b76387190202df3d8af69b544b07d43bedc3f14687d7c50b8de0f9f6fcaac4a"
+      },
+      "document": {
+        "id": "kh:capture:urn:document:knowledgehub-seed",
+        "model": "knowledgehub",
+        "revision": "self-2"
+      },
+      "text": "# Atomic governed change\n\nThe library checks current authority and exact expected revisions before publishing the complete typed graph, original artifacts, selected baseline and original operation receipt. An uncertain caller resolves that original operation after recovery. This revised explanation is authored for this walkthrough; it does not change historical test outcomes or record human acceptance.\n"
+    },
+    "reference": {
+      "id": "kh:baseline:B",
+      "model": "knowledgehub",
+      "revision": "self-1"
+    },
+    "requirement": {
+      "data": {
+        "data": {
+          "owners": [
+            {
+              "owner": "Graph",
+              "path": "/claim_kind"
+            },
+            {
+              "owner": "Document",
+              "path": "/description"
+            },
+            {
+              "owner": "Graph",
+              "path": "/name"
+            },
+            {
+              "owner": "Graph",
+              "path": "/rationale"
+            },
+            {
+              "owner": "Document",
+              "path": "/statement"
+            }
+          ],
+          "properties": {
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "urn:source:ontology:capture",
+                  "model": "sdo",
+                  "revision": "catalogue-1"
+                },
+                "fragment": {
+                  "id": "kh:anchor:source:ontology-original-markdown",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            },
+            "name": {
+              "kind": "Text",
+              "value": "Atomic governed change"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "id": "kh:capture:urn:document:knowledgehub-seed",
+                  "model": "knowledgehub",
+                  "revision": "self-2"
+                },
+                "fragment": {
+                  "id": "kh:anchor:atomic-explanation",
+                  "model": "knowledgehub",
+                  "revision": "self-2"
+                }
+              }
+            }
+          }
+        },
+        "kind": "Element"
+      },
+      "predecessor": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-1"
+      },
+      "provenance": [
+        {
+          "id": "kh:anchor:source:ontology-original-markdown",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        },
+        {
+          "id": "kh:anchor:atomic-explanation",
+          "model": "knowledgehub",
+          "revision": "self-2"
+        }
+      ],
+      "reference": {
+        "id": "urn:requirement:atomic-change",
+        "model": "knowledgehub",
+        "revision": "self-2"
+      },
+      "sha256": "ee370b96e30d97d3f2b3dbf0f110767319e4dd7301534633ccf0503f452c7930",
+      "type_ref": {
+        "id": "sdo:type:Requirement",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      }
+    },
+    "selected_records": 9882
+  },
+  "changed_identities": [
+    "knowledgehub::kh:anchor:atomic-explanation",
+    "knowledgehub::kh:assertion:interruption-checks",
+    "knowledgehub::kh:assertion:source-supports",
+    "knowledgehub::kh:baseline:A",
+    "knowledgehub::kh:capture:urn:document:knowledgehub-seed",
+    "knowledgehub::urn:assertion:commit-satisfies-atomic-change",
+    "knowledgehub::urn:requirement:atomic-change"
+  ],
+  "compaction": null,
+  "explicit_gaps": 3557,
+  "format": "knowledgehub-files/4",
+  "head": "4e0ca95347f4256417d9e4d580e8c684664c20c5e8a7c149ce72c48bd4aa4a4d",
+  "indexed": {
+    "adapter_work": {
+      "encoded_bytes_read": 9332586248,
+      "encoded_bytes_written": 0,
+      "index_bytes_read": 6024960,
+      "index_rebuilds": 0,
+      "neighbour_cache_failures": 0,
+      "neighbour_cache_peak_allocated_bytes": 0,
+      "object_reads": 73227,
+      "objects_written": 0,
+      "payload_bytes_written": 0,
+      "state_materialisations": 1,
+      "structural_bytes_written": 0,
+      "text_cache_peak_allocated_bytes": 0
+    },
+    "cold_neighbours": {
+      "ready": true,
+      "work": {
+        "examined_postings": 1,
+        "index_bytes_read": 19224594,
+        "index_metadata_bytes_read": 18783530,
+        "index_objects_read": 5,
+        "index_rebuilt": false,
+        "indexed_facts": 65517,
+        "indexed_owners": 9882,
+        "indexed_postings": 131034,
+        "postings_read": 1,
+        "prepared_facts": 0,
+        "prepared_owners": 0,
+        "rebuild_reason": null,
+        "record_bytes": 26395,
+        "record_reads": 5
+      }
+    },
+    "composite": {
+      "continuation": null,
+      "coverage": {
+        "dead_ends": [],
+        "domain_complete": false,
+        "gaps": [
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:13906",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-01:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:13906",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-01:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:13906",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-01:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:13906",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-01:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:13906",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-01:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14073",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-02:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14073",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-02:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14073",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-02:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14073",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-02:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14073",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-02:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14234",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-03:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14234",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-03:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14234",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-03:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14234",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-03:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14234",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-03:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14387",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-04:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14387",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-04:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14387",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-04:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14387",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-04:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14387",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-04:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14562",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-05:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14562",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-05:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14562",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-05:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14562",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-05:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14562",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-05:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14727",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-06:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14727",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-06:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14727",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-06:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14727",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-06:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14727",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-06:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14908",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-07:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14908",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-07:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14908",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-07:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14908",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-07:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:14908",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-07:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15086",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-08:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15086",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-08:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15086",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-08:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15086",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-08:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15086",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-08:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15310",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-09:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15310",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-09:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15310",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-09:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15310",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-09:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15310",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-09:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15497",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-10:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15497",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-10:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15497",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-10:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15497",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-10:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15497",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-10:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15671",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-11:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15671",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-11:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15671",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-11:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15671",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-11:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15671",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-11:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15883",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-12:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15883",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-12:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15883",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-12:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15883",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-12:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:15883",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-12:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16075",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-13:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16075",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-13:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16075",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-13:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16075",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-13:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16075",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-13:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16264",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-14:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16264",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-14:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16264",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-14:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16264",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-14:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16264",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-14:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16470",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-15:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16470",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-15:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16470",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-15:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16470",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-15:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16470",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-15:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16662",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-16:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16662",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-16:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16662",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-16:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16662",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-16:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16662",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-16:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16982",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-17:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16982",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-17:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16982",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-17:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16982",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-17:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:16982",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-17:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17291",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-18:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17291",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-18:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17291",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-18:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17291",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-18:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17291",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-18:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17608",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-19:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17608",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-19:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17608",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-19:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17608",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-19:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17608",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-19:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/rationale",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17851",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the BusinessRule.rationale refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-20:BusinessRule",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/invalid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17851",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.invalid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-20:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/valid_examples",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17851",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Invariant.valid_examples refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-20:Invariant",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/affected_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17851",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Constraint.affected_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-20:Constraint",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          },
+          {
+            "path": "/supporting_subjects",
+            "provenance": [
+              {
+                "id": "kh:anchor:unit:domain-analysis:17851",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            ],
+            "reason": "The retained source does not yet resolve the Rationale.supporting_subjects refinement. This is an explicit analysis gap, not a claim of a complete or executed contract.",
+            "subject": {
+              "id": "kh:rule:KH-DR-20:Rationale",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          }
+        ],
+        "meaning": "candidate_dependency",
+        "no_witnessed_dependency": false,
+        "omitted": true,
+        "unresolved": []
+      },
+      "dependencies": [
+        {
+          "omitted": false,
+          "start": {
+            "id": "urn:requirement:atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-2"
+          },
+          "target": {
+            "id": "kh:aggregate:model-branch",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "witnesses": [
+            [
+              {
+                "category": "Association",
+                "directions": [
+                  "Incoming"
+                ],
+                "opposite": {
+                  "id": "urn:use-case:commit-change-set",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                },
+                "origin": {
+                  "occurrence": "",
+                  "owner": {
+                    "id": "urn:assertion:commit-satisfies-atomic-change",
+                    "model": "knowledgehub",
+                    "revision": "self-1-successor"
+                  },
+                  "owner_type": {
+                    "id": "sdo:type:RelationshipAssertion",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  }
+                },
+                "selector": {
+                  "definition": {
+                    "id": "sdo:relationship:UseCase.satisfies",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  },
+                  "kind": "Assertion"
+                },
+                "subject": {
+                  "id": "urn:requirement:atomic-change",
+                  "model": "knowledgehub",
+                  "revision": "self-2"
+                }
+              },
+              {
+                "category": "Association",
+                "directions": [
+                  "Outgoing"
+                ],
+                "opposite": {
+                  "id": "kh:function:admit-change",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                },
+                "origin": {
+                  "occurrence": "",
+                  "owner": {
+                    "id": "kh:assertion:commit-invokes",
+                    "model": "knowledgehub",
+                    "revision": "self-1"
+                  },
+                  "owner_type": {
+                    "id": "sdo:type:RelationshipAssertion",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  }
+                },
+                "selector": {
+                  "definition": {
+                    "id": "sdo:relationship:UseCase.invokes",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  },
+                  "kind": "Assertion"
+                },
+                "subject": {
+                  "id": "urn:use-case:commit-change-set",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              },
+              {
+                "category": "Association",
+                "directions": [
+                  "Outgoing"
+                ],
+                "opposite": {
+                  "id": "kh:aggregate:model-branch",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                },
+                "origin": {
+                  "occurrence": "",
+                  "owner": {
+                    "id": "kh:assertion:admit-aggregate",
+                    "model": "knowledgehub",
+                    "revision": "self-1"
+                  },
+                  "owner_type": {
+                    "id": "sdo:type:RelationshipAssertion",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  }
+                },
+                "selector": {
+                  "definition": {
+                    "id": "sdo:relationship:FunctionDefinition.operatesOn",
+                    "model": "sdo",
+                    "revision": "catalogue-1"
+                  },
+                  "kind": "Assertion"
+                },
+                "subject": {
+                  "id": "kh:function:admit-change",
+                  "model": "knowledgehub",
+                  "revision": "self-1"
+                }
+              }
+            ]
+          ]
+        }
+      ],
+      "exhausted": true,
+      "hits": [
+        {
+          "end": 62,
+          "field": "/statement",
+          "omitted": false,
+          "record": {
+            "id": "urn:requirement:atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-2"
+          },
+          "snippet": "checks current authority",
+          "source": {
+            "anchor": {
+              "id": "kh:anchor:atomic-explanation",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "content": {
+              "length": 406,
+              "sha256": "0b76387190202df3d8af69b544b07d43bedc3f14687d7c50b8de0f9f6fcaac4a"
+            },
+            "document": {
+              "id": "kh:capture:urn:document:knowledgehub-seed",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "end": 62,
+            "original_location": null,
+            "span_document": {
+              "id": "kh:capture:urn:document:knowledgehub-seed",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "start": 38
+          },
+          "start": 38
+        }
+      ],
+      "match_status": "Matched",
+      "matching": "literal-ascii-fold/1",
+      "omitted_records": [],
+      "ontology": {
+        "id": "sdo:ontology:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      },
+      "profile": {
+        "id": "sdo:profile:knowledgehub-self-description",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      },
+      "reached": [],
+      "records": [
+        {
+          "data": {
+            "data": {
+              "owners": [
+                {
+                  "owner": "Document",
+                  "path": "/consistency_boundary"
+                },
+                {
+                  "owner": "Document",
+                  "path": "/description"
+                },
+                {
+                  "owner": "Graph",
+                  "path": "/members"
+                },
+                {
+                  "owner": "Graph",
+                  "path": "/members/0"
+                },
+                {
+                  "owner": "Graph",
+                  "path": "/name"
+                },
+                {
+                  "owner": "Document",
+                  "path": "/responsibility"
+                }
+              ],
+              "properties": {
+                "consistency_boundary": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "id": "kh:capture:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    },
+                    "fragment": {
+                      "id": "kh:anchor:source:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    }
+                  }
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "id": "kh:capture:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    },
+                    "fragment": {
+                      "id": "kh:anchor:source:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    }
+                  }
+                },
+                "members": {
+                  "kind": "List",
+                  "value": [
+                    {
+                      "kind": "Ref",
+                      "value": {
+                        "id": "kh:entity:model-branch",
+                        "model": "knowledgehub",
+                        "revision": "self-1"
+                      }
+                    }
+                  ]
+                },
+                "name": {
+                  "kind": "Text",
+                  "value": "Proposed model branch consistency responsibility"
+                },
+                "responsibility": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "id": "kh:capture:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    },
+                    "fragment": {
+                      "id": "kh:anchor:source:domain-analysis",
+                      "model": "knowledgehub",
+                      "revision": "self-1"
+                    }
+                  }
+                }
+              }
+            },
+            "kind": "Element"
+          },
+          "predecessor": null,
+          "provenance": [
+            {
+              "id": "kh:anchor:source:domain-analysis",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          ],
+          "reference": {
+            "id": "kh:aggregate:model-branch",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "sha256": "076b9568b4f2fbcdfa92415952619d29a7a9430cee268a6392d50be25361aa7d",
+          "type_ref": {
+            "id": "sdo:type:AggregateDefinition",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        },
+        {
+          "data": {
+            "data": {
+              "from": {
+                "id": "kh:function:admit-change",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              },
+              "qualifiers": {},
+              "signature": {
+                "id": "sdo:relationship:FunctionDefinition.operatesOn",
+                "model": "sdo",
+                "revision": "catalogue-1"
+              },
+              "to": {
+                "id": "kh:aggregate:model-branch",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            },
+            "kind": "Assertion"
+          },
+          "predecessor": null,
+          "provenance": [
+            {
+              "id": "kh:anchor:source:ontology-original-markdown",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          ],
+          "reference": {
+            "id": "kh:assertion:admit-aggregate",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "sha256": "05176ad7a6e373215ed6100b0efb64e153452a236b4566a546cee6de64d655d8",
+          "type_ref": {
+            "id": "sdo:type:RelationshipAssertion",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        },
+        {
+          "data": {
+            "data": {
+              "from": {
+                "id": "urn:use-case:commit-change-set",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              },
+              "qualifiers": {},
+              "signature": {
+                "id": "sdo:relationship:UseCase.invokes",
+                "model": "sdo",
+                "revision": "catalogue-1"
+              },
+              "to": {
+                "id": "kh:function:admit-change",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              }
+            },
+            "kind": "Assertion"
+          },
+          "predecessor": null,
+          "provenance": [
+            {
+              "id": "kh:anchor:source:ontology-original-markdown",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          ],
+          "reference": {
+            "id": "kh:assertion:commit-invokes",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "sha256": "e2bcf8147fded209c3868c2bf60f1d33b9eb9dfb3ec7dd5162631fbbb579c3aa",
+          "type_ref": {
+            "id": "sdo:type:RelationshipAssertion",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        },
+        {
+          "data": {
+            "data": {
+              "from": {
+                "id": "urn:use-case:commit-change-set",
+                "model": "knowledgehub",
+                "revision": "self-1"
+              },
+              "qualifiers": {},
+              "signature": {
+                "id": "sdo:relationship:UseCase.satisfies",
+                "model": "sdo",
+                "revision": "catalogue-1"
+              },
+              "to": {
+                "id": "urn:requirement:atomic-change",
+                "model": "knowledgehub",
+                "revision": "self-2"
+              }
+            },
+            "kind": "Assertion"
+          },
+          "predecessor": {
+            "id": "urn:assertion:commit-satisfies-atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "provenance": [
+            {
+              "id": "kh:anchor:source:ontology-original-markdown",
+              "model": "knowledgehub",
+              "revision": "self-1"
+            }
+          ],
+          "reference": {
+            "id": "urn:assertion:commit-satisfies-atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-1-successor"
+          },
+          "sha256": "e78fac4ad22e85b03c99a42f0d936525799c29282d836d04288ecdee69baf6f0",
+          "type_ref": {
+            "id": "sdo:type:RelationshipAssertion",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        }
+      ],
+      "selection": {
+        "reference": {
+          "id": "kh:baseline:B",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        },
+        "selection": "Baseline"
+      },
+      "starts": [
+        {
+          "id": "urn:requirement:atomic-change",
+          "model": "knowledgehub",
+          "revision": "self-2"
+        }
+      ],
+      "version": "knowledgehub-model-impact/1",
+      "work": {
+        "batch_lookups": 3,
+        "candidates_verified": 2,
+        "examined_associations": 3,
+        "expansion_attempts": 3,
+        "hydrated_bytes": 126275,
+        "index_bytes_read": 6040857,
+        "index_metadata_bytes_read": 0,
+        "index_objects_read": 96,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 29,
+        "text_postings_examined": 1400,
+        "visited_states": 4
+      }
+    },
+    "composite_full_state_loads": 0,
+    "composite_microseconds": 905058,
+    "meaning": "candidate_dependency; actual library definitions; no fictional rent concepts",
+    "preparation": {
+      "examined_postings": 0,
+      "index_bytes_read": 0,
+      "index_metadata_bytes_read": 0,
+      "index_objects_read": 0,
+      "index_rebuilt": false,
+      "indexed_facts": 65517,
+      "indexed_owners": 9882,
+      "indexed_postings": 131034,
+      "postings_read": 0,
+      "prepared_facts": 0,
+      "prepared_owners": 0,
+      "rebuild_reason": null,
+      "record_bytes": 0,
+      "record_reads": 0
+    },
+    "preparation_microseconds": 12378,
+    "repeated_composite_work": {
+      "batch_lookups": 3,
+      "candidates_verified": 2,
+      "examined_associations": 3,
+      "expansion_attempts": 3,
+      "hydrated_bytes": 126275,
+      "index_bytes_read": 6040857,
+      "index_metadata_bytes_read": 0,
+      "index_objects_read": 96,
+      "prepared_bytes": 0,
+      "prepared_fields": 0,
+      "prepared_owners": 0,
+      "record_reads": 29,
+      "text_postings_examined": 1400,
+      "visited_states": 4
+    },
+    "repeated_exact_result": true,
+    "search": {
+      "exhausted": true,
+      "hits": [
+        {
+          "end": 62,
+          "field": "/statement",
+          "omitted": false,
+          "record": {
+            "id": "urn:requirement:atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-2"
+          },
+          "snippet": "checks current authority",
+          "source": {
+            "anchor": {
+              "id": "kh:anchor:atomic-explanation",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "content": {
+              "length": 406,
+              "sha256": "0b76387190202df3d8af69b544b07d43bedc3f14687d7c50b8de0f9f6fcaac4a"
+            },
+            "document": {
+              "id": "kh:capture:urn:document:knowledgehub-seed",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "end": 62,
+            "original_location": null,
+            "span_document": {
+              "id": "kh:capture:urn:document:knowledgehub-seed",
+              "model": "knowledgehub",
+              "revision": "self-2"
+            },
+            "start": 38
+          },
+          "start": 38
+        }
+      ],
+      "mode": "literal-ascii-fold/1",
+      "reached": [],
+      "selection": {
+        "reference": {
+          "id": "kh:baseline:B",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        },
+        "selection": "Baseline"
+      },
+      "work": {
+        "batch_lookups": 0,
+        "candidates_verified": 2,
+        "examined_associations": 0,
+        "expansion_attempts": 0,
+        "hydrated_bytes": 6829,
+        "index_bytes_read": 5883577,
+        "index_metadata_bytes_read": 894097,
+        "index_objects_read": 81,
+        "prepared_bytes": 0,
+        "prepared_fields": 0,
+        "prepared_owners": 0,
+        "record_reads": 2,
+        "text_postings_examined": 1400,
+        "visited_states": 0
+      }
+    },
+    "warm_microseconds": 52942,
+    "warm_neighbours": {
+      "continuation": null,
+      "exhausted": true,
+      "fact_scope": "Selected",
+      "neighbours": [
+        {
+          "category": "Association",
+          "directions": [
+            "Incoming"
+          ],
+          "opposite": {
+            "id": "urn:use-case:commit-change-set",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "origin": {
+            "occurrence": "",
+            "owner": {
+              "id": "urn:assertion:commit-satisfies-atomic-change",
+              "model": "knowledgehub",
+              "revision": "self-1-successor"
+            },
+            "owner_type": {
+              "id": "sdo:type:RelationshipAssertion",
+              "model": "sdo",
+              "revision": "catalogue-1"
+            }
+          },
+          "selector": {
+            "definition": {
+              "id": "sdo:relationship:UseCase.satisfies",
+              "model": "sdo",
+              "revision": "catalogue-1"
+            },
+            "kind": "Assertion"
+          },
+          "subject": {
+            "id": "urn:requirement:atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-2"
+          }
+        }
+      ],
+      "ontology": {
+        "id": "sdo:ontology:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      },
+      "profile": {
+        "id": "sdo:profile:knowledgehub-self-description",
+        "model": "sdo",
+        "revision": "catalogue-1"
+      },
+      "reached": null,
+      "records": [],
+      "selection": {
+        "reference": {
+          "id": "kh:baseline:B",
+          "model": "knowledgehub",
+          "revision": "self-1"
+        },
+        "selection": "Baseline"
+      },
+      "vertices": [
+        {
+          "available": true,
+          "reference": {
+            "id": "urn:requirement:atomic-change",
+            "model": "knowledgehub",
+            "revision": "self-2"
+          },
+          "selected": true,
+          "type_ref": {
+            "id": "sdo:type:Requirement",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        },
+        {
+          "available": true,
+          "reference": {
+            "id": "urn:use-case:commit-change-set",
+            "model": "knowledgehub",
+            "revision": "self-1"
+          },
+          "selected": true,
+          "type_ref": {
+            "id": "sdo:type:UseCase",
+            "model": "sdo",
+            "revision": "catalogue-1"
+          }
+        }
+      ],
+      "work": {
+        "examined_postings": 1,
+        "index_bytes_read": 441064,
+        "index_metadata_bytes_read": 0,
+        "index_objects_read": 5,
+        "index_rebuilt": false,
+        "indexed_facts": 65517,
+        "indexed_owners": 9882,
+        "indexed_postings": 131034,
+        "postings_read": 1,
+        "prepared_facts": 0,
+        "prepared_owners": 0,
+        "rebuild_reason": null,
+        "record_bytes": 26395,
+        "record_reads": 5
+      }
+    }
+  },
+  "original_receipts": [
+    {
+      "fingerprint": "8b190bf78cf94028ecc35e7cbc9b49ae4fcfd1d7043f9e29a226f06f0d938f76",
+      "head": "f03c974d60958736de43cb50ed7c9ee6ca8cb7a89a910872c6f148a9cab7e89f",
+      "operation_id": "load-self-definition",
+      "sequence": 2
+    },
+    {
+      "fingerprint": "4a75b83e76dbbb961b04effa3deef4d87631d3926f2c80a9dd081cb99b3350d0",
+      "head": "235cfb680ff4ec275ce25fdaadc78025e6f5d80216194480d085563c5d8a8c52",
+      "operation_id": "revise-explanation",
+      "sequence": 6
+    }
+  ],
+  "profile": {
+    "id": "sdo:profile:knowledgehub-self-description",
+    "model": "sdo",
+    "revision": "catalogue-1"
+  },
+  "purpose_complete": false,
+  "retained_revisions": 9889,
+  "scope": {
+    "branch": "main",
+    "hub": "kh:hub:self-description",
+    "model": "urn:knowledgehub:library",
+    "owner": "host:maintainer"
+  },
+  "scrub": {
+    "allocated_file_bytes": 43880448,
+    "anchor_data_bytes": 1689881,
+    "artifact_logical_bytes": 5606664,
+    "baseline_data_bytes": 1851,
+    "baselines": 3,
+    "derived_file_bytes": 36347219,
+    "encoded_file_bytes": 43288322,
+    "files": 391,
+    "generations": 8,
+    "history_tree_bytes": 14259104,
+    "logical_object_bytes": 30264807,
+    "objects": 24272,
+    "pack_blocks": 51,
+    "packs": 1,
+    "peak_compaction_allocated_bytes": 43880448,
+    "peak_compaction_bytes": 43288322,
+    "record_data_bytes": 8707307,
+    "removed_files": 0,
+    "work": {
+      "encoded_bytes_read": 12439702994,
+      "encoded_bytes_written": 0,
+      "index_bytes_read": 6024960,
+      "index_rebuilds": 1,
+      "neighbour_cache_failures": 0,
+      "neighbour_cache_peak_allocated_bytes": 0,
+      "object_reads": 97499,
+      "objects_written": 0,
+      "payload_bytes_written": 0,
+      "state_materialisations": 9,
+      "structural_bytes_written": 0,
+      "text_cache_peak_allocated_bytes": 0
+    }
+  },
+  "selected_records": 9883,
+  "store": "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/self-model",
+  "structurally_valid": true
+}

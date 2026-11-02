@@ -19,7 +19,7 @@ impl crate::Policy for RevokedOnAdmission {
 }
 
 fn backend(s: &Sandbox) -> FileBackend {
-    FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(&s.store, FileOptions::native_local().unwrap()).unwrap()
 }
 async fn create(s: &Sandbox) -> (FileBackend, KnowledgeHub) {
     let b = backend(s);
@@ -48,6 +48,105 @@ fn extra(state: &State, head: SnapshotId, id: &str) -> Change {
     let mut c = Change::at(state, head, id);
     c.operations.push(Operation::Put(r));
     c
+}
+
+#[tokio::test]
+async fn native_creation_profiles_are_provenance_and_unknown_metadata_never_mutates() {
+    let s = Sandbox::new();
+    let (b, h) = create(&s).await;
+    let before = h.snapshot(seed::context()).await.unwrap();
+    let receipt = h
+        .operation_result(seed::context(), "catalogue".into())
+        .await
+        .unwrap();
+    h.drain().await;
+    let path = s.store.join("hub.json");
+    let bytes = fs::read(&path).unwrap();
+    let meta: serde_json::Value = serde_json::from_slice(&bytes).unwrap();
+    assert_eq!(
+        meta["filesystem_profile"],
+        native::declared(&b.store.support).unwrap()
+    );
+    let head_path = generation::head_path(&b.store, &specimens::scope()).unwrap();
+    let head_bytes = fs::read(&head_path).unwrap();
+    // Synthetic origin labels exercise the parser, not native cross-host copying evidence.
+    for origin in [native::EXT4, native::APFS] {
+        let mut candidate = meta.clone();
+        candidate["filesystem_profile"] = value!(origin);
+        let encoded = json(&candidate).unwrap();
+        fs::write(&path, &encoded).unwrap();
+        let reopened = KnowledgeHub::open(backend(&s), seed::context(), specimens::scope())
+            .await
+            .unwrap();
+        assert_eq!(reopened.snapshot(seed::context()).await.unwrap(), before);
+        assert_eq!(
+            reopened
+                .operation_result(seed::context(), "catalogue".into())
+                .await
+                .unwrap(),
+            receipt
+        );
+        assert_eq!(fs::read(&path).unwrap(), encoded);
+        assert_eq!(fs::read(&head_path).unwrap(), head_bytes);
+        reopened.drain().await;
+    }
+    for (field, invalid) in [
+        ("filesystem_profile", value!("unknown/1")),
+        ("format", value!("knowledgehub-files/3")),
+        ("record_codec", value!("unknown/1")),
+        ("request_codec", value!("unknown/1")),
+        ("object_grammar", value!("unknown/1")),
+        ("required_features", value!(["unknown"])),
+        ("scope", value!({"hub":"other"})),
+    ] {
+        let mut candidate = meta.clone();
+        candidate[field] = invalid;
+        let encoded = json(&candidate).unwrap();
+        fs::write(&path, &encoded).unwrap();
+        assert!(
+            KnowledgeHub::open(backend(&s), seed::context(), specimens::scope())
+                .await
+                .is_err(),
+            "{field}"
+        );
+        assert_eq!(fs::read(&path).unwrap(), encoded);
+        assert_eq!(fs::read(&head_path).unwrap(), head_bytes);
+    }
+    fs::write(&path, &bytes).unwrap();
+}
+
+#[tokio::test]
+async fn native_profile_refuses_wrong_host_and_symlink_layout_before_mutation() {
+    let s = Sandbox::new();
+    let mut wrong = FileOptions::native_local().unwrap();
+    wrong.support = if wrong.support.host == "linux-x86_64" {
+        FileSupport::local_apfs()
+    } else {
+        FileSupport::local_ext4()
+    };
+    let b = FileBackend::new(&s.store, wrong).unwrap();
+    assert!(matches!(
+        KnowledgeHub::create(b, seed::context(), specimens::scope()).await,
+        Err(Error::Incompatible(_))
+    ));
+    assert!(!s.store.exists());
+    let (b, h) = create(&s).await;
+    h.drain().await;
+    let refs = s.store.join("refs");
+    let other = s.parent.join("saved-refs");
+    fs::rename(&refs, &other).unwrap();
+    std::os::unix::fs::symlink(&other, &refs).unwrap();
+    assert!(
+        KnowledgeHub::open(b, seed::context(), specimens::scope())
+            .await
+            .is_err()
+    );
+    assert!(
+        fs::symlink_metadata(&refs)
+            .unwrap()
+            .file_type()
+            .is_symlink()
+    );
 }
 
 #[tokio::test]

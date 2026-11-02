@@ -128,7 +128,7 @@ fn writer(s: &FileStore, clear: bool) -> Result<FileStore, Error> {
     ] {
         let p = c.root.join(p);
         match fs::create_dir(&p) {
-            Ok(()) => sync_dir(p.parent().unwrap())?,
+            Ok(()) => c.sync_dir(p.parent().unwrap())?,
             Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => is_dir(&p)?,
             Err(_) => return Err(missing("create cache")),
         }
@@ -156,11 +156,12 @@ fn install(c: &FileStore, mut m: Manifest) -> Result<(), Error> {
     if tmp.exists() {
         fs::remove_file(&tmp).map_err(|_| missing("discard staging"))?;
     }
-    persist(&tmp, &bytes)?;
-    sync_dir(&c.root.join("staging"))?;
+    c.persist(&tmp, &bytes)?;
+    c.sync_dir(&c.root.join("staging"))?;
     fs::rename(&tmp, path(c, &m.binding)?).map_err(|_| missing("publish manifest"))?;
-    sync_dir(&c.root.join("views"))?;
-    sync_dir(&c.root.join("staging"))
+    c.sync_dir(&c.root.join("views"))?;
+    c.sync_dir(&c.root.join("staging"))?;
+    c.fence(&path(c, &m.binding)?)
 }
 fn span_bytes(
     o: &Objects<'_>,

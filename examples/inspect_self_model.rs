@@ -39,7 +39,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     eprintln!("Opening persisted self-model at {}", store.display());
     let backend = knowledgehub::backends::files::FileBackend::new(
         &store,
-        knowledgehub::backends::files::FileOptions::local_ext4(),
+        knowledgehub::backends::files::FileOptions::native_local()?,
     )?;
     let compacted = if options.compact {
         Some(backend.compact(seed::context(), host::scope()).await?)

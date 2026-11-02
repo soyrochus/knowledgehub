@@ -1,0 +1,56 @@
+{
+  "case_sensitive": false,
+  "device": 16777230,
+  "errors": {
+    "exclusive_directory": 17,
+    "exclusive_file": 17,
+    "invalid_flush": 9,
+    "invalid_fsync": 9
+  },
+  "filesystem": "apfs",
+  "flags": 76583040,
+  "format": "knowledgehub-apfs-feasibility/1",
+  "limits": "native successful calls and process coordination; no power-loss/kernel-crash/hardware guarantee",
+  "locking": "same-process independent shared/exclusive; child shared/exclusive; busy exit 73; SIGKILL release; unchanged inode",
+  "mount": "/System/Volumes/Data",
+  "source": "/dev/disk3s5",
+  "steps": [
+    "create directories; fsync children and parent",
+    "write candidate; explicit F_FULLFSYNC; installed Rust sync_all",
+    "hard-link install; fsync destination; unlink staging; fsync source; retained-file full fence",
+    "write/full-flush reference; fsync staging; same-volume replace; fsync both parents; published-file full fence"
+  ],
+  "observed_at": "2026-11-02T07:41:45.337934+00:00",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: aarch64-apple-darwin\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "os": "ProductName:\t\tmacOS\nProductVersion:\t\t26.6.2\nBuildVersion:\t\t25G83\n",
+  "kernel": "Darwin M-CK04W156W4 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:17:26 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6041 arm64\n",
+  "installed_std_fsync_excerpt": "    pub fn fsync(&self) -> io::Result<()> {\n        cvt_r(|| unsafe { os_fsync(self.as_raw_fd()) })?;\n        return Ok(());\n\n        #[cfg(target_vendor = \"apple\")]\n        unsafe fn os_fsync(fd: c_int) -> c_int {\n            libc::fcntl(fd, libc::F_FULLFSYNC)\n        }\n        #[cfg(not(target_vendor = \"apple\"))]\n        unsafe fn os_fsync(fd: c_int) -> c_int {\n            libc::fsync(fd)\n        }\n    }",
+  "fixture": "/private/tmp/knowledgehub-apfs-probe/recorded-20261102T074145",
+  "old_hub_present": false,
+  "inputs": {
+    "/Users/ivanderk/src/knowledgehub/scripts/probes/macos_filesystem.rs": {
+      "sha256": "ff9c14df2152414fbd7a6f8605da58c086a073b1834087ee002a4b90c6ebd22e",
+      "length": 8071
+    },
+    "/private/tmp/knowledgehub-apfs-probe/Cargo.toml": {
+      "sha256": "c423879b42e598d7fbd6fd0ebaa41d83e294ba45b1782c4be1c9a5d5ca99785b",
+      "length": 239
+    },
+    "/private/tmp/knowledgehub-apfs-probe/Cargo.lock": {
+      "sha256": "c7411b585989f97804f001476c2b4a0dd374f49272c25eb0470a988e7c5a5ad6",
+      "length": 2852
+    },
+    "/Users/ivanderk/.rustup/toolchains/stable-aarch64-apple-darwin/lib/rustlib/src/rust/library/std/src/sys/fs/unix.rs": {
+      "sha256": "61f4ef3a4b679a38182e76634f96e551ef0b21b06c5695f36187f557d1efc232",
+      "length": 85443
+    }
+  },
+  "executable": {
+    "sha256": "650b15f8e0f864937cb1295778b2831175df067660841698c4e764643bc2b70f",
+    "length": 1025720
+  },
+  "log": {
+    "sha256": "2cb4c4c9c08888d8e2eab116df5e8a7937b79e0ef84e390f6dff05db30293c97",
+    "length": 1207
+  }
+}

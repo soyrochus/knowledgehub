@@ -378,10 +378,11 @@ fn derived(store: &FileStore, path: &Path, bytes: &[u8]) -> Result<(), Error> {
         .root
         .join("staging")
         .join(format!("index-{}", store.allocate_id()?.0));
-    persist(&temp, bytes)?;
+    store.persist(&temp, bytes)?;
     fs::rename(&temp, path).map_err(|_| storage("replace derived location data"))?;
-    sync_dir(path.parent().unwrap())?;
-    sync_dir(&store.root.join("staging"))
+    store.sync_dir(path.parent().unwrap())?;
+    store.sync_dir(&store.root.join("staging"))?;
+    store.fence(path)
 }
 fn write_pack(
     objects: &Objects<'_>,
@@ -483,8 +484,8 @@ fn write_pack(
     )?;
     f.seek(SeekFrom::Start(8))
         .and_then(|_| f.write_all(&blocks.to_be_bytes()))
-        .and_then(|()| f.sync_all())
         .map_err(|_| storage("finish immutable pack"))?;
+    store.sync_file(&f, "finish immutable pack")?;
     store.point("pack-file")?;
     let id = file_hash(&temp)?;
     let path = store
@@ -500,7 +501,7 @@ fn write_pack(
         }
         Err(_) => return Err(storage("install immutable pack")),
     }
-    sync_dir(&store.root.join("objects/packs"))?;
+    store.sync_dir(&store.root.join("objects/packs"))?;
     store.point("pack-installed")?;
     let verified = objects.scan_pack_entries(&id)?;
     if verified.keys().ne(ids.iter()) {
@@ -519,7 +520,9 @@ fn write_pack(
     store.point("pack-catalog")?;
     let peak = disk(&store.root)?;
     fs::remove_file(&temp).map_err(|_| storage("remove pack staging"))?;
-    sync_dir(&store.root.join("staging"))?;
+    store.sync_dir(&store.root.join("staging"))?;
+    // Complete and persist pack/index/catalogue closure before admitting deletion.
+    store.fence(&path)?;
     *store.work.locations.lock().unwrap() = None;
     Ok((id, peak))
 }
@@ -527,7 +530,7 @@ fn write_pack(
 fn remove(store: &FileStore, path: &Path, removed: &mut u64) -> Result<(), Error> {
     store.point("cleanup-before-remove")?;
     fs::remove_file(path).map_err(|_| storage("cleanup file"))?;
-    sync_dir(path.parent().unwrap())?;
+    store.sync_dir(path.parent().unwrap())?;
     *removed += 1;
     store.point("cleanup-after-remove")
 }
@@ -611,6 +614,12 @@ fn maintain(
                 }
             }
         }
+        store.fence(
+            &store
+                .root
+                .join("objects/packs")
+                .join(format!("{installed}.khpack")),
+        )?;
         *store.work.locations.lock().unwrap() = None;
     }
     let (encoded, allocated) = disk(&store.root)?;

@@ -118,7 +118,10 @@ pub(super) fn metadata(store: &FileStore, s: &ModelScope) -> Result<(), Error> {
         || meta.object_grammar != "knowledgehub-object/1"
         || meta.tree_grammars != ["knowledgehub-map-node/1", "knowledgehub-sequence-node/1"]
         || meta.required_features != features()
-        || meta.filesystem_profile != "linux-x86_64/local-ext4/single-host/1"
+        || !matches!(
+            meta.filesystem_profile.as_str(),
+            native::EXT4 | native::APFS
+        )
     {
         return Err(Error::Incompatible(
             "files/4 metadata, exact scope or required codec/features differ".into(),
@@ -139,15 +142,12 @@ pub(super) fn metadata(store: &FileStore, s: &ModelScope) -> Result<(), Error> {
     ] {
         let p = store.root.join(name);
         is_dir(&p)?;
-        if fs::metadata(p)
-            .map_err(|_| integrity("layout device"))?
-            .dev()
-            != dev
-        {
-            return Err(Error::Incompatible(
-                "files/4 directories cross filesystems".into(),
-            ));
-        }
+        native::same_device(
+            dev,
+            fs::metadata(p)
+                .map_err(|_| integrity("layout device"))?
+                .dev(),
+        )?;
     }
     Ok(())
 }
@@ -208,7 +208,7 @@ pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result
         )),
         true,
     )?;
-    sync_dir(parent)?;
+    store.sync_dir(parent)?;
     match fs::create_dir(&store.root) {
         Ok(()) => {}
         Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => {
@@ -229,7 +229,7 @@ pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result
     ] {
         fs::create_dir(store.root.join(name)).map_err(|_| storage("create shared layout"))?;
     }
-    persist(&store.root.join("locks/store.lock"), b"")?;
+    store.persist(&store.root.join("locks/store.lock"), b"")?;
     let meta = Metadata {
         format: ontology::FILE_FORMAT.into(),
         hub_identity: s.hub.clone(),
@@ -243,9 +243,9 @@ pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result
             "knowledgehub-sequence-node/1".into(),
         ],
         required_features: features(),
-        filesystem_profile: "linux-x86_64/local-ext4/single-host/1".into(),
+        filesystem_profile: native::declared(&store.support)?.into(),
     };
-    persist(&store.root.join("hub.json"), &json(&meta)?)?;
+    store.persist(&store.root.join("hub.json"), &json(&meta)?)?;
     for name in [
         "objects/loose",
         "objects/packs",
@@ -256,17 +256,19 @@ pub(in crate::storage) fn create(store: &FileStore, initial: Snapshot) -> Result
         "cache",
         "views",
     ] {
-        sync_dir(&store.root.join(name))?;
+        store.sync_dir(&store.root.join(name))?;
     }
-    sync_dir(&store.root)?;
-    sync_dir(parent)?;
+    store.sync_dir(&store.root)?;
+    store.sync_dir(parent)?;
     let _coordination = lock(store, false)?;
     store.point("staging")?;
     let objects = Objects::new(store);
     let id = write_generation(&objects, &initial, None, None)?;
     publish_reference(store, &load_generation(&objects, &id, &s)?, &id, None)?;
-    sync_dir(&store.root)
-        .and_then(|()| sync_dir(parent))
+    store
+        .sync_dir(&store.root)
+        .and_then(|()| store.sync_dir(parent))
+        .and_then(|()| store.fence(&store.root.join("hub.json")))
         .map_err(|_| Error::Uncertain {
             operation_id: None,
             stage: "shared creation persistence".into(),
@@ -325,9 +327,10 @@ pub(super) fn root(
     if r.snapshot_id != g.snapshot_id || r.sequence != g.sequence {
         return Err(integrity("head/generation binding differs"));
     }
-    open_read(&path)?
-        .sync_all()
-        .and_then(|()| File::open(store.root.join("refs"))?.sync_all())
+    store
+        .sync_file(&open_read(&path)?, "shared recovery reference persistence")
+        .and_then(|()| store.sync_dir(&store.root.join("refs")))
+        .and_then(|()| store.fence(&path))
         .map_err(|_| Error::Uncertain {
             operation_id: None,
             stage: "shared recovery reference persistence".into(),
@@ -348,7 +351,7 @@ fn publish_reference(
         .root
         .join("refs")
         .join(format!(".pending-{}", store.allocate_id()?.0));
-    persist(
+    store.persist(
         &temp,
         &json(&Reference {
             format: ontology::FILE_FORMAT.into(),
@@ -359,10 +362,11 @@ fn publish_reference(
         })?,
     )?;
     store.point("reference-synced")?;
-    fs::rename(&temp, path).map_err(|_| storage("replace accepted shared head"))?;
+    fs::rename(&temp, &path).map_err(|_| storage("replace accepted shared head"))?;
     let finish = || -> Result<(), Error> {
         store.point("head-replaced")?;
-        sync_dir(&store.root.join("refs"))?;
+        store.sync_dir(&store.root.join("refs"))?;
+        store.fence(&path)?;
         store.point("head-synced")?;
         store.point("acknowledgement")?;
         Ok(())

@@ -6,7 +6,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     let path = std::env::args()
         .nth(1)
         .ok_or("usage: seed /absolute/unused/store")?;
-    let backend = FileBackend::new(path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(path, FileOptions::native_local()?)?;
     let hub = KnowledgeHub::create(backend, support::context(), support::scope()).await?;
     let (head, state) = hub.snapshot(support::context()).await?;
     let mut change = Change::at(&state, head, "register-catalogue");

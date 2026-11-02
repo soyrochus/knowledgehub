@@ -152,7 +152,10 @@ fn source_key(path: &str) -> String {
         return key.clone();
     }
     let parts = path.split('/').collect::<Vec<_>>();
-    if parts.len() == 5 && parts[..3] == ["delivery", "evidence", "hub-rebuild"] {
+    if parts.len() == 5
+        && (parts[..3] == ["delivery", "evidence", "hub-rebuild"]
+            || parts[..3] == ["delivery", "evidence", "macos-file-backend"])
+    {
         if let Some(key) = origins().run_artifacts.get(parts[4]) {
             return key.clone();
         }
@@ -1573,7 +1576,7 @@ pub fn author(
         "architecture",
         "Adapter",
         "kh:adapter:local-files",
-        "Default Linux/ext4 file adapter",
+        "Default checked native local file adapter",
         b.anchors["src/storage.rs"].clone(),
         properties([
             ("port", Value::Ref(port)),

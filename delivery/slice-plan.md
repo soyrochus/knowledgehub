@@ -295,3 +295,56 @@ current-only tools/source bindings/retained-directory guards; full 95-test nativ
 Hub/catalogue/fixture verification. The new head has 9,578 selected records and
 3,452 explicit draft gaps. Final task/report/status edits follow the captured
 checkpoint; no human acceptance, authority handover or archive is implied.
+
+## Proposed native macOS outcome — 2 November 2026
+
+### KH-SL-018 — Run the current file backend natively on macOS
+
+Status: subsequently authorised by the user's Apply request and implemented with
+[complete native Mac evidence](evidence/macos-file-backend/README.md). All Mac
+checks and isolated journeys passed. The user directed Linux verification to be
+accepted as given for now and run separately. Native Linux regression, both native
+fixture-copy directions and final cross-platform review remain open. This is
+technical Mac verification, not human acceptance or authority handover.
+
+- **Actor/trigger:** a maintainer on the current Apple Silicon Mac wants to create,
+  use and reopen a full Hub through the ordinary embedded API, instead of stopping
+  at a successful compilation followed by an unsupported-platform error.
+- **Outcome:** the same `KnowledgeHub` and `FileBackend::new` serve macOS
+  arm64/local APFS and the existing Linux x86_64/local ext4 profile, with checked
+  host declarations and the same guarded publication, history and recovery rules.
+- **Hard prerequisites:** the implemented KH-SL-014–017 sole full API, files/4,
+  current host tooling and safety coverage. Native macOS/APFS and Linux/ext4 runs
+  are evidence prerequisites; a matching Rust version alone supplies neither.
+- **Journey KH-J-11:** declare a supported host/path → create/register the full
+  catalogue → commit sourced definitions and baseline A → commit a successor and
+  baseline B → close/reopen → resolve exact reads/queries and original retries →
+  compact/scrub → recover a deliberately interrupted operation.
+- **Stories:** KH-US-31: as a Mac maintainer, persist and reopen a full model so I
+  can use the library locally; KH-US-32: inspect the same exact history and
+  original outcomes after recovery or an offline current-format fixture copy;
+  KH-US-33: run maintained commands and identify which native platform and failure
+  cases their evidence actually covers.
+
+| Story-map level | Establish scope | Write and inspect | Resume and maintain | Verify and review |
+| --- | --- | --- | --- | --- |
+| Tasks | Select checked local APFS/ext4 profile. | Use ordinary full API and exact source/ownership rules. | Reopen A/B, retry, query, compact and scrub. | Exercise conflicts/interruption and inspect native evidence. |
+| Proposed cut | KH-US-31: supported Mac creation with safe refusal elsewhere. | KH-US-31: complete sourced definition and successor. | KH-US-32: exact history and operation identity survive. | KH-US-33: current Mac/Linux commands and separate observed results. |
+
+- **Completion:** the ordinary Mac path actually runs; existing Linux behaviour
+  passes its native regression batch; both retain denial/conflict/idempotency,
+  reader/maintenance coordination, all eight publication and seven maintenance
+  process-kill checkpoints, and sync-error/uncertainty checks. A closed synthetic
+  files/4 fixture is checked in both copy directions without rewriting metadata
+  or semantic values. Builds alone do not satisfy this slice.
+- **Boundaries:** first Mac architecture is arm64; support evidence records the
+  exact OS/APFS configuration, beginning with the available macOS 26.6.2 host.
+  Intel Macs, other filesystems, network/cloud-synchronised directories,
+  simultaneous multi-host access, general import/export, power-loss validation,
+  crate publication and canonical regeneration are deferred. No implementation
+  work may reset, refresh or import `hub/` or `old_hub/` as part of this slice.
+- **Trace:** ontology §§5/14/17/20.4/21.2/21.4–21.7/21.10;
+  KH-DR-02/04/07–13/15/17/20. The
+  [change](../openspec/changes/support-macos-file-backend/proposal.md) owns the
+  bounded behavioural delta. Repository definitions and historical Hub captures
+  keep their existing authority and exact revisions.

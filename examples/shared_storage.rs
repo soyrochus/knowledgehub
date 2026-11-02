@@ -21,7 +21,7 @@ async fn baseline(h: &KnowledgeHub, name: &str) -> Result<ExactRef, knowledgehub
     Ok(r)
 }
 pub async fn walkthrough(path: &Path) -> Result<serde_json::Value, Box<dyn std::error::Error>> {
-    let backend = FileBackend::new(path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(path, FileOptions::native_local()?)?;
     let h = KnowledgeHub::create(backend.clone(), seed::context(), specimens::scope()).await?;
     let genesis = h.head(seed::context()).await?;
     for (id, operations) in [
@@ -54,7 +54,7 @@ pub async fn walkthrough(path: &Path) -> Result<serde_json::Value, Box<dyn std::
     let final_head = h.head(seed::context()).await?;
     eprintln!("shared_storage: baselines A/B and exact retry verified");
     h.drain().await;
-    let backend = FileBackend::new(path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(path, FileOptions::native_local()?)?;
     let reopened = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     assert!(
         reopened
@@ -125,7 +125,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("{}", walkthrough(&path).await?);
         return Ok(());
     }
-    let backend = FileBackend::new(&path, FileOptions::local_ext4())?;
+    let backend = FileBackend::new(&path, FileOptions::native_local()?)?;
     let hub = KnowledgeHub::open(backend.clone(), seed::context(), specimens::scope()).await?;
     match mode {
         "pack" => println!(

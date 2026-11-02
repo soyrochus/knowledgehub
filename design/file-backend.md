@@ -111,6 +111,8 @@ before draining is outside the orderly-shutdown contract.
 
 ## Filesystem and persistence
 
+The first-slice Linux protocol below is historical context. The current sole files/4 adapter also implements the [native APFS profile and checked creation/location separation](macos-file-backend.md); its evidence and pending Linux run remain separate.
+
 The supported target is coordinated single-host Linux x86_64, local ext4,
 ordinary files and one filesystem for staging/generations/references. The host
 declares these assumptions; the adapter checks architecture, filesystem magic,

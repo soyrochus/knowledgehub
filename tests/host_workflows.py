@@ -6,6 +6,7 @@ import pathlib
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "scripts"))
@@ -13,9 +14,49 @@ sys.dont_write_bytecode = True
 import host_sources as sources
 import rebuild_canonical_hub as rebuild
 import verify_full_ontology as native
+import host_platform
 
 
 class HostWorkflows(unittest.TestCase):
+    def platform_runner(self, bad=None):
+        import plistlib
+        volume = dict(FilesystemType="apfs", MountPoint="/System/Volumes/Data", WritableVolume=True, DeviceNode="/dev/disk3s5", VolumeUUID="fixture-volume")
+        if bad == "missing": del volume["VolumeUUID"]
+        if bad == "readonly": volume["WritableVolume"] = False
+        if bad == "other": volume["FilesystemType"] = "nfs"
+        def run(command, **kwargs):
+            if command == ["rustc", "-Vv"]: return "release: 1.99.1\nhost: fixture\n"
+            if command[0] == "findmnt":
+                return json.dumps({"filesystems": [{"target":"/", "source":"/dev/fixture", "fstype":"ext4" if bad != "other" else "ext3", "options":"rw"}]})
+            if command == ["sw_vers", "-productVersion"]: return "26.6.2\n"
+            if command == ["sw_vers", "-buildVersion"]: return "25G83\n"
+            if command[0] == "df": return "Filesystem 512-blocks Used Available Capacity Mounted on\n/dev/disk3s5 100 30 70 30% /System/Volumes/Data\n"
+            if command[0] == "diskutil": return plistlib.dumps(volume)
+            if command == ["uname", "-a"]: return "fixture kernel\n"
+            raise AssertionError(command)
+        return run
+
+    def test_native_platform_branches_keep_actual_units_and_mount_facts(self):
+        linux = host_platform.observations(self.root, "Linux", "x86_64", self.platform_runner())
+        self.assertEqual(linux["mount"]["filesystems"][0]["fstype"], "ext4")
+        mac = host_platform.observations(self.root, "Darwin", "arm64", self.platform_runner())
+        self.assertEqual(mac["os_build"], "25G83")
+        self.assertEqual(mac["volume"]["MountPoint"], "/System/Volumes/Data")
+        for bad in ("missing", "readonly", "other"):
+            with self.assertRaises(ValueError):
+                host_platform.observations(self.root, "Darwin", "arm64", self.platform_runner(bad))
+        with self.assertRaises(ValueError):
+            host_platform.observations(self.root, "Linux", "x86_64", self.platform_runner("other"))
+        with self.assertRaises(ValueError):
+            host_platform.observations(self.root, "Darwin", "x86_64", self.platform_runner())
+
+    def test_missing_platform_facts_produce_failure_log_without_success_manifest(self):
+        directory = self.root / "missing-platform"
+        with patch.object(native, "package_identity", return_value="0.10.0"), patch.object(native, "observations", side_effect=ValueError("no mount facts")):
+            with self.assertRaises(ValueError): native.verify(self.root, directory)
+        self.assertIn("no mount facts", (directory / "native.log").read_text())
+        self.assertFalse((directory / "checked.json").exists())
+
     def test_change_origin_survives_archive_and_refuses_ambiguity(self):
         active = self.root / "openspec/changes/example"
         active.mkdir(parents=True)

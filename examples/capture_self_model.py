@@ -4,6 +4,7 @@ import argparse,ast,datetime,hashlib,json,mimetypes,pathlib,re,subprocess,sys
 sys.path.insert(0,str(pathlib.Path(__file__).resolve().parents[1]/"scripts"))
 sys.dont_write_bytecode=True
 from host_sources import source_paths,checked_run,load_origins,package_identity
+from host_platform import observations
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 p=argparse.ArgumentParser();p.add_argument('--output',default='target/self-model-input.json');p.add_argument('--log',default='delivery/evidence/full-ontology-run.txt');p.add_argument('--checked-manifest');p.add_argument('--derived',default='target/ontology-pdf-extracted.txt');a=p.parse_args()
 def digest(b):return {'sha256':hashlib.sha256(b).hexdigest(),'length':len(b)}
@@ -16,13 +17,13 @@ else:checked=None
 for output in (a.output,a.derived):
  relative=(ROOT/output).relative_to(ROOT)
  if {'old_hub','hub','orig_hub'}.intersection(relative.parts):raise ValueError('generated output cannot target retained stores')
- if relative.parts[0]!='target' and relative.parts[:3]!=('delivery','evidence','hub-rebuild'):
+ if relative.parts[0]!='target' and relative.parts[:3] not in (('delivery','evidence','hub-rebuild'),('delivery','evidence','macos-file-backend')):
   raise ValueError('generated capture output must be under target/ or a run evidence directory')
 origins=load_origins(ROOT)
 version=package_identity(ROOT)
 for path in paths:
  rel=str(path.relative_to(ROOT));parts=path.relative_to(ROOT).parts
- declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/','openspec/specs/')) or (parts[:3]==('delivery','evidence','hub-rebuild') and len(parts)==5 and parts[-1] in origins['run_artifacts']))
+ declared=(rel in origins['sources'] or rel in origins['modules'] or rel=='src/ontology/catalogue.json' or rel.startswith(('openspec/changes/','openspec/deferred/','openspec/specs/')) or (parts[:3] in (('delivery','evidence','hub-rebuild'),('delivery','evidence','macos-file-backend')) and len(parts)==5 and parts[-1] in origins['run_artifacts']))
  if not declared:raise ValueError('declare semantic source binding for '+rel)
 
 for historical in ['delivery/evidence/kh-sl-001-run.txt','delivery/evidence/full-ontology-start.txt','delivery/evidence/full-ontology-start.json','delivery/evidence/full-ontology-start.tar.gz']:
@@ -187,6 +188,6 @@ off=0;pages=[]
 for i,page in enumerate(proc.stdout.split(b'\x0c')):
  if page.strip():pages.append(dict(index=i,start=off,end=off+len(page),label=f'physical PDF page {i+1}'))
  off+=len(page)+1
-capture={'format':'knowledgehub-host-inventory/1','library_version':version,'captured_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_status':'exact working tree; modified files are not identified as Git HEAD','git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'compiler':subprocess.check_output(['rustc','-Vv'],cwd=ROOT,text=True),'filesystem':subprocess.check_output(['findmnt','-T',str(ROOT),'-J','-o','TARGET,SOURCE,FSTYPE,OPTIONS'],text=True),'kernel':subprocess.check_output(['uname','-a'],text=True).strip(),'extractor':subprocess.run(['pdftotext','-v'],capture_output=True,text=True).stderr.strip(),'files':files,'units':units,'pdf_pages':pages,'checked':checked,'log':a.log}
+capture={'format':'knowledgehub-host-inventory/1','library_version':version,'captured_at':datetime.datetime.now(datetime.timezone.utc).isoformat(),'source_status':'exact working tree; modified files are not identified as Git HEAD','git_head':subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip(),'compiler':subprocess.check_output(['rustc','-Vv'],cwd=ROOT,text=True),'filesystem':json.dumps(observations(ROOT),sort_keys=True),'kernel':subprocess.check_output(['uname','-a'],text=True).strip(),'extractor':subprocess.run(['pdftotext','-v'],capture_output=True,text=True).stderr.strip(),'files':files,'units':units,'pdf_pages':pages,'checked':checked,'log':a.log}
 out=ROOT/a.output;out.parent.mkdir(parents=True,exist_ok=True);out.write_text(json.dumps(capture,indent=2)+'\n')
 print(f'{len(files)} exact files, {len(units)} source units, {len(pages)} retained PDF pages -> {out.relative_to(ROOT)}')

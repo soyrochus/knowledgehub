@@ -24,7 +24,7 @@ fn rt() -> tokio::runtime::Runtime {
         .unwrap()
 }
 fn backend(s: &Sandbox) -> FileBackend {
-    FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(&s.store, FileOptions::native_local().unwrap()).unwrap()
 }
 async fn create(s: &Sandbox) -> KnowledgeHub {
     let h = KnowledgeHub::create(backend(s), seed::context(), specimens::scope())
@@ -128,7 +128,7 @@ fn process_worker() {
     let stage = std::env::var("KH_CURRENT_STAGE").unwrap();
     let marker = Path::new(&path).parent().unwrap().join("current-ready");
     rt().block_on(async {
-        let b = FileBackend::new(path, FileOptions::local_ext4()).unwrap();
+        let b = FileBackend::new(path, FileOptions::native_local().unwrap()).unwrap();
         let h = KnowledgeHub::open(b.clone(), seed::context(), specimens::scope())
             .await
             .unwrap();
@@ -346,6 +346,89 @@ async fn injected_publication() {
         h.drain().await;
     }
 }
+
+#[tokio::test(flavor = "multi_thread", worker_threads = 2)]
+async fn native_sync_failures_preserve_prior_or_recover_exact_original_receipt() {
+    let cases = vec![
+        ("regular-file-sync", false),
+        ("directory-sync", false),
+        ("directory-sync", true),
+        #[cfg(target_os = "macos")]
+        ("publication-fence", false),
+        #[cfg(target_os = "macos")]
+        ("publication-fence", true),
+    ];
+    for (failure, after_replace) in cases {
+        let s = Sandbox::new();
+        let original = create(&s).await;
+        let (head, state) = original.snapshot(seed::context()).await.unwrap();
+        original.drain().await;
+        let b = backend(&s);
+        let h = KnowledgeHub::open(b.clone(), seed::context(), specimens::scope())
+            .await
+            .unwrap();
+        let c = request(&state, head.clone(), "native-failure-B");
+        let armed = std::sync::atomic::AtomicBool::new(false);
+        b.set_hook(move |point| {
+            if point
+                == if after_replace {
+                    "head-replaced"
+                } else {
+                    "staging"
+                }
+            {
+                armed.store(true, std::sync::atomic::Ordering::SeqCst);
+            }
+            if armed.load(std::sync::atomic::Ordering::SeqCst) && point == failure {
+                Err(Error::Storage {
+                    stage: format!("injected native {failure}"),
+                })
+            } else {
+                Ok(())
+            }
+        });
+        let result = h.commit(seed::context(), c.clone()).await;
+        if after_replace {
+            assert!(matches!(result, Err(Error::Uncertain { .. })));
+        } else {
+            assert!(matches!(result, Err(Error::Storage { .. })));
+        }
+        b.set_hook(|_| Ok(()));
+        h.drain().await;
+        let reopened = KnowledgeHub::open(backend(&s), seed::context(), specimens::scope())
+            .await
+            .unwrap();
+        let outcome = reopened
+            .operation_result(seed::context(), "native-failure-B".into())
+            .await
+            .unwrap();
+        if after_replace {
+            let OperationOutcome::Committed(receipt) = outcome else {
+                panic!("missing original receipt")
+            };
+            let accepted = reopened.head(seed::context()).await.unwrap();
+            assert_eq!(reopened.commit(seed::context(), c).await.unwrap(), *receipt);
+            assert_eq!(reopened.head(seed::context()).await.unwrap(), accepted);
+            assert_eq!(
+                reopened
+                    .read_state(seed::context(), Selection::Snapshot(accepted))
+                    .await
+                    .unwrap()
+                    .artifact(&ExactRef::new("fault", "binary:capture", "1"))
+                    .unwrap()
+                    .bytes,
+                vec![0, 255, 1, 2, 128]
+            );
+        } else {
+            assert!(matches!(outcome, OperationOutcome::Absent { .. }));
+            assert_eq!(
+                reopened.snapshot(seed::context()).await.unwrap(),
+                (head, state)
+            );
+        }
+        reopened.drain().await;
+    }
+}
 async fn cancelled_publication() {
     let s = Sandbox::new();
     let first = create(&s).await;
@@ -415,7 +498,7 @@ fn process_race_worker() {
     let parent = Path::new(&path).parent().unwrap().to_path_buf();
     rt().block_on(async {
         let h = KnowledgeHub::open(
-            FileBackend::new(path, FileOptions::local_ext4()).unwrap(),
+            FileBackend::new(path, FileOptions::native_local().unwrap()).unwrap(),
             seed::context(),
             specimens::scope(),
         )

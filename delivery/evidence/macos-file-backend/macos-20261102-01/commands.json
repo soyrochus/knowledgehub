@@ -1,0 +1,310 @@
+[
+  {
+    "name": "obsolete-format-inspect_self_model",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--format",
+      "files3"
+    ],
+    "exit_code": 1,
+    "expected": "obsolete argument refused",
+    "seconds": 0.2122087919999558,
+    "stderr": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    }
+  },
+  {
+    "name": "obsolete-format-full_self_description",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/full_self_description",
+      "--format",
+      "files3"
+    ],
+    "exit_code": 1,
+    "expected": "obsolete argument refused",
+    "seconds": 0.17345216600006097,
+    "stderr": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    }
+  },
+  {
+    "name": "obsolete-format-catalogue_conformance",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/catalogue_conformance",
+      "--format",
+      "files3"
+    ],
+    "exit_code": 1,
+    "expected": "obsolete argument refused",
+    "seconds": 0.16115975000002436,
+    "stderr": {
+      "sha256": "7db1c997132c981965047a145f7c7885a08ec6e9a3c3adb36daf278b857929fb",
+      "length": 40
+    }
+  },
+  {
+    "name": "minimal",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/minimal_model",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/minimal"
+    ],
+    "exit_code": 0,
+    "seconds": 5.556952333999789,
+    "output": {
+      "sha256": "51decf3d951b6b01197dda696a7ecee6fd5fff655bbbf1fc63ea15cf34b22e5d",
+      "length": 23235
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "catalogue",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/catalogue_conformance",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/catalogue"
+    ],
+    "exit_code": 0,
+    "seconds": 11.061261124999874,
+    "output": {
+      "sha256": "fd5c9c2c8d841636484835ef50fc3f3130b54a2c27b83aed4ad248602d441b20",
+      "length": 484773
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "shared-storage",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/shared_storage",
+      "create",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/shared"
+    ],
+    "exit_code": 0,
+    "seconds": 14.522369708000042,
+    "output": {
+      "sha256": "0308883f32ad3dd47b1db14b5698c09c121cbacd8b9fe0425750170a42f03462",
+      "length": 1098
+    },
+    "stderr": {
+      "sha256": "c918e6a4b816ce1b5ecb85260e069622ccabbe2d8fd78260b518fb9049703f13",
+      "length": 257
+    }
+  },
+  {
+    "name": "neighbours",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/neighbours",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/neighbours"
+    ],
+    "exit_code": 0,
+    "seconds": 10.348147542000106,
+    "output": {
+      "sha256": "6d591c71330d7349be905e9124c45a9c0715fe96eee890d49f5b87de77ededad",
+      "length": 21326
+    },
+    "stderr": {
+      "sha256": "ca706c575b7b26f82cee613dd79817be0196a8fe60c8e2876fc101b8c1e77dcb",
+      "length": 121
+    }
+  },
+  {
+    "name": "rent-impact",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/rent_impact",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/rent-impact"
+    ],
+    "exit_code": 0,
+    "seconds": 12.338332541,
+    "output": {
+      "sha256": "10a03e55751dfe9a1dd828f2b3605977efff542b6448c2d2d9f93030e98850b0",
+      "length": 14370
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "storage-benchmark",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/storage_benchmark",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/storage-benchmark",
+      "small"
+    ],
+    "exit_code": 0,
+    "seconds": 11.26980487500009,
+    "output": {
+      "sha256": "9e40f1d5afa4aa133088d562fbd33e58204f749c23efb7fe5c2b9a8d17d08cea",
+      "length": 3806
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "neighbour-benchmark",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/neighbour_benchmark",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/neighbour-benchmark"
+    ],
+    "exit_code": 0,
+    "seconds": 81.38999995900008,
+    "output": {
+      "sha256": "e347d55b5dab590289b6bd6c6007959ea6a3063f9eb420f7a9effe1936149d11",
+      "length": 14106
+    },
+    "stderr": {
+      "sha256": "8ac8162c974e49a3c9b979f9cea2b2d68f0f2737d7b9b4a6849eb91daef5c38a",
+      "length": 220
+    }
+  },
+  {
+    "name": "capture",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/ivanderk/src/knowledgehub/examples/capture_self_model.py",
+      "--output",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/self-model-input.json",
+      "--derived",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/ontology-pdf-extracted.txt",
+      "--log",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/native.log",
+      "--checked-manifest",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/checked.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.1509379580002133,
+    "output": {
+      "sha256": "e11ce0835d34121d8fb5af18307e586313dce98f5b5b2fecf860acc026f02230",
+      "length": 138
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "validate-input",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/full_self_description",
+      "--validate-input",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/self-model-input.json"
+    ],
+    "exit_code": 0,
+    "seconds": 1.1848817080003755,
+    "output": {
+      "sha256": "70d2ff7d6ff0a317371431fc2a1efd9328275a2b36cd4483ba54cf3a11654bc7",
+      "length": 66
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  },
+  {
+    "name": "author",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/full_self_description",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/self-model-input.json",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/self-model",
+      "--result",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/self-model-result.json"
+    ],
+    "exit_code": 0,
+    "seconds": 511.03785937500015,
+    "output": {
+      "sha256": "58ecccb8117a95433dfe1989b2dad1a195e2cf4c4ee1fa121fabd473827be40b",
+      "length": 252
+    },
+    "stderr": {
+      "sha256": "67e1d76fb66d53df07dccca6ab4f69765fc19ada9e96abcae142ead3fa0a7526",
+      "length": 557
+    }
+  },
+  {
+    "name": "inspect-before-compact",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--verify",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/self-model"
+    ],
+    "exit_code": 0,
+    "seconds": 60.98237020799979,
+    "output": {
+      "sha256": "86f94476bb34988e5f11a338fb2db149d6e370c31500a9ede36fc8122775321a",
+      "length": 95043
+    },
+    "stderr": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    }
+  },
+  {
+    "name": "inspect-compacted",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--verify",
+      "--compact",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/self-model"
+    ],
+    "exit_code": 0,
+    "seconds": 184.37055375,
+    "output": {
+      "sha256": "b7b3e07dc3ab8523c475f1f04eb407132ff1b1468460702bccb48ad425041108",
+      "length": 96357
+    },
+    "stderr": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    }
+  },
+  {
+    "name": "inspect-reopened",
+    "command": [
+      "/Users/ivanderk/src/knowledgehub/target/release/examples/inspect_self_model",
+      "--verify",
+      "/Users/ivanderk/src/knowledgehub/target/macos-file-backend-20261102-01/self-model"
+    ],
+    "exit_code": 0,
+    "seconds": 157.93417429199962,
+    "output": {
+      "sha256": "242cc2128bda1838b86644e24784939096ac91e823d69657829172b7f4b01133",
+      "length": 95353
+    },
+    "stderr": {
+      "sha256": "f5a1a6b891d991cdba6c3ba2101bc67abe229a3b39e4bf291a15a685e02e9c25",
+      "length": 186
+    }
+  },
+  {
+    "name": "coverage",
+    "command": [
+      "/opt/homebrew/opt/python@3.14/bin/python3.14",
+      "/Users/ivanderk/src/knowledgehub/scripts/audit_full_ontology.py",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/catalogue.json",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/self-model-result.json",
+      "/Users/ivanderk/src/knowledgehub/delivery/evidence/macos-file-backend/macos-20261102-01/self-model-input.json",
+      "--log",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/native.log",
+      "--output",
+      "delivery/evidence/macos-file-backend/macos-20261102-01/coverage-audit.json"
+    ],
+    "exit_code": 0,
+    "seconds": 0.11524499999995896,
+    "output": {
+      "sha256": "46482adb9008192f4758b2a5990d99bc5c98242a7acf402ed5bd7690cf87ee24",
+      "length": 167
+    },
+    "stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    }
+  }
+]

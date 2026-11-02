@@ -38,7 +38,7 @@ pub fn anchor() -> ExactRef {
     ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-1")
 }
 pub fn backend(path: &Path) -> FileBackend {
-    FileBackend::new(path, FileOptions::local_ext4()).unwrap()
+    FileBackend::new(path, FileOptions::native_local().unwrap()).unwrap()
 }
 pub async fn commit(
     h: &KnowledgeHub,

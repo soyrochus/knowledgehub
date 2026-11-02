@@ -218,7 +218,8 @@ impl<'a> Objects<'a> {
         let parent = path.parent().unwrap();
         match fs::create_dir(parent) {
             Ok(()) => {
-                sync_dir(&self.store.root.join("objects/loose"))?;
+                self.store
+                    .sync_dir(&self.store.root.join("objects/loose"))?;
             }
             Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => is_dir(parent)?,
             Err(_) => return Err(storage("create object shard")),
@@ -242,7 +243,7 @@ impl<'a> Objects<'a> {
             .root
             .join("staging")
             .join(format!("object-{}", self.store.allocate_id()?.0));
-        persist(&temporary, &frame)?;
+        self.store.persist(&temporary, &frame)?;
         self.store.point("content-file")?;
         match fs::hard_link(&temporary, &path) {
             Ok(()) => {}
@@ -254,9 +255,10 @@ impl<'a> Objects<'a> {
             }
             Err(_) => return Err(storage("install immutable object")),
         }
-        sync_dir(parent)?;
+        self.store.sync_dir(parent)?;
         fs::remove_file(&temporary).map_err(|_| storage("remove installed staging object"))?;
-        sync_dir(&self.store.root.join("staging"))?;
+        self.store.sync_dir(&self.store.root.join("staging"))?;
+        self.store.fence(&path)?;
         self.store.work.writes.fetch_add(1, Ordering::Relaxed);
         self.store
             .work

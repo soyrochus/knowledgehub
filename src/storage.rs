@@ -1,4 +1,4 @@
-//! Private guarded storage port and the initial Linux file adapter.
+//! Private guarded storage port and the native local file adapter.
 use crate::{
     codec,
     jobs::Jobs,
@@ -18,6 +18,7 @@ use std::{
     sync::Arc,
 };
 
+mod native;
 mod shared;
 pub use shared::{FileStorageReport, FileWork};
 
@@ -43,6 +44,14 @@ pub struct FileSupport {
     pub coordinated_single_host: bool,
 }
 impl FileSupport {
+    /// Coordinated single-host macOS arm64 on writable local APFS.
+    pub fn local_apfs() -> Self {
+        Self {
+            host: "macos-aarch64".into(),
+            filesystem: "apfs".into(),
+            coordinated_single_host: true,
+        }
+    }
     pub fn local_ext4() -> Self {
         Self {
             host: "linux-x86_64".into(),
@@ -58,6 +67,27 @@ pub struct FileOptions {
     pub jobs: JobLimits,
 }
 impl FileOptions {
+    pub fn local_apfs() -> Self {
+        Self {
+            support: FileSupport::local_apfs(),
+            jobs: JobLimits::default(),
+        }
+    }
+
+    /// Compose a native declaration. Create/open still check the actual path.
+    pub fn native_local() -> Result<Self, Error> {
+        #[cfg(all(target_os = "linux", target_arch = "x86_64"))]
+        return Ok(Self::local_ext4());
+        #[cfg(all(target_os = "macos", target_arch = "aarch64"))]
+        return Ok(Self::local_apfs());
+        #[cfg(not(any(
+            all(target_os = "linux", target_arch = "x86_64"),
+            all(target_os = "macos", target_arch = "aarch64")
+        )))]
+        Err(Error::Incompatible(
+            "unsupported native file-backend host".into(),
+        ))
+    }
     pub fn local_ext4() -> Self {
         Self {
             support: FileSupport::local_ext4(),
@@ -170,11 +200,6 @@ fn storage(stage: &str) -> Error {
 fn integrity(what: &str) -> Error {
     Error::Integrity(what.into())
 }
-fn sync_dir(path: &Path) -> Result<(), Error> {
-    File::open(path)
-        .and_then(|f| f.sync_all())
-        .map_err(|_| storage("sync directory"))
-}
 fn is_dir(path: &Path) -> Result<(), Error> {
     if !fs::symlink_metadata(path)
         .map_err(|_| integrity("required directory missing"))?
@@ -198,17 +223,6 @@ fn open_read(path: &Path) -> Result<File, Error> {
         return Err(integrity("required object is not an ordinary file"));
     }
     Ok(f)
-}
-fn persist(path: &Path, bytes: &[u8]) -> Result<(), Error> {
-    let mut f = OpenOptions::new()
-        .write(true)
-        .create_new(true)
-        .custom_flags(libc::O_NOFOLLOW)
-        .open(path)
-        .map_err(|_| storage("create immutable file"))?;
-    f.write_all(bytes)
-        .and_then(|_| f.sync_all())
-        .map_err(|_| storage("persist immutable file"))
 }
 fn json<T: Serialize>(v: &T) -> Result<Vec<u8>, Error> {
     codec::canonical(&serde_json::to_value(v).map_err(codec::encoding)?)
@@ -247,49 +261,39 @@ fn lock_file(path: &Path, create: bool) -> Result<File, Error> {
 
 impl FileStore {
     fn check_profile(&self, path: &Path) -> Result<(), Error> {
-        if !cfg!(all(target_os = "linux", target_arch = "x86_64"))
-            || self.support.host != "linux-x86_64"
-            || self.support.filesystem != "ext4"
-            || !self.support.coordinated_single_host
+        native::check(&self.support, path)
+    }
+
+    fn sync_dir(&self, path: &Path) -> Result<(), Error> {
+        self.point("directory-sync")?;
+        native::sync_directory(path).map_err(|_| storage("sync directory"))
+    }
+
+    fn sync_file(&self, file: &File, stage: &str) -> Result<(), Error> {
+        self.point("regular-file-sync")?;
+        native::sync_file(file).map_err(|_| storage(stage))
+    }
+
+    fn persist(&self, path: &Path, bytes: &[u8]) -> Result<(), Error> {
+        let mut file = OpenOptions::new()
+            .write(true)
+            .create_new(true)
+            .custom_flags(libc::O_NOFOLLOW)
+            .open(path)
+            .map_err(|_| storage("create immutable file"))?;
+        file.write_all(bytes)
+            .map_err(|_| storage("persist immutable file"))?;
+        self.sync_file(&file, "persist immutable file")
+    }
+
+    fn fence(&self, path: &Path) -> Result<(), Error> {
+        #[cfg(target_os = "macos")]
         {
-            return Err(Error::Incompatible(
-                "only coordinated single-host Linux x86_64/local ext4 is supported".into(),
-            ));
+            self.point("publication-fence")?;
+            native::sync_file(&open_read(path)?).map_err(|_| storage("full publication fence"))?;
         }
-        is_dir(path)?;
-        let f = File::open(path).map_err(|_| storage("open filesystem profile"))?;
-        let mut stat = std::mem::MaybeUninit::<libc::statfs>::uninit();
-        // SAFETY: stat points to sufficient writable storage; f is a live descriptor.
-        if unsafe { libc::fstatfs(f.as_raw_fd(), stat.as_mut_ptr()) } != 0 {
-            return Err(storage("inspect filesystem profile"));
-        }
-        // SAFETY: successful fstatfs initialized stat.
-        let stat = unsafe { stat.assume_init() };
-        if stat.f_type != 0xef53 {
-            return Err(Error::Incompatible(
-                "detected filesystem is outside local ext4 profile".into(),
-            ));
-        }
-        // ext2/ext3 share statfs's magic. Confirm the actual mounted filesystem type.
-        let dev = f
-            .metadata()
-            .map_err(|_| storage("inspect mount device"))?
-            .dev();
-        let device = format!("{}:{}", libc::major(dev), libc::minor(dev));
-        let mounts = fs::read_to_string("/proc/self/mountinfo")
-            .map_err(|_| Error::Unavailable("cannot establish mounted filesystem type".into()))?;
-        if !mounts
-            .lines()
-            .filter_map(|line| line.split_once(" - "))
-            .any(|(left, right)| {
-                left.split_whitespace().nth(2) == Some(device.as_str())
-                    && right.split_whitespace().next() == Some("ext4")
-            })
-        {
-            return Err(Error::Incompatible(
-                "mounted device is outside ext4 profile".into(),
-            ));
-        }
+        #[cfg(not(target_os = "macos"))]
+        let _ = path;
         Ok(())
     }
 

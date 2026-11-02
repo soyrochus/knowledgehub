@@ -4,7 +4,7 @@
 
 The single current file backend uses `knowledgehub-files/4`, shared immutable objects, sealed packs and bounded derived indexes. Earlier APIs and stores have no conversion or compatibility facade. Existing current-store revisions, baselines, exact source bytes and original operation outcomes remain immutable.
 
-Use the existing Rust 1.99.1 toolchain; install no compiler. The trusted host supplies current scoped policy, qualified actor identity and its own Tokio runtime. The declared filesystem profile is coordinated single-host Linux x86_64/local ext4. Observed checks and the user's platform-compliance assumption remain separate.
+Use the existing Rust 1.99.1 toolchain; install no compiler. The trusted host supplies current scoped policy, qualified actor identity and its own Tokio runtime. Declared profiles are coordinated single-host Linux x86_64/local ext4 and macOS arm64/local APFS; see [native profile checks and persistence](design/macos-file-backend.md). Observed checks and the user's platform-compliance assumption remain separate.
 
 ```rust,no_run
 use knowledgehub::{KnowledgeHub, Context, ModelScope, State, Error};
@@ -18,7 +18,7 @@ async fn inspect(backend: FileBackend, context: Context, scope: ModelScope) -> R
 }
 ```
 
-Create a backend with `FileBackend::new(path, FileOptions::local_ext4())`. Register `builtin_catalogue().operations()` through a guarded `Change`; ontology/profile selection remains explicit model data. The API includes exact/range reads, immutable successors, baseline comparison, typed selection, batch neighbours, deterministic traversal, literal text entry and composite impact queries. Reads use owned values, finite budgets, current authority and exact selection; modelled roles or agents do not confer runtime capabilities.
+Create a backend with `FileBackend::new(path, FileOptions::native_local()?)`. Register `builtin_catalogue().operations()` through a guarded `Change`; ontology/profile selection remains explicit model data. The API includes exact/range reads, immutable successors, baseline comparison, typed selection, batch neighbours, deterministic traversal, literal text entry and composite impact queries. Reads use owned values, finite budgets, current authority and exact selection; modelled roles or agents do not confer runtime capabilities.
 
 The four [0.10.0 changes](delivery/slice-plan.md#single-full-api-sequence--0100-cutover)
 are implemented in order (22/22 tasks). [Exact verification evidence](delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md)

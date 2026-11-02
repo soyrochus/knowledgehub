@@ -1,0 +1,12 @@
+Assessing register-catalogue: 209 ordered operations
+Committed register-catalogue: sequence 1
+Assessing load-self-definition: 9669 ordered operations
+Committed load-self-definition: sequence 2
+Assessing baseline:checked-definitions: 1 ordered operations
+Committed baseline:checked-definitions: sequence 3
+Assessing load-observed-evidence: 6 ordered operations
+Committed load-observed-evidence: sequence 4
+Assessing baseline:A: 1 ordered operations
+Committed baseline:A: sequence 5
+Assessing baseline:B: 1 ordered operations
+Committed baseline:B: sequence 7

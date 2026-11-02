@@ -1,0 +1,1057 @@
+{
+  "scope": {
+    "hub": "urn:knowledgehub:self-hub",
+    "model": "urn:knowledgehub:library",
+    "branch": "main",
+    "owner": "host:maintainer"
+  },
+  "operation_id": "register-catalogue",
+  "actor": "host:maintainer",
+  "fingerprint_version": "knowledgehub-request/2",
+  "fingerprint": "9d84c56ffd5494d6ed7de8b8863d8a4eca6aefea160de4ca21847867eebbdad0",
+  "previous_head": "23e0d084818e55cde6f4aae27a7855186f92ae8e425f3f43c005e6cb276c669f",
+  "head": "ba9bd1dbb69acff6a8e6ba543f18044078f744ef3cb6a46401cd379a3523293d",
+  "sequence": 1,
+  "affected": [
+    {
+      "model": "sdo",
+      "id": "urn:source:ontology",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "urn:source:ontology:capture",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:source:ontology-pdf",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:source:ontology-pdf:capture",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:anchor:catalogue",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Stakeholder",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessGoal",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DesiredOutcome",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessCapability",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessFunction",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessRole",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Measure",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Requirement",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BusinessRule",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Assumption",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:OpenQuestion",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DesignDecision",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Rationale",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Constraint",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Actor",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Persona",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Journey",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:JourneyStep",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:UserActivity",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:UserTask",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:UserStory",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:StoryMap",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:OutcomeCut",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Scenario",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Domain",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Subdomain",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:BoundedContext",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ContextRelationship",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:UbiquitousLanguageTerm",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:PublishedLanguage",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AggregateDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EntityType",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ValueObjectType",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DomainService",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Invariant",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RepositoryPort",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:LifecycleDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:UseCase",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:CommandDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:QueryDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:FunctionDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Parameter",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Precondition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Postcondition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Effect",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ErrorDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EventDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EventOccurrence",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EventHandler",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ProcessDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ProcessStep",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ProcessExecution",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:State",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Transition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Timer",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Compensation",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:CorrelationPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DataSchema",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:FieldDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DataType",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:FieldConstraint",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ProjectionDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:TransformationDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:TransformationRun",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:MappingRule",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:MigrationDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DataStoreDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ScreenDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ViewState",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ComponentDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ComponentPlacement",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Interaction",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:NavigationTransition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DataBinding",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ActionBinding",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:LayoutConstraint",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DesignToken",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Asset",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AccessibilityRule",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ApplicationSystem",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:SoftwareComponent",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Module",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Interface",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Port",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Adapter",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Endpoint",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:MessageChannel",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ExternalSystem",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:IntegrationContract",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Dependency",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:PrincipalType",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Role",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Permission",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AuthorizationPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:TrustBoundary",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DataClassification",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RetentionPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Threat",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AuditRequirement",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:QualityScenario",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ServiceObjective",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Environment",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DeploymentDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DeploymentInstance",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Resource",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ConfigurationDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ObservabilityRequirement",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RecoveryProcedure",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AgentRole",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ModelConfiguration",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:PromptDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ToolContract",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ContextPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RetrievalPolicy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RunLimit",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EvaluationCase",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:HumanReviewBoundary",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:DeliverySlice",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ChangeDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ImplementationTask",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ReleaseWorkPackage",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Release",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AcceptanceCriterion",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:TestCase",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:TestRun",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:EvidenceArtifact",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:AcceptanceRecord",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:KnowledgeHub",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:SystemModel",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:OntologyDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ElementTypeDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RelationshipTypeDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ConstraintDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ProfileDefinition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ElementIdentity",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ElementRevision",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RelationshipAssertion",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:SourceArtifact",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:SourceRevision",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:SourceAnchor",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:Interpretation",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ModelBaseline",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:RepresentationBinding",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:type:ReviewDecision",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:BusinessCapability.contributesTo",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:BusinessFunction.realises",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:BusinessFunction.decomposesInto",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Journey.pursues",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Journey.containsStep",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:UserStory.supportsStep",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Requirement.formalises",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:UseCase.satisfies",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Interaction.issues",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:CommandDefinition.handledBy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:DataBinding.reads",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:UseCase.invokes",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:FunctionDefinition.operatesOn",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:AggregateDefinition.hasRoot",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:AggregateDefinition.protects",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ElementRevision.ownedIn",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:FunctionDefinition.declaresEvent",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:EventHandler.consumes",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ProcessStep.invokes",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Transition.triggeredBy",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:TransformationDefinition.hasInputContract",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:TransformationDefinition.hasOutputContract",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ProjectionDefinition.derivesFrom",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:SoftwareComponent.implements",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:Adapter.translates",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:AuthorizationPolicy.governs",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:TestCase.checks",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:TestRun.executes",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:EvidenceArtifact.supportsCriterion",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:RepresentationBinding.represents",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:SourceAnchor.supportsAssertion",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:RelationshipAssertion.contradicts",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ScreenDefinition.contains",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ComponentPlacement.contains",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ScreenDefinition.displays",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ComponentPlacement.edits",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ComponentPlacement.uses",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:relationship:ComponentPlacement.issues",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-01",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-02",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-03",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-04",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-05",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-06",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-07",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-08",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-09",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-10",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-11",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-12",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-13",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-14",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-15",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-16",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:constraint:V-17",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:profile:system-definition",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:profile:knowledgehub-self-description",
+      "revision": "catalogue-1"
+    },
+    {
+      "model": "sdo",
+      "id": "sdo:ontology:system-definition",
+      "revision": "catalogue-1"
+    }
+  ]
+}

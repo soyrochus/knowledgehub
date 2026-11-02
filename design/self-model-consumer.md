@@ -84,3 +84,5 @@ complete exact-input native checks, source/module/API bindings, actual A/B and
 original receipts, full scrub and indexed library-model reads. The older relocation
 inventory above remains historical. The captured checkpoint precedes final run
 reports, task status and generated hub guide. It is not a live working-tree mirror.
+
+Current native-profile APIs and private mechanisms have explicit bindings in `examples/self_model_support/origins.json`. Capture/audit refuses unknown or duplicate origins. Use isolated support fixtures and the native profile helper; repository edits do not refresh historical Hub sources or transfer ownership. See [native profile guidance](macos-file-backend.md).

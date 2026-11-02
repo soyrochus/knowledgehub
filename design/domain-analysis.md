@@ -229,3 +229,34 @@ The user selected generic local association lookup: index actual incoming/outgoi
 KH-DR-20–23 distinguish these refinements. KH-SL-009/010 have bounded implementation/technical evidence for shared storage and actual one-hop facts; [neighbour evidence](../delivery/evidence/neighbours/README.md) preserves the distinction between selected assertion endpoint guards, historical property/closure pins and explicit old selections. KH-SL-011 now implements KH-DR-22 through literal entry, bounded state-aware typed traversal and grouped candidate dependencies with explicit coverage; [query evidence](../delivery/evidence/impact/README.md) and [API choices](deterministic-query-api.md) record its boundary. KH-SL-012 remains planned. These outcomes do not close residual managed-authoring, review, broad interchange or authority-handover scope.
 
 The user replaced canonical migration with explicit deletion/regeneration plus the complete native suite and public checks. KH-DR-23 separates that host demonstration lifecycle from immutable updates within a retained Hub. General conversion/recovery backup remains deferred; no planning edit deletes the current data.
+
+## 12. Proposed native macOS file support — 2 November 2026
+
+The pre-implementation situation was a maintainer using macOS on Apple Silicon. After the
+compilation repair, Rust 1.99.1 builds the crate and all test/example targets, but
+the ordinary `minimal_model` creation path returns `Incompatible`: the file
+adapter explicitly admits only Linux x86_64/local ext4. Compilation is therefore
+distinct from working persistence. At that inspection no macOS recovery evidence existed.
+
+This is an infrastructure extension of the same storage port and file adapter,
+not a new domain context. The proposed distinction is between a **current host
+support profile**, checked against the filesystem on every open/create, and the
+**creation profile** retained in current-format store metadata. A creation label
+cannot establish that a store's present location is supported. Moving a complete,
+quiescent files/4 fixture between supported hosts must preserve its semantic
+identity, accepted history and original receipts; it is not a new model commit.
+
+KH-DR-02/04/07–13/15/17/20 already govern this extension. In particular, a macOS
+profile cannot waive atomicity, exact retries, sync failures, stable locking or
+snapshot-bound reads. The first proposed target is macOS arm64/local APFS,
+alongside retained Linux x86_64/local ext4. Other architectures/filesystems and
+power-loss guarantees need separate scope/evidence. See
+[KH-SL-018](../delivery/slice-plan.md#kh-sl-018--run-the-current-file-backend-natively-on-macos)
+and proposed KH-D-23–25 in the [decision register](self-hosting-plan.md#proposed-macos-file-support--2-november-2026).
+The original request was planning only. The subsequent Apply request authorised
+this bounded implementation. [Native Mac evidence](../delivery/evidence/macos-file-backend/README.md)
+now establishes the ordinary APFS runtime/recovery journey, without changing the
+domain responsibilities or rule catalogue. Linux verification is explicitly
+assumed at the user's direction pending a separate machine; both native copy
+directions and final cross-platform review remain open. No human acceptance or
+authority transfer follows.

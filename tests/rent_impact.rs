@@ -67,7 +67,7 @@ async fn narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl() {
     let reopened = KnowledgeHub::open(
         knowledgehub::backends::files::FileBackend::new(
             &s.store,
-            knowledgehub::backends::files::FileOptions::local_ext4(),
+            knowledgehub::backends::files::FileOptions::native_local().unwrap(),
         )
         .unwrap(),
         fixture::context(),

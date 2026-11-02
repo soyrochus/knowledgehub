@@ -5,7 +5,7 @@ Current contract · 2 November 2026 · technical checks do not record project ac
 `knowledgehub::KnowledgeHub` is the sole storage-independent full API in crate
 0.10.0. All typed contracts are exported at the crate root; the ontology module
 organises the same implementation. `FileBackend::new(path,
-FileOptions::local_ext4())` selects the sole `knowledgehub-files/4` backend.
+FileOptions::native_local()?)` selects the sole `knowledgehub-files/4` backend. The helper composes an explicit native declaration; create/open check the actual local APFS/ext4 location. See [native profiles](macos-file-backend.md) for creation provenance and persistence.
 Older APIs, constructors and store readers are removed. Unsupported metadata is
 refused unchanged; create a fresh store. No converter or facade is provided.
 

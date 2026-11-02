@@ -132,7 +132,7 @@ fn layout(c: &FileStore) -> Result<(), Error> {
     ] {
         let p = c.root.join(name);
         match fs::create_dir(&p) {
-            Ok(()) => sync_dir(p.parent().unwrap())?,
+            Ok(()) => c.sync_dir(p.parent().unwrap())?,
             Err(e) if e.kind() == std::io::ErrorKind::AlreadyExists => is_dir(&p)?,
             Err(_) => return Err(storage("create neighbour cache layout")),
         }
@@ -167,7 +167,7 @@ fn clear(store: &FileStore) -> Result<(), Error> {
                 fs::remove_file(&c.root)
             }
             .map_err(|_| storage("evict neighbour cache"))?;
-            sync_dir(&store.root.join("cache"))?;
+            store.sync_dir(&store.root.join("cache"))?;
         }
         Err(e) if e.kind() == std::io::ErrorKind::NotFound => {}
         Err(_) => return Err(storage("inspect neighbour cache")),
@@ -228,13 +228,14 @@ fn install(store: &FileStore, c: &FileStore, mut m: Manifest) -> Result<(), Erro
         .root
         .join("staging")
         .join(format!("manifest-{}", store.allocate_id()?.0));
-    persist(&temp, &bytes)?;
-    sync_dir(&c.root.join("staging"))?;
+    c.persist(&temp, &bytes)?;
+    c.sync_dir(&c.root.join("staging"))?;
     store.point("neighbour-manifest-synced")?;
     fs::rename(&temp, path(c, &m.binding)?)
         .map_err(|_| storage("install complete neighbour view"))?;
-    sync_dir(&c.root.join("views"))?;
-    sync_dir(&c.root.join("staging"))?;
+    c.sync_dir(&c.root.join("views"))?;
+    c.sync_dir(&c.root.join("staging"))?;
+    c.fence(&path(c, &m.binding)?)?;
     store.point("neighbour-cache-installed")
 }
 

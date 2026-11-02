@@ -9,7 +9,7 @@ use walkthrough::{seed, specimens};
 async fn public_shared_walkthrough_pack_reindex_and_materialise() {
     let s = support::Sandbox::new();
     walkthrough::walkthrough(&s.store).await.unwrap();
-    let b = FileBackend::new(&s.store, FileOptions::local_ext4()).unwrap();
+    let b = FileBackend::new(&s.store, FileOptions::native_local().unwrap()).unwrap();
     let h = KnowledgeHub::open(b.clone(), seed::context(), specimens::scope())
         .await
         .unwrap();

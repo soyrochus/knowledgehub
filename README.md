@@ -16,8 +16,9 @@ For example, you can connect a requirement to the command that fulfils it, the d
 it must preserve and the tests that check it. When the requirement changes, earlier
 baselines still resolve to the exact definitions and source bytes they originally used.
 
-KnowledgeHub is an embedded library with a local file backend; no database server is
-required. The repository is [soyrochus/knowledgehub](https://github.com/soyrochus/knowledgehub).
+KnowledgeHub is an embedded library with a file backend by default, so no database
+server is required to get started. Its storage-independent design can be extended
+with database backends. The repository is [soyrochus/knowledgehub](https://github.com/soyrochus/knowledgehub).
 [Modelarium](https://github.com/soyrochus/modelarium) is a project using the library.
 
 ## What you can do

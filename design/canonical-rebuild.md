@@ -1,13 +1,23 @@
 # Rebuild the canonical demonstration
 
-The current workflow creates an independent 0.10.0 files/4 demonstration. The
-user's renamed old_hub is retained byte-for-byte, excluded from capture and never
-used as an import, recovery or reset source. The first cutover requires hub absent;
-an occupied older destination is refused before checks or store mutation.
+This procedure describes a separately authorised canonical creation/rebuild.
+The earlier KH-SL-017 results retain their exact historical checkpoint; MM-SL-01
+created separate source-bound reference Hubs and performed no canonical refresh.
+See the [current delivered state](../README.md#current-delivered-state) and
+[standalone fixtures](../examples/fixtures/README.md).
 
-Run `python3 scripts/rebuild_canonical_hub.py --reset`. Later explicit retries may
-reset only the marked current canonical target. Exact path, scope, ordinary-file,
-symlink and active-writer guards remain. No old metadata/lock layout is supported.
+The retained root `hub/` is a files/4 instance with record/request codecs /2;
+the current library requires /3. The present decoder and inspector cannot reopen
+it. Preserve `hub/` and `old_hub/`; a documentation edit or completed feature
+change does not authorise deleting, importing, converting or refreshing them.
+The original first-cutover precondition was an absent `hub/` destination.
+
+For a separately scoped future run, the host entry point is
+`python3 scripts/rebuild_canonical_hub.py --reset`. Its native checks, destination
+admission and complete verification must succeed against the then-current
+contract. Later retries may reset only an explicitly authorised, marked current
+target. Exact path, scope, ordinary-file, symlink and active-writer guards remain;
+an older target is not a migration or recovery source.
 
 The host performs these steps:
 
@@ -30,7 +40,7 @@ The host performs these steps:
 7. Only after required checks pass, write result.json and hub/README.md and mark
    verified. Final task/report/guide edits are explicitly after the captured checkpoint.
 
-Inspect through the public API:
+After an authorised current-contract creation, inspect that matching instance through the public API:
 
 ~~~sh
 cargo run --offline --release --example inspect_self_model

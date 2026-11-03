@@ -1,0 +1,50 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "scope": {
+    "hub": "fixture:equipment",
+    "model": "fixture:equipment",
+    "branch": "main",
+    "owner": "fixture:design-owner"
+  },
+  "inputs": [
+    {
+      "key": "design.md",
+      "path": "design.md",
+      "media_type": "text/markdown",
+      "authority": "authored-design",
+      "status": "authored-requirement",
+      "rendition_group": "design",
+      "dependencies": [],
+      "exclude_reason": null,
+      "expected": {
+        "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+        "length": 496
+      }
+    },
+    {
+      "key": "rule.js",
+      "path": "rule.js",
+      "media_type": "text/javascript",
+      "authority": "authored-design",
+      "status": "authored-requirement",
+      "rendition_group": null,
+      "dependencies": [],
+      "exclude_reason": null,
+      "expected": {
+        "sha256": "b4820164c2bf9af9e9b05b85f63cf83c311720defd821e3b2e4eb5ba6bb35196",
+        "length": 159
+      }
+    }
+  ],
+  "authority": {
+    "field_owners": {
+      "design": "design.md"
+    },
+    "precedence": [
+      "design.md",
+      "rule.js"
+    ],
+    "unresolved_conflicts": [],
+    "review_status": "agent-reviewed supplied ownership hierarchy and source locators; human meaning acceptance pending"
+  }
+}

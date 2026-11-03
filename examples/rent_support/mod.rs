@@ -130,6 +130,10 @@ pub fn mapped_table(state: &State, id: &str, table: &str) -> (Record, Record) {
         .clone();
     r.reference = reference(id);
     r.type_ref = physical_type();
+    // The physical table is described by its exact DDL. It does not own the
+    // unrelated logical fields of the generic schema specimen we cloned.
+    specimens::put_property(&mut r, "fields", Value::List(vec![]));
+    specimens::put_property(&mut r, "identity_fields", Value::List(vec![]));
     for (k, v) in [
         ("name", table),
         ("database", "rental"),

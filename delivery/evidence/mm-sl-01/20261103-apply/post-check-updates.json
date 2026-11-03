@@ -1,0 +1,46 @@
+{
+  "compiled_source_changed": false,
+  "changes": {
+    "design/typed-ontology-api.md": {
+      "checked": {
+        "sha256": "626192d07e31dfe0dbb88b5ccfd5344ebbcc0651efee5cc35c28bef4260e2ef4",
+        "length": 7685
+      },
+      "final": {
+        "sha256": "ef45e4edf4e09bd9aa05ed006220929015401a009f2867d3324e4eb08e6c3c5f",
+        "length": 7686
+      }
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/tasks.md": {
+      "checked": {
+        "sha256": "ca4fde0bc4642fb9e493b6c65ba58d00452a720a32733ac205665769d3c48f19",
+        "length": 4504
+      },
+      "final": {
+        "sha256": "4730a9789da4bd0b11044eace6646513b79cfb800828efac8491ace24e3cf380",
+        "length": 4504
+      }
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/tasks.md": {
+      "checked": {
+        "sha256": "1e2340840118658984df4b27900459924159214b9152206eed6522b8cb245bf2",
+        "length": 4608
+      },
+      "final": {
+        "sha256": "8e24af482ca3eaa99b9adbf830d3717f2cf77204220fedec29c716f462ecb731",
+        "length": 4608
+      }
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/tasks.md": {
+      "checked": {
+        "sha256": "e62ea14d7d0f65380aa2e1ea37ae9e8f55a3ec99e5fdcc23c2f369c50fae39c4",
+        "length": 4437
+      },
+      "final": {
+        "sha256": "5a2c59ca7d1f9b36700a44867ff3235e04745fb788c6c1c6c98dafdaffad1529",
+        "length": 4437
+      }
+    }
+  },
+  "reason": "Final task checkboxes and documentation depth correction only; native code/executables unchanged"
+}

@@ -1,0 +1,25 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.90s
+     Running tests/rent_impact.rs (target/debug/deps/rent_impact-2aac3ef2f6b0ae1a)
+
+running 3 tests
+test text_readiness_corruption_policy_and_source_successor_remain_explicit ... ok
+test narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl ... ok
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest has been running for over 60 seconds
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest ... FAILED
+
+failures:
+
+---- missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest stdout ----
+
+thread 'missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest' (2987760) panicked at tests/rent_impact.rs:169:50:
+called `Result::unwrap()` on an `Err` value: Invalid([Violation { rule: "V-08", subject: "specimen\0specimen:AggregateDefinition\01", message: "/members: root must belong to aggregate membership" }])
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest
+
+test result: FAILED. 2 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 75.99s
+
+error: test failed, to rerun pass `--test rent_impact`

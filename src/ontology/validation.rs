@@ -275,7 +275,7 @@ fn value_valid(state: &State, v: &Value, k: &ValueKind, depth: usize) -> bool {
             Value::Ref(_) => value_valid(
                 state,
                 v,
-                &ValueKind::Reference(vec!["AnySubject".into()]),
+                &ValueKind::Reference(vec![TypeSelector::Role(SubjectRole::AnySubject)]),
                 depth + 1,
             ),
             Value::Narrative { .. } => value_valid(state, v, &ValueKind::Narrative, depth + 1),
@@ -312,31 +312,6 @@ fn properties_valid(
         .iter()
         .all(|(n, p)| !p.required || values.contains_key(n))
 }
-fn fields_for(
-    state: &State,
-    t: &TypeDefinition,
-    seen: &mut BTreeSet<String>,
-) -> Option<BTreeMap<String, Property>> {
-    if !seen.insert(t.name.clone()) {
-        return None;
-    }
-    let mut fields = BTreeMap::new();
-    for p in &t.parents {
-        let t = state.type_definition(p)?;
-        for (k, v) in fields_for(state, t, seen)? {
-            if fields.insert(k, v).is_some() {
-                return None;
-            }
-        }
-    }
-    for (k, v) in &t.properties {
-        if fields.insert(k.clone(), v.clone()).is_some() {
-            return None;
-        }
-    }
-    seen.remove(&t.name);
-    Some(fields)
-}
 fn schema_valid(state: &State, k: &ValueKind, depth: usize) -> bool {
     if depth > 64 {
         return false;
@@ -349,14 +324,9 @@ fn schema_valid(state: &State, k: &ValueKind, depth: usize) -> bool {
         }
         ValueKind::Reference(v) => {
             !v.is_empty()
-                && v.iter().all(|n| {
-                    matches!(
-                        n.as_str(),
-                        "AnySubject" | "AnyElementRevision" | "ElementRevision"
-                    ) || state
-                        .records
-                        .values()
-                        .any(|r| matches!(&r.data,RecordData::Type(t) if &t.name==n))
+                && v.iter().all(|n| match n {
+                    TypeSelector::Role(_) => true,
+                    TypeSelector::Type(r) => state.type_definition(r).is_some(),
                 })
         }
         ValueKind::List { item, min } | ValueKind::Set { item, min } => {
@@ -386,7 +356,13 @@ fn gap(
         if state.profile_definition().is_some_and(|p| p.allow_gaps)
             && nonempty(&g.reason)
             && !g.provenance.is_empty()
-            && g.provenance.iter().all(|p| state.get(p).is_some())
+            && g.provenance
+                .iter()
+                .all(|p| match state.get(p).map(|r| &r.data) {
+                    Some(RecordData::Anchor(_)) => anchor_text(state, p).is_some(),
+                    Some(RecordData::Interpretation(i)) => anchor_text(state, &i.anchor).is_some(),
+                    _ => false,
+                })
         {
             missing.push(g.clone());
             return;
@@ -407,12 +383,25 @@ fn prop<'a>(state: &'a State, r: &ExactRef, p: &str) -> Option<&'a Value> {
     state.get(r)?.element()?.get(p)
 }
 fn outgoing<'a>(state: &'a State, r: &ExactRef, verb: &str) -> Vec<&'a AssertionData> {
+    static SIGNATURES: std::sync::OnceLock<BTreeSet<ExactRef>> = std::sync::OnceLock::new();
+    let signatures = SIGNATURES.get_or_init(|| {
+        builtin_catalogue()
+            .expect("embedded catalogue")
+            .records
+            .into_iter()
+            .filter(|r| matches!(r.data, RecordData::Relationship(_)))
+            .map(|r| r.reference)
+            .collect()
+    });
     state
         .selected_records()
         .filter_map(|e| {
             if let RecordData::Assertion(a) = &e.data {
                 let d = state.get(&a.signature)?;
-                if matches!(&d.data,RecordData::Relationship(d) if d.name==verb) && a.from == *r {
+                if signatures.contains(&a.signature)
+                    && matches!(&d.data,RecordData::Relationship(d) if d.name==verb)
+                    && a.from == *r
+                {
                     Some(a)
                 } else {
                     None
@@ -456,7 +445,16 @@ fn native_valid(state: &State, r: &Record, out: &mut Vec<Violation>) {
         supports_role(
             state,
             k,
-            &names.iter().map(|s| (*s).into()).collect::<Vec<_>>(),
+            &names
+                .iter()
+                .map(|s| match *s {
+                    "AnySubject" => TypeSelector::Role(SubjectRole::AnySubject),
+                    "AnyElementRevision" | "ElementRevision" => {
+                        TypeSelector::Role(SubjectRole::ElementRevision)
+                    }
+                    n => TypeSelector::Type(type_ref(n)),
+                })
+                .collect::<Vec<_>>(),
         )
     };
     let valid = match &r.data {
@@ -552,7 +550,7 @@ fn native_valid(state: &State, r: &Record, out: &mut Vec<Violation>) {
                 && t.constraints
                     .iter()
                     .all(|p| need(p, &["ConstraintDefinition"]))
-                && fields_for(state, t, &mut BTreeSet::new()).is_some()
+                && super::schema::fields(state, &r.reference).is_some()
         }
         RecordData::Relationship(d) => {
             nonempty(&d.name)
@@ -792,11 +790,102 @@ fn semantic_constraints(
     out: &mut Vec<Violation>,
     missing: &mut Vec<Gap>,
 ) {
+    for ancestor in super::schema::applicable(state, &record.type_ref).unwrap_or_default() {
+        if let Some(t) = state.type_definition(&ancestor) {
+            if ancestor == type_ref(&t.name) {
+                semantic_constraints_for(state, record, &t.name, out, missing);
+            }
+        }
+    }
+}
+fn semantic_constraints_for(
+    state: &State,
+    record: &Record,
+    kind: &str,
+    out: &mut Vec<Violation>,
+    missing: &mut Vec<Gap>,
+) {
     let Some(p) = record.element() else { return };
     let r = &record.reference;
-    let kind = state.kind(r).unwrap_or("");
     let owns = |target: &ExactRef, owner: &str| refs(prop(state, target, owner)).contains(r);
     match kind {
+        "DataType" => {
+            let constructor = p.get("value_kind").and_then(Value::as_text).unwrap_or("");
+            let required = match constructor {
+                "enumeration" => Some("enum_values"),
+                "record" => Some("record_schema"),
+                "list" | "set" => Some("item_type"),
+                "reference" => Some("reference_targets"),
+                _ => None,
+            };
+            for field in [
+                "enum_values",
+                "record_schema",
+                "item_type",
+                "reference_targets",
+            ] {
+                if required == Some(field) && !p.contains_key(field) {
+                    gap(
+                        state,
+                        r,
+                        &format!("/{field}"),
+                        out,
+                        missing,
+                        "constructor requires its structured definition",
+                    );
+                } else if required != Some(field) && p.contains_key(field) {
+                    issue(
+                        out,
+                        "V-12",
+                        r,
+                        &format!("/{field}"),
+                        "property is incompatible with logical constructor",
+                    );
+                }
+            }
+        }
+        "FieldDefinition" => {
+            if let Some(restriction) = p.get("reference_targets") {
+                for datatype in refs(p.get("datatype")) {
+                    if prop(state, &datatype, "value_kind").and_then(Value::as_text)
+                        != Some("reference")
+                    {
+                        issue(
+                            out,
+                            "V-12",
+                            r,
+                            "/reference_targets",
+                            "field restriction requires a direct reference DataType",
+                        );
+                    } else {
+                        let allowed = refs(prop(state, &datatype, "reference_targets"));
+                        if restriction.refs().iter().any(|t| !allowed.contains(t)) {
+                            issue(
+                                out,
+                                "V-12",
+                                r,
+                                "/reference_targets",
+                                "field target restriction widens the DataType targets",
+                            );
+                        }
+                    }
+                }
+            }
+        }
+        "Adapter" => {
+            if p.get("implementation_status").and_then(Value::as_text) == Some("implemented")
+                && !p.contains_key("implementation")
+            {
+                gap(
+                    state,
+                    r,
+                    "/implementation",
+                    out,
+                    missing,
+                    "implemented adapter requires a real artifact binding",
+                );
+            }
+        }
         "AggregateDefinition" => {
             let roots = outgoing(state, r, "hasRoot");
             if roots.len() > 1 {
@@ -1073,15 +1162,29 @@ fn semantic_constraints(
             }
         }
         "StoryMap" => {
-            let owner = refs(p.get("journey"));
+            let scope = refs(p.get("journeys"));
             for a in refs(p.get("activities")) {
-                if refs(prop(state, &a, "journey")) != owner {
+                if refs(prop(state, &a, "journeys"))
+                    .iter()
+                    .any(|j| !scope.contains(j))
+                {
                     issue(
                         out,
                         "V-10",
                         r,
                         "/activities",
-                        "activity belongs to another journey",
+                        "activity journey scope escapes the map",
+                    );
+                }
+            }
+            for placement in refs(p.get("placements")) {
+                if !owns(&placement, "map") {
+                    issue(
+                        out,
+                        "V-10",
+                        r,
+                        "/placements",
+                        "placement belongs to another map",
                     );
                 }
             }
@@ -1095,6 +1198,109 @@ fn semantic_constraints(
                         "outcome cut belongs to another map",
                     );
                 }
+            }
+        }
+        "UserActivity" => {
+            for task in refs(p.get("tasks")) {
+                if !owns(&task, "activity") {
+                    issue(out, "V-10", r, "/tasks", "task belongs to another activity");
+                }
+            }
+        }
+        "UserTask" => {
+            for activity in refs(p.get("activity")) {
+                if !refs(prop(state, &activity, "tasks")).contains(r) {
+                    issue(
+                        out,
+                        "V-10",
+                        r,
+                        "/activity",
+                        "activity does not select its task",
+                    );
+                }
+            }
+        }
+        "StoryPlacement" => {
+            if p.get("order")
+                .is_some_and(|v| !matches!(v, Value::Integer(n) if nonnegative(n)))
+            {
+                issue(
+                    out,
+                    "V-10",
+                    r,
+                    "/order",
+                    "placement order must be a nonnegative integer",
+                );
+            }
+            for map in refs(p.get("map")) {
+                if !refs(prop(state, &map, "placements")).contains(r) {
+                    issue(out, "V-10", r, "/map", "map does not select its placement");
+                }
+                for task in refs(p.get("task")) {
+                    if refs(prop(state, &task, "activity"))
+                        .iter()
+                        .any(|a| !refs(prop(state, &map, "activities")).contains(a))
+                    {
+                        issue(
+                            out,
+                            "V-10",
+                            r,
+                            "/task",
+                            "placement task is outside the map activities",
+                        );
+                    }
+                }
+            }
+            for other in state
+                .selected_records()
+                .filter(|v| v.reference != *r && state.kind(&v.reference) == Some("StoryPlacement"))
+            {
+                if let Some(q) = other.element() {
+                    if p.get("map") == q.get("map")
+                        && p.get("task") == q.get("task")
+                        && p.get("order") == q.get("order")
+                    {
+                        issue(out, "V-10", r, "/order", "duplicate order within map/task");
+                    }
+                }
+            }
+        }
+        "OutcomeCut" => {
+            let maps = refs(p.get("map"));
+            for placement in refs(p.get("placements")) {
+                if refs(prop(state, &placement, "map")) != maps {
+                    issue(
+                        out,
+                        "V-10",
+                        r,
+                        "/placements",
+                        "cut selects a placement from another map",
+                    );
+                }
+            }
+            for prerequisite in refs(p.get("prerequisites")) {
+                if refs(prop(state, &prerequisite, "map")) != maps {
+                    issue(
+                        out,
+                        "V-10",
+                        r,
+                        "/prerequisites",
+                        "prerequisite belongs to another map",
+                    );
+                }
+            }
+            let graph = state
+                .selected_records()
+                .filter(|v| state.kind(&v.reference) == Some("OutcomeCut"))
+                .map(|v| {
+                    (
+                        v.reference.clone(),
+                        refs(v.element().and_then(|p| p.get("prerequisites"))),
+                    )
+                })
+                .collect();
+            if cycle(&graph) {
+                issue(out, "V-10", r, "/prerequisites", "cyclic cut prerequisites");
             }
         }
         "BoundedContext" => {
@@ -1337,6 +1543,18 @@ fn semantic_constraints(
             }
         }
         "Module" => {
+            if p.get("implementation_status").and_then(Value::as_text) == Some("implemented")
+                && !p.contains_key("artifacts")
+            {
+                gap(
+                    state,
+                    r,
+                    "/artifacts",
+                    out,
+                    missing,
+                    "implemented module requires real artifact bindings",
+                );
+            }
             if let Some(component) = refs(p.get("component")).first() {
                 if !refs(prop(state, component, "modules")).contains(r) {
                     gap(
@@ -1431,6 +1649,23 @@ fn semantic_constraints(
             }
         }
         _ => {}
+    }
+    for field in match kind {
+        "StoryMap" => &["activities", "placements", "cuts"][..],
+        "UserActivity" => &["tasks"][..],
+        "OutcomeCut" => &["prerequisites"][..],
+        _ => &[],
+    } {
+        let members = refs(p.get(*field));
+        if members.iter().collect::<BTreeSet<_>>().len() != members.len() {
+            issue(
+                out,
+                "V-10",
+                r,
+                &format!("/{field}"),
+                "duplicate exact membership",
+            );
+        }
     }
     // Validate reusable structured contracts wherever nested, independent of the enclosing family.
     fn structure(state: &State, r: &ExactRef, path: &str, v: &Value, out: &mut Vec<Violation>) {
@@ -1870,7 +2105,9 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                 );
                 continue;
             }
-            let Some(fields) = fields_for(state, t, &mut BTreeSet::new()) else {
+            let Ok(declarations) = super::schema::declared_fields(&r.type_ref, |t| {
+                state.type_definition(t).cloned().ok_or(Error::NotFound)
+            }) else {
                 issue(
                     &mut out,
                     "V-02",
@@ -1880,6 +2117,10 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                 );
                 continue;
             };
+            let fields = declarations
+                .iter()
+                .map(|(name, (_, p))| (name.clone(), p.clone()))
+                .collect::<BTreeMap<_, _>>();
             let selected = state.selected.get(&r.reference.identity()) == Some(&r.reference);
             for (name, v) in &e.properties {
                 match fields.get(name) {
@@ -1890,7 +2131,10 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                         "V-02",
                         &r.reference,
                         &format!("/{}", pointer_segment(name)),
-                        "value violates pinned type/nullability/reference schema",
+                        &format!(
+                            "value violates pinned type/nullability/reference schema; declaration {}",
+                            declarations[name].0.key()
+                        ),
                     ),
                     None => issue(
                         &mut out,
@@ -1910,7 +2154,10 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                             &format!("/{}", pointer_segment(name)),
                             &mut out,
                             &mut gaps,
-                            "required property missing",
+                            &format!(
+                                "required property missing; declaration {}",
+                                declarations[name].0.key()
+                            ),
                         )
                     } else if !state.gaps.iter().any(|g| {
                         g.subject == r.reference && g.path == format!("/{}", pointer_segment(name))
@@ -2005,7 +2252,7 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                 );
                 continue;
             };
-            if d.name == "represents"
+            if a.signature == relationship_ref("RepresentationBinding", "represents")
                 && state.get(&a.from).is_some_and(
                     |r| matches!(&r.data,RecordData::Representation(b) if b.subject != a.to),
                 )
@@ -2035,6 +2282,26 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
                     "/qualifiers",
                     "unknown or invalid typed qualifier",
                 )
+            }
+            if a.signature == relationship_ref("UserStory", "dependsOn") {
+                let required =
+                    a.qualifiers.get("dependency_kind") == Some(&Value::enumeration("required"));
+                let condition = a.qualifiers.get("condition");
+                if a.from == a.to
+                    || if required {
+                        condition != Some(&Value::Null)
+                    } else {
+                        !condition.is_some_and(|v| value_valid(state, v, &ValueKind::Narrative, 0))
+                    }
+                {
+                    issue(
+                        &mut out,
+                        "V-03",
+                        &r.reference,
+                        "/qualifiers/condition",
+                        "self dependency or incompatible required/conditional condition",
+                    );
+                }
             }
             if state.selected.get(&r.reference.identity()) == Some(&r.reference) {
                 for endpoint in [&a.from, &a.to] {
@@ -2101,30 +2368,50 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
     for r in state.selected_records() {
         semantic_constraints(state, r, &mut out, &mut gaps);
     }
+    let mut required_dependencies = BTreeMap::new();
+    for r in state.selected_records() {
+        if let RecordData::Assertion(a) = &r.data {
+            if a.signature == relationship_ref("UserStory", "dependsOn")
+                && a.qualifiers.get("dependency_kind") == Some(&Value::enumeration("required"))
+            {
+                required_dependencies
+                    .entry(a.from.clone())
+                    .or_insert_with(Vec::new)
+                    .push(a.to.clone());
+            }
+        }
+    }
+    if cycle(&required_dependencies) {
+        issue(
+            &mut out,
+            "V-10",
+            &relationship_ref("UserStory", "dependsOn"),
+            "/required",
+            "cycle of required story dependencies",
+        );
+    }
     if let Some(o) = active {
-        let mut type_names = BTreeSet::new();
         for t in &o.types {
             if let Some(d) = state.type_definition(t) {
-                if !type_names.insert(&d.name) {
-                    issue(
-                        &mut out,
-                        "V-02",
-                        t,
-                        "/name",
-                        "ontology selects ambiguous same-name type definitions",
-                    )
-                }
                 let records = state
                     .selected_records()
-                    .filter(|r| r.type_ref == *t)
+                    .filter(|r| {
+                        supports_role(state, &r.reference, &[TypeSelector::Type(t.clone())])
+                    })
                     .collect::<Vec<_>>();
-                for c in &d.constraints {
+                for constraint_ref in &d.constraints {
                     if let Some(Record {
                         data: RecordData::Constraint(c),
                         ..
-                    }) = state.get(c)
+                    }) = state.get(constraint_ref)
                     {
-                        constraint_check(state, &d.name, &c.rule, &records, &mut out)
+                        let start = out.len();
+                        constraint_check(state, &d.name, &c.rule, &records, &mut out);
+                        for violation in &mut out[start..] {
+                            violation
+                                .message
+                                .push_str(&format!("; declaration {}", constraint_ref.key()));
+                        }
                     }
                 }
             }
@@ -2182,25 +2469,20 @@ fn assess_inner(state: &State, check_baselines: bool) -> Assessment {
         }
     }
     for g in &state.gaps {
-        if !gaps.contains(g) {
-            if !nonempty(&g.reason)
+        if !gaps.contains(g)
+            && (!nonempty(&g.reason)
                 || g.provenance.is_empty()
                 || g.provenance.iter().any(|r| state.get(r).is_none())
                 || state.get(&g.subject).is_none()
-                || state.profile_definition().is_none_or(|p| !p.allow_gaps)
-            {
-                issue(
-                    &mut out,
-                    "V-17",
-                    &g.subject,
-                    &g.path,
-                    "invalid or disallowed gap claim",
-                )
-            } else {
-                if state.selected.get(&g.subject.identity()) == Some(&g.subject) {
-                    gaps.push(g.clone());
-                }
-            }
+                || state.selected.get(&g.subject.identity()) == Some(&g.subject))
+        {
+            issue(
+                &mut out,
+                "V-17",
+                &g.subject,
+                &g.path,
+                "invalid or disallowed gap claim",
+            )
         }
     }
     Assessment {

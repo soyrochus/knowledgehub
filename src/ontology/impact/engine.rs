@@ -32,27 +32,10 @@ impl Records<'_> {
         Ok(v)
     }
     fn is_type(&mut self, r: &ExactRef, wanted: &ExactRef, sub: bool) -> Result<bool, Error> {
-        let mut todo = vec![r.clone()];
-        let mut seen = BTreeSet::new();
-        while let Some(r) = todo.pop() {
-            if !seen.insert(r.clone()) {
-                continue;
-            }
-            if seen.len() > 64 {
-                return Err(Error::Capacity);
-            }
-            if &r == wanted {
-                return Ok(true);
-            }
-            if !sub {
-                return Ok(false);
-            }
-            let RecordData::Type(t) = self.get(&r)?.data else {
-                return Err(Error::InvalidInput("target type hierarchy".into()));
-            };
-            todo.extend(t.parents);
-        }
-        Ok(false)
+        crate::ontology::schema::matches_type(r, wanted, sub, |r| match self.get(r)?.data {
+            RecordData::Type(t) => Ok(t),
+            _ => Err(Error::InvalidInput("target type hierarchy".into())),
+        })
     }
 }
 #[derive(Clone)]
@@ -108,6 +91,7 @@ pub(crate) fn evaluate_query(
         },
         target: TargetPredicate {
             type_ref: q.type_ref.clone(),
+            include_subtypes: q.include_subtypes,
             ..TargetPredicate::default()
         },
         fact_scope: FactScope::Selected,
@@ -338,8 +322,10 @@ fn evaluate_inner(
             }
             let r = records.get(&f.subject)?;
             if let Some(query) = query {
-                if query.type_ref.as_ref().is_none_or(|t| *t == r.type_ref)
-                    && (query.ids.is_empty() || query.ids.contains(&r.reference.id))
+                if match &query.type_ref {
+                    Some(t) => records.is_type(&r.type_ref, t, query.include_subtypes)?,
+                    None => true,
+                } && (query.ids.is_empty() || query.ids.contains(&r.reference.id))
                 {
                     query_items.push(r.clone());
                 }

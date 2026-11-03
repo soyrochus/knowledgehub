@@ -157,7 +157,7 @@ async fn successors_selection_and_schema_versions_equal_clean_rebuilds() {
         t.properties.insert(
             "extra".into(),
             Property {
-                value: ValueKind::Reference(vec!["AnySubject".into()]),
+                value: ValueKind::Reference(vec![TypeSelector::Role(SubjectRole::AnySubject)]),
                 required: false,
                 nullable: false,
                 owner: PropertyOwner::Graph,
@@ -368,7 +368,7 @@ async fn generic_registered_nested_native_and_parallel_facts_match_independent_o
                     Value::Artifact(ExactRef::new(
                         "sdo",
                         "urn:source:ontology:capture",
-                        "catalogue-1",
+                        "catalogue-3",
                     )),
                 ),
                 (
@@ -377,7 +377,7 @@ async fn generic_registered_nested_native_and_parallel_facts_match_independent_o
                         document: ExactRef::new(
                             "sdo",
                             "urn:source:ontology:capture",
-                            "catalogue-1",
+                            "catalogue-3",
                         ),
                         fragment: fixture::anchor(),
                     },
@@ -605,6 +605,7 @@ async fn strict_current_contract_bounds_and_readiness() {
             "selection",
             "type_ref",
             "ids",
+            "include_subtypes",
             "starts",
             "signatures",
             "direction",

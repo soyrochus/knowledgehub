@@ -1,0 +1,20 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.89s
+     Running tests/rent_impact.rs (target/debug/deps/rent_impact-2aac3ef2f6b0ae1a)
+
+running 3 tests
+test text_readiness_corruption_policy_and_source_successor_remain_explicit ... ok
+test narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl ... ok
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest has been running for over 60 seconds
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 77.35s
+
+     Running tests/shared_storage.rs (target/debug/deps/shared_storage-e231739241fe8620)
+
+running 1 test
+test public_shared_walkthrough_pack_reindex_and_materialise has been running for over 60 seconds
+test public_shared_walkthrough_pack_reindex_and_materialise ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 174.31s
+

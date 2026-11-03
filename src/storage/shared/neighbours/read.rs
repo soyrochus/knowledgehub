@@ -172,34 +172,14 @@ fn type_match(
     wanted: &ExactRef,
     subtypes: bool,
 ) -> Result<bool, Error> {
-    if actual == wanted {
-        return Ok(true);
-    }
-    if !subtypes {
-        return Ok(false);
-    }
-    let mut todo = vec![(actual.clone(), 0)];
-    let mut seen = BTreeSet::new();
-    while let Some((r, depth)) = todo.pop() {
-        if !seen.insert(r.clone()) {
-            continue;
+    crate::ontology::schema::matches_type(actual, wanted, subtypes, |r| {
+        match records.get(r)?.data {
+            RecordData::Type(t) => Ok(t),
+            _ => Err(integrity("opposite type hierarchy")),
         }
-        if depth > 64 || seen.len() > 1000 {
-            return Err(Error::Capacity);
-        }
-        if r == *wanted {
-            return Ok(true);
-        }
-        let r = records.get(&r)?;
-        let RecordData::Type(t) = r.data else {
-            return Err(integrity("opposite type hierarchy"));
-        };
-        for p in t.parents {
-            todo.push((p, depth + 1));
-        }
-    }
-    Ok(false)
+    })
 }
+
 fn validate_filters(q: &Neighbours, records: &mut Records<'_, '_>) -> Result<(), Error> {
     let ontology = records
         .view

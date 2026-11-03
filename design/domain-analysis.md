@@ -1,6 +1,6 @@
 # KnowledgeHub domain analysis
 
-Draft 0.5 · Updated 1 November 2026 · Full ontology/self-model, shared storage, indexed neighbours and deterministic query evidence exists at recorded boundaries. Domain boundaries and practitioner acceptance remain under review.
+Draft 0.6 · Updated 3 November 2026 · Earlier evidence retains its exact scope. The authorised MM-SL-01 refinements and standalone authoring boundary are implemented; source interpretation and practitioner acceptance remain under review.
 
 This document owns the working domain vocabulary, responsibility boundaries and invariant catalogue for the `knowledgehub` library. The [ontology proposal](../source/system-definition-ontology-proposal.md) supplies the requirements and target ontology. The [Practical Design Manual](../source/practical-design-manual.md) supplies the design method. Its Memento examples are examples, not KnowledgeHub requirements.
 
@@ -260,3 +260,11 @@ domain responsibilities or rule catalogue. Linux verification is explicitly
 assumed at the user's direction pending a separate machine; both native copy
 directions and final cross-platform review remain open. No human acceptance or
 authority transfer follows.
+
+## Review after MM-SL-01 native refinements
+
+Shared experience definitions now distinguish a UserStory promise from a StoryPlacement in a task/map. A map and its activities can span exact journey sets; cumulative cuts select placements. Required story dependencies are acyclic, while conditional dependencies retain their sourced condition. These are generic ontology refinements, not new application requirements.
+
+Exact application definitions and their ontology metatypes remain separate. LifecycleDefinition owns its singular subject; inherited fields and integrity rules retain their exact schema origins. Logical constructors describe application data without turning the Hub into an application instance validator or rule engine. Planned architecture and sourced omissions retain draft status; supplied-invalid data cannot be waived by a gap.
+
+An external analyst owns source selection, authority interpretation and a typed plan. The library owns assessment, guarded publication, immutable baselines and current-policy reads. The standalone tool adds bounded capture, durable original-operation reconciliation and source-specific verification. Automated source accounting cannot establish human meaning review. See the [current contracts](logical-design-contract.md) and [MM-SL-01 evidence](../delivery/evidence/mm-sl-01/20261103-apply/README.md).

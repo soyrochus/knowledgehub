@@ -60,7 +60,7 @@ async fn walkthrough() {
             .type_ref,
         type_ref("ElementTypeDefinition")
     );
-    let source = ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-1");
+    let source = ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-3");
     assert_eq!(
         h.read_artifact(context.clone(), selected, source)
             .await

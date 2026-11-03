@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <title>Memento · Access</title>
+  <link rel="stylesheet" href="mockups.css?v=20261026k">
+</head>
+<body data-screen="login">
+  <header class="topbar">
+    <a class="brand" href="01-access.html" aria-label="Memento, home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h6v5H4zM14 12.5h6v5h-6zM10 9h3v6h1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="1" fill="currentColor"/></svg></span>
+      <span>MEMENTO</span>
+    </a>
+    <div class="topbar-right" id="topbar-right"></div>
+    <div class="activity-root" id="activity-root"></div>
+  </header>
+  <main id="app"></main>
+  <div id="overlay-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <template id="login-view">
+    <section class="login-layout">
+      <div class="welcome-panel">
+        <div class="welcome-copy">
+          <span class="eyebrow">A shared space to think</span>
+          <h1>From ideas<br>to what we do.</h1>
+          <p>Bring context, decisions, and team work together in one place that preserves the why.</p>
+        </div>
+        <div class="mini-board" aria-hidden="true">
+          <div class="mini-board-inner">
+            <div class="mini-board-head"><i></i> Atlas Launch <span style="margin-left:auto">Board · updated just now</span></div>
+            <div class="mini-scene">
+              <div class="mini-note one">Move briefing<br>to 11:00</div>
+              <div class="mini-note two">Notify guests<br>before confirming</div>
+              <div class="mini-source"><strong>EMAIL · E1</strong>The speaker cannot attend at 10:00</div>
+              <div class="mini-decision"><b>Decision recorded</b>Keep the date. Move the briefing to 11:00.</div>
+              <div class="mini-link"></div>
+            </div>
+          </div>
+        </div>
+        <div class="welcome-foot"><span class="presence-dots"><i></i><i></i><i></i></span><span>Shared ideas. Changes with context.</span></div>
+      </div>
+      <div class="login-panel">
+        <div class="login-card">
+          <span class="eyebrow" id="login-eyebrow">Your workspace</span>
+          <h2 id="login-heading">Sign in to your workspace</h2>
+          <p id="login-subheading">Access your workspaces and pick up where you left off.</p>
+          <div class="entry-tabs" role="tablist" aria-label="Sign-in method">
+            <button class="entry-tab" type="button" role="tab" aria-selected="true" data-entry="account">My account</button>
+            <button class="entry-tab" type="button" role="tab" aria-selected="false" data-entry="invite">I have an invitation</button>
+          </div>
+          <form id="account-form">
+            <div class="field"><label for="email">Email address</label><input id="email" name="email" type="email" autocomplete="email" placeholder="name@team.com" required></div>
+            <div class="field"><label for="password">Password</label><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Your password" required></div>
+            <div class="form-meta"><label><input type="checkbox" checked> Keep me signed in</label><button class="text-button" type="button" data-action="forgot">Forgot password?</button></div>
+            <button class="primary-button login-submit" type="submit">Sign in to Memento <span aria-hidden="true">→</span></button>
+            <div class="form-divider">or</div>
+            <button class="outline-button login-submit" type="button" data-action="demo-login">Explore the demo</button>
+            <div class="guest-note"><strong>Have an invitation?</strong> No account is needed. Use your invitation to join the shared workspace as an Editor.</div>
+          </form>
+          <form id="invite-form" class="hidden">
+            <div class="join-preview"><div class="join-preview-mark" aria-hidden="true">A</div><div><strong>Atlas Launch</strong><span>Invited by Maya · Editor access</span></div></div>
+            <div class="field"><label for="invite-name">Name shown to the team</label><input id="invite-name" name="name" autocomplete="name" placeholder="Your name" required></div>
+            <div class="field"><label for="invite-code">Invitation code</label><input id="invite-code" name="code" autocomplete="one-time-code" placeholder="Paste your invite code or link" required></div>
+            <button class="primary-button login-submit" type="submit">Join workspace <span aria-hidden="true">→</span></button>
+            <div class="notice-line"><b>Limited access</b><span>Your invitation identifies you in this workspace. It does not create a global account or grant access to other projects.</span></div>
+          </form>
+          <div class="login-legal">By continuing, you agree to Memento’s Terms of Use and Privacy Policy.</div>
+        </div>
+      </div>
+    </section>
+  </template>
+  <script src="board-demo.js?v=20261026t" defer></script>
+  <script src="mockups.js?v=20261027r" defer></script>
+</body>
+</html>

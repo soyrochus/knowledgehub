@@ -31,21 +31,17 @@ pub(crate) fn grams(mode: LiteralMode, text: &str) -> Result<BTreeSet<String>, E
 pub(crate) fn fields(
     t: &ExactRef,
     get: &mut dyn FnMut(&ExactRef) -> Result<Record, Error>,
-    seen: &mut BTreeSet<ExactRef>,
+    _seen: &mut BTreeSet<ExactRef>,
 ) -> Result<BTreeMap<String, Property>, Error> {
-    if !seen.insert(t.clone()) || seen.len() > 64 {
-        return Err(Error::InvalidInput(
-            "type inheritance exceeds supported depth".into(),
-        ));
-    }
-    let RecordData::Type(t) = get(t)?.data else {
-        return Err(Error::InvalidInput("unknown exact type".into()));
-    };
-    let mut props = t.properties;
-    for p in t.parents {
-        props.extend(fields(&p, get, seen)?);
-    }
-    Ok(props)
+    Ok(
+        crate::ontology::schema::declared_fields(t, |r| match get(r)?.data {
+            RecordData::Type(t) => Ok(t),
+            _ => Err(Error::InvalidInput("unknown exact type".into())),
+        })?
+        .into_iter()
+        .map(|(n, (_, p))| (n, p))
+        .collect(),
+    )
 }
 pub(crate) fn validate_fields(
     fs: &BTreeSet<TextField>,

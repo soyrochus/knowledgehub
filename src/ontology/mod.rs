@@ -4,6 +4,7 @@ mod catalogue;
 pub(crate) mod impact;
 pub(crate) mod navigation;
 pub(crate) mod neighbours;
+pub(crate) mod schema;
 mod types;
 mod validation;
 pub use api::KnowledgeHub;

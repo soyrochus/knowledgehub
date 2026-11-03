@@ -1,0 +1,19 @@
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.22s
+     Running tests/model_authoring.rs (target/debug/deps/model_authoring-64e213b585ed217b)
+
+running 1 test
+
+thread 'verification_budgets_fail_explicitly_and_missing_dependency_stays_visible' (2893673) panicked at tests/model_authoring.rs:17:5:
+{"diagnostic":"InvalidInput(\"planned subject/visited limit\")","status":"failed"}
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+test verification_budgets_fail_explicitly_and_missing_dependency_stays_visible ... FAILED
+
+failures:
+
+failures:
+    verification_budgets_fail_explicitly_and_missing_dependency_stays_visible
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 4 filtered out; finished in 0.66s
+
+error: test failed, to rerun pass `--test model_authoring`

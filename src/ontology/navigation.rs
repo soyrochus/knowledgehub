@@ -64,6 +64,7 @@ fn page(c: &mut Cursor, id: Option<String>) -> Page {
     let more = end < c.items.len();
     Page {
         selection: c.query.selection.clone(),
+        include_subtypes: c.query.include_subtypes,
         records,
         assertions,
         continuation: if more { id } else { None },
@@ -91,6 +92,11 @@ fn materialise(state: &State, q: &Query) -> Result<(Vec<Record>, Option<String>)
     scan(state, q)
 }
 fn query_bounds(q: &Query) -> Result<(), Error> {
+    if q.include_subtypes && q.type_ref.is_none() {
+        return Err(Error::InvalidInput(
+            "inclusive selection requires an exact type filter".into(),
+        ));
+    }
     if q.page_size == 0
         || q.page_size > 1000
         || q.depth > 32
@@ -108,8 +114,12 @@ fn query_bounds(q: &Query) -> Result<(), Error> {
 }
 fn scan(state: &State, q: &Query) -> Result<(Vec<Record>, Option<String>), Error> {
     let matches = |r: &Record| {
-        (q.type_ref.as_ref().is_none_or(|t| r.type_ref == *t))
-            && (q.ids.is_empty() || q.ids.contains(&r.reference.id))
+        (q.type_ref.as_ref().is_none_or(|t| {
+            super::schema::matches_type(&r.type_ref, t, q.include_subtypes, |r| {
+                state.type_definition(r).cloned().ok_or(Error::NotFound)
+            })
+            .unwrap_or(false)
+        })) && (q.ids.is_empty() || q.ids.contains(&r.reference.id))
     };
     if q.starts.is_empty() {
         if !q.signatures.is_empty() {

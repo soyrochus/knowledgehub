@@ -1,0 +1,1 @@
+{"output": "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-memento-final-03", "failed_command": ["verify", "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-memento-final-03/run", "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-memento-final-03/host.json"], "returncode": 1, "diagnostic": "{\"diagnostic\":\"Busy\",\"status\":\"failed\"}\n"}

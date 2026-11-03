@@ -1,6 +1,6 @@
 # Bootstrapping KnowledgeHub's own definition
 
-Draft 0.7 · 1 November 2026 · Earlier implementation/rebuild evidence retains its exact scope. The sole full API / 0.10.0 cutover and fresh canonical model are now planned in KH-SL-014–017. Human acceptance and authority transfer remain pending.
+Draft 0.8 · 3 November 2026 · Earlier implementation/rebuild evidence retains its exact scope. KH-SL-014–017 were implemented at their recorded baseline. Current MM-SL-01 work uses separate disposable models; human acceptance and authority transfer remain pending.
 
 This plan owns the bootstrap sequence, representation authority and migration gates. It references the [domain analysis](domain-analysis.md), [slice plan](../delivery/slice-plan.md), [ontology proposal](../source/system-definition-ontology-proposal.md) and [Practical Design Manual](../source/practical-design-manual.md). The manual guides how we discover and specify the product; the ontology defines what the Hub can represent and preserve.
 
@@ -246,7 +246,7 @@ The resumed KH-SL-012 run is technically verified. [Evidence](../delivery/eviden
 
 ### Sole full API / 0.10.0 — verified sequence
 
-The user selected a single current full API before the first supported release, package version 0.10.0, and a fresh canonical instance after their own hub → old_hub rename. [KH-SL-014–017](../delivery/slice-plan.md#single-full-api-sequence--0100-cutover) own the ordered execution. Cargo and lock identity are now 0.10.0 and the sole full API/default files/4 backend are implemented. [Current evidence](../delivery/evidence/v010/README.md) records focused checks, the complete native batch and verified new canonical dataset. Historical Hub evidence remains unchanged.
+The user selected a single current full API before the first supported release, package version 0.10.0, and a fresh canonical instance after their own hub → old_hub rename. [KH-SL-014–017](../delivery/slice-plan.md#single-full-api-sequence--0100-cutover) own the ordered execution. Cargo and lock identity are now 0.10.0 and the sole full API/default files/4 backend are implemented. [Cutover evidence](../delivery/evidence/v010/README.md) records focused checks, the complete native batch and verified new canonical dataset. Historical Hub evidence remains unchanged.
 
 | ID | Selection/status | Consequence and boundary |
 | --- | --- | --- |
@@ -259,7 +259,7 @@ The KH-SL-017 current-only rebuild is technically verified. Its new replay domai
 exact sources/builds, original A/B/history/receipts, scrub/indexed/reopen results,
 183-row catalogue audit, isolated examples and unchanged 362-file old_hub inventory
 are retained in [the final run](../delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md).
-The current head retains 3,452 explicit draft gaps. Repository documents still own
+The KH-SL-017 recorded head retained 3,452 explicit draft gaps. Repository documents still own
 definitions; no human acceptance or authority handover follows. Final status/task
 prose follows the captured checkpoint, which remains exact inside the new Hub.
 
@@ -283,3 +283,13 @@ These implemented choices and technical results do not transfer authority to the
 `hub/`, `old_hub/`, their exact sources and historical evidence are outside the
 change's mutation scope. Implementation verification must use isolated stores;
 any later canonical rebuild or source refresh requires its own authorisation.
+
+## Current contract and retained historical model — 3 November 2026
+
+MM-SL-01 advances the cumulative catalogue/profile to catalogue-3 and semantic record/request codecs to /3, retaining the files/4 layout. It adds no compatibility reader or migration. The repository continues to own definitions. Existing hub/ and old_hub/ are protected historical stores; this work neither opens them through the revised decoder nor refreshes their captured sources. A repository edit does not transfer authority or update a retained baseline.
+
+The retained root hub's metadata still declares record/request codecs /2. The current /3 decoder cannot reopen it merely because both instances use files/4. The historical inspector/rebuild reports retain their original checkpoint and do not establish a current-contract canonical instance.
+
+Current demonstrations use fresh target/rich-design destinations through ordinary APIs. The [fixture guide](../examples/fixtures/README.md) identifies the Memento/equipment runs and independent verification commands. Both preserve imported baseline A, coherent successor B, exact originals and generation receipts after reopen. Memento retains 1,504 explicit structured omissions; source inventory/locator checks do not establish complete formalization or human meaning acceptance.
+
+The [evidence record](../delivery/evidence/mm-sl-01/20261103-apply/README.md) distinguishes native validity/completeness, declared source coverage, actual agent-host runs and review. External analysts/agents own interpretation; deterministic tools enforce the library contract. The repository continues to own KnowledgeHub definitions. A future canonical refresh needs an explicitly scoped decision and its own verified exact-source run. Modelarium registration, in-app editing and authority handover remain later work.

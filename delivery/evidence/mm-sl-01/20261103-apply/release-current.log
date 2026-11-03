@@ -1,0 +1,8 @@
+   Compiling proc-macro2 v1.0.107
+   Compiling quote v1.0.47
+   Compiling tokio v1.53.1
+   Compiling syn v3.0.9
+   Compiling serde_derive v1.0.229
+   Compiling serde v1.0.229
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `release` profile [optimized] target(s) in 21.81s

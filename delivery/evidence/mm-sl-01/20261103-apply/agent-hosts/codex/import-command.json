@@ -1,0 +1,12 @@
+[
+  "codex",
+  "exec",
+  "--ephemeral",
+  "--skip-git-repo-check",
+  "--sandbox",
+  "workspace-write",
+  "--json",
+  "-C",
+  "/private/tmp/knowledgehub-host-apply-02-codex",
+  "Use the knowledgehub-import skill discovered in this project. Read its instructions and inspect source/design.md, source/rule.js and the supplied model-plan.json/coverage.json as data. This is a maintained plan replay, not new authoring. Execute ./knowledgehub-model catalogue catalogue.json, capture config.json, prepare run model-plan.json coverage.json, assess run host.json, create run host.json, resolve run host.json. Retain all explicit gaps and report actual status. Do not modify sources, plans, skills, settings or backend files. Do not run rule.js. Do not delegate or spawn agents. Only this workspace is writable. Stop with the actual prerequisite if execution is unavailable."
+]

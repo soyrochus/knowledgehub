@@ -1,0 +1,4777 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "review": "agent inspection of retained source constructs; human meaning acceptance pending",
+  "observations": [
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:339",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 339,
+      "end": 405,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:2603",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 2603,
+      "end": 2696,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:2728",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 2728,
+      "end": 2821,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:2974",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 2974,
+      "end": 3076,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:3152",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 3152,
+      "end": 3274,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:3323",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 3323,
+      "end": 3354,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:3380",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 3380,
+      "end": 3443,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:3487",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 3487,
+      "end": 3545,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:3668",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 3668,
+      "end": 3751,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:4281",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 4281,
+      "end": 4370,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:4456",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 4456,
+      "end": 4575,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/01-access.html:control:4594",
+      "category": "control",
+      "source": "mockups/01-access.html",
+      "start": 4594,
+      "end": 4652,
+      "target": "file-definition:mockups/01-access.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:351",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 351,
+      "end": 417,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:1149",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 1149,
+      "end": 1193,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:1269",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 1269,
+      "end": 1317,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:1397",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 1397,
+      "end": 1461,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:1579",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 1579,
+      "end": 1644,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/02-home.html:control:1813",
+      "category": "control",
+      "source": "mockups/02-home.html",
+      "start": 1813,
+      "end": 1862,
+      "target": "file-definition:mockups/02-home.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:344",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 344,
+      "end": 410,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:1142",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 1142,
+      "end": 1186,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:1262",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 1262,
+      "end": 1310,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:1390",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 1390,
+      "end": 1454,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:1572",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 1572,
+      "end": 1637,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/03-activity.html:control:1806",
+      "category": "control",
+      "source": "mockups/03-activity.html",
+      "start": 1806,
+      "end": 1855,
+      "target": "file-definition:mockups/03-activity.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:346",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 346,
+      "end": 412,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:1144",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 1144,
+      "end": 1188,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:1264",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 1264,
+      "end": 1312,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:1392",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 1392,
+      "end": 1456,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:1574",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 1574,
+      "end": 1639,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/04-templates.html:control:1808",
+      "category": "control",
+      "source": "mockups/04-templates.html",
+      "start": 1808,
+      "end": 1857,
+      "target": "file-definition:mockups/04-templates.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:472",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 472,
+      "end": 536,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:1268",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 1268,
+      "end": 1312,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:1388",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 1388,
+      "end": 1436,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:1516",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 1516,
+      "end": 1580,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:1698",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 1698,
+      "end": 1763,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/05-board.html:control:1932",
+      "category": "control",
+      "source": "mockups/05-board.html",
+      "start": 1932,
+      "end": 1981,
+      "target": "file-definition:mockups/05-board.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:14314",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 14314,
+      "end": 14437,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:14521",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 14521,
+      "end": 14672,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:22968",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 22968,
+      "end": 23165,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:24495",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 24495,
+      "end": 24556,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:27317",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 27317,
+      "end": 27484,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:27510",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 27510,
+      "end": 27730,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:28109",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 28109,
+      "end": 28395,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:29061",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 29061,
+      "end": 29213,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:29322",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 29322,
+      "end": 29469,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:30707",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 30707,
+      "end": 30802,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:33685",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 33685,
+      "end": 33803,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:44122",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 44122,
+      "end": 44264,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:45551",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 45551,
+      "end": 45682,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:45750",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 45750,
+      "end": 45859,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:45956",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 45956,
+      "end": 46199,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:46336",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 46336,
+      "end": 46380,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:46572",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 46572,
+      "end": 46659,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:47144",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 47144,
+      "end": 47309,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:47649",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 47649,
+      "end": 47750,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:55528",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 55528,
+      "end": 55633,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:57302",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 57302,
+      "end": 57378,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:57393",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 57393,
+      "end": 57438,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:58646",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 58646,
+      "end": 58717,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:58800",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 58800,
+      "end": 58843,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:61545",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 61545,
+      "end": 61606,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:61703",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 61703,
+      "end": 61739,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:64386",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 64386,
+      "end": 64422,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:65567",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 65567,
+      "end": 65592,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:66470",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 66470,
+      "end": 66494,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:72515",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 72515,
+      "end": 72535,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:72858",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 72858,
+      "end": 72920,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:72987",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 72987,
+      "end": 73051,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:73139",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 73139,
+      "end": 73211,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:81379",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 81379,
+      "end": 81403,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:96717",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 96717,
+      "end": 96737,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:control:96922",
+      "category": "control",
+      "source": "mockups/atlas-board.js",
+      "start": 96922,
+      "end": 96987,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:1017",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 1017,
+      "end": 1037,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:13860",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 13860,
+      "end": 13889,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:14899",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 14899,
+      "end": 14919,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:15331",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 15331,
+      "end": 15452,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:15459",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 15459,
+      "end": 15537,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:15778",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 15778,
+      "end": 15801,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:15918",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 15918,
+      "end": 15944,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:16262",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 16262,
+      "end": 16489,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:16496",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 16496,
+      "end": 16564,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:16571",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 16571,
+      "end": 16604,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:17205",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 17205,
+      "end": 17243,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:17915",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 17915,
+      "end": 17946,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:19475",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 19475,
+      "end": 19564,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:19571",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 19571,
+      "end": 19599,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:20506",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 20506,
+      "end": 20547,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:22509",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 22509,
+      "end": 22536,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:22695",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 22695,
+      "end": 22733,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:23381",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 23381,
+      "end": 23469,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:23476",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 23476,
+      "end": 23512,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:26655",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 26655,
+      "end": 26674,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:32085",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 32085,
+      "end": 32111,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:32385",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 32385,
+      "end": 32409,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:32728",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 32728,
+      "end": 32757,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:33144",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 33144,
+      "end": 33173,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:33607",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 33607,
+      "end": 33668,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:33958",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 33958,
+      "end": 33984,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:34278",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 34278,
+      "end": 34302,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:49446",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 49446,
+      "end": 49470,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:49807",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 49807,
+      "end": 49829,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:51596",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 51596,
+      "end": 51622,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:52137",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 52137,
+      "end": 52164,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:54315",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 54315,
+      "end": 54346,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:56525",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 56525,
+      "end": 56584,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:58307",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 58307,
+      "end": 58452,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:58459",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 58459,
+      "end": 58557,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:58887",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 58887,
+      "end": 58932,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:60522",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 60522,
+      "end": 60563,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:61027",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 61027,
+      "end": 61081,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:64015",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 64015,
+      "end": 64049,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:65219",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 65219,
+      "end": 65263,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:69090",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 69090,
+      "end": 69122,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:69473",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 69473,
+      "end": 69500,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:70707",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 70707,
+      "end": 70737,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:71135",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 71135,
+      "end": 71170,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:72211",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 72211,
+      "end": 72245,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:74891",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 74891,
+      "end": 74919,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:75968",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 75968,
+      "end": 75994,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:77456",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 77456,
+      "end": 77483,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:97581",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 97581,
+      "end": 97597,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:98346",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 98346,
+      "end": 98374,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:98829",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 98829,
+      "end": 98858,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:102822",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 102822,
+      "end": 102851,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:function:104657",
+      "category": "function",
+      "source": "mockups/atlas-board.js",
+      "start": 104657,
+      "end": 104684,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:24772",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 24772,
+      "end": 24808,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:25562",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 25562,
+      "end": 25600,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:26228",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 26228,
+      "end": 26344,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:26356",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 26356,
+      "end": 26398,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:31307",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 31307,
+      "end": 31343,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:31464",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 31464,
+      "end": 31609,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:48674",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 48674,
+      "end": 48711,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:48937",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 48937,
+      "end": 49016,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:49035",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 49035,
+      "end": 49208,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:49291",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 49291,
+      "end": 49412,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:54045",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 54045,
+      "end": 54212,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:57558",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 57558,
+      "end": 57597,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:57647",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 57647,
+      "end": 57744,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:57889",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 57889,
+      "end": 57976,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:58072",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 58072,
+      "end": 58109,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:69379",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 69379,
+      "end": 69427,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:105508",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 105508,
+      "end": 105553,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:105565",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 105565,
+      "end": 105610,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:105622",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 105622,
+      "end": 105663,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:105675",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 105675,
+      "end": 105720,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:105732",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 105732,
+      "end": 105768,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:106016",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 106016,
+      "end": 106052,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:106708",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 106708,
+      "end": 106747,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:106993",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 106993,
+      "end": 107032,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:107143",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 107143,
+      "end": 107181,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:event:109447",
+      "category": "event",
+      "source": "mockups/atlas-board.js",
+      "start": 109447,
+      "end": 109485,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:12617",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 12617,
+      "end": 12699,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:12724",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 12724,
+      "end": 12788,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:15091",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 15091,
+      "end": 15160,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:15185",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 15185,
+      "end": 15316,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:15340",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 15340,
+      "end": 15452,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:17301",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 17301,
+      "end": 17351,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:17806",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 17806,
+      "end": 17900,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:19653",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 19653,
+      "end": 19706,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:19802",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 19802,
+      "end": 19869,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:21353",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 21353,
+      "end": 21767,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:25018",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 25018,
+      "end": 25066,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:51668",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 51668,
+      "end": 51726,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:52210",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 52210,
+      "end": 52258,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:52267",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 52267,
+      "end": 53254,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:54981",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 54981,
+      "end": 55216,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:56534",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 56534,
+      "end": 56584,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:59142",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 59142,
+      "end": 59197,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:59206",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 59206,
+      "end": 59630,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:59996",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 59996,
+      "end": 60396,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:61246",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 61246,
+      "end": 62004,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:64134",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 64134,
+      "end": 64472,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:65373",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 65373,
+      "end": 65469,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:65478",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 65478,
+      "end": 66941,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:69555",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 69555,
+      "end": 70692,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:70773",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 70773,
+      "end": 71120,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:72313",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 72313,
+      "end": 73599,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:75030",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 75030,
+      "end": 75116,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:75231",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 75231,
+      "end": 75953,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:76138",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 76138,
+      "end": 76175,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:79023",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 79023,
+      "end": 79199,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:79215",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 79215,
+      "end": 79264,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:79600",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 79600,
+      "end": 79652,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:79826",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 79826,
+      "end": 79891,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:80133",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 80133,
+      "end": 80320,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:81189",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 81189,
+      "end": 81262,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:81273",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 81273,
+      "end": 81591,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:83052",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 83052,
+      "end": 83148,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:84045",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 84045,
+      "end": 84332,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:84505",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 84505,
+      "end": 84621,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:85179",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 85179,
+      "end": 85292,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:85504",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 85504,
+      "end": 85600,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:85911",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 85911,
+      "end": 86009,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:86187",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 86187,
+      "end": 86322,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:86333",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 86333,
+      "end": 86666,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:87140",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 87140,
+      "end": 87196,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:87820",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 87820,
+      "end": 87907,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:88651",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 88651,
+      "end": 88773,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:88931",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 88931,
+      "end": 88997,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:90045",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 90045,
+      "end": 90483,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:90519",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 90519,
+      "end": 90889,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:91104",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 91104,
+      "end": 91257,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:91771",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 91771,
+      "end": 92094,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:92234",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 92234,
+      "end": 92464,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:92507",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 92507,
+      "end": 92558,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:92985",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 92985,
+      "end": 93066,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:95368",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 95368,
+      "end": 95466,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:95797",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 95797,
+      "end": 95974,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:96453",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 96453,
+      "end": 97205,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:97743",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 97743,
+      "end": 97825,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:99719",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 99719,
+      "end": 99798,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:100505",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 100505,
+      "end": 100581,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:105318",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 105318,
+      "end": 105379,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:108574",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 108574,
+      "end": 108655,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:observable:108810",
+      "category": "observable",
+      "source": "mockups/atlas-board.js",
+      "start": 108810,
+      "end": 108855,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:22756",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 22756,
+      "end": 22783,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:77496",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 77496,
+      "end": 77519,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:77772",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 77772,
+      "end": 77795,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:77836",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 77836,
+      "end": 77852,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:77936",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 77936,
+      "end": 77959,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78011",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78011,
+      "end": 78031,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78154",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78154,
+      "end": 78178,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78231",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78231,
+      "end": 78247,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78290",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78290,
+      "end": 78307,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78351",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78351,
+      "end": 78370,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78416",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78416,
+      "end": 78442,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78504",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78504,
+      "end": 78528,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78532",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78532,
+      "end": 78557,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78686",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78686,
+      "end": 78710,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:78774",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 78774,
+      "end": 78792,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79305",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79305,
+      "end": 79323,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79327",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79327,
+      "end": 79343,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79386",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79386,
+      "end": 79401,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79498",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79498,
+      "end": 79523,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79527",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79527,
+      "end": 79548,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:79667",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 79667,
+      "end": 79692,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80093",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80093,
+      "end": 80108,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80333",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80333,
+      "end": 80347,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80380",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80380,
+      "end": 80395,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80399",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80399,
+      "end": 80414,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80432",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80432,
+      "end": 80447,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80463",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80463,
+      "end": 80478,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80550",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80550,
+      "end": 80568,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80604",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80604,
+      "end": 80619,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80623",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80623,
+      "end": 80642,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80661",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80661,
+      "end": 80680,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80705",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80705,
+      "end": 80724,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80728",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80728,
+      "end": 80748,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80767",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80767,
+      "end": 80787,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80799",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80799,
+      "end": 80818,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80853",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80853,
+      "end": 80874,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80878",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80878,
+      "end": 80900,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:80944",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 80944,
+      "end": 80964,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:81023",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 81023,
+      "end": 81046,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82647",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82647,
+      "end": 82664,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82668",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82668,
+      "end": 82686,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82721",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82721,
+      "end": 82739,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82944",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82944,
+      "end": 82960,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82964",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82964,
+      "end": 82981,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:82999",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 82999,
+      "end": 83015,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:83170",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 83170,
+      "end": 83186,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:83227",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 83227,
+      "end": 83243,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:83783",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 83783,
+      "end": 83802,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:83916",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 83916,
+      "end": 83935,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:84355",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 84355,
+      "end": 84372,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:84416",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 84416,
+      "end": 84434,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:84906",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 84906,
+      "end": 84924,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:85778",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 85778,
+      "end": 85798,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:86022",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 86022,
+      "end": 86042,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:86689",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 86689,
+      "end": 86715,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:86769",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 86769,
+      "end": 86796,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:86997",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 86997,
+      "end": 87018,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:87069",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 87069,
+      "end": 87097,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:87512",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 87512,
+      "end": 87529,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:87574",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 87574,
+      "end": 87599,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:87685",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 87685,
+      "end": 87702,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:88796",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 88796,
+      "end": 88813,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:90003",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 90003,
+      "end": 90022,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:90496",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 90496,
+      "end": 90515,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:90902",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 90902,
+      "end": 90926,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:90930",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 90930,
+      "end": 90948,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:91302",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 91302,
+      "end": 91326,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:91744",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 91744,
+      "end": 91767,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:92208",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 92208,
+      "end": 92230,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:92573",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 92573,
+      "end": 92596,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:92937",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 92937,
+      "end": 92960,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:93127",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 93127,
+      "end": 93148,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:93165",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 93165,
+      "end": 93184,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:94867",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 94867,
+      "end": 94886,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:95489",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 95489,
+      "end": 95513,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:95517",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 95517,
+      "end": 95542,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:95550",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 95550,
+      "end": 95575,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:95706",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 95706,
+      "end": 95727,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/atlas-board.js:dispatch-alias:96421",
+      "category": "dispatch-alias",
+      "source": "mockups/atlas-board.js",
+      "start": 96421,
+      "end": 96439,
+      "target": "file-definition:mockups/atlas-board.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:1097",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 1097,
+      "end": 1165,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:1268",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 1268,
+      "end": 1375,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:1683",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 1683,
+      "end": 1726,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:1741",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 1741,
+      "end": 1786,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:3709",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 3709,
+      "end": 3732,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:21056",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 21056,
+      "end": 21166,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:21280",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 21280,
+      "end": 21390,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:21408",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 21408,
+      "end": 21471,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:21512",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 21512,
+      "end": 21547,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:22732",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 22732,
+      "end": 22800,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:control:22823",
+      "category": "control",
+      "source": "mockups/board-demo.js",
+      "start": 22823,
+      "end": 22892,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:219",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 219,
+      "end": 242,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:609",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 609,
+      "end": 689,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:3422",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 3422,
+      "end": 3453,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:20553",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 20553,
+      "end": 20644,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:20649",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 20649,
+      "end": 20670,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:22016",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 22016,
+      "end": 22086,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:22091",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 22091,
+      "end": 22174,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:function:22179",
+      "category": "function",
+      "source": "mockups/board-demo.js",
+      "start": 22179,
+      "end": 22199,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:2589",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 2589,
+      "end": 2623,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:2700",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 2700,
+      "end": 2734,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:2766",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 2766,
+      "end": 2803,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:21883",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 21883,
+      "end": 21980,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:22935",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 22935,
+      "end": 22971,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:23310",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 23310,
+      "end": 23342,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:24161",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 24161,
+      "end": 24213,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:24225",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 24225,
+      "end": 24273,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:24318",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 24318,
+      "end": 24370,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:24415",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 24415,
+      "end": 24463,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:event:24477",
+      "category": "event",
+      "source": "mockups/board-demo.js",
+      "start": 24477,
+      "end": 24555,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:observable:534",
+      "category": "observable",
+      "source": "mockups/board-demo.js",
+      "start": 534,
+      "end": 602,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:dispatch-alias:23106",
+      "category": "dispatch-alias",
+      "source": "mockups/board-demo.js",
+      "start": 23106,
+      "end": 23123,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:dispatch-alias:23421",
+      "category": "dispatch-alias",
+      "source": "mockups/board-demo.js",
+      "start": 23421,
+      "end": 23438,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:dispatch-alias:23525",
+      "category": "dispatch-alias",
+      "source": "mockups/board-demo.js",
+      "start": 23525,
+      "end": 23542,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/board-demo.js:dispatch-alias:23578",
+      "category": "dispatch-alias",
+      "source": "mockups/board-demo.js",
+      "start": 23578,
+      "end": 23598,
+      "target": "file-definition:mockups/board-demo.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/index.html:control:361",
+      "category": "control",
+      "source": "mockups/index.html",
+      "start": 361,
+      "end": 386,
+      "target": "file-definition:mockups/index.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/index.html:control:420",
+      "category": "control",
+      "source": "mockups/index.html",
+      "start": 420,
+      "end": 443,
+      "target": "file-definition:mockups/index.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/index.html:control:490",
+      "category": "control",
+      "source": "mockups/index.html",
+      "start": 490,
+      "end": 517,
+      "target": "file-definition:mockups/index.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/index.html:control:553",
+      "category": "control",
+      "source": "mockups/index.html",
+      "start": 553,
+      "end": 581,
+      "target": "file-definition:mockups/index.html",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:17629",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 17629,
+      "end": 17697,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:19619",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 19619,
+      "end": 19766,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:20109",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 20109,
+      "end": 20293,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:23762",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 23762,
+      "end": 23835,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:23988",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 23988,
+      "end": 24148,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:24223",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 24223,
+      "end": 24325,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:24337",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 24337,
+      "end": 24443,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:24457",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 24457,
+      "end": 24565,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:24942",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 24942,
+      "end": 25038,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:25053",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 25053,
+      "end": 25155,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:25179",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 25179,
+      "end": 25248,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:25498",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 25498,
+      "end": 25574,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:28739",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 28739,
+      "end": 28874,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:29352",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 29352,
+      "end": 29676,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:30161",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 30161,
+      "end": 30241,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:32082",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 32082,
+      "end": 32155,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:32184",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 32184,
+      "end": 32257,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:32293",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 32293,
+      "end": 32414,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:33112",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 33112,
+      "end": 33275,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:33323",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 33323,
+      "end": 33462,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:33508",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 33508,
+      "end": 33645,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:33690",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 33690,
+      "end": 33835,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:33906",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 33906,
+      "end": 34037,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34083",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34083,
+      "end": 34196,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34243",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34243,
+      "end": 34353,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34399",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34399,
+      "end": 34512,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34644",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34644,
+      "end": 34723,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34793",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34793,
+      "end": 34870,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:34906",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 34906,
+      "end": 35029,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:37139",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 37139,
+      "end": 37208,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:37500",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 37500,
+      "end": 37569,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:38111",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 38111,
+      "end": 38176,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:38818",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 38818,
+      "end": 38890,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:39746",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 39746,
+      "end": 39811,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:40424",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 40424,
+      "end": 40496,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:41285",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 41285,
+      "end": 41355,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:41641",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 41641,
+      "end": 41712,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:45019",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 45019,
+      "end": 45088,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:47342",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 47342,
+      "end": 47407,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:56288",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 56288,
+      "end": 56378,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:56513",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 56513,
+      "end": 56601,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:57390",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 57390,
+      "end": 57475,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:58208",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 58208,
+      "end": 58268,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:58283",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 58283,
+      "end": 58395,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:60196",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 60196,
+      "end": 60334,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:61113",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 61113,
+      "end": 61182,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:61267",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 61267,
+      "end": 61419,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:62215",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 62215,
+      "end": 62358,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:65519",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 65519,
+      "end": 65628,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:66815",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 66815,
+      "end": 66915,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:66944",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 66944,
+      "end": 67041,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:67123",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 67123,
+      "end": 67277,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:67496",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 67496,
+      "end": 67578,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:68846",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 68846,
+      "end": 68915,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:69164",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 69164,
+      "end": 69243,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:69349",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 69349,
+      "end": 69499,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:70578",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 70578,
+      "end": 70715,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:72239",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 72239,
+      "end": 72366,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:74857",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 74857,
+      "end": 74936,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:75045",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 75045,
+      "end": 75209,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:75290",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 75290,
+      "end": 75342,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:75666",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 75666,
+      "end": 75726,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:control:75741",
+      "category": "control",
+      "source": "mockups/mockups.js",
+      "start": 75741,
+      "end": 75786,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:472",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 472,
+      "end": 503,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:11368",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 11368,
+      "end": 11396,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:11522",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 11522,
+      "end": 11548,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:11646",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 11646,
+      "end": 11674,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:11849",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 11849,
+      "end": 11881,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:12303",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 12303,
+      "end": 12371,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:12376",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 12376,
+      "end": 12405,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:12548",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 12548,
+      "end": 12577,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:13097",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 13097,
+      "end": 13126,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:13482",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 13482,
+      "end": 13744,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:13749",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 13749,
+      "end": 14000,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:14005",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 14005,
+      "end": 14342,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:14347",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 14347,
+      "end": 14373,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:16952",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 16952,
+      "end": 16971,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:17315",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 17315,
+      "end": 17353,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:17991",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 17991,
+      "end": 18016,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:19293",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 19293,
+      "end": 19319,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:22828",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 22828,
+      "end": 22857,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:23408",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 23408,
+      "end": 23431,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:26647",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 26647,
+      "end": 26674,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:31585",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 31585,
+      "end": 31609,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:44845",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 44845,
+      "end": 44875,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:45517",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 45517,
+      "end": 45549,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:45769",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 45769,
+      "end": 45801,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:46473",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 46473,
+      "end": 46514,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:48106",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 48106,
+      "end": 48135,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:48463",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 48463,
+      "end": 48502,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:48825",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 48825,
+      "end": 48872,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:49469",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 49469,
+      "end": 49494,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:49633",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 49633,
+      "end": 49668,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:50699",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 50699,
+      "end": 50733,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:51262",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 51262,
+      "end": 51295,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:51575",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 51575,
+      "end": 51604,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:52843",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 52843,
+      "end": 52874,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:56953",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 56953,
+      "end": 56982,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:58760",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 58760,
+      "end": 58784,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:58992",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 58992,
+      "end": 59026,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:59650",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 59650,
+      "end": 59693,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:60797",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 60797,
+      "end": 60825,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:61957",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 61957,
+      "end": 61983,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:63239",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 63239,
+      "end": 63268,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:65720",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 65720,
+      "end": 65753,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:66383",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 66383,
+      "end": 66415,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:68117",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 68117,
+      "end": 68149,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:68388",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 68388,
+      "end": 68415,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:70310",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 70310,
+      "end": 70343,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:72504",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 72504,
+      "end": 72547,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:74357",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 74357,
+      "end": 74397,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:77591",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 77591,
+      "end": 77644,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:77649",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 77649,
+      "end": 77678,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:77916",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 77916,
+      "end": 78050,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:78055",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 78055,
+      "end": 78216,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:function:78221",
+      "category": "function",
+      "source": "mockups/mockups.js",
+      "start": 78221,
+      "end": 78282,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:915",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 915,
+      "end": 948,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:18765",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 18765,
+      "end": 18827,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:18884",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 18884,
+      "end": 19113,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:19131",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 19131,
+      "end": 19282,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:21519",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 21519,
+      "end": 21552,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:25719",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 25719,
+      "end": 25803,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:25884",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 25884,
+      "end": 25917,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:26227",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 26227,
+      "end": 26260,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:27792",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 27792,
+      "end": 27825,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:30623",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 30623,
+      "end": 30656,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:31002",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 31002,
+      "end": 31035,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:42511",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 42511,
+      "end": 42547,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:42660",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 42660,
+      "end": 42698,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:42891",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 42891,
+      "end": 42924,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43068",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43068,
+      "end": 43104,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43307",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43307,
+      "end": 43385,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43468",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43468,
+      "end": 43509,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43569",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43569,
+      "end": 43626,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43778",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43778,
+      "end": 43884,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:43981",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 43981,
+      "end": 44091,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44150",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44150,
+      "end": 44235,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44312",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44312,
+      "end": 44348,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44506",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44506,
+      "end": 44557,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44573",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44573,
+      "end": 44623,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44639",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44639,
+      "end": 44686,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:44702",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 44702,
+      "end": 44753,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:47574",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 47574,
+      "end": 47629,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:47641",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 47641,
+      "end": 47782,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:56738",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 56738,
+      "end": 56782,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:56845",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 56845,
+      "end": 56942,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:58562",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 58562,
+      "end": 58601,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:58653",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 58653,
+      "end": 58749,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:61725",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 61725,
+      "end": 61816,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:61871",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 61871,
+      "end": 61923,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:62483",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 62483,
+      "end": 62588,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:63150",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 63150,
+      "end": 63228,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:70034",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 70034,
+      "end": 70116,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:70162",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 70162,
+      "end": 70269,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:70836",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 70836,
+      "end": 70869,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:75991",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 75991,
+      "end": 76030,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:76043",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 76043,
+      "end": 76125,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:76174",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 76174,
+      "end": 76211,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:78295",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 78295,
+      "end": 78333,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:event:78853",
+      "category": "event",
+      "source": "mockups/mockups.js",
+      "start": 78853,
+      "end": 78889,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:1201",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 1201,
+      "end": 1270,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:28184",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 28184,
+      "end": 28237,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:31481",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 31481,
+      "end": 31553,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:43146",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 43146,
+      "end": 43227,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:43810",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 43810,
+      "end": 43884,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:44013",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 44013,
+      "end": 44091,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:56877",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 56877,
+      "end": 56942,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:58891",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 58891,
+      "end": 58981,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:59455",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 59455,
+      "end": 59519,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:74125",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 74125,
+      "end": 74198,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:74300",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 74300,
+      "end": 74346,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:76665",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 76665,
+      "end": 76732,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:observable:77658",
+      "category": "observable",
+      "source": "mockups/mockups.js",
+      "start": 77658,
+      "end": 77678,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:72558",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 72558,
+      "end": 72588,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:72737",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 72737,
+      "end": 72760,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:72822",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 72822,
+      "end": 72851,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:72888",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 72888,
+      "end": 72914,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:72947",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 72947,
+      "end": 72969,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:73232",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 73232,
+      "end": 73260,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:73295",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 73295,
+      "end": 73320,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:73356",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 73356,
+      "end": 73378,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:73440",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 73440,
+      "end": 73475,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:73754",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 73754,
+      "end": 73785,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:74227",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 74227,
+      "end": 74252,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/mockups.js:dispatch-alias:74279",
+      "category": "dispatch-alias",
+      "source": "mockups/mockups.js",
+      "start": 74279,
+      "end": 74298,
+      "target": "file-definition:mockups/mockups.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/atlas-board.regression.js:function:103",
+      "category": "function",
+      "source": "mockups/tests/atlas-board.regression.js",
+      "start": 103,
+      "end": 143,
+      "target": "file-definition:mockups/tests/atlas-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/atlas-board.regression.js:function:1986",
+      "category": "function",
+      "source": "mockups/tests/atlas-board.regression.js",
+      "start": 1986,
+      "end": 2006,
+      "target": "file-definition:mockups/tests/atlas-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/atlas-board.regression.js:function:2882",
+      "category": "function",
+      "source": "mockups/tests/atlas-board.regression.js",
+      "start": 2882,
+      "end": 2965,
+      "target": "file-definition:mockups/tests/atlas-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/atlas-board.regression.js:function:9049",
+      "category": "function",
+      "source": "mockups/tests/atlas-board.regression.js",
+      "start": 9049,
+      "end": 9072,
+      "target": "file-definition:mockups/tests/atlas-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/atlas-board.regression.js:dispatch-alias:983",
+      "category": "dispatch-alias",
+      "source": "mockups/tests/atlas-board.regression.js",
+      "start": 983,
+      "end": 1001,
+      "target": "file-definition:mockups/tests/atlas-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/board-demo.regression.js:function:6",
+      "category": "function",
+      "source": "mockups/tests/board-demo.regression.js",
+      "start": 6,
+      "end": 45,
+      "target": "file-definition:mockups/tests/board-demo.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/board-demo.regression.js:function:847",
+      "category": "function",
+      "source": "mockups/tests/board-demo.regression.js",
+      "start": 847,
+      "end": 864,
+      "target": "file-definition:mockups/tests/board-demo.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/flexible-board.regression.js:function:6",
+      "category": "function",
+      "source": "mockups/tests/flexible-board.regression.js",
+      "start": 6,
+      "end": 49,
+      "target": "file-definition:mockups/tests/flexible-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/flexible-board.regression.js:function:1642",
+      "category": "function",
+      "source": "mockups/tests/flexible-board.regression.js",
+      "start": 1642,
+      "end": 1672,
+      "target": "file-definition:mockups/tests/flexible-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/flexible-board.regression.js:function:2992",
+      "category": "function",
+      "source": "mockups/tests/flexible-board.regression.js",
+      "start": 2992,
+      "end": 3024,
+      "target": "file-definition:mockups/tests/flexible-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/flexible-board.regression.js:function:4669",
+      "category": "function",
+      "source": "mockups/tests/flexible-board.regression.js",
+      "start": 4669,
+      "end": 4689,
+      "target": "file-definition:mockups/tests/flexible-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    },
+    {
+      "id": "ui-artifact:mockups/tests/flexible-board.regression.js:function:5065",
+      "category": "function",
+      "source": "mockups/tests/flexible-board.regression.js",
+      "start": 5065,
+      "end": 5102,
+      "target": "file-definition:mockups/tests/flexible-board.regression.js",
+      "formalization": "exact original and locator; no execution or inferred binding"
+    }
+  ],
+  "limit": "Exact artifacts retain branches, confirmations, failures, permissions, callbacks and styling beyond the bounded structured bindings. These source locators are not proof of graph-complete formalization or application execution."
+}

@@ -37,7 +37,7 @@ async fn full_catalogue_registration_reopen_and_original_receipt() {
             .values()
             .filter(|r| matches!(r.data, RecordData::Type(_)))
             .count(),
-        145
+        146
     );
     assert_eq!(
         state
@@ -45,9 +45,9 @@ async fn full_catalogue_registration_reopen_and_original_receipt() {
             .values()
             .filter(|r| matches!(r.data, RecordData::Relationship(_)))
             .count(),
-        38
+        40
     );
-    let md = ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-1");
+    let md = ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-3");
     assert_eq!(
         h.read_artifact(seed::context(), Selection::Snapshot(r.head.clone()), md)
             .await
@@ -82,14 +82,14 @@ fn every_family_has_a_complete_connected_typed_specimen() {
             .map(|r| r.type_ref.clone())
             .collect::<std::collections::BTreeSet<_>>()
             .len(),
-        128
+        129
     );
     assert_eq!(
         state
             .selected_records()
             .filter(|r| matches!(r.data, RecordData::Assertion(_)))
             .count(),
-        38
+        40
     );
 }
 
@@ -408,7 +408,7 @@ fn every_declared_signature_rejects_wrong_direction_and_targets() {
             "wrong target accepted for {r:?}"
         );
     }
-    assert_eq!(expected.len(), 38);
+    assert_eq!(expected.len(), 40);
 }
 
 struct Access {
@@ -432,7 +432,7 @@ fn extension(state: &State, head: SnapshotId) -> Change {
     let b = ExactRef::new("extension", "type:Beta", "1");
     let mut properties = std::collections::BTreeMap::from([(
         "partner".into(),
-        Property::required(ValueKind::Reference(vec!["Beta".into()])),
+        Property::required(ValueKind::Reference(vec![TypeSelector::Type(b.clone())])),
     )]);
     properties.insert(
         "values".into(),
@@ -476,7 +476,7 @@ fn extension(state: &State, head: SnapshotId) -> Change {
         name: "Beta".into(),
         properties: std::collections::BTreeMap::from([(
             "partner".into(),
-            Property::required(ValueKind::Reference(vec!["Alpha".into()])),
+            Property::required(ValueKind::Reference(vec![TypeSelector::Type(a.clone())])),
         )]),
         ..alpha.clone()
     };
@@ -875,7 +875,7 @@ async fn binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes()
     let s = Sandbox::new();
     let (h, _) = register(&s).await;
     let (head, state) = h.snapshot(seed::context()).await.unwrap();
-    let pdf = ExactRef::new("sdo", "sdo:source:ontology-pdf:capture", "catalogue-1");
+    let pdf = ExactRef::new("sdo", "sdo:source:ontology-pdf:capture", "catalogue-3");
     assert_eq!(
         h.read_artifact(
             seed::context(),

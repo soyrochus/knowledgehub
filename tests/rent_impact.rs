@@ -143,18 +143,30 @@ async fn missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_h
     assert!(p.coverage.no_witnessed_dependency);
     assert!(!p.coverage.domain_complete);
     assert!(!p.coverage.dead_ends.is_empty());
-    fixture::commit(
-        &h,
-        "gap",
-        vec![Operation::Gaps(vec![Gap {
-            subject: specimens::reference("EntityType"),
-            path: "physical_mapping".into(),
-            reason: "Fixture mapping coverage is intentionally incomplete".into(),
-            provenance: vec![specimens::anchor()],
-        }])],
-    )
-    .await
-    .unwrap();
+    // A native draft gap names a genuinely omitted declared obligation. Missing
+    // physical witnesses above remain query coverage, not an invented schema field.
+    let (_, state) = h.snapshot(fixture::context()).await.unwrap();
+    let mut draft = state
+        .get(&specimens::reference("Requirement"))
+        .unwrap()
+        .clone();
+    draft.reference = rent::reference("unresolved-draft-requirement");
+    if let RecordData::Element(e) = &mut draft.data {
+        e.properties.remove("statement");
+        e.owners = ElementData::new(e.properties.clone()).owners;
+    }
+    draft.seal().unwrap();
+    let subject = draft.reference.clone();
+    let mut operations = vec![Operation::Put(draft)];
+    operations.push(Operation::Gaps(vec![Gap {
+        subject,
+        path: "/statement".into(),
+        reason:
+            "The additional draft requirement statement is intentionally unresolved in this fixture"
+                .into(),
+        provenance: vec![specimens::anchor()],
+    }]));
+    fixture::commit(&h, "gap", operations).await.unwrap();
     assert_eq!(
         h.model_impact(fixture::context(), q)
             .await

@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111820">
+  <title>Memento · Atlas Launch board</title>
+  <link rel="stylesheet" href="mockups.css?v=20261026k">
+  <link rel="stylesheet" href="atlas-board.css?v=20261026u">
+  <link rel="stylesheet" href="board-demo.css?v=20261026r">
+</head>
+<body data-screen="board">
+  <header class="topbar">
+    <a class="brand" href="02-home.html" aria-label="Memento, home">
+      <span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M4 6.5h6v5H4zM14 12.5h6v5h-6zM10 9h3v6h1" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="9" r="1" fill="currentColor"/></svg></span>
+      <span>MEMENTO</span>
+    </a>
+    <div class="topbar-right" id="topbar-right"></div>
+    <div class="activity-root" id="activity-root"></div>
+  </header>
+  <main id="app"></main>
+  <div id="overlay-root"></div>
+  <div id="toast-root" aria-live="polite"></div>
+  <template id="app-view">
+    <div class="app-frame">
+      <aside class="sidebar" aria-label="Main navigation">
+        <div class="sidebar-label">Your space</div>
+        <button class="side-link" data-route="home"><span class="side-glyph" aria-hidden="true">⌂</span>Home</button>
+        <button class="side-link" data-route="activity"><span class="side-glyph" aria-hidden="true">◷</span>Activity</button>
+        <button class="side-link" data-route="home" data-filter="owned"><span class="side-glyph" aria-hidden="true">▦</span>My workspaces<span class="side-count">2</span></button>
+        <button class="side-link" data-route="home" data-filter="shared"><span class="side-glyph" aria-hidden="true">⇄</span>Shared with me<span class="side-count">1</span></button>
+        <div class="sidebar-label">Discover</div>
+        <button class="side-link" data-route="templates"><span class="side-glyph" aria-hidden="true">▤</span>Templates</button>
+        <div class="sidebar-bottom"><div class="profile-row"><span class="avatar" id="profile-avatar">MC</span><span><b id="profile-name">Maya Chen</b><small>Personal workspace</small></span><span style="margin-left:auto">···</span></div></div>
+      </aside>
+      <section class="main-content" id="view-content"></section>
+    </div>
+  </template>
+  <script src="atlas-board.js?v=20261027r" defer></script>
+  <script src="board-demo.js?v=20261026x" defer></script>
+  <script src="mockups.js?v=20261027r" defer></script>
+</body>
+</html>

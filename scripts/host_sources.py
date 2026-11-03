@@ -6,7 +6,7 @@ import pathlib
 import stat
 import tomllib
 
-GROUPS = ("source", "design", "delivery", "openspec", "src", "tests", "examples", "scripts")
+GROUPS = ("source", "design", "delivery", "openspec", "src", "tests", "examples", "scripts", "skills")
 SUFFIXES = {".rs", ".md", ".pdf", ".toml", ".json", ".txt", ".py", ".yaml", ".yml"}
 EXCLUDED = {"evidence", "hub", "old_hub", "orig_hub", "target", "cache", "__pycache__", ".git"}
 

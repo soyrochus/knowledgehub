@@ -1,0 +1,451 @@
+{
+  "format": "knowledgehub-mm-sl-01-evidence/1",
+  "runs": {
+    "memento": {
+      "directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-memento-acceptance",
+      "native_directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-memento-acceptance/hub",
+      "scope": {
+        "branch": "main",
+        "hub": "fixture:memento",
+        "model": "fixture:memento",
+        "owner": "fixture:design-owner"
+      },
+      "generation_head": "946f4986ebed7d943ceeb1052cec348d6b23abc776433a14656bcfbdba29f888",
+      "current_head": "c43660d877ab390f5382998a5dc5faf0a0cb6cc1662d0d48255735d4bc60b15e",
+      "baseline_A": {
+        "id": "model:baseline:imported-A",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      "baseline_B": {
+        "id": "model:baseline:native-B",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      "catalogue": {
+        "id": "sdo:ontology:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "ontology": {
+        "id": "sdo:ontology:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "profile": {
+        "id": "sdo:profile:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "status": "verified",
+      "native_validity": true,
+      "native_completeness": false,
+      "native_gap_count": 1504,
+      "source_gap_count": 24,
+      "source_obligations": 1091,
+      "queries": 25,
+      "all_queries_exhausted": true,
+      "read_records": 2586,
+      "read_record_bytes": 6220714,
+      "original_bytes": 3400510,
+      "plan_bytes": 6945677,
+      "coverage_bytes": 487787,
+      "native_file_count": 7481,
+      "native_physical_file_bytes": 14405820,
+      "original_bytes_equal_after_successor": 3400510,
+      "original_receipts_after_successor": "exact",
+      "binary": {
+        "sha256": "1fa8d6d4829e2b32077022c81313973219bd2ee8ae15d92b65a90fed49df4fbf",
+        "length": 9497120
+      },
+      "verification": {
+        "sha256": "e79a6fc2efb24ea463790b9030d5a1e5f218f6a5cf701cd9be41104595d2227d",
+        "length": 1340962
+      },
+      "generation_manifest": {
+        "sha256": "44337cf811e2c3ed905100035205a66725cf458f9c3f56797e11c17000c15167",
+        "length": 271680647
+      },
+      "successor": {
+        "sha256": "8b576731c8d9bb9fdca245784f800af615e311969eb3d07017aab74aa1a579d3",
+        "length": 1781
+      }
+    },
+    "equipment": {
+      "directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-equipment-acceptance",
+      "native_directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/apply-equipment-acceptance/hub",
+      "scope": {
+        "branch": "main",
+        "hub": "fixture:equipment",
+        "model": "fixture:equipment",
+        "owner": "fixture:design-owner"
+      },
+      "generation_head": "69295630e6f9fd5eeca92373df2f937ac4705690413cab79657b0478e9077bc5",
+      "current_head": "64c57fb97530cea24795aeab477874c50b5fb3116508a2246da45762c2a6035c",
+      "baseline_A": {
+        "id": "model:baseline:imported-A",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      "baseline_B": {
+        "id": "model:baseline:native-B",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      "catalogue": {
+        "id": "sdo:ontology:system-definition",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "ontology": {
+        "id": "model:extension:ontology",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      "profile": {
+        "id": "model:extension:profile",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      "status": "verified",
+      "native_validity": true,
+      "native_completeness": false,
+      "native_gap_count": 10,
+      "source_gap_count": 3,
+      "source_obligations": 10,
+      "queries": 4,
+      "all_queries_exhausted": true,
+      "read_records": 60,
+      "read_record_bytes": 200589,
+      "original_bytes": 655,
+      "plan_bytes": 154823,
+      "coverage_bytes": 8127,
+      "native_file_count": 744,
+      "native_physical_file_bytes": 1907747,
+      "original_bytes_equal_after_successor": 655,
+      "original_receipts_after_successor": "exact",
+      "binary": {
+        "sha256": "1fa8d6d4829e2b32077022c81313973219bd2ee8ae15d92b65a90fed49df4fbf",
+        "length": 9497120
+      },
+      "verification": {
+        "sha256": "b32b327efccbe2136fdd2e4e1ad79ce78f0edb5c257d825da5e343413823ee94",
+        "length": 51256
+      },
+      "generation_manifest": {
+        "sha256": "8b24685b16d8493748cf866189e64ca33c454893973bdebc9bddbc2043539351",
+        "length": 18217275
+      },
+      "successor": {
+        "sha256": "7f376fd06fe039477f34578787b07ece5186cf4784389d94651a15efb7bfda94",
+        "length": 1793
+      }
+    },
+    "negative-requirement-02": {
+      "directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/negative-requirement-02",
+      "status": "incomplete",
+      "native_validity": true,
+      "native_completeness": false,
+      "native_gap_count": 1504,
+      "failures": [
+        "unmapped/unsupported source obligation R-32",
+        "unbound semantic query R-32 exact source approval trace: InvalidInput(\"unknown logical reference: R-32\")",
+        "unbound semantic query R-32 formalises shared US-32: InvalidInput(\"unknown logical reference: R-32\")"
+      ],
+      "source_obligations": 561,
+      "verification": {
+        "sha256": "a94c6b10253f04e2b4dbde2a66d1082f3f9ef089c83f98451433623a427364e6",
+        "length": 1183091
+      },
+      "plan_record_count": 1616
+    },
+    "negative-ui-02": {
+      "directory": "/Users/ivanderk/src/knowledgehub/target/rich-design/negative-ui-02",
+      "status": "incomplete",
+      "native_validity": true,
+      "native_completeness": false,
+      "native_gap_count": 1504,
+      "failures": [
+        "unmapped/unsupported source obligation interaction:execute",
+        "semantic query R-32 exact source approval trace IDs differ",
+        "semantic query exact inventory Interaction IDs differ",
+        "semantic neighbours Execute binding exact interaction IDs differ"
+      ],
+      "source_obligations": 561,
+      "verification": {
+        "sha256": "82e4828805e6792db7a913d1d2b260e26167c72f7996652a6bc2e23847e8968e",
+        "length": 1186089
+      },
+      "plan_record_count": 1616
+    }
+  },
+  "human_meaning_acceptance": "pending",
+  "application_execution": "not performed",
+  "peak_rss": "not measured for fixture replays",
+  "verifier_executable": {
+    "sha256": "1fa8d6d4829e2b32077022c81313973219bd2ee8ae15d92b65a90fed49df4fbf",
+    "length": 9497120
+  },
+  "logs": {
+    "all-targets-final.log": {
+      "sha256": "116b33d5f54e21b0ab633aac9591a94ab658569dfd0875e304d3db19975f1850",
+      "length": 15608
+    },
+    "all-targets.log": {
+      "sha256": "ec8a71c9db63e4e44396a9ead3bb54381df8b7313ac392961c7be88d89f8a776",
+      "length": 43739
+    },
+    "authoring-budget-diagnostic.log": {
+      "sha256": "e9f82abee7929d60dfb5d48eea9ab910eee427f3cb4c9a3435a851f3a6f91eae",
+      "length": 828
+    },
+    "authoring-budget-final.log": {
+      "sha256": "4e21a0b87e62de3521f091cf8a474394291df59fdd5bc83c18d2954e7b76c054",
+      "length": 548
+    },
+    "authoring-complete.log": {
+      "sha256": "d7709feef2d6f0710e78ff02e25639540dae026f9bced15751205940179f45bb",
+      "length": 1358
+    },
+    "authoring-final.log": {
+      "sha256": "227a8d41f74831f1d5d8495d2854d2be73592f32112cc88c1572d6691588dc20",
+      "length": 1540
+    },
+    "authoring-paths-current.log": {
+      "sha256": "b046081a93ef1a32a1adaf9524b6c9551df9b41e764ea2958019d29ce2afd945",
+      "length": 353
+    },
+    "authoring-paths-final.log": {
+      "sha256": "b30f20e3ba5b9c2792cc61cf99567aba71db20a7096025c01b1ee5219cbc5ae2",
+      "length": 422
+    },
+    "authoring-query-final-02.log": {
+      "sha256": "c1b27b407ac87ad723b33d94d2d023fa08af21f7a9c9cae315c02f531fb0b4c5",
+      "length": 418
+    },
+    "authoring-query-final.log": {
+      "sha256": "6a5cfdbece5b7d60258a19528bee310244c3b88d227b3949ce41d7398a8f6477",
+      "length": 670
+    },
+    "authoring-verified.log": {
+      "sha256": "4e612847c70bbf01db7c165418ba9ad641fa314ffce438c29050e3269b7d71f0",
+      "length": 1271
+    },
+    "clippy-acceptance.log": {
+      "sha256": "53d22a2abcf267feb0e0ce8b7d6b452dc4dad813281cd7db957e864bd0c43b52",
+      "length": 141
+    },
+    "clippy-current.log": {
+      "sha256": "5862df46095732caa046eb1f3e1e84b3d5927241dd7f0917c8bd04f1c5eb06c1",
+      "length": 141
+    },
+    "clippy-final.log": {
+      "sha256": "bb5a9d7a4e04b0231cff6e56f18314c508f201acb0fc983b907fb6a0d8392daa",
+      "length": 196
+    },
+    "clippy-verified.log": {
+      "sha256": "73cc95da23b03e8c0032afad44a58951980d58eb8308d7aab39645031be0e9d6",
+      "length": 141
+    },
+    "clippy.log": {
+      "sha256": "a250b20873444d6e10cb9cb5da499cdacfde6c3e27ce8e35b564d4a54f0b1ddc",
+      "length": 141
+    },
+    "contracts-final.log": {
+      "sha256": "0f943eb7c66134836ef45656033981d94de2015f012a0765870cf07cebdf91ed",
+      "length": 1260
+    },
+    "doctests-final.log": {
+      "sha256": "e0852b991db24b3bd3a8131254bcbd5ce2a971677c551e959e29a7c062e9347a",
+      "length": 538
+    },
+    "doctests.log": {
+      "sha256": "b63a91941560bb3951afaf296f377f3c56d5e277515ca374aa7088da82835ce8",
+      "length": 592
+    },
+    "equipment-acceptance-successor.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "equipment-acceptance.log": {
+      "sha256": "2d7626381fa449e0fdabc665c6a7bc4b76df02e4ba5d1c3f8fdc67c59f53d54b",
+      "length": 235
+    },
+    "equipment-current.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "equipment-reviewed.log": {
+      "sha256": "0d35228e38d1347c8bd86dceaa385fbac17a246ab7ded25596c102d21f07b3e0",
+      "length": 231
+    },
+    "equipment-run.log": {
+      "sha256": "ef884e49485ab849fc5587c7fb9992d65a8f52fa9dc6e02cef43257c5b0a23c8",
+      "length": 231
+    },
+    "equipment-successor.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "equipment-verified.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "final-contracts.log": {
+      "sha256": "df0376ed303a53cf158f5d9a249e2785fc12b3a2ba8982b87401d30bb6c57a56",
+      "length": 37216
+    },
+    "final-neighbours.log": {
+      "sha256": "24ade626a8e9d0becd4f76f89eb130594aacb168c0dc603d0b5bdd3c4da33b17",
+      "length": 1058
+    },
+    "host-workflows-final.log": {
+      "sha256": "b2c1c031a9b0bd0588c16c0b4f099ab48babf46a85723e887cfa6aab524569d3",
+      "length": 3123
+    },
+    "host-workflows.log": {
+      "sha256": "0a2e2fb7232446ac75a48b5e1cbc301d062f8cb474d273a0b98cb72a34fdfec4",
+      "length": 118
+    },
+    "inherited-schema-current.log": {
+      "sha256": "8b29ba6c0d0d4c9b414026333735eab118b5d4a214acfcd7f1e5760a272328e3",
+      "length": 431
+    },
+    "memento-acceptance-successor.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "memento-acceptance.log": {
+      "sha256": "0e4f76949d44220df8db2ec2b11329ad7334a5f8cb49ecee3162b1c13c17e2fc",
+      "length": 231
+    },
+    "memento-current.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "memento-final-02.log": {
+      "sha256": "75f7ed97fc438b795d72980fee79956f9d37338e75a966f12a416e2f165de2c9",
+      "length": 464
+    },
+    "memento-final-03.log": {
+      "sha256": "2ab01a7d03808f667c607c15873bd574eeb3df95a3a6642215d6fec9b053739f",
+      "length": 373
+    },
+    "memento-reviewed.log": {
+      "sha256": "caeeb68478369cc36abcbbf772cab8163c3d28c776b6d1cf6ff2e6f0c174ba19",
+      "length": 227
+    },
+    "memento-run.log": {
+      "sha256": "fea72d7b537d18feb4b6ddb02e3616cdfa7ef58b1ec81b071c571b7360a8bd7f",
+      "length": 464
+    },
+    "memento-successor.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "memento-verified.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "native-final-command.log": {
+      "sha256": "f8aaee8ef2a73924dbd9f805d318b85d65e813c91ff90f76ce64fa80326982cf",
+      "length": 393
+    },
+    "negative-requirement-02.log": {
+      "sha256": "c4cbf9ccb80fe1dc3a1ddc8138825053c0d3daed919182456193fc4b310957de",
+      "length": 231
+    },
+    "negative-requirement-current.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "negative-requirement.log": {
+      "sha256": "426cc7cb1f17a6ea6d4255f54684d6b1db63d23018f001e593fb0d1dd256d4e0",
+      "length": 416
+    },
+    "negative-ui-02.log": {
+      "sha256": "c5d28169d4d1752511e8a01e5fc8bc36b797d1709d990afad173f20b845a28cc",
+      "length": 213
+    },
+    "negative-ui-current.stderr.log": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "length": 0
+    },
+    "negative-ui.log": {
+      "sha256": "848dd49d40d93100ff8b3a48349d50bd0eca2abd8fcbe017073ccc3953b27382",
+      "length": 431
+    },
+    "openspec-final.log": {
+      "sha256": "4b16ffb074a3f394705435467a766b148f83785cd0232ea7e42cee6cebbe276f",
+      "length": 433
+    },
+    "openspec-validation.log": {
+      "sha256": "4b16ffb074a3f394705435467a766b148f83785cd0232ea7e42cee6cebbe276f",
+      "length": 433
+    },
+    "release-build.log": {
+      "sha256": "0eed7c19c45e1622fd9c73442ecf2cd3860280066d45873f325eabd647aeeeaa",
+      "length": 228
+    },
+    "release-current.log": {
+      "sha256": "359f267391f12326b8b73a7054b4422dcc61ca7cd6f74ca62f2d709e17daa0b7",
+      "length": 307
+    },
+    "release-examples-final.log": {
+      "sha256": "59c03a26d8ec6ce4762e8dc9d92cbacb954250632cbb544698fcc03762fb8907",
+      "length": 132
+    },
+    "release-final.log": {
+      "sha256": "7a770b2a90905bffd2bb37aa05cfdc823879cdbef1ade943176ffcb3d19b2169",
+      "length": 131
+    },
+    "rent-current.log": {
+      "sha256": "900faa070e040d7b8d234bc53dad20d22c6be5171ba06e0753f4fdfb1d92b975",
+      "length": 1376
+    },
+    "skill-import-validation.log": {
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "length": 16
+    },
+    "skill-verify-validation.log": {
+      "sha256": "db349825903d66adffea3ecf1bd8e1803043e8a71cf1a051235dabc5371f5bb0",
+      "length": 16
+    },
+    "storage-rent-final.log": {
+      "sha256": "cd10e9c336d41b9333dc763899742183269bd5deaae920b7fcd55aaa6580dde4",
+      "length": 1387
+    },
+    "storage-rent-verified.log": {
+      "sha256": "40114b2b3f74cd39a8dea5c63c9857f9cabdde952755e690a175668bc50b7934",
+      "length": 1076
+    }
+  },
+  "final_native_batch": {
+    "manifest": "native-final/checked.json",
+    "digest": {
+      "sha256": "8dc35a802d9c23d322b05bfdac1ca4baeac3e09da6802e1dce02ab879ec381b2",
+      "length": 68235
+    },
+    "rust_target_tests": 115,
+    "doctests": 3,
+    "python_host_tests": 19,
+    "all_commands_exit_zero": true
+  },
+  "openspec_progress": {
+    "extend-experience-trace-modelling": "9/9",
+    "refine-logical-and-design-stage-contracts": "15/15",
+    "add-source-bound-model-authoring-tools": "15/15",
+    "deliver-model-import-and-verification-skills": "13/14",
+    "support-macos-file-backend": "11/14"
+  },
+  "pending_external_gates": [
+    "Claude Code authenticated import/independent verification",
+    "Native Linux current-contract verification",
+    "Both cross-host fixture-copy directions",
+    "Two-platform final review"
+  ],
+  "post_check_updates": {
+    "sha256": "0a469957c076dc42b41bd4f30b33915c1740cf24e8bd0da17d797af8bb7f9cd6",
+    "length": 1551
+  }
+}

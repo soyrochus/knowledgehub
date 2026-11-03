@@ -1,0 +1,75 @@
+{
+  "baseline_A": {
+    "id": "model:baseline:imported-A",
+    "model": "fixture:equipment",
+    "revision": "1"
+  },
+  "baseline_B": {
+    "id": "model:baseline:native-B",
+    "model": "fixture:equipment",
+    "revision": "1"
+  },
+  "changed": [
+    [
+      {
+        "id": "model:lifecycle:Booking",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      {
+        "id": "model:lifecycle:Booking",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:state:Cancelled",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      {
+        "id": "model:state:Cancelled",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:state:Confirmed",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      {
+        "id": "model:state:Confirmed",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:state:Requested",
+        "model": "fixture:equipment",
+        "revision": "1"
+      },
+      {
+        "id": "model:state:Requested",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      }
+    ]
+  ],
+  "current_head": "64c57fb97530cea24795aeab477874c50b5fb3116508a2246da45762c2a6035c",
+  "human_acceptance": "pending",
+  "known_generation_receipts": "exact",
+  "native_completeness": false,
+  "native_validity": true,
+  "original_bytes_equal": 655,
+  "original_head": "69295630e6f9fd5eeca92373df2f937ac4705690413cab79657b0478e9077bc5",
+  "scope": {
+    "branch": "main",
+    "hub": "fixture:equipment",
+    "model": "fixture:equipment",
+    "owner": "fixture:design-owner"
+  }
+}

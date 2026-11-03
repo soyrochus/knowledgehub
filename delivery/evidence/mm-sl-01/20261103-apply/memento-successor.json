@@ -1,0 +1,75 @@
+{
+  "baseline_A": {
+    "id": "model:baseline:imported-A",
+    "model": "fixture:memento",
+    "revision": "1"
+  },
+  "baseline_B": {
+    "id": "model:baseline:native-B",
+    "model": "fixture:memento",
+    "revision": "1"
+  },
+  "changed": [
+    [
+      {
+        "id": "model:binding:execute",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      {
+        "id": "model:binding:execute",
+        "model": "fixture:memento",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:interaction:execute",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      {
+        "id": "model:interaction:execute",
+        "model": "fixture:memento",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:issues:execute",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      {
+        "id": "model:issues:execute",
+        "model": "fixture:memento",
+        "revision": "native-successor-2"
+      }
+    ],
+    [
+      {
+        "id": "model:working-ui-binding",
+        "model": "fixture:memento",
+        "revision": "1"
+      },
+      {
+        "id": "model:working-ui-binding",
+        "model": "fixture:memento",
+        "revision": "native-successor-2"
+      }
+    ]
+  ],
+  "current_head": "c43660d877ab390f5382998a5dc5faf0a0cb6cc1662d0d48255735d4bc60b15e",
+  "human_acceptance": "pending",
+  "known_generation_receipts": "exact",
+  "native_completeness": false,
+  "native_validity": true,
+  "original_bytes_equal": 3400510,
+  "original_head": "946f4986ebed7d943ceeb1052cec348d6b23abc776433a14656bcfbdba29f888",
+  "scope": {
+    "branch": "main",
+    "hub": "fixture:memento",
+    "model": "fixture:memento",
+    "owner": "fixture:design-owner"
+  }
+}

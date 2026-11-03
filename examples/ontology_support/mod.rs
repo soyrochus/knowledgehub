@@ -7,10 +7,10 @@ pub fn reference(kind: &str) -> ExactRef {
     ExactRef::new("specimen", format!("specimen:{kind}"), "1")
 }
 pub fn anchor() -> ExactRef {
-    ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-1")
+    ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-3")
 }
 pub fn document() -> ExactRef {
-    ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-1")
+    ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-3")
 }
 pub fn narrative() -> Value {
     Value::Narrative {
@@ -39,9 +39,9 @@ fn target(name: &str) -> ExactRef {
         "OntologyDefinition" => ontology_ref(),
         "ProfileDefinition" => profile_ref(),
         "SourceRevision" => document(),
-        "SourceArtifact" => ExactRef::new("sdo", "urn:source:ontology", "catalogue-1"),
+        "SourceArtifact" => ExactRef::new("sdo", "urn:source:ontology", "catalogue-3"),
         "SourceAnchor" => anchor(),
-        "ConstraintDefinition" => ExactRef::new("sdo", "sdo:constraint:V-01", "catalogue-1"),
+        "ConstraintDefinition" => ExactRef::new("sdo", "sdo:constraint:V-01", "catalogue-3"),
         "RelationshipTypeDefinition" => relationship_ref("UseCase", "satisfies"),
         _ => reference(name),
     }
@@ -59,7 +59,10 @@ fn specimen_value(k: &ValueKind, structures: &BTreeMap<String, ValueKind>) -> Va
         },
         ValueKind::Timestamp => Value::text("2026-10-31T12:00:00Z"),
         ValueKind::Enum(a) => Value::enumeration(&a[0]),
-        ValueKind::Reference(a) => Value::Ref(target(&a[0])),
+        ValueKind::Reference(a) => Value::Ref(match &a[0] {
+            TypeSelector::Type(r) => target(r.id.strip_prefix("sdo:type:").unwrap()),
+            TypeSelector::Role(_) => reference("Requirement"),
+        }),
         ValueKind::Artifact => Value::Artifact(document()),
         ValueKind::Narrative => narrative(),
         ValueKind::List { item, min } => Value::List(
@@ -210,6 +213,8 @@ pub fn specimens() -> Result<Vec<Operation>, Error> {
     set("DesignToken", "value", Value::text("synthetic-colour"));
     set("SoftwareComponent", "modules", one("Module"));
     set("ComponentPlacement", "bindings", one("ActionBinding"));
+    set("StoryMap", "placements", one("StoryPlacement"));
+    set("OutcomeCut", "prerequisites", Value::List(vec![]));
     let mut out = records
         .into_values()
         .filter(|r| {
@@ -221,12 +226,19 @@ pub fn specimens() -> Result<Vec<Operation>, Error> {
         .map(Operation::Put)
         .collect::<Vec<_>>();
     let mut late = vec![];
-    // Instantiate all 38 declared signatures, choosing actual native subjects for the kernel roles.
+    // Instantiate all declared signatures, choosing actual native subjects for the kernel roles.
     for r in &c.records {
         if let RecordData::Relationship(d) = &r.data {
-            let source = &d.from[0];
+            let source = match &d.from[0] {
+                TypeSelector::Type(r) => r.id.strip_prefix("sdo:type:").unwrap(),
+                TypeSelector::Role(SubjectRole::ElementRevision) => "ElementRevision",
+                TypeSelector::Role(SubjectRole::AnySubject) => "AnySubject",
+            };
             let mut from = target(source);
-            let mut to = target(&d.to[0]);
+            let mut to = match &d.to[0] {
+                TypeSelector::Type(r) => target(r.id.strip_prefix("sdo:type:").unwrap()),
+                TypeSelector::Role(_) => reference("Requirement"),
+            };
             match d.coverage.as_str() {
                 "R03" => {
                     // Separate child avoids a meaningless self containment cycle.
@@ -260,9 +272,29 @@ pub fn specimens() -> Result<Vec<Operation>, Error> {
                     out.push(Operation::Put(child));
                     to = reference("ComponentPlacementChild");
                 }
+                "E03" => {
+                    let mut child = out
+                        .iter()
+                        .filter_map(Operation::record)
+                        .find(|r| r.reference == reference("UserStory"))
+                        .unwrap()
+                        .clone();
+                    child.reference = reference("UserStoryPrerequisite");
+                    child.seal()?;
+                    to = child.reference.clone();
+                    out.push(Operation::Put(child));
+                }
                 _ => {}
             }
-            let edge = assertion(&format!("edge:{}", d.coverage), source, &d.name, from, to);
+            let mut edge = assertion(&format!("edge:{}", d.coverage), source, &d.name, from, to);
+            if d.coverage == "E03" {
+                if let RecordData::Assertion(a) = &mut edge.data {
+                    a.qualifiers
+                        .insert("dependency_kind".into(), Value::enumeration("required"));
+                    a.qualifiers.insert("condition".into(), Value::Null);
+                }
+                edge.seal()?;
+            }
             if d.coverage == "R28" {
                 late.push(Operation::Put(edge))
             } else {

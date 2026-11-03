@@ -18,7 +18,7 @@ rows={};families=collections.Counter();field_count=0
 inventory=(change_dir(root,'express-full-ontology-and-self-model')/'ontology-coverage.md').read_text()
 expected=set(re.findall(r'^\| ([KTRP]\d+) \|',inventory,re.M))
 for definition in data['types']:
- ref=('sdo','sdo:type:'+definition['name'],'catalogue-1');assert ref in digests
+ ref=('sdo','sdo:type:'+definition['name'],'catalogue-3');assert ref in digests
  row=dict(definition=dict(zip(('model','id','revision'),ref)),sha256=digests[ref],source=definition['citation'])
  if definition['native']:
   actual=catalogue['kernel'][definition['name']];row['materialisation']=actual['reference'];row['evidence']=evidence('kernel_codecs_are_closed_and_missing_catalogue_family_is_reported','all_families_and_kernel_relationships_commit_and_reopen')
@@ -36,11 +36,12 @@ assert len(catalogue['kernel'])==17
 assert catalogue['kernel']['ElementIdentity']['reference']['revision']=='@identity'
 assert catalogue['kernel']['ElementRevision']['reference']==next(r['reference'] for r in records.values() if r['reference']['id']=='specimen:Requirement')
 for definition in data['relationships']:
- ref=('sdo','sdo:relationship:'+definition['from'][0]+'.'+definition['name'],'catalogue-1');assert ref in digests
+ ref=('sdo','sdo:relationship:'+(definition['from'][0]['selection']['id'].removeprefix('sdo:type:') if definition['from'][0]['kind']=='Type' else definition['from'][0]['selection'])+'.'+definition['name'],'catalogue-3');assert ref in digests
  matches=[r for r in records.values() if r['data']['kind']=='Assertion' and key(r['data']['data']['signature'])==ref];assert matches,definition['coverage']
  rows[definition['coverage']]=dict(definition=dict(zip(('model','id','revision'),ref)),sha256=digests[ref],specimens=[r['reference'] for r in matches],source=definition['citation'],evidence=evidence('every_declared_signature_rejects_wrong_direction_and_targets','all_families_and_kernel_relationships_commit_and_reopen'))
-assert set(rows)==expected and len(expected)==183
-assert len(families)==14 and sum(families.values())==128
+assert {k for k in rows if not k.startswith('E')}==expected and len(expected)==183
+assert {k for k in rows if k.startswith('E')}=={'E01','E02','E03'}
+assert len(families)==14 and sum(families.values())==129
 rules={
  'V-01':['scalar_encodings_closed_requests_and_revision_tokens_are_lossless','coherent_successors_baselines_and_replay_current_thread'],
  'V-02':['every_declared_property_has_independent_missing_and_invalid_evidence'],
@@ -98,5 +99,5 @@ for group in ('purpose','participants','domain','contexts','language','consisten
 assertions={r['reference']['id']:r for r in model['assertions']}
 for name in ['kh:assertion:capability-goal','kh:assertion:journey-outcome','kh:assertion:commit-handler','urn:assertion:commit-satisfies-atomic-change','kh:assertion:commit-invokes','kh:assertion:admit-aggregate','kh:assertion:aggregate-root','kh:assertion:aggregate-invariant','kh:assertion:crate-implements','kh:assertion:adapter-translates','kh:assertion:policy-governs','kh:assertion:interruption-checks','kh:assertion:run-executes','kh:assertion:evidence-criterion','kh:assertion:source-supports','kh:assertion:admission-represents']:assert name in assertions,name
 sha=lambda path:hashlib.sha256(pathlib.Path(path).read_bytes()).hexdigest()
-output=dict(format='knowledgehub-coverage-audit/1',catalogue=dict(rows=rows,families=families,required_properties=field_count,kernel=17,family_types=128,source_signatures=32,prose_signatures=6),obligations={r:dict(evidence=names) for r,names in rules.items()},self_model=dict(groups={k:len(v) for k,v in model['groups'].items()},source_units=len(capture['units']),original_files=len(capture['files']),selected_records=model['selected_records'],retained_records=model['retained_records'],explicit_gaps=len(model['Q08']['gaps']),purpose_complete=False,human_assessments=0,questions=['Q%02d'%n for n in range(1,9)],required_assertions=16),inputs={path:sha(path) for path in (a.catalogue,a.model,a.input)},scope='Observed structural conformance and public walkthrough. Semantic adequacy and human acceptance remain separate.')
+output=dict(format='knowledgehub-coverage-audit/2',catalogue=dict(rows=rows,families=families,required_properties=field_count,kernel=17,family_types=129,source_signatures=32,prose_signatures=6,experience_refinements=['E01','E02','E03'],original_source_rows=183),obligations={r:dict(evidence=names) for r,names in rules.items()},self_model=dict(groups={k:len(v) for k,v in model['groups'].items()},source_units=len(capture['units']),original_files=len(capture['files']),selected_records=model['selected_records'],retained_records=model['retained_records'],explicit_gaps=len(model['Q08']['gaps']),purpose_complete=False,human_assessments=0,questions=['Q%02d'%n for n in range(1,9)],required_assertions=16),inputs={path:sha(path) for path in (a.catalogue,a.model,a.input)},scope='Observed structural conformance and public walkthrough. Semantic adequacy and human acceptance remain separate.')
 out=root/a.output;assert not out.exists(),'fresh audit output required; historical evidence is not overwritten';out.write_text(json.dumps(output,indent=2)+'\n');print(json.dumps(dict(audit=str(out.relative_to(root)),catalogue_rows=len(rows),obligations=len(rules),groups=len(model['groups']),explicit_gaps=len(model['Q08']['gaps']))))

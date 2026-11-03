@@ -1,6 +1,6 @@
 # KnowledgeHub outcome slices and specification sequence
 
-Draft 0.8 · 1 November 2026 · Earlier ontology/storage/query/packed-index/rebuild outcomes retain their recorded technical evidence. KH-SL-014–017 now plan the sole full API, 0.10.0 package identity and a fresh canonical model. Implementation of that new sequence is pending; human acceptance remains separate.
+Draft 0.9 · 3 November 2026 · Earlier ontology/storage/query/packed-index/rebuild and KH-SL-014–017 outcomes retain their recorded technical evidence. The authorised MM-SL-01 sequence adds current modelling contracts, standalone tools and portable skills. Technical checks and human meaning review remain distinct.
 
 This plan applies the [Practical Design Manual](../source/practical-design-manual.md) to the [domain analysis](../design/domain-analysis.md). It owns journey/story organisation, outcome cuts, dependencies and specification order. The [ontology proposal](../source/system-definition-ontology-proposal.md), especially §§19–21, supplies the target contract. The [self-hosting plan](../design/self-hosting-plan.md) owns the progressive transfer of this project's definition into its running library.
 
@@ -52,7 +52,7 @@ The columns preserve the actor's progression. Stories below name needs; code mod
 
 ## Ordered slice catalogue
 
-KH-SL-001 is implemented at the boundary recorded below, pending human acceptance. KH-SL-007/008 are the next proposed priorities; KH-SL-002–006 retain the identities and remaining scope reconciled below. Each slice inherits applicable guarantees from earlier slices; identity, current authority, conflicts, idempotency and recovery are required from the first write.
+The catalogue below retains the original slice intentions and chronological reviews. Subsequent implementation/evidence entries record their actual bounded outcomes; the latest delivered sequence is [MM-SL-01](#mm-sl-01--external-source-bound-model-authoring). KH-SL-002–006 retain the identities and remaining scope reconciled below. Each slice inherits applicable guarantees from earlier slices; identity, current authority, conflicts, idempotency and recovery are required from the first write.
 
 ### KH-SL-001 — Retain and reopen one sourced KnowledgeHub definition
 
@@ -348,3 +348,22 @@ technical Mac verification, not human acceptance or authority handover.
   [change](../openspec/changes/support-macos-file-backend/proposal.md) owns the
   bounded behavioural delta. Repository definitions and historical Hub captures
   keep their existing authority and exact revisions.
+
+## MM-SL-01 — External source-bound model authoring
+
+The user authorised applying the open changes on 3 November 2026. Their dependency order and recorded technical status are:
+
+| Change | Delivered boundary | Task status |
+| --- | --- | --- |
+| extend-experience-trace-modelling | Multi-journey maps, shared placements/cuts, scenario traces and qualified dependencies. | 9/9 |
+| refine-logical-and-design-stage-contracts | Exact/inherited types, direct lifecycle subjects, logical constructors, planned realization and honest draft gaps. | 15/15 |
+| add-source-bound-model-authoring-tools | Bounded exact-source capture, typed compilation, native assessment/publication, original-operation recovery and independent coverage checks. | 15/15 |
+| deliver-model-import-and-verification-skills | Portable agent skills, reviewed source accounting and persisted reference/unrelated models. | 13/14; one external host execution gate remains open. |
+
+The working journey is source documents/UI → external analyst/agent interpretation → typed plan → native assessment/publication → independent verification. Source authority and interpretation stay with that external author; the tool delegates schema and graph checks to the native library. Capture alone does not produce a complete interpretation.
+
+The [local reference fixtures](../examples/fixtures/README.md) have actual A/B baselines, exact original sources, recovered receipts and exhausted readback queries after reopen. The Memento model is valid and incomplete: its 1,504 structured omissions remain explicit while narrative/code/artifacts retain details beyond the formalized graph. Declared source-accounting success, complete business meaning, implementation evidence and human acceptance remain separate results.
+
+[The exact-source batch](evidence/mm-sl-01/20261103-apply/README.md) passed 115 Rust target tests, three doctests, 19 host checks, formatting, Clippy and release examples. The task files retain pending external gates; platform closure remains with KH-SL-018. The root canonical Hub was preserved at its earlier codec-/2 checkpoint; the /3 reference Hubs are separate instances under target/rich-design.
+
+Review sequence: inspect source-to-model meaning and the explicit structured gaps, obtain human meaning review, then select further formalization as its own bounded change. MM-SL-02 registration/Modelarium editing, canonical self-model refresh, publication and authority handover remain later work.

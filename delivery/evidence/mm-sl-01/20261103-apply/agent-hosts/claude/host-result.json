@@ -1,0 +1,14 @@
+{
+  "host": "claude",
+  "version": "2.1.316 (Claude Code)",
+  "workspace": "/private/tmp/knowledgehub-host-apply-01-claude",
+  "mode": "reviewed maintained-plan replay; not newly authored",
+  "binary_sha256": "e4fc55fa1339223fbfc3077b495687470ebe62a2f961a518622b4b61b19785b3",
+  "stages": [
+    {
+      "stage": "import",
+      "returncode": 1,
+      "verification_exists": false
+    }
+  ]
+}

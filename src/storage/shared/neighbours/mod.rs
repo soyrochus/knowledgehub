@@ -44,7 +44,7 @@ impl Binding {
             ontology: v.g.ontology.clone(),
             profile: v.g.profile.clone(),
             fact_scope: scope,
-            extractor: "knowledgehub-neighbour-extractor/1".into(),
+            extractor: "knowledgehub-neighbour-extractor/2".into(),
             categories: "knowledgehub-neighbour-categories/1".into(),
         }
     }
@@ -56,7 +56,7 @@ impl Binding {
             ontology: g.ontology.clone(),
             profile: g.profile.clone(),
             fact_scope: scope,
-            extractor: "knowledgehub-neighbour-extractor/1".into(),
+            extractor: "knowledgehub-neighbour-extractor/2".into(),
             categories: "knowledgehub-neighbour-categories/1".into(),
         }
     }

@@ -1,0 +1,5 @@
+   Compiling zstd-sys v2.1.2+zstd.1.5.7
+   Compiling zstd-safe v7.3.0
+   Compiling zstd v0.13.3
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `release` profile [optimized] target(s) in 18.61s

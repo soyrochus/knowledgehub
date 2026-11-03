@@ -24,8 +24,8 @@ pub const KERNEL_KINDS: &[&str] = &[
 ];
 
 pub const FILE_FORMAT: &str = "knowledgehub-files/4";
-pub const REQUEST_FORMAT: &str = "knowledgehub-request/2";
-pub const RECORD_FORMAT: &str = "knowledgehub-record/2";
+pub const REQUEST_FORMAT: &str = "knowledgehub-request/3";
+pub const RECORD_FORMAT: &str = "knowledgehub-record/3";
 
 /// Qualified semantic identity and opaque immutable revision token. Content hashes are separate.
 #[derive(Clone, Debug, PartialEq, Eq, PartialOrd, Ord, Serialize, Deserialize)]
@@ -138,7 +138,7 @@ pub enum ValueKind {
     Decimal,
     Timestamp,
     Enum(Vec<String>),
-    Reference(Vec<String>),
+    Reference(Vec<TypeSelector>),
     Artifact,
     Narrative,
     List { item: Box<ValueKind>, min: usize },
@@ -147,6 +147,18 @@ pub enum ValueKind {
     Structured(String),
     Union(Vec<ValueKind>),
     Any,
+}
+/// Qualified metamodel selection. Display names never establish assignability.
+#[derive(Clone, Debug, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(tag = "kind", content = "selection", deny_unknown_fields)]
+pub enum TypeSelector {
+    Type(ExactRef),
+    Role(SubjectRole),
+}
+#[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
+pub enum SubjectRole {
+    AnySubject,
+    ElementRevision,
 }
 #[derive(Clone, Copy, Debug, PartialEq, Eq, Serialize, Deserialize)]
 pub enum PropertyOwner {
@@ -200,8 +212,8 @@ pub struct TypeDefinition {
 pub struct RelationshipDefinition {
     pub name: String,
     pub coverage: String,
-    pub from: Vec<String>,
-    pub to: Vec<String>,
+    pub from: Vec<TypeSelector>,
+    pub to: Vec<TypeSelector>,
     pub min_complete: usize,
     pub max: Option<usize>,
     pub acyclic: bool,
@@ -836,6 +848,7 @@ pub enum Direction {
 pub struct Query {
     pub selection: Selection,
     pub type_ref: Option<ExactRef>,
+    pub include_subtypes: bool,
     pub ids: BTreeSet<String>,
     pub starts: Vec<ExactRef>,
     pub signatures: Vec<ExactRef>,
@@ -851,6 +864,7 @@ impl Query {
         Self {
             selection,
             type_ref: None,
+            include_subtypes: false,
             ids: BTreeSet::new(),
             starts: vec![],
             signatures: vec![],
@@ -866,6 +880,7 @@ impl Query {
 #[derive(Clone, Debug, PartialEq, Eq)]
 pub struct Page {
     pub selection: Selection,
+    pub include_subtypes: bool,
     pub records: Vec<Record>,
     pub assertions: Vec<Record>,
     pub continuation: Option<String>,

@@ -1,0 +1,24 @@
+test_active_backend_writer_prevents_deletion (host_workflows.HostWorkflows.test_active_backend_writer_prevents_deletion) ... ok
+test_capture_output_refuses_retained_directory_names (host_workflows.HostWorkflows.test_capture_output_refuses_retained_directory_names) ... ok
+test_change_origin_survives_archive_and_refuses_ambiguity (host_workflows.HostWorkflows.test_change_origin_survives_archive_and_refuses_ambiguity) ... ok
+test_explicit_current_reset_removes_prior_content_and_preserves_external_evidence (host_workflows.HostWorkflows.test_explicit_current_reset_removes_prior_content_and_preserves_external_evidence) ... ok
+test_failed_dataset_verification_never_marks_the_new_store_verified (host_workflows.HostWorkflows.test_failed_dataset_verification_never_marks_the_new_store_verified) ... ok
+test_failed_preflight_preserves_current_store (host_workflows.HostWorkflows.test_failed_preflight_preserves_current_store) ... ok
+test_first_cutover_refuses_occupied_and_old_destinations_without_writes (host_workflows.HostWorkflows.test_first_cutover_refuses_occupied_and_old_destinations_without_writes) ... ok
+test_historical_native_evidence_is_not_overwritten (host_workflows.HostWorkflows.test_historical_native_evidence_is_not_overwritten) ... ok
+test_interrupted_population_is_failed_and_explicit_retry_is_fresh (host_workflows.HostWorkflows.test_interrupted_population_is_failed_and_explicit_retry_is_fresh) ... ok
+test_missing_platform_facts_produce_failure_log_without_success_manifest (host_workflows.HostWorkflows.test_missing_platform_facts_produce_failure_log_without_success_manifest) ... ok
+test_native_platform_branches_keep_actual_units_and_mount_facts (host_workflows.HostWorkflows.test_native_platform_branches_keep_actual_units_and_mount_facts) ... ok
+test_old_hub_inventory_is_unchanged_and_never_captured (host_workflows.HostWorkflows.test_old_hub_inventory_is_unchanged_and_never_captured) ... ok
+test_origins_refuse_duplicates_unknown_changes_and_stale_modules (host_workflows.HostWorkflows.test_origins_refuse_duplicates_unknown_changes_and_stale_modules) ... ok
+test_outputs_cache_and_evidence_cannot_recurse_into_capture (host_workflows.HostWorkflows.test_outputs_cache_and_evidence_cannot_recurse_into_capture) ... ok
+test_package_identity_requires_matching_unpublished_v010 (host_workflows.HostWorkflows.test_package_identity_requires_matching_unpublished_v010) ... ok
+test_stale_added_removed_source_and_log_or_build_bytes_are_refused (host_workflows.HostWorkflows.test_stale_added_removed_source_and_log_or_build_bytes_are_refused) ... ok
+test_subtree_symlinks_and_unexpected_scope_are_refused (host_workflows.HostWorkflows.test_subtree_symlinks_and_unexpected_scope_are_refused) ... ok
+test_unmarked_partial_directory_is_not_a_reset_target (host_workflows.HostWorkflows.test_unmarked_partial_directory_is_not_a_reset_target) ... ok
+test_unsafe_parent_repository_unrelated_and_symlink_targets (host_workflows.HostWorkflows.test_unsafe_parent_repository_unrelated_and_symlink_targets) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.271s
+
+OK

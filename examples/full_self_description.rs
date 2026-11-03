@@ -351,10 +351,10 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     for file in &capture.files {
         let reference = match file.path.as_str() {
             "source/system-definition-ontology-proposal.md" => {
-                ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-1")
+                ExactRef::new("sdo", "urn:source:ontology:capture", "catalogue-3")
             }
             "source/system-definition-ontology-proposal.pdf" => {
-                ExactRef::new("sdo", "sdo:source:ontology-pdf:capture", "catalogue-1")
+                ExactRef::new("sdo", "sdo:source:ontology-pdf:capture", "catalogue-3")
             }
             _ => host::capture_ref(&file.path),
         };
@@ -362,7 +362,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         assert_eq!(ContentRef::of(&actual.bytes), file.reference);
         originals.insert(file.path.clone(), file.reference.clone());
     }
-    let summary = serde_json::json!({"store":store,"source_status":capture.source_status,"checked_current_code":capture.checked.is_some(),"groups":groups,"assertions":assertions,"source_originals":originals,"actual_human_assessments":assessment_count,"answers":answers,"structurally_valid":assess(&view).is_valid(),"purpose_complete":assess(&view).is_complete(),"Q01":{"types":145,"signatures":38,"missing":catalogue_coverage(&view)},"Q02":host::r("urn:knowledgehub:library"),"Q03":host::r("kh:command:commit-change-set"),"Q04":host::r("kh:aggregate:model-branch"),"Q05":host::r("kh:representation:admission-code"),"Q06":{"records":path.records.iter().map(|r|&r.reference).collect::<Vec<_>>(),"assertions":path.assertions.iter().map(|r|&r.reference).collect::<Vec<_>>()},"Q07":{"A":a,"B":b,"changed":differences.iter().map(|d|&d.identity).collect::<Vec<_>>()},"Q08":{"gaps":assess(&view).gaps,"inapplicable":view.profile_definition().unwrap().inapplicable,"human_acceptance":"absent; repository authority retained"},"selected_records":view.selected.len(),"retained_records":view.records.len()});
+    let summary = serde_json::json!({"store":store,"source_status":capture.source_status,"checked_current_code":capture.checked.is_some(),"groups":groups,"assertions":assertions,"source_originals":originals,"actual_human_assessments":assessment_count,"answers":answers,"structurally_valid":assess(&view).is_valid(),"purpose_complete":assess(&view).is_complete(),"Q01":{"types":146,"signatures":40,"missing":catalogue_coverage(&view)},"Q02":host::r("urn:knowledgehub:library"),"Q03":host::r("kh:command:commit-change-set"),"Q04":host::r("kh:aggregate:model-branch"),"Q05":host::r("kh:representation:admission-code"),"Q06":{"records":path.records.iter().map(|r|&r.reference).collect::<Vec<_>>(),"assertions":path.assertions.iter().map(|r|&r.reference).collect::<Vec<_>>()},"Q07":{"A":a,"B":b,"changed":differences.iter().map(|d|&d.identity).collect::<Vec<_>>()},"Q08":{"gaps":assess(&view).gaps,"inapplicable":view.profile_definition().unwrap().inapplicable,"human_acceptance":"absent; repository authority retained"},"selected_records":view.selected.len(),"retained_records":view.records.len()});
     let output = options.result.unwrap_or_else(|| {
         store
             .parent()

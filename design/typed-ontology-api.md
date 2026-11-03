@@ -34,7 +34,7 @@ this is distinct from cyclic inheritance. Exact built-in definition content and
 source/refinement citations are discoverable through ordinary reads and queries.
 
 Every `Record` carries a qualified model/identity/opaque revision token and a
-separate `knowledgehub-record/2` canonical digest. Allocating tokens before sealing
+separate `knowledgehub-record/3` canonical digest. Allocating tokens before sealing
 records permits mutually referring records without hash fixed points. Once
 published, a token cannot be reused, even for a similar record. `Put` successors
 pin their exact predecessor and retain the semantic ID. `Unselect` guards the
@@ -83,12 +83,17 @@ only while preserving its exact closure. Named-baseline comparison orders qualif
 identities and reports additions, removals, successors, data, provenance and narrative
 binding changes, under current read policy.
 
-Queries select exact type revisions/IDs, or traverse forward/reverse exact declared
+Queries select exact type revisions/IDs by default. Set `include_subtypes` with an
+exact `type_ref` to include governed descendants from the selected parent graph.
+Pages disclose that intent. Neighbour and impact type filters use the same native
+matcher; identity lookup remains exact. See [logical design](logical-design-contract.md)
+for selectors, inheritance origins, lifecycle subjects and draft semantics.
+Queries can also traverse forward/reverse exact declared
 signatures from exact subjects. Selection order is qualified reference order;
 traversal is breadth first with ordered starts and edges ordered by signature then
 assertion reference. Assertions are retained independently of endpoint filtering.
 The API does not interpret vendor queries or arbitrary predicates. Page defaults
-are 100 records/assertions, maximum 1000; depth defaults to 1, maximum 4; visited
+are 100 records/assertions, maximum 1000; depth defaults to 1, maximum 32; visited
 subjects and edges each default/max 10000. Budgets cover the whole traversal,
 including filtered nodes, and persist across pages. Exhaustion and total/depth
 truncation are explicit. Submit a narrower request after truncation.

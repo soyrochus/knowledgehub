@@ -13,6 +13,45 @@ pub(crate) fn selector_supported(
             if ["/type_ref", "/predecessor", "/provenance/*"].contains(&path.as_str()) {
                 return Ok(true);
             }
+            // Exact Type selectors are native metadata references, including
+            // nested property/qualifier/structure schemas. Roles contain no ref.
+            fn value_schema(parts: &[&str]) -> bool {
+                if parts == ["schema", "*", "selection"] {
+                    return true;
+                }
+                if parts.len() > 2 && parts[0] == "schema" {
+                    if parts[1] == "item" || parts[1] == "*" {
+                        return value_schema(&parts[2..]);
+                    }
+                    if parts.len() > 3 && parts[2] == "value" {
+                        return value_schema(&parts[3..]);
+                    }
+                }
+                false
+            }
+            let parts = path.trim_start_matches('/').split('/').collect::<Vec<_>>();
+            let selector_metadata = match t.name.as_str() {
+                "RelationshipTypeDefinition" => {
+                    matches!(path.as_str(), "/from/*/selection" | "/to/*/selection")
+                        || (parts.len() > 3
+                            && parts[0] == "qualifiers"
+                            && parts[2] == "value"
+                            && value_schema(&parts[3..]))
+                }
+                "ElementTypeDefinition" => {
+                    parts.len() > 3
+                        && parts[0] == "properties"
+                        && parts[2] == "value"
+                        && value_schema(&parts[3..])
+                }
+                "OntologyDefinition" => {
+                    parts.len() > 2 && parts[0] == "structures" && value_schema(&parts[2..])
+                }
+                _ => false,
+            };
+            if t.native && selector_metadata {
+                return Ok(true);
+            }
             let paths: &[&str] = match t.name.as_str() {
                 "SystemModel" => &["/ontology", "/profile"],
                 "OntologyDefinition" => &[
@@ -49,7 +88,7 @@ pub(crate) fn selector_supported(
                 .map(|s| s.replace("~1", "/").replace("~0", "~"))
                 .collect::<Vec<_>>();
             let properties = match data {
-                RecordData::Type(t) if !t.native => fields(t, lookup, &mut BTreeSet::new(), 0)?,
+                RecordData::Type(t) if !t.native => fields(&definition.reference, lookup)?,
                 RecordData::Relationship(d) if parts.first().is_some_and(|p| p == "qualifiers") => {
                     parts.remove(0);
                     d.qualifiers.clone()
@@ -160,13 +199,7 @@ pub(crate) fn extract(
     };
     match &r.data {
         RecordData::Element(e) => {
-            let t = lookup(&r.type_ref)?;
-            let RecordData::Type(t) = t.data else {
-                return Err(Error::Integrity(
-                    "reference owner type definition missing".into(),
-                ));
-            };
-            let fields = fields(&t, lookup, &mut BTreeSet::new(), 0)?;
+            let fields = fields(&r.type_ref, lookup)?;
             for (k, v) in &e.properties {
                 let p = fields.get(k).ok_or_else(|| {
                     Error::Integrity("reference owner schema field missing".into())
@@ -280,35 +313,41 @@ pub(crate) fn extract(
                         ));
                     }
                 }
-                RecordData::Type(t) => {
-                    for (field, refs) in [("parents", &t.parents), ("constraints", &t.constraints)]
-                    {
-                        for (i, target) in refs.iter().enumerate() {
-                            links.push((
-                                format!("/{field}/*"),
-                                format!("/{field}/{i}"),
-                                target.clone(),
-                                A,
-                            ));
+                RecordData::Type(_) | RecordData::Relationship(_) | RecordData::Ontology(_) => {
+                    fn metadata(
+                        v: &serde_json::Value,
+                        path: String,
+                        schema: String,
+                        out: &mut Vec<(String, String, ExactRef, NeighbourCategory)>,
+                    ) {
+                        if v.is_object() {
+                            if let Ok(r) = serde_json::from_value::<ExactRef>(v.clone()) {
+                                out.push((schema, path, r, NeighbourCategory::Administrative));
+                                return;
+                            }
+                        }
+                        match v {
+                            serde_json::Value::Object(m) => {
+                                for (k, v) in m {
+                                    let k = pointer_segment(k);
+                                    metadata(
+                                        v,
+                                        format!("{path}/{k}"),
+                                        format!("{schema}/{k}"),
+                                        out,
+                                    );
+                                }
+                            }
+                            serde_json::Value::Array(a) => {
+                                for (i, v) in a.iter().enumerate() {
+                                    metadata(v, format!("{path}/{i}"), format!("{schema}/*"), out);
+                                }
+                            }
+                            _ => {}
                         }
                     }
-                }
-                RecordData::Ontology(o) => {
-                    for (field, refs) in [
-                        ("types", &o.types),
-                        ("relationships", &o.relationships),
-                        ("constraints", &o.constraints),
-                        ("profiles", &o.profiles),
-                    ] {
-                        for (i, target) in refs.iter().enumerate() {
-                            links.push((
-                                format!("/{field}/*"),
-                                format!("/{field}/{i}"),
-                                target.clone(),
-                                A,
-                            ));
-                        }
-                    }
+                    let data = serde_json::to_value(&r.data).map_err(crate::codec::encoding)?;
+                    metadata(&data["data"], String::new(), String::new(), &mut links);
                 }
                 RecordData::Identity {
                     subject,
@@ -380,40 +419,20 @@ pub(crate) fn extract(
 }
 
 fn fields(
-    t: &TypeDefinition,
+    reference: &ExactRef,
     lookup: &mut dyn FnMut(&ExactRef) -> Result<Record, Error>,
-    seen: &mut BTreeSet<ExactRef>,
-    depth: usize,
 ) -> Result<BTreeMap<String, Property>, Error> {
-    if depth > 64 {
-        return Err(Error::Capacity);
-    }
-    let mut out = BTreeMap::new();
-    for parent in &t.parents {
-        if !seen.insert(parent.clone()) {
-            return Err(Error::Integrity("cyclic inherited reference schema".into()));
-        }
-        let record = lookup(parent)?;
-        let RecordData::Type(parent_type) = record.data else {
-            return Err(Error::Integrity(
-                "inherited reference schema missing".into(),
-            ));
-        };
-        for (k, p) in fields(&parent_type, lookup, seen, depth + 1)? {
-            if out.insert(k, p).is_some() {
-                return Err(Error::Integrity(
-                    "ambiguous inherited reference schema".into(),
-                ));
-            }
-        }
-        seen.remove(parent);
-    }
-    for (k, p) in &t.properties {
-        if out.insert(k.clone(), p.clone()).is_some() {
-            return Err(Error::Integrity("ambiguous reference schema field".into()));
-        }
-    }
-    Ok(out)
+    Ok(
+        crate::ontology::schema::declared_fields(reference, |r| match lookup(r)?.data {
+            RecordData::Type(t) => Ok(t),
+            _ => Err(Error::Integrity(
+                "reference type declaration missing".into(),
+            )),
+        })?
+        .into_iter()
+        .map(|(n, (_, p))| (n, p))
+        .collect(),
+    )
 }
 
 #[allow(clippy::too_many_arguments)]

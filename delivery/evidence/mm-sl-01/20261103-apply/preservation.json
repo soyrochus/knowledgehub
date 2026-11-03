@@ -1,0 +1,12 @@
+{
+  "protected_store_comparison": "equal to the hash-only observation made during this implementation before final checks; not an initial-turn inventory",
+  "files": {
+    "hub": 380,
+    "old_hub": 0
+  },
+  "old_hub_present": false,
+  "original_fixture_files": 33,
+  "original_fixture_bytes": 3412806,
+  "fixture_digests": "all equal to copied origin inventory",
+  "canonical_store_decoder_invoked": false
+}

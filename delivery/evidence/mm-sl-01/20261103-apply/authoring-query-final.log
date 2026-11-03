@@ -1,0 +1,11 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+error[E0277]: the trait bound `SnapshotId: From<&str>` is not satisfied
+   --> tests/model_authoring.rs:274:86
+    |
+274 |             knowledgehub::Query::select(knowledgehub::Selection::Snapshot("replaced".into()));
+    |                                                                                      ^^^^ the trait `From<&str>` is not implemented for `SnapshotId`
+    |
+    = note: required for `&str` to implement `Into<SnapshotId>`
+
+For more information about this error, try `rustc --explain E0277`.
+error: could not compile `knowledgehub` (test "model_authoring") due to 1 previous error

@@ -1,0 +1,1266 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "queries": [
+    {
+      "name": "all-journeys",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Journey",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:UJ-01",
+        "model:UJ-02",
+        "model:UJ-03",
+        "model:UJ-04",
+        "model:UJ-05",
+        "model:UJ-06",
+        "model:UJ-07",
+        "model:UJ-08",
+        "model:UJ-09",
+        "model:UJ-10",
+        "model:UJ-11",
+        "model:UJ-12",
+        "model:UJ-13"
+      ]
+    },
+    {
+      "name": "all-stories",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:UserStory",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:US-01",
+        "model:US-02",
+        "model:US-03",
+        "model:US-04",
+        "model:US-05",
+        "model:US-06",
+        "model:US-07",
+        "model:US-08",
+        "model:US-09",
+        "model:US-10",
+        "model:US-11",
+        "model:US-12",
+        "model:US-13",
+        "model:US-14",
+        "model:US-15",
+        "model:US-16",
+        "model:US-17",
+        "model:US-18",
+        "model:US-19",
+        "model:US-20",
+        "model:US-21",
+        "model:US-22",
+        "model:US-23",
+        "model:US-24",
+        "model:US-25",
+        "model:US-26",
+        "model:US-27",
+        "model:US-28",
+        "model:US-29",
+        "model:US-30",
+        "model:US-31",
+        "model:US-32",
+        "model:US-33",
+        "model:US-34",
+        "model:US-35",
+        "model:US-36"
+      ]
+    },
+    {
+      "name": "five-contexts",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:BoundedContext",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:context:Agent Participation",
+        "model:context:Collaborative Knowledge",
+        "model:context:Connected Work",
+        "model:context:Visual Collaboration",
+        "model:context:Workspace and Access"
+      ]
+    },
+    {
+      "name": "Derived inverse lifecycle subject",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "entity:Action"
+          }
+        ],
+        "direction": "Incoming",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            "path": "/subject"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:Action"
+      ]
+    },
+    {
+      "name": "five-working-surfaces",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:ScreenDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:surface:01-access",
+        "model:surface:02-home",
+        "model:surface:03-activity",
+        "model:surface:04-templates",
+        "model:surface:05-board"
+      ]
+    },
+    {
+      "name": "R-32 exact source approval trace",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": null,
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [
+          {
+            "$ref": "R-32"
+          }
+        ],
+        "signatures": [
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:Requirement.formalises",
+            "revision": "catalogue-3"
+          },
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:Scenario.illustrates",
+            "revision": "catalogue-3"
+          },
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:UseCase.satisfies",
+            "revision": "catalogue-3"
+          },
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:CommandDefinition.handledBy",
+            "revision": "catalogue-3"
+          },
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:Interaction.issues",
+            "revision": "catalogue-3"
+          }
+        ],
+        "direction": "Reverse",
+        "depth": 5,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:R-32",
+        "model:S-32a",
+        "model:S-32b",
+        "model:approval-satisfies",
+        "model:command:ExecuteApprovedAction",
+        "model:handler:ExecuteApprovedAction",
+        "model:illustrates:S-32a",
+        "model:illustrates:S-32b",
+        "model:interaction:execute",
+        "model:issues:execute",
+        "model:usecase:CW-08"
+      ]
+    },
+    {
+      "name": "R-32 formalises shared US-32",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": null,
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [
+          {
+            "$ref": "R-32"
+          }
+        ],
+        "signatures": [
+          {
+            "model": "sdo",
+            "id": "sdo:relationship:Requirement.formalises",
+            "revision": "catalogue-3"
+          }
+        ],
+        "direction": "Forward",
+        "depth": 2,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:R-32",
+        "model:US-32",
+        "model:formalises:US-32"
+      ]
+    },
+    {
+      "name": "exact inventory StoryMap",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:StoryMap",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:story-map"
+      ]
+    },
+    {
+      "name": "exact inventory StoryPlacement",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:StoryPlacement",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:placement:0:US-01",
+        "model:placement:0:US-02",
+        "model:placement:0:US-03",
+        "model:placement:0:US-04",
+        "model:placement:0:US-05",
+        "model:placement:0:US-06",
+        "model:placement:0:US-07",
+        "model:placement:0:US-08",
+        "model:placement:0:US-09",
+        "model:placement:1:US-10",
+        "model:placement:1:US-11",
+        "model:placement:1:US-12",
+        "model:placement:1:US-13",
+        "model:placement:1:US-14",
+        "model:placement:1:US-15",
+        "model:placement:1:US-16",
+        "model:placement:1:US-17",
+        "model:placement:1:US-18",
+        "model:placement:1:US-32",
+        "model:placement:1:US-36",
+        "model:placement:2:US-19",
+        "model:placement:2:US-20",
+        "model:placement:2:US-21",
+        "model:placement:2:US-22",
+        "model:placement:2:US-23",
+        "model:placement:2:US-24",
+        "model:placement:2:US-25",
+        "model:placement:2:US-26",
+        "model:placement:2:US-27",
+        "model:placement:2:US-28",
+        "model:placement:3:US-29",
+        "model:placement:3:US-30",
+        "model:placement:3:US-31",
+        "model:placement:3:US-32",
+        "model:placement:3:US-33",
+        "model:placement:3:US-34",
+        "model:placement:3:US-35"
+      ]
+    },
+    {
+      "name": "exact inventory OutcomeCut",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:OutcomeCut",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:P1",
+        "model:P2",
+        "model:P3",
+        "model:P4",
+        "model:P5"
+      ]
+    },
+    {
+      "name": "exact inventory Invariant",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Invariant",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:DR-01",
+        "model:DR-02",
+        "model:DR-03",
+        "model:DR-04",
+        "model:DR-05",
+        "model:DR-06",
+        "model:DR-07",
+        "model:DR-08",
+        "model:DR-09",
+        "model:DR-10",
+        "model:DR-11",
+        "model:DR-12",
+        "model:DR-13",
+        "model:DR-14",
+        "model:DR-15",
+        "model:DR-16",
+        "model:DR-17",
+        "model:DR-18",
+        "model:DR-19",
+        "model:DR-20",
+        "model:DR-21",
+        "model:DR-22",
+        "model:DR-23",
+        "model:DR-24",
+        "model:DR-25",
+        "model:DR-26",
+        "model:invariant:CW-07",
+        "model:invariant:CW-08"
+      ]
+    },
+    {
+      "name": "exact inventory AcceptanceCriterion",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:AcceptanceCriterion",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:AC-01",
+        "model:AC-02",
+        "model:AC-03",
+        "model:AC-04",
+        "model:AC-05",
+        "model:AC-06",
+        "model:AC-07",
+        "model:AC-08",
+        "model:AC-09",
+        "model:AC-10",
+        "model:AC-11",
+        "model:AC-12",
+        "model:AC-13",
+        "model:AC-14",
+        "model:AC-15",
+        "model:AC-16",
+        "model:AC-17",
+        "model:AC-18",
+        "model:AC-19",
+        "model:AC-20",
+        "model:AC-21",
+        "model:AC-22",
+        "model:AC-23",
+        "model:AC-24",
+        "model:AC-25",
+        "model:AC-26",
+        "model:AC-27",
+        "model:AC-28",
+        "model:AC-29",
+        "model:AC-30"
+      ]
+    },
+    {
+      "name": "exact inventory ComponentDefinition",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:ComponentDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:template:decision-review",
+        "model:template:dependency-map",
+        "model:template:open-questions",
+        "model:template:project-kickoff",
+        "model:template:quick-retrospective",
+        "model:template:research-synthesis"
+      ]
+    },
+    {
+      "name": "exact inventory ActionBinding",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:ActionBinding",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:binding:approve",
+        "model:binding:execute"
+      ]
+    },
+    {
+      "name": "exact inventory Interaction",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Interaction",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:control:mockups/01-access.html:0",
+        "model:control:mockups/01-access.html:1",
+        "model:control:mockups/01-access.html:10",
+        "model:control:mockups/01-access.html:11",
+        "model:control:mockups/01-access.html:2",
+        "model:control:mockups/01-access.html:3",
+        "model:control:mockups/01-access.html:4",
+        "model:control:mockups/01-access.html:5",
+        "model:control:mockups/01-access.html:6",
+        "model:control:mockups/01-access.html:7",
+        "model:control:mockups/01-access.html:8",
+        "model:control:mockups/01-access.html:9",
+        "model:control:mockups/02-home.html:0",
+        "model:control:mockups/02-home.html:1",
+        "model:control:mockups/02-home.html:2",
+        "model:control:mockups/02-home.html:3",
+        "model:control:mockups/02-home.html:4",
+        "model:control:mockups/02-home.html:5",
+        "model:control:mockups/03-activity.html:0",
+        "model:control:mockups/03-activity.html:1",
+        "model:control:mockups/03-activity.html:2",
+        "model:control:mockups/03-activity.html:3",
+        "model:control:mockups/03-activity.html:4",
+        "model:control:mockups/03-activity.html:5",
+        "model:control:mockups/04-templates.html:0",
+        "model:control:mockups/04-templates.html:1",
+        "model:control:mockups/04-templates.html:2",
+        "model:control:mockups/04-templates.html:3",
+        "model:control:mockups/04-templates.html:4",
+        "model:control:mockups/04-templates.html:5",
+        "model:control:mockups/05-board.html:0",
+        "model:control:mockups/05-board.html:1",
+        "model:control:mockups/05-board.html:2",
+        "model:control:mockups/05-board.html:3",
+        "model:control:mockups/05-board.html:4",
+        "model:control:mockups/05-board.html:5",
+        "model:interaction:activity-filter",
+        "model:interaction:adopt",
+        "model:interaction:annotate",
+        "model:interaction:approve",
+        "model:interaction:arrive",
+        "model:interaction:ask-selection",
+        "model:interaction:attach-context",
+        "model:interaction:browse",
+        "model:interaction:capture",
+        "model:interaction:clear-context",
+        "model:interaction:close-dialog",
+        "model:interaction:conflict",
+        "model:interaction:conflict-apply",
+        "model:interaction:conflict-keep",
+        "model:interaction:connection",
+        "model:interaction:connection-toggle",
+        "model:interaction:context-menu",
+        "model:interaction:decision",
+        "model:interaction:detail",
+        "model:interaction:edit",
+        "model:interaction:edit-action",
+        "model:interaction:evidence",
+        "model:interaction:execute",
+        "model:interaction:execution",
+        "model:interaction:fit",
+        "model:interaction:focus",
+        "model:interaction:follow-up",
+        "model:interaction:frame-edit",
+        "model:interaction:import",
+        "model:interaction:inspect",
+        "model:interaction:members",
+        "model:interaction:mode",
+        "model:interaction:new-action",
+        "model:interaction:new-note-color",
+        "model:interaction:note-color",
+        "model:interaction:observations",
+        "model:interaction:open-chat",
+        "model:interaction:original",
+        "model:interaction:panel",
+        "model:interaction:panel-toggle",
+        "model:interaction:prerequisite",
+        "model:interaction:proposal",
+        "model:interaction:reassess",
+        "model:interaction:reconcile",
+        "model:interaction:reconcile-absent",
+        "model:interaction:reconcile-found",
+        "model:interaction:redo",
+        "model:interaction:refresh",
+        "model:interaction:reject",
+        "model:interaction:remove",
+        "model:interaction:restore",
+        "model:interaction:restore-source",
+        "model:interaction:review",
+        "model:interaction:run-cancel",
+        "model:interaction:run-complete",
+        "model:interaction:run-context",
+        "model:interaction:run-fail",
+        "model:interaction:run-question",
+        "model:interaction:search-toggle",
+        "model:interaction:supersede",
+        "model:interaction:task-complete",
+        "model:interaction:tool",
+        "model:interaction:trace",
+        "model:interaction:undo",
+        "model:interaction:zoom-in"
+      ]
+    },
+    {
+      "name": "exact inventory FunctionDefinition",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:FunctionDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:function:dispatch-authority",
+        "model:ui-function:action",
+        "model:ui-function:actionDialog",
+        "model:ui-function:applyCamera",
+        "model:ui-function:browseSources",
+        "model:ui-function:canApprove",
+        "model:ui-function:changed",
+        "model:ui-function:closeContextMenu",
+        "model:ui-function:closeDialog",
+        "model:ui-function:colorPalette",
+        "model:ui-function:configureConnection",
+        "model:ui-function:decisionDialog",
+        "model:ui-function:drawEdges",
+        "model:ui-function:editRecord",
+        "model:ui-function:evidenceList",
+        "model:ui-function:executionDialog",
+        "model:ui-function:finishAction",
+        "model:ui-function:finishNoteEdit",
+        "model:ui-function:fit",
+        "model:ui-function:fixture",
+        "model:ui-function:focusRecord",
+        "model:ui-function:formError",
+        "model:ui-function:freePosition",
+        "model:ui-function:infoCard",
+        "model:ui-function:log",
+        "model:ui-function:noteText",
+        "model:ui-function:openDialog",
+        "model:ui-function:persist",
+        "model:ui-function:pointerDown",
+        "model:ui-function:pointerMove",
+        "model:ui-function:pointerUp",
+        "model:ui-function:proposalDialog",
+        "model:ui-function:recordCard",
+        "model:ui-function:recordDetail",
+        "model:ui-function:refreshSearch",
+        "model:ui-function:render",
+        "model:ui-function:renderPanel",
+        "model:ui-function:restoreVisual",
+        "model:ui-function:reviewAction",
+        "model:ui-function:saveEdit",
+        "model:ui-function:setPanelOpen",
+        "model:ui-function:showContextMenu",
+        "model:ui-function:showOperationFields",
+        "model:ui-function:snapshot",
+        "model:ui-function:startNoteEdit",
+        "model:ui-function:startRun",
+        "model:ui-function:status",
+        "model:ui-function:toggleSearch",
+        "model:ui-function:traceDialog",
+        "model:ui-function:visibleRecords",
+        "model:ui-function:visualCheckpoint",
+        "model:ui-function:visualState",
+        "model:ui-function:wireHandles",
+        "model:ui-function:zoom"
+      ]
+    },
+    {
+      "name": "exact inventory DataType",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:DataType",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:datatype:ActionRef",
+        "model:datatype:ActionRefs",
+        "model:datatype:ActionState"
+      ]
+    },
+    {
+      "name": "exact inventory FieldDefinition",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:FieldDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:field:Action.prerequisites",
+        "model:field:Action.status"
+      ]
+    },
+    {
+      "name": "exact inventory Module",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Module",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:module:context:Agent Participation",
+        "model:module:context:Collaborative Knowledge",
+        "model:module:context:Connected Work",
+        "model:module:context:Visual Collaboration",
+        "model:module:context:Workspace and Access"
+      ]
+    },
+    {
+      "name": "exact inventory Adapter",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Adapter",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:adapter:PostgreSQL",
+        "model:adapter:SQLite"
+      ]
+    },
+    {
+      "name": "exact inventory Transition",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Transition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:transition:Action:0",
+        "model:transition:Action:1",
+        "model:transition:Action:10",
+        "model:transition:Action:11",
+        "model:transition:Action:2",
+        "model:transition:Action:3",
+        "model:transition:Action:4",
+        "model:transition:Action:5",
+        "model:transition:Action:6",
+        "model:transition:Action:7",
+        "model:transition:Action:8",
+        "model:transition:Action:9"
+      ]
+    },
+    {
+      "name": "exact inventory State",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:State",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:state:Action:Approved",
+        "model:state:Action:AwaitingApproval",
+        "model:state:Action:Failed",
+        "model:state:Action:InExecution",
+        "model:state:Action:Queued",
+        "model:state:Action:Rejected",
+        "model:state:Action:Succeeded",
+        "model:state:Action:Uncertain"
+      ]
+    },
+    {
+      "name": "DR-09 dispatch function",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "DR-09"
+          }
+        ],
+        "direction": "Incoming",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:FunctionDefinition",
+              "revision": "catalogue-3"
+            },
+            "path": "/rules/*"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": null,
+        "include_subtypes": false,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:function:dispatch-authority"
+      ]
+    },
+    {
+      "name": "Execute binding exact interaction",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "binding:execute"
+          }
+        ],
+        "direction": "Outgoing",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:ActionBinding",
+              "revision": "catalogue-3"
+            },
+            "path": "/interaction"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": null,
+        "include_subtypes": false,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:interaction:execute"
+      ]
+    },
+    {
+      "name": "Execute binding exact command",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "binding:execute"
+          }
+        ],
+        "direction": "Outgoing",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:ActionBinding",
+              "revision": "catalogue-3"
+            },
+            "path": "/command"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": null,
+        "include_subtypes": false,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:command:ExecuteApprovedAction"
+      ]
+    }
+  ]
+}

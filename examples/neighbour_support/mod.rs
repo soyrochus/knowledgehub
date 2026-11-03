@@ -35,7 +35,7 @@ pub fn relation() -> ExactRef {
     reference("signature:links")
 }
 pub fn anchor() -> ExactRef {
-    ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-1")
+    ExactRef::new("sdo", "sdo:anchor:catalogue", "catalogue-3")
 }
 pub fn backend(path: &Path) -> FileBackend {
     FileBackend::new(path, FileOptions::native_local().unwrap()).unwrap()
@@ -73,7 +73,9 @@ pub fn vocabulary() -> Vec<Operation> {
                 item: Box::new(ValueKind::Record(BTreeMap::from([
                     (
                         "ref/key".into(),
-                        Property::required(ValueKind::Reference(vec!["AnySubject".into()])),
+                        Property::required(ValueKind::Reference(vec![TypeSelector::Role(
+                            SubjectRole::AnySubject,
+                        )])),
                     ),
                     ("tagged".into(), Property::required(ValueKind::Any)),
                 ]))),
@@ -97,7 +99,9 @@ pub fn vocabulary() -> Vec<Operation> {
                 ValueKind::Text,
                 ValueKind::Record(BTreeMap::from([(
                     "target".into(),
-                    Property::required(ValueKind::Reference(vec!["AnySubject".into()])),
+                    Property::required(ValueKind::Reference(vec![TypeSelector::Role(
+                        SubjectRole::AnySubject,
+                    )])),
                 )])),
             ])),
         ),
@@ -126,7 +130,9 @@ pub fn vocabulary() -> Vec<Operation> {
         "NeighbourBox".into(),
         ValueKind::Record(BTreeMap::from([(
             "next".into(),
-            Property::required(ValueKind::Reference(vec!["AnySubject".into()])),
+            Property::required(ValueKind::Reference(vec![TypeSelector::Role(
+                SubjectRole::AnySubject,
+            )])),
         )])),
     );
     ontology.name = "Synthetic neighbour vocabulary".into();
@@ -143,8 +149,8 @@ pub fn vocabulary() -> Vec<Operation> {
     let signature = RelationshipDefinition {
         name: "recordedLink".into(),
         coverage: "fixture:link".into(),
-        from: vec!["NeighbourNode".into()],
-        to: vec!["NeighbourNode".into()],
+        from: vec![TypeSelector::Type(node_type())],
+        to: vec![TypeSelector::Type(node_type())],
         min_complete: 0,
         max: None,
         acyclic: false,

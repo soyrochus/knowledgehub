@@ -1,0 +1,210 @@
+{
+  "config": {
+    "format": "knowledgehub-authoring/1",
+    "source": "/absolute/chosen/source",
+    "destination": "/absolute/new/hub",
+    "work": "/absolute/new/run",
+    "actor": "host:analyst",
+    "grants": [
+      "Create",
+      "Open",
+      "Read",
+      "Validate",
+      "Commit",
+      "RegisterOntology",
+      "OperationResult"
+    ],
+    "scope": {
+      "hub": "example:hub",
+      "model": "example:model",
+      "branch": "main",
+      "owner": "example:owner"
+    },
+    "inputs": [
+      {
+        "key": "design",
+        "path": "example.md",
+        "media_type": "text/markdown",
+        "authority": "normative-requirements",
+        "status": "authored-requirement",
+        "rendition_group": null,
+        "dependencies": [],
+        "exclude_reason": null,
+        "expected": null
+      }
+    ],
+    "authority": {
+      "field_owners": {
+        "requirements": "design"
+      },
+      "precedence": [
+        "design"
+      ],
+      "unresolved_conflicts": [],
+      "review_status": "agent-authored; human review pending"
+    }
+  },
+  "host": {
+    "actor": "host:analyst",
+    "grants": [
+      "Create",
+      "Open",
+      "Read",
+      "Validate",
+      "Commit",
+      "RegisterOntology",
+      "OperationResult"
+    ]
+  },
+  "plan": {
+    "format": "knowledgehub-authoring/1",
+    "catalogue": {
+      "model": "sdo",
+      "id": "sdo:ontology:system-definition",
+      "revision": "catalogue-3"
+    },
+    "profile": {
+      "model": "sdo",
+      "id": "sdo:profile:system-definition",
+      "revision": "catalogue-3"
+    },
+    "baseline": "A",
+    "selection": null,
+    "gaps": [],
+    "records": [
+      {
+        "key": "requirement",
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:Requirement",
+          "revision": "catalogue-3"
+        },
+        "data": {
+          "kind": "Element",
+          "data": {
+            "properties": {
+              "name": {
+                "kind": "Text",
+                "value": "Example requirement"
+              },
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "$ref": "capture:design"
+                  },
+                  "fragment": {
+                    "$ref": "anchor:design"
+                  }
+                }
+              },
+              "statement": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "$ref": "capture:design"
+                  },
+                  "fragment": {
+                    "$ref": "anchor:design"
+                  }
+                }
+              },
+              "rationale": {
+                "kind": "List",
+                "value": []
+              },
+              "claim_kind": {
+                "kind": "Enum",
+                "value": "authored-requirement"
+              }
+            },
+            "owners": [
+              {
+                "path": "/name",
+                "owner": "Graph"
+              },
+              {
+                "path": "/description",
+                "owner": "Document"
+              },
+              {
+                "path": "/statement",
+                "owner": "Document"
+              },
+              {
+                "path": "/rationale",
+                "owner": "Graph"
+              },
+              {
+                "path": "/claim_kind",
+                "owner": "Graph"
+              }
+            ]
+          }
+        },
+        "provenance": [
+          "anchor:design"
+        ],
+        "capture": null
+      }
+    ]
+  },
+  "coverage": {
+    "format": "knowledgehub-authoring/1",
+    "interpretation_review": "agent-authored; human pending",
+    "source_gaps": [],
+    "items": [
+      {
+        "id": "REQ-EXAMPLE",
+        "source": "design",
+        "disposition": "mapped",
+        "reason": null,
+        "targets": [
+          {
+            "key": "requirement",
+            "path": "/data/data/properties/name/value",
+            "expected": "Example requirement",
+            "anchor": "anchor:design"
+          }
+        ]
+      }
+    ],
+    "queries": [
+      {
+        "name": "Exact requirement",
+        "kind": "query",
+        "query": {
+          "selection": {
+            "selection": "Snapshot",
+            "reference": "prepared-selection"
+          },
+          "type_ref": {
+            "model": "sdo",
+            "id": "sdo:type:Requirement",
+            "revision": "catalogue-3"
+          },
+          "include_subtypes": false,
+          "ids": [
+            "model:requirement"
+          ],
+          "starts": [],
+          "signatures": [],
+          "direction": "Forward",
+          "depth": 1,
+          "page_size": 1,
+          "subject_limit": 10000,
+          "edge_limit": 10000,
+          "preparation": {
+            "allow_rebuild": true,
+            "owner_limit": 10000,
+            "fact_limit": 100000,
+            "byte_limit": 67108864
+          }
+        },
+        "expected_ids": [
+          "model:requirement"
+        ]
+      }
+    ]
+  }
+}

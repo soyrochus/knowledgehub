@@ -1,0 +1,19 @@
+{
+  "host": "codex",
+  "version": "codex-cli 0.166.0",
+  "workspace": "/private/tmp/knowledgehub-host-apply-02-codex",
+  "mode": "reviewed maintained-plan replay; not newly authored",
+  "binary_sha256": "e4fc55fa1339223fbfc3077b495687470ebe62a2f961a518622b4b61b19785b3",
+  "stages": [
+    {
+      "stage": "import",
+      "returncode": 0,
+      "verification_exists": true
+    },
+    {
+      "stage": "verify",
+      "returncode": 0,
+      "verification_exists": true
+    }
+  ]
+}

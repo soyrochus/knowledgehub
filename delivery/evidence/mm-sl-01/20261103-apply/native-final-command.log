@@ -1,0 +1,7 @@
+$ rustc -Vv
+$ cargo fmt --all -- --check
+$ cargo test --offline --all-targets
+$ cargo test --offline --doc
+$ cargo clippy --offline --all-targets -- -D warnings
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest discover -s tests -p host_workflows.py -v
+Complete native batch passed: /Users/ivanderk/src/knowledgehub/delivery/evidence/mm-sl-01/20261103-apply/native-final/checked.json

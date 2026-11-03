@@ -1,10 +1,27 @@
 # Sourced self-model consumer
 
-The sole 0.10.0 full API/files/4 canonical model is technically verified under
-[KH-SL-017 evidence](../delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md).
-Its 197-artifact checked capture, A/B, original outcomes, complete scrub, packed
-indexes and second-backend reads passed. The head has 9,578 selected records and
-3,452 explicit draft gaps. Earlier completed runs retain their historical scope.
+The retained repository-root self-description is the historical KH-SL-017
+instance, technically verified at its [recorded checkpoint](../delivery/evidence/hub-rebuild/20261101T230838Z-9b8133d6/README.md).
+That run's 197-artifact capture, A/B, original outcomes, scrub, packed indexes and
+second-backend reads passed; its report records 9,578 selected records and 3,452
+draft gaps. Those results retain their original source and codec scope.
+
+Its current file metadata still declares record/request codecs /2. The current
+library uses catalogue-3 and codecs /3, retaining the files/4 layout. Matching
+layout names do not make the retained instance readable by the current decoder.
+The current inspector cannot reopen that root Hub, and no converter or migration
+is provided. Preserve it byte-for-byte; a new canonical run requires a separate
+scoped decision and fresh exact-source verification.
+
+Current standalone demonstrations are the Memento and equipment Hubs under
+`target/rich-design`. The [fixture guide](../examples/fixtures/README.md) gives
+retained handovers and current verification commands. Their native validity,
+structured draft gaps, declared source coverage and pending human meaning review
+are reported independently. Modelarium registration/in-app editing and repository
+definition authority handover remain later work.
+
+The remaining sections describe the earlier self-description authoring and
+verification method at its recorded baseline.
 
 `examples/full_self_description.rs` authors through public owned contracts only.
 It never reads private backend files. The host's `capture_self_model.py` reads the
@@ -14,15 +31,15 @@ working-tree status. Git HEAD is recorded as context and never substituted for
 modified bytes. Native run timestamps refer to the observed check batch; individual
 subcase timings are not invented.
 
-The canonical persisted instance is the repository-root [`hub/`](../hub/README.md),
-including all accepted generations, original artifacts, A/B and receipts. Run
-`cargo run --offline --release --example inspect_self_model --` to reopen it through
-the public API without authoring changes. The inspector reads both explanations,
-compares the exact baselines and recovers the original operation outcomes.
-The recorded source baseline remains exact; moving the store or editing current
-repository files does not refresh its historical model or evidence. The user's previous instance is retained in old_hub, outside capture and the
-supported current decoder. Historical relocation/rebuild/packed-cache reports
-retain their original source versions. The new Hub imports none of its history.
+The retained canonical instance is the repository-root [`hub/`](../hub/README.md),
+including its accepted generations, original artifacts, A/B and receipts. The
+matching-codec inspector in the original run read both explanations, compared
+exact baselines and recovered original outcomes. The current inspector is for
+current-contract self-descriptions, not this preserved /2 instance. Repository
+edits or a moved directory do not refresh that historical model or its evidence.
+The protected `old_hub/` path remains outside capture, import and the current
+decoder; it was absent at the 3 November preservation check. Historical reports
+retain their original versions and directory observations.
 
 To reproduce authoring separately, run the commands in [README](../README.md)
 with fresh store paths, outside the existing canonical Hub. The verifier

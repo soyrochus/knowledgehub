@@ -1,0 +1,1639 @@
+{
+  "format": "knowledgehub-observed-native-run/2",
+  "library_version": "0.10.0",
+  "started_at": "2026-11-03T15:29:13.449915+00:00",
+  "ended_at": "2026-11-03T15:55:09.406770+00:00",
+  "source_status": "exact working tree before capture/final task and generated-report updates",
+  "files": {
+    ".gitignore": {
+      "sha256": "a3f3d889091ceb74c097c4145e7bcab5c20a6f61aa4719ea7d938a2f0a7a812b",
+      "length": 174
+    },
+    "Cargo.lock": {
+      "sha256": "09bf2b070e442e576672c4638160c4d59e20374c0cb8cbbbab6d388256b47dd7",
+      "length": 7816
+    },
+    "Cargo.toml": {
+      "sha256": "90226b55315a85dce403a4ac6f3176d35a12622fe4c272d2c5da514b309592ac",
+      "length": 556
+    },
+    "README.md": {
+      "sha256": "e17aff30bf748f03df855c82bfb3d019ea2fd503affe26cf9245bf11af17aa79",
+      "length": 11871
+    },
+    "delivery/slice-plan.md": {
+      "sha256": "db15d7c543a54ad8420d2e2a4ff246cf7c75aaadd89b9010c539c12ff25cb438",
+      "length": 45984
+    },
+    "design/canonical-rebuild.md": {
+      "sha256": "fa0c34027d35f3d51cb12ba124da0c81f806f40c00f4129ca1adfd8343612eb9",
+      "length": 3301
+    },
+    "design/deterministic-query-api.md": {
+      "sha256": "f90344e1a975a02fb4c5c850b59f5d3a039cfa299134ded14d71aca871daadb1",
+      "length": 11294
+    },
+    "design/domain-analysis.md": {
+      "sha256": "84267b34af500863371df80f43fe89967f4474c099b3f2a48ae05754cd8d2c78",
+      "length": 32015
+    },
+    "design/experience-contract.md": {
+      "sha256": "44df40e56d01579fdef94df83b7c52f190a1fa54730ae8657f31884a6cbd98d2",
+      "length": 2216
+    },
+    "design/file-backend.md": {
+      "sha256": "9da210612349a6f1314d07858fd4ba214577d8a0a978ce4ba8723d26c417395e",
+      "length": 12922
+    },
+    "design/files3-guide.md": {
+      "sha256": "c924350a928b5142de7222cf29c90d6137fe424147cc697e606d489deba8897e",
+      "length": 9626
+    },
+    "design/full-ontology-implementation.md": {
+      "sha256": "f7f7e18ab7209ae6d692e4af6830eca125c0535afe2b4b26755a12ee3e1f29e1",
+      "length": 2901
+    },
+    "design/implementation-record.md": {
+      "sha256": "ff8f8f6545ccfe8d86678f1dde2caa880c109df5dbc67a41ed93ae8392e7360b",
+      "length": 3600
+    },
+    "design/logical-design-contract.md": {
+      "sha256": "bce987f42c733f49192c4beea4f0afd07097a94b4b986705427afd34cc0d0068",
+      "length": 3834
+    },
+    "design/macos-file-backend.md": {
+      "sha256": "a16c76a2527b6f6e3f0e6f7b9acaf151f17ce634c059f1627bbd19e976be3a89",
+      "length": 4330
+    },
+    "design/model-authoring.md": {
+      "sha256": "74ffcc5381fa25ee70af780cf85a4192129c4cb0e87d2cbc5463511bf5535801",
+      "length": 9223
+    },
+    "design/neighbour-api.md": {
+      "sha256": "f3ab9aba3e0d46cde2ce5f7a1b364c0349fc7921e9451531a341c038925469e3",
+      "length": 8956
+    },
+    "design/packed-cache-storage.md": {
+      "sha256": "e6aef71b067d309bd1b6dd65fd62490e5cb1a93fe9e2fd1d36496ea3d43e20f6",
+      "length": 6168
+    },
+    "design/self-hosting-plan.md": {
+      "sha256": "eb4b31a14800f346b3030f61159c91a6d903ce1dd0573794f5b2fc52f8bd43d6",
+      "length": 46434
+    },
+    "design/self-model-consumer.md": {
+      "sha256": "961bf3ceced199110a069279bfed28fc6a9565a865c9b450de5edf52b132a461",
+      "length": 6625
+    },
+    "design/typed-ontology-api.md": {
+      "sha256": "626192d07e31dfe0dbb88b5ccfd5344ebbcc0651efee5cc35c28bef4260e2ef4",
+      "length": 7685
+    },
+    "examples/capture_self_model.py": {
+      "sha256": "bca945ec03378edff3d607d585c6c30a3092c049662dbb5fff983debbd0a3157",
+      "length": 12433
+    },
+    "examples/catalogue_conformance.rs": {
+      "sha256": "f3df60ea80bf4bdb0d66a6f441be94cde99b810072298005d96a63f47756c989",
+      "length": 3410
+    },
+    "examples/file_format/mod.rs": {
+      "sha256": "8e293eb26aa5390f6a906af51ca62e6b2382204ab7a7032841df77de4971eaf0",
+      "length": 2137
+    },
+    "examples/fixtures/README.md": {
+      "sha256": "e80fc108b68fcf6ab0b83a416c77850e7009c439a15bdc89a00739d8eda0b016",
+      "length": 4470
+    },
+    "examples/fixtures/build_plans.py": {
+      "sha256": "46a959c5fbd9298f79b018f496535d52c7eb3280121104b02830776f0c96a16f",
+      "length": 46653
+    },
+    "examples/fixtures/memento/coverage.json": {
+      "sha256": "a472370b8456ded84edf10d025dda29b93d4ddfbae5bb52dc708126aab2ab265",
+      "length": 487787
+    },
+    "examples/fixtures/memento/model-plan.json": {
+      "sha256": "ec11c5cdaea07a5cc69300896303c7dbbc8fe11c5d21e5ef1c1583ccfc52d34f",
+      "length": 6945677
+    },
+    "examples/fixtures/memento/queries.json": {
+      "sha256": "247935b87410bf8de1f0d8c270aea913a92301167f7c4a2e013cce220053f500",
+      "length": 35595
+    },
+    "examples/fixtures/memento/source/specs/images/memento-app-mockup.prompt.txt": {
+      "sha256": "2679c0cfec5dba11cbe346adbc6bf2ab7453fd67c499a8660f5b1daa000fbd41",
+      "length": 2806
+    },
+    "examples/fixtures/memento/source/specs/memento-domain-spec.md": {
+      "sha256": "6ffb05ff38291f81c98e5e52f945c2310649fc7a73699f1efb13dc28a869ed90",
+      "length": 35450
+    },
+    "examples/fixtures/memento/source/specs/memento-domain-spec.pdf": {
+      "sha256": "2bc9f07ffabdf345a704f4125ecb569861049e908fd208538ba3a9d5fccf0350",
+      "length": 210779
+    },
+    "examples/fixtures/memento/source/specs/memento-experience-spec.md": {
+      "sha256": "e96529ac481727376dbf99bda9ec5c5ef48c893f0f20e6fc26b62cfa8a86af68",
+      "length": 50575
+    },
+    "examples/fixtures/memento/source/specs/memento-experience-spec.pdf": {
+      "sha256": "cea8a906ee3249614233f8549c17e31bd43e97deba68d3efce38d585633ff5d3",
+      "length": 89558
+    },
+    "examples/fixtures/memento/source/specs/memento-platform-spec.md": {
+      "sha256": "425f4f68db51e5a6bebb0ac62bf85a1ba56933214a4fbf3a3611c1fff9e67954",
+      "length": 18988
+    },
+    "examples/fixtures/memento/source/specs/memento-platform-spec.pdf": {
+      "sha256": "8db064327237d2fc9a07a7f459f6c2b9b2484603e6d6c6be74735050370320f1",
+      "length": 85676
+    },
+    "examples/fixtures/memento/source/specs/memento-spec.md": {
+      "sha256": "e35289846156aef58263dc6da291d44477141d0dacfd0ef93a5bc1888c36b1fe",
+      "length": 21757
+    },
+    "examples/fixtures/memento/source/specs/memento-spec.pdf": {
+      "sha256": "26349759181411e478c89f12f536ad6e98d107dbc684a0bd6e15190a2a2e245e",
+      "length": 290433
+    },
+    "examples/fixtures/memento/source/specs/memento-technical-spec.md": {
+      "sha256": "d4dfe7d87fda6429ff78d36a17be176e12713ff088fec9c9ed2c011391d7f28d",
+      "length": 33975
+    },
+    "examples/fixtures/memento/source/specs/memento-technical-spec.pdf": {
+      "sha256": "c3a0cdf7b54267567db61a8fe92351fedfdfa0f4f825a000ec51075e55e129bb",
+      "length": 212763
+    },
+    "examples/fixtures/memento/source/specs/research/comparison-mockup-versus-spec.md": {
+      "sha256": "3227a620a844d11683150ac2ee3b55edae66e7d21b6dd40c16486fa03785f6af",
+      "length": 70630
+    },
+    "examples/fixtures/memento/source/specs/research/open-source-board-libraries.md": {
+      "sha256": "3d008ddb891fc7cb4426f57dd5413b9e3cc4adcfb2d191bbdb06f87efc4a4d71",
+      "length": 22798
+    },
+    "examples/fixtures/memento/source/specs/research/spec-ui-spike.md": {
+      "sha256": "9426f10c3969d657fe738f2ec28fd3a3cdac5d82dabccc1297b2ec0bd718f9d4",
+      "length": 8530
+    },
+    "examples/fixtures/memento/source-manifest.json": {
+      "sha256": "e650e674ec5622e24c619869dc3b4b3427e6ba16b85bde3d47898e854e4579c8",
+      "length": 18121
+    },
+    "examples/fixtures/memento/source-map.json": {
+      "sha256": "578f9471f35fb5288e1414368da4550ea6c054b6e0fcaac5772692837e8bb352",
+      "length": 447610
+    },
+    "examples/fixtures/memento/source-origin.json": {
+      "sha256": "9c46537cf7810b81774ef751a8b9729eca7d68ddd83ab58898b24a7800ea4e64",
+      "length": 6969
+    },
+    "examples/fixtures/memento/ui-source-review.json": {
+      "sha256": "290608e9ddc6893ff98a0ff8b0144d44cfb8fec0802c03d719f974443e62dc92",
+      "length": 177254
+    },
+    "examples/fixtures/run.py": {
+      "sha256": "1467ee7e7ead7d50429f0618f3fa1da4c22ed60c4334f64403a8a34f0cfbbca2",
+      "length": 3633
+    },
+    "examples/fixtures/unrelated-design/coverage.json": {
+      "sha256": "17009a1ff175ae4d5aaf7e753c497676a53e4a45473306ee844c616284678a61",
+      "length": 8127
+    },
+    "examples/fixtures/unrelated-design/model-plan.json": {
+      "sha256": "37f95e82f943258cd89d326abff03e21a672437dad41a622a089a8ff5e1caa6c",
+      "length": 154823
+    },
+    "examples/fixtures/unrelated-design/queries.json": {
+      "sha256": "4743c2fab346180568efc785a13c26293faddbd068f507ad58b29d1ef7bbb280",
+      "length": 3971
+    },
+    "examples/fixtures/unrelated-design/source/design.md": {
+      "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+      "length": 496
+    },
+    "examples/fixtures/unrelated-design/source-manifest.json": {
+      "sha256": "5c65f6ff7eb562c1b7fc04e5c2049cf547c14b13689359b322bee3a095147d0b",
+      "length": 1307
+    },
+    "examples/fixtures/unrelated-design/source-map.json": {
+      "sha256": "e2f4670072ce77a888cf350f6eb44d62515311e88c6fbee06643df315a924071",
+      "length": 3542
+    },
+    "examples/fixtures/unrelated-design/ui-source-review.json": {
+      "sha256": "280c94296ac29f28dfc9f44e17c9ee12d8fb813402d68cd6ded3670592d15273",
+      "length": 687
+    },
+    "examples/full_self_description.rs": {
+      "sha256": "5dc52c5e54fc600c589e5071d1cb1abcd9f68d890255b96ef80f16e7618ac349",
+      "length": 15687
+    },
+    "examples/impact_benchmark.rs": {
+      "sha256": "b2a0405b0b044a586b2bb0c1b01a9f5bc2f0e7ac0625ce9994dd951403eafc88",
+      "length": 4538
+    },
+    "examples/inspect_self_model.rs": {
+      "sha256": "1c3362f6aa52e72897c5ca6de9e6dedce69fd2abb7d67f7a873ec73a74175240",
+      "length": 5147
+    },
+    "examples/minimal_model.rs": {
+      "sha256": "dbf0e1fcb70c9b290d8196fe768649e48678fc34678bfc23b8eb7b13384c6e27",
+      "length": 858
+    },
+    "examples/model_successor.rs": {
+      "sha256": "7ea50f727348a975cc08b25a9bc0dff76e06ad1ff8d660a30a43660b52fc9be9",
+      "length": 10065
+    },
+    "examples/neighbour_benchmark.rs": {
+      "sha256": "7497b6d263a38e1036bcb462cccb2a8999d0e8b02d557d72e32b502b2f6798b7",
+      "length": 6883
+    },
+    "examples/neighbour_support/mod.rs": {
+      "sha256": "4d9dff8886633606a5f7d3846d8afb1571a3b99e980b362ea6b881225504b1f9",
+      "length": 11549
+    },
+    "examples/neighbours.rs": {
+      "sha256": "e9f6cde87065ed8428216e6e923437ca184c317c74bdc73e5b800ae3286a170c",
+      "length": 7120
+    },
+    "examples/ontology_support/mod.rs": {
+      "sha256": "bd913886d121ddd39ce9a32465159b3f54cbda9684b17f0428ff6b5432db9f58",
+      "length": 20401
+    },
+    "examples/rent_impact.rs": {
+      "sha256": "79d66fac4d2188a48df0ed04108d0876ef363181008b49fdc1902162bd3403db",
+      "length": 600
+    },
+    "examples/rent_support/mod.rs": {
+      "sha256": "786787170fc2ca72d5e0b25cf4978165d67be97053c83708b5d1de79c8863f3d",
+      "length": 10848
+    },
+    "examples/resource_usage/mod.rs": {
+      "sha256": "ce6877b3299d0bac3f91e78852eb238750e94b8f40dd6bb9971556fc3c84843e",
+      "length": 1760
+    },
+    "examples/self_model_support/mod.rs": {
+      "sha256": "0a1ac7b89c503cac88df8204dfe11344a9c8b0378bfefadad5d703bc78706fdd",
+      "length": 90278
+    },
+    "examples/self_model_support/origins.json": {
+      "sha256": "4608f35356ed4048090f1860c054446387bae56c8d23cb901aa1f1d8079db5f8",
+      "length": 16674
+    },
+    "examples/self_model_support/verify.rs": {
+      "sha256": "dcd1c11424c5b85e7832e32487525083ca532414a8cfc6b532d915291b4dddc4",
+      "length": 5103
+    },
+    "examples/shared_storage.rs": {
+      "sha256": "02552e7efdf422eea5f9e7c63ef86f4e14e8b994cc0fb0cb6b7cbd234e576ad8",
+      "length": 6857
+    },
+    "examples/storage_benchmark.rs": {
+      "sha256": "f1de4dd4c483fc8b7be016ed150e7d5aa02a123f8ee3d5959697e0b1c1284e45",
+      "length": 7941
+    },
+    "examples/support/mod.rs": {
+      "sha256": "becac4ed859d5383bc7dea7e011ea91f4ab31ba838f5365f02e538dc12af64c7",
+      "length": 704
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/.openspec.yaml": {
+      "sha256": "71e91d8f42848565b00ec7bb4da95cf19e2182f4adc440c230b10a0f3345023b",
+      "length": 40
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/design.md": {
+      "sha256": "04938fc608768b84676ea181fc63e0d915876c9b7df6015ac94a1e1344655632",
+      "length": 12831
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/proposal.md": {
+      "sha256": "a9ea3c436dab9a987edf041d9972a8a9f7b76aff88cf71332e72a96e9d7c9543",
+      "length": 2906
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/specs/source-package-coverage/spec.md": {
+      "sha256": "b4967aab7697fe95aff1d53fe17f01174de80c9003edcd82f70f2b96979fba1e",
+      "length": 5145
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/specs/standalone-model-authoring/spec.md": {
+      "sha256": "e2e293e372d158eef15e678bb2a61cce0c974d2d50f4171765466d8bad5f892e",
+      "length": 6100
+    },
+    "openspec/changes/add-source-bound-model-authoring-tools/tasks.md": {
+      "sha256": "ca4fde0bc4642fb9e493b6c65ba58d00452a720a32733ac205665769d3c48f19",
+      "length": 4504
+    },
+    "openspec/changes/align-current-api-tooling/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/align-current-api-tooling/design.md": {
+      "sha256": "6ad8d0688037916f47046d7e16dacb97d3249b85cc98fbb2871953ed253db8ed",
+      "length": 4683
+    },
+    "openspec/changes/align-current-api-tooling/proposal.md": {
+      "sha256": "60676d3ddc5907df116b916c5b2c59351e6752796d87446d812e40a3b8353d55",
+      "length": 2479
+    },
+    "openspec/changes/align-current-api-tooling/specs/current-api-host-tooling/spec.md": {
+      "sha256": "59cb41da4a632900ce44c9fd72127fbd42cfbf0b1ab15f8730ea0f317123c501",
+      "length": 3393
+    },
+    "openspec/changes/align-current-api-tooling/specs/source-bound-definitions/spec.md": {
+      "sha256": "b562e0c71b48692c5cc675187bd133968557d5cf2aaf4968f21c65ee8f949398",
+      "length": 6554
+    },
+    "openspec/changes/align-current-api-tooling/tasks.md": {
+      "sha256": "f34c2e21147966104b40edf61d68e35b4edfd8743d41209cf9d2cd6af077540a",
+      "length": 1900
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/design.md": {
+      "sha256": "8576b3cccc34ac8db90e28e5574403212217cf584241c73fa9a2fb10a5e3df4e",
+      "length": 20585
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/ontology-coverage.md": {
+      "sha256": "a95d920e6fc9ac3d0690f9d2bb0e443f12919c62ca4a2b7bb207ebe998ecac68",
+      "length": 42986
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/proposal.md": {
+      "sha256": "66005ae5f90381ae23c23dc45757890d0f584f8b34e95b774b2905dbb4985cb0",
+      "length": 6158
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/self-model-map.md": {
+      "sha256": "864cd6173d760520ad57a49ceb1bb74ea99ad486f9fae503abc4a97c043a0d5b",
+      "length": 17699
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "75af331726b77d57524ee86b52ac9a17ef04f2aeff81334c13b20fe64cac5af9",
+      "length": 5011
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/model-baselines/spec.md": {
+      "sha256": "a0a1f9e10ce8438f0501e6254addde4961435d144ca34622db17b356be095df4",
+      "length": 4959
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/model-navigation/spec.md": {
+      "sha256": "eb96d8a81bd9b1d9112e13faa149e6860a0f027edec174138a9f07c34d4e5eea",
+      "length": 4933
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/ontology-conformance/spec.md": {
+      "sha256": "7bebb79d710bba38c4bf371e635d795c7c3bcf5e4b487227638b3855b58835b3",
+      "length": 8954
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/specs/ontology-definitions/spec.md": {
+      "sha256": "82ac8f1893d81dc5dce8fa4c22da3ea774fd8dd330cbeb6dfdb3f1850e0fe694",
+      "length": 6094
+    },
+    "openspec/changes/archive/2026-11-01-express-full-ontology-and-self-model/tasks.md": {
+      "sha256": "9dfadf45d6d346a89872343c94cbe3fdaa3c80d7f5ba8779c2ae66af3504f5d8",
+      "length": 14533
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/design.md": {
+      "sha256": "cabbcd3fe6faaaaa16cd0a86657fd8246956d4625d0546b644d90133d8256823",
+      "length": 7171
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/proposal.md": {
+      "sha256": "9308c5882e661bc5869005143f77460d3f000192efa682fc68656c25e4ca87b1",
+      "length": 3585
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "9beb47fbe86a2ee069741a040e76049b0cebe51799b5ae0da0aa206f65b6890e",
+      "length": 6353
+    },
+    "openspec/changes/archive/2026-11-01-index-ontology-neighbours/tasks.md": {
+      "sha256": "1923679c33517d3a27754804542da0433487b5d8d84ea71aac30ec9147b5dd8b",
+      "length": 3894
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/design.md": {
+      "sha256": "94c899054dbc8639912561411835e1d0debec995b6d8beafb7d2ec19ebc50048",
+      "length": 5609
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/proposal.md": {
+      "sha256": "356501560c31ced62f544ee2d362d87b7d3777f3e33fa306b409ff14a6dfc616",
+      "length": 3341
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "3474d8e1a1cd662bbbd242a9536209a0f8e244a78afb7819608cdfc55b0357ed",
+      "length": 4381
+    },
+    "openspec/changes/archive/2026-11-01-pack-derived-index-storage/tasks.md": {
+      "sha256": "ec144d9fe71014457b871eea2ec942e63a89f79ece1adaca79c382e7a6551d24",
+      "length": 2471
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/design.md": {
+      "sha256": "66342baabc3496a89512386067dde8d3faad4289a35edb0cf96c0c092e502c9f",
+      "length": 8316
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/proposal.md": {
+      "sha256": "d3c57209d7fce4c7cedb70600bd6a98fde331a7fbde43e4ee9329ed1013f31fa",
+      "length": 3862
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/bounded-model-traversal/spec.md": {
+      "sha256": "3cc1d8feb0d6c88f6550e88bf2e8d4fdef0108986726cca4c3e80003d8c8c574",
+      "length": 4940
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/composite-model-queries/spec.md": {
+      "sha256": "a37c83527c56b0fdf6dba837e7a78c99c65c9d4457a5ff79b096af9589762943",
+      "length": 4756
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/specs/model-text-search/spec.md": {
+      "sha256": "f9196317ec61f81a786a3913b3bcbfbf08d4e116563724b4aff2a9bab3ae5897",
+      "length": 3666
+    },
+    "openspec/changes/archive/2026-11-01-query-deterministic-model-impact/tasks.md": {
+      "sha256": "1bad360d53f38ac3e15006d27c97795f68028164f651e9399860ce2bb1ad451d",
+      "length": 4167
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/design.md": {
+      "sha256": "8f0e6936c0e758d79a618c97049450b68ae374ea380ced3b181bfe4eae270827",
+      "length": 10739
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/proposal.md": {
+      "sha256": "22d8a35f8be54d9db1dabac42d8473a4c0f5efa17df25d2e5fb7e28854cd6e05",
+      "length": 4624
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "bd1520ec46b2ef764fb9727e4062bd8a57fc1e5fbfe537c74d79ed906c76bc34",
+      "length": 7134
+    },
+    "openspec/changes/archive/2026-11-01-rebuild-canonical-hub-and-verify/tasks.md": {
+      "sha256": "e59a1952aaa26d76a02548f16a8bbd18c2aa949d7fbc31efb75df1115fa3cb33",
+      "length": 5246
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/.openspec.yaml": {
+      "sha256": "6803193cd4b83f73d2d65d3e3ce1f3b116fb4dba2543ef44a3ad6cc9791547ed",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/design.md": {
+      "sha256": "25649c930da5b7186fdc12d2392e10ce3d4e5cc1b8209c75806a967e6f60e5b3",
+      "length": 11390
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/proposal.md": {
+      "sha256": "3d2c3d981d01ea5e34d38b48e8f5a088540711aabc71f43c960188d9b9480b43",
+      "length": 3918
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/branch-commits/spec.md": {
+      "sha256": "d7d62be0c8bb82ad19226d9c9bea03a350411e13bce4224718b0b29c53b33850",
+      "length": 8545
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "1ff352e6478aa9011a6019fd30fc1292a29c1ff357e3db13cc6aaf78a3b93183",
+      "length": 7524
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/specs/source-bound-definitions/spec.md": {
+      "sha256": "177cb923b2c4cb15daf95e79f5932e6d0e79cfcb32ebc7cc34d00f9aa680ec46",
+      "length": 9760
+    },
+    "openspec/changes/archive/2026-11-01-retain-first-self-definition/tasks.md": {
+      "sha256": "0bd68d0ab66b8e7737500719804243d6a387f3ac97ed0315ba1668ec284946cd",
+      "length": 6694
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/.openspec.yaml": {
+      "sha256": "c6ab3a95d8d0fd469ca8750ef79234025bf4a8356d5d57856e97d7e47fc8b6c2",
+      "length": 40
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/design.md": {
+      "sha256": "7a51be7dbd6aa8baa007bbd5ef316d38729948153201a23a93c9684e09fbd3cb",
+      "length": 6631
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/proposal.md": {
+      "sha256": "1bb368dd7e002f32e5f92aa99123f6ea5bf9979fdb0fe0ef453af9e28f1dbba1",
+      "length": 3910
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/specs/immutable-storage-maintenance/spec.md": {
+      "sha256": "0bfdb9c012fb3803ee7d396b39874b4b07e3b954b0bfdf7675f78c95ad96d670",
+      "length": 4511
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/specs/shared-file-storage/spec.md": {
+      "sha256": "057bb1c60ba854e1211ebb3ac48133380775a4819cee9d62e866309e7183a08d",
+      "length": 5507
+    },
+    "openspec/changes/archive/2026-11-01-share-immutable-file-storage/tasks.md": {
+      "sha256": "c3cb16d393587a5dc2ba4a74500dfe04c5d1b93797a7914db3f75dd5d846ecbc",
+      "length": 4634
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/.openspec.yaml": {
+      "sha256": "71e91d8f42848565b00ec7bb4da95cf19e2182f4adc440c230b10a0f3345023b",
+      "length": 40
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/design.md": {
+      "sha256": "642e8fa5846a36949869e508a380021377056a0d5a208c57f90913c680e056af",
+      "length": 11854
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/proposal.md": {
+      "sha256": "205b8f2ec7debaea9013ae40324925edfceffee5afb01482aa397141b0cde643",
+      "length": 2871
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/specs/agent-model-authoring/spec.md": {
+      "sha256": "f36924086039be3cd8a857846050cc24683536a3859fc97945e96fb027512c99",
+      "length": 5453
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/specs/rich-design-reference-model/spec.md": {
+      "sha256": "4170303943ad2f023cd162ed6ab52888c42c33057a1840920bcc3b4d872b553f",
+      "length": 5966
+    },
+    "openspec/changes/deliver-model-import-and-verification-skills/tasks.md": {
+      "sha256": "1e2340840118658984df4b27900459924159214b9152206eed6522b8cb245bf2",
+      "length": 4608
+    },
+    "openspec/changes/extend-experience-trace-modelling/.openspec.yaml": {
+      "sha256": "71e91d8f42848565b00ec7bb4da95cf19e2182f4adc440c230b10a0f3345023b",
+      "length": 40
+    },
+    "openspec/changes/extend-experience-trace-modelling/design.md": {
+      "sha256": "fcc49194c8879cc1938b4163273f7b11a84166b3bd44508112bd2c372f50ec8d",
+      "length": 7326
+    },
+    "openspec/changes/extend-experience-trace-modelling/proposal.md": {
+      "sha256": "7fa5105a03781444947b4c4e9c5a3533d2ead10e7170fbd53bcd9c836664b19b",
+      "length": 2516
+    },
+    "openspec/changes/extend-experience-trace-modelling/specs/experience-trace-modelling/spec.md": {
+      "sha256": "65faedeeef0e43d6c2c23981b91d649392cbbc3c0c9bd6869974c180d082a88a",
+      "length": 6465
+    },
+    "openspec/changes/extend-experience-trace-modelling/tasks.md": {
+      "sha256": "d1ac55a40c4d32fd4efcef5dcea6c3b6e3064b86883e1b0cc569b7454bb8a411",
+      "length": 2596
+    },
+    "openspec/changes/make-full-model-api-default/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/make-full-model-api-default/design.md": {
+      "sha256": "bef853356378f73f60bacbf89fcafbeb8835df11880367345df73306d201d1be",
+      "length": 4984
+    },
+    "openspec/changes/make-full-model-api-default/proposal.md": {
+      "sha256": "a10089dfda2d63a81b45e657f50fd46ed6ac5f877d296374be094a1331f07dac",
+      "length": 2660
+    },
+    "openspec/changes/make-full-model-api-default/specs/full-model-public-api/spec.md": {
+      "sha256": "b57e915fec9b5e3f2c8f8b31ae69377390212b19f480f3c2c6099b0540525ab6",
+      "length": 3365
+    },
+    "openspec/changes/make-full-model-api-default/specs/library-release-metadata/spec.md": {
+      "sha256": "41c78d8a6cfe6b69190c5d1b631fb9c932a6c0a8fe28f1ab9216fa1e67c8e645",
+      "length": 1231
+    },
+    "openspec/changes/make-full-model-api-default/specs/ontology-definitions/spec.md": {
+      "sha256": "20740eaaa3026c0c8018bde1faf97b8979d1deaba3aeec3d8d9717fb10aa440f",
+      "length": 365
+    },
+    "openspec/changes/make-full-model-api-default/specs/source-bound-definitions/spec.md": {
+      "sha256": "31670ab98314b715180a7ab838ad02800417e13fd20d9b16a329ce33a944a1d4",
+      "length": 696
+    },
+    "openspec/changes/make-full-model-api-default/tasks.md": {
+      "sha256": "ec9097b92cdeeeb0186237be80ee01b8e8e79a9e9a794699fba4f1b4b02f44c0",
+      "length": 2023
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/.openspec.yaml": {
+      "sha256": "71e91d8f42848565b00ec7bb4da95cf19e2182f4adc440c230b10a0f3345023b",
+      "length": 40
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/design.md": {
+      "sha256": "6759fc9d0ed9864b6464397e070cd3c1a86a2dd3ab980b648fb254c7506db3f6",
+      "length": 12956
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/proposal.md": {
+      "sha256": "be580f8a62e5844d804dff001cd0d7a1e4ab7668dad7bcdded55ac0d6013ce60",
+      "length": 3243
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/specs/definition-subject-bindings/spec.md": {
+      "sha256": "c70f73c9583c1e92db7df02258a12934ea8cd5f7c7b1cda2406f9611990d4fdb",
+      "length": 3013
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/specs/logical-design-types/spec.md": {
+      "sha256": "964085d90b3c3061c7df540a9d0f85f1046f4564f34816372deaed9444eecfa1",
+      "length": 3815
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/specs/model-navigation/spec.md": {
+      "sha256": "df1b5f2c79a852a9cf6376f3355ba86c2cadea4740936c1f161f04fbf35ff6f6",
+      "length": 2361
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/specs/ontology-conformance/spec.md": {
+      "sha256": "20b2ff861fccb97d2d3fe4ba6898bdea09c788e9e8dedf056991f3925f589f6f",
+      "length": 7644
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/specs/ontology-definitions/spec.md": {
+      "sha256": "65b770b0f06e0a8f1f89b1ff00fe607abb8bde7ffbfe0ac67ea8271b6f20f7a3",
+      "length": 4038
+    },
+    "openspec/changes/refine-logical-and-design-stage-contracts/tasks.md": {
+      "sha256": "e62ea14d7d0f65380aa2e1ea37ae9e8f55a3ec99e5fdcc23c2f369c50fae39c4",
+      "length": 4437
+    },
+    "openspec/changes/remove-legacy-storage-paths/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/remove-legacy-storage-paths/design.md": {
+      "sha256": "99f0e4de7b468c729a093f144489f747ec41ae2541f4247c89046ad6a7b54a94",
+      "length": 4384
+    },
+    "openspec/changes/remove-legacy-storage-paths/proposal.md": {
+      "sha256": "02d5e7cddb8173782f0187112db052ce0794688eb6db94f9ddb684830844d0ce",
+      "length": 2934
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/bounded-model-traversal/spec.md": {
+      "sha256": "0d0551ff113c4e9fbcce5d4c12984c3f343f6dfe8592c199bcd6258f11e446c4",
+      "length": 1840
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "7aa7e0fe09e8bbc01eafba97df8fc18f651b8a9e0256d8ce4720003fe4ebb31b",
+      "length": 1890
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/full-model-storage-port/spec.md": {
+      "sha256": "8a235e644db2f60dcb937b3a714d20e8de72c30480918c9d461559333375cb2d",
+      "length": 1730
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "120f86365215886a949288eaa0250ab38cfa248e3b1c3ce9e760de4df5d6d46d",
+      "length": 986
+    },
+    "openspec/changes/remove-legacy-storage-paths/specs/shared-file-storage/spec.md": {
+      "sha256": "8e654f4337b9f29c69d0fe2ed08016038287f2c498591b22766b4069150fffea",
+      "length": 1720
+    },
+    "openspec/changes/remove-legacy-storage-paths/tasks.md": {
+      "sha256": "6324b308badd09961a1695f3df9e428beed11e327c3447b7da58917151ac6a0d",
+      "length": 1980
+    },
+    "openspec/changes/support-macos-file-backend/.openspec.yaml": {
+      "sha256": "71e91d8f42848565b00ec7bb4da95cf19e2182f4adc440c230b10a0f3345023b",
+      "length": 40
+    },
+    "openspec/changes/support-macos-file-backend/design.md": {
+      "sha256": "d564d31743cdce21b10adddeee8e1c8c141b7ad4008daa15e3b9c34acda63739",
+      "length": 16236
+    },
+    "openspec/changes/support-macos-file-backend/proposal.md": {
+      "sha256": "006ce69d4acd53d0f6f9da7693e9a3a1dcee93da3e4e5deb6c5dbbfe18e6aec4",
+      "length": 4842
+    },
+    "openspec/changes/support-macos-file-backend/specs/current-api-host-tooling/spec.md": {
+      "sha256": "142d2088418523e16848616437fc67397dc05610cf6596110caa60e61efdc1cd",
+      "length": 4065
+    },
+    "openspec/changes/support-macos-file-backend/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "8094bc90d20d2495cf41524ff78071be36fa7b2c952b6ec62a40909ee24864c0",
+      "length": 7635
+    },
+    "openspec/changes/support-macos-file-backend/specs/shared-file-storage/spec.md": {
+      "sha256": "f302f9c6df205530e8743690960940b1744d4e3f01ca28e6224e046012ffa031",
+      "length": 4448
+    },
+    "openspec/changes/support-macos-file-backend/tasks.md": {
+      "sha256": "b816ed2bcd132e3ec22cd1aea5a5e896443af7dd4dc430d71e332d1b8d22d352",
+      "length": 9960
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/.openspec.yaml": {
+      "sha256": "108f7b3dae33488206672f31b510275110c0194c93062eb1970e19ca60c08722",
+      "length": 40
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/design.md": {
+      "sha256": "0651155943eed9cb5a1f4d39d9991a28bcafaaede93f95acb9b69de9d61b193b",
+      "length": 5186
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/proposal.md": {
+      "sha256": "5effe03ce6c7dd7075e73ae50d7421bbad2eac49eef1af32ce354c05fa340d80",
+      "length": 2844
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "9a9211d2167be11a7b7a81d4f3f4b234edcf022dcdfb2b38d2f160494e28ff8c",
+      "length": 5660
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "ecad3d10f7232bca37bdb1ad96da0a2e9f27eaf7568ceddc2fa69884dfbd65e3",
+      "length": 1034
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/specs/single-api-verification/spec.md": {
+      "sha256": "03c412bf09c2c8d0b23c39b9d5d67f52d0fac1b45ba5ea2113332da37c2ef947",
+      "length": 2561
+    },
+    "openspec/changes/verify-v010-and-rebuild-hub/tasks.md": {
+      "sha256": "ace9a9326921fd481a562689a4be40c55e493fa3d83a72b7c309883107f0bfab",
+      "length": 2792
+    },
+    "openspec/config.yaml": {
+      "sha256": "75c97f8de2826fc035649c904bea0450dfe74dba84b41f81ae8af7a09ce3b84c",
+      "length": 4417
+    },
+    "openspec/specs/bounded-model-traversal/spec.md": {
+      "sha256": "af465863c9bec25ad9f506597d65b95761f64cab902ced99546ee207c0bfb804",
+      "length": 4940
+    },
+    "openspec/specs/branch-commits/spec.md": {
+      "sha256": "02eb7fda905e759baa63b1ee4a81a1f0a9d675e0d44229ca8ffdb54aa4b72eb0",
+      "length": 8554
+    },
+    "openspec/specs/canonical-hub-rebuild/spec.md": {
+      "sha256": "49f396b09b87a54e510ab487dc3797313e9efea3e9f801cd2703245b8d5eb181",
+      "length": 7535
+    },
+    "openspec/specs/composite-model-queries/spec.md": {
+      "sha256": "62731270c1ddf7ce8f79f3992e71e46e441db01c5d206bc7fab931d58802838b",
+      "length": 4792
+    },
+    "openspec/specs/current-api-host-tooling/spec.md": {
+      "sha256": "9caa9784621f04780605d542313980878f77506e9e02782014ddce8195371285",
+      "length": 3428
+    },
+    "openspec/specs/file-snapshot-recovery/spec.md": {
+      "sha256": "5f3ebffb0ab3b881bb773cf59c9533343bf5631a0b197f6be45e12b5d14aea16",
+      "length": 6885
+    },
+    "openspec/specs/full-model-public-api/spec.md": {
+      "sha256": "7ea29806875ce31f5171670367cfd9663db7fc1ed5a78a8765c6ce2071ee340a",
+      "length": 3397
+    },
+    "openspec/specs/full-model-storage-port/spec.md": {
+      "sha256": "cd51cec68de07c486b981522343bfb54e4bc2ae0dc3f549af49179f324211970",
+      "length": 1764
+    },
+    "openspec/specs/immutable-storage-maintenance/spec.md": {
+      "sha256": "4d94de16038e37cab8333bfbe28fb18792882e1bed53523270b6bf8e717a9803",
+      "length": 4553
+    },
+    "openspec/specs/knowledgehub-self-description/spec.md": {
+      "sha256": "057181cd625dbb7b6abdcfb5d077daa6ca5b468ff3f75bd6907b9ba92bd002b3",
+      "length": 5053
+    },
+    "openspec/specs/library-release-metadata/spec.md": {
+      "sha256": "5f69aaa675906a0704f0fb3d1b368e14785abd47cf4feee300a6d5d3b8f20cd0",
+      "length": 1266
+    },
+    "openspec/specs/model-baselines/spec.md": {
+      "sha256": "645d8819a2bb5bc815d8207fd8252f270442a80f22e88f6a1747cb6ce7bc4668",
+      "length": 4987
+    },
+    "openspec/specs/model-navigation/spec.md": {
+      "sha256": "3c3444a7be225636e642d9d8fb5d21fb31f086d1db199bf0dff27548de660bbb",
+      "length": 4962
+    },
+    "openspec/specs/model-text-search/spec.md": {
+      "sha256": "9fd7550ba3db6007eb025260a2710c05182e3e85b2590213234ceb040ab7803b",
+      "length": 3696
+    },
+    "openspec/specs/ontology-conformance/spec.md": {
+      "sha256": "794356bc9d87a0b42b1626def3bd0bd070abb2258006c7d23d7d03967efbfb11",
+      "length": 8987
+    },
+    "openspec/specs/ontology-definitions/spec.md": {
+      "sha256": "a852247053c1c0ba65c4b9924d556fb4d59965306621f5e10b6ba5a0a9d56f5b",
+      "length": 5304
+    },
+    "openspec/specs/ontology-neighbour-lookup/spec.md": {
+      "sha256": "d87db6b80624771e192720b31589eb31c7b89d79a554c493ea64bacb84d7261c",
+      "length": 6397
+    },
+    "openspec/specs/packed-derived-index-storage/spec.md": {
+      "sha256": "e766f61266a51908432fe10a3654144bc4e638fafc3101fc6b028c6a34c481b8",
+      "length": 4375
+    },
+    "openspec/specs/shared-file-storage/spec.md": {
+      "sha256": "befd6c0b1f2f508686602550b68fd1c220fe3de995ac87eec0ebdb3690e8d679",
+      "length": 5692
+    },
+    "openspec/specs/single-api-verification/spec.md": {
+      "sha256": "20e3d865bbee1115f147ba621e6e36ab4c9b878591a694244f8c98b2ef7c2236",
+      "length": 2595
+    },
+    "openspec/specs/source-bound-definitions/spec.md": {
+      "sha256": "2423be7865dd229eede240fab2d57f2b8643bb1f884dbc483d07e371737ed2ad",
+      "length": 6822
+    },
+    "scripts/audit_full_ontology.py": {
+      "sha256": "f355c74189cdea424b798cb6497c46bbc14c0a89c087f018daedd2723036bcc8",
+      "length": 10918
+    },
+    "scripts/host_platform.py": {
+      "sha256": "e7b82d0266af3952cc81d315588f60707222e72ebc6a925970fd954c22d1ab62",
+      "length": 2556
+    },
+    "scripts/host_sources.py": {
+      "sha256": "0e145170fe8a0075de33fcc6e3af54d78e78b84b89bd84d6aa852e9a7734ce0b",
+      "length": 6141
+    },
+    "scripts/probes/macos_filesystem.rs": {
+      "sha256": "ff9c14df2152414fbd7a6f8605da58c086a073b1834087ee002a4b90c6ebd22e",
+      "length": 8071
+    },
+    "scripts/rebuild_canonical_hub.py": {
+      "sha256": "c6b351b78ac821fc3f824b662909a77633654338492b529035a92d2738c90d00",
+      "length": 18509
+    },
+    "scripts/verify_agent_hosts.py": {
+      "sha256": "48a181c7c536af526804ea51cbbb34475d916d2f3c5e6a6f6f3421293d1a2200",
+      "length": 4965
+    },
+    "scripts/verify_full_ontology.py": {
+      "sha256": "2edf08e9bb88fa27b5d0e1d949716d58296b45ac56020e7dde3511c2b0eab967",
+      "length": 5994
+    },
+    "skills/INSTALL.md": {
+      "sha256": "ea02ae88c6576bacf3be07378840b45e93ac9aa746d4b468892305d751f68b99",
+      "length": 2498
+    },
+    "skills/knowledgehub-import/SKILL.md": {
+      "sha256": "1b982854131b58074eee8127553c15d63929c75ba96c0ab0722f2b87f1511bcd",
+      "length": 3289
+    },
+    "skills/knowledgehub-import/references/authoring-example.json": {
+      "sha256": "a660ea2993fb38cb591c82100272840d5172bdf407ec98322b6516fc0f043520",
+      "length": 5085
+    },
+    "skills/knowledgehub-import/references/failure-recovery.md": {
+      "sha256": "a80e565c7f555194ede2dd713fcb7827652b606fd2d859f51884c06066a4da8e",
+      "length": 2237
+    },
+    "skills/knowledgehub-import/references/fixtures.md": {
+      "sha256": "b88a8915b2a13f0917316a66651aca70f5c05db3d36c4ef19518d57b5cc1b83e",
+      "length": 885
+    },
+    "skills/knowledgehub-import/references/logical-design-contract.md": {
+      "sha256": "bce987f42c733f49192c4beea4f0afd07097a94b4b986705427afd34cc0d0068",
+      "length": 3834
+    },
+    "skills/knowledgehub-import/references/model-authoring.md": {
+      "sha256": "74ffcc5381fa25ee70af780cf85a4192129c4cb0e87d2cbc5463511bf5535801",
+      "length": 9223
+    },
+    "skills/knowledgehub-verify/SKILL.md": {
+      "sha256": "c3a7bb6cba16fd4427130f3405a094b4326726c57c8c46c1b228c0ca3b369e57",
+      "length": 2139
+    },
+    "skills/knowledgehub-verify/references/logical-design-contract.md": {
+      "sha256": "bce987f42c733f49192c4beea4f0afd07097a94b4b986705427afd34cc0d0068",
+      "length": 3834
+    },
+    "skills/knowledgehub-verify/references/model-authoring.md": {
+      "sha256": "74ffcc5381fa25ee70af780cf85a4192129c4cb0e87d2cbc5463511bf5535801",
+      "length": 9223
+    },
+    "source/file-storage-proposal.md": {
+      "sha256": "87f113eb8eb6c58d4ca3b7045ed418eb3a2fa00bfd797088880ce1ae2a2ba063",
+      "length": 75272
+    },
+    "source/practical-design-manual.md": {
+      "sha256": "ef9a2f84137d7d17c18334628a7045534167f91fe50b1762daa2675bfcd86a15",
+      "length": 72094
+    },
+    "source/practical-design-manual.pdf": {
+      "sha256": "5c4124476b3abe1ba41a1d053bc676ab34eafeac18d98f3e7842abe0c9d9f704",
+      "length": 268152
+    },
+    "source/system-definition-ontology-proposal.md": {
+      "sha256": "30cc6f283e2b3f5cea375ff3990c97e4716c918d239ceee1ad331cc57ac06620",
+      "length": 74064
+    },
+    "source/system-definition-ontology-proposal.pdf": {
+      "sha256": "5b933fd4a40bfde09acd933ec6c2c2143ea698c1bf0ed77f7385eba70003ebda",
+      "length": 479613
+    },
+    "src/bin/knowledgehub-model.rs": {
+      "sha256": "4b2e5b7030e0adeb836b3713b34c35bd9713b077aa7be9c802f7996d94afa83b",
+      "length": 647
+    },
+    "src/codec.rs": {
+      "sha256": "dcd29b9078d867b93e33fbed4ed6283501bbcb95848242887401adf27acb5e28",
+      "length": 6502
+    },
+    "src/contracts.rs": {
+      "sha256": "87a4ec77341ed69b7a64ea5f29d8450046f714100f479c926903f8ea0f754bf4",
+      "length": 3904
+    },
+    "src/jobs.rs": {
+      "sha256": "22bc8ef2a0508395bb88173e55eadeeeb22740c7564c333c9a33b18aa3d98857",
+      "length": 4889
+    },
+    "src/lib.rs": {
+      "sha256": "06787b23b95e29b8281a5546360bb9f08980d2582e7afe598b16cb4ed95ffdd8",
+      "length": 1086
+    },
+    "src/model.rs": {
+      "sha256": "51e7dbced83bf236ca41573a60750a5c36cf1b1faa748d372fb7f6f3980807fe",
+      "length": 1893
+    },
+    "src/model_authoring.rs": {
+      "sha256": "84c0006a301e9901f946766ca1ab3a88c62755da421c38e45577e03ad13374ec",
+      "length": 51962
+    },
+    "src/ontology/api.rs": {
+      "sha256": "e18b05308097ee5259bfd9e82c7974e00339e909f2bc644a5c86179a49b97e2c",
+      "length": 16947
+    },
+    "src/ontology/catalogue.json": {
+      "sha256": "0aaa276c5932f7a90af2fbe2de78798cdace6d3aeb9fc879b0d8856ada286d31",
+      "length": 724584
+    },
+    "src/ontology/catalogue.rs": {
+      "sha256": "49d5a5ea089871ad326d9165eb29088def43daf42661a492b7250c41930d5842",
+      "length": 14705
+    },
+    "src/ontology/impact/api.rs": {
+      "sha256": "fac3ae9b8c00f64bc672592578019730b675cf26c1759b820d3f82ae7ed40cfc",
+      "length": 8986
+    },
+    "src/ontology/impact/engine.rs": {
+      "sha256": "b842bcc1b205748e6008d2c6a58fa32997cc2d90ef31e57ed74e32dc383d1b70",
+      "length": 22826
+    },
+    "src/ontology/impact/mod.rs": {
+      "sha256": "c953cbc8cf0783a20f14782e7750a6393d10894e777f770ac4a7af61214cbabf",
+      "length": 255
+    },
+    "src/ontology/impact/tests.rs": {
+      "sha256": "34f14040ca468f0f97fc8502112394634fbbefd8b6512b8ba8903780c3201f94",
+      "length": 6426
+    },
+    "src/ontology/impact/text.rs": {
+      "sha256": "6b0b7e0dda03ef87c1ee64dacd5d6c6c53c845c956de84963cf34fa478303c9c",
+      "length": 7721
+    },
+    "src/ontology/impact/types.rs": {
+      "sha256": "b84a43fb17a47dc0dd25eecf7d18b1a0dad5528afb9d23515c6e99a176f6f82d",
+      "length": 13250
+    },
+    "src/ontology/mod.rs": {
+      "sha256": "a65048e683febdbdebb3cc442cb9b2c5bd200ec2af3ab9106673a491e781ab0e",
+      "length": 556
+    },
+    "src/ontology/navigation.rs": {
+      "sha256": "c29018a89bf9d6928fd13740b1d8386ee966c855b734eab786b436b720a23f44",
+      "length": 10039
+    },
+    "src/ontology/neighbours/api.rs": {
+      "sha256": "5b03041b59474dadf14432c540d97f364b6c315dc9cca8b2b63f325ec9cb0684",
+      "length": 6199
+    },
+    "src/ontology/neighbours/facts.rs": {
+      "sha256": "88ed820ab94c353d99d2988e2cc5c6966760508f7045b35a4f245f7fbaefc5fa",
+      "length": 21482
+    },
+    "src/ontology/neighbours/mod.rs": {
+      "sha256": "429a686f09f5b219652e054739c1165a4d3bcc36a5184d5ea5c2d6ed2330ed23",
+      "length": 2213
+    },
+    "src/ontology/neighbours/types.rs": {
+      "sha256": "6983a8d8452a2c5685a47aa31606bf860757cf8375d9fd8a7f46b2aabad0f687",
+      "length": 7414
+    },
+    "src/ontology/schema.rs": {
+      "sha256": "f6c6b7e5fc3038070b5f4b21aedd5fba0f5d01218c31e9274211833efb9e7365",
+      "length": 4992
+    },
+    "src/ontology/types.rs": {
+      "sha256": "35c09e9c6623f9d7586213d4fd7bc2d305f65118fdee1f5935f44e9e86c871dc",
+      "length": 25823
+    },
+    "src/ontology/validation.rs": {
+      "sha256": "f41af64b64fad5988b41b55326b0623df1124a048d49e95dd111870e92759bf7",
+      "length": 103212
+    },
+    "src/storage/native.rs": {
+      "sha256": "e19dff5d6f062607ef33663042c1f29b2954e4cc3b125e024571e20a500053c1",
+      "length": 6116
+    },
+    "src/storage/shared/content.rs": {
+      "sha256": "ed0a545ba3bcd5b7c7c62d10eaae63e27b6b1afb843b681e74cf54f5560b91f2",
+      "length": 7083
+    },
+    "src/storage/shared/generation.rs": {
+      "sha256": "1f079986f7aee37508be353a4acdf70366701076f03d5e3a0241840c295fc3fa",
+      "length": 32534
+    },
+    "src/storage/shared/maintenance.rs": {
+      "sha256": "0496b5e371e79a444d30b4874a4bc57f3349d6731f1b791f2a66b22510572b63",
+      "length": 24983
+    },
+    "src/storage/shared/mod.rs": {
+      "sha256": "2d37c06c323bf65f5c3402f990a6e1dd2878f47c8032cf6c85d36c5697ade889",
+      "length": 5157
+    },
+    "src/storage/shared/neighbours/mod.rs": {
+      "sha256": "a1e957c1bd388d16af84b63111b01e0a34e0b436b60ec2e5b2e7c627a68e8e00",
+      "length": 20809
+    },
+    "src/storage/shared/neighbours/read.rs": {
+      "sha256": "f519befcac8977b296d1423e5c9f563f3e362a5044e71a245c0b6cc8848dee08",
+      "length": 15020
+    },
+    "src/storage/shared/neighbours/tests.rs": {
+      "sha256": "c630470b3e46f10a1d6b23a64b7a2aa4e980f1345bf30d6d8e03358d1c3c9e8a",
+      "length": 13559
+    },
+    "src/storage/shared/objects.rs": {
+      "sha256": "83277d582a64b836584ad946a02620f838e0aea5d9ecd081af8d1ccefbe882f7",
+      "length": 28199
+    },
+    "src/storage/shared/packed_cache.rs": {
+      "sha256": "6ce00899df29014e0a851ad9a218e6f93dfc58c8f1d9877640d6f87fc6bd2141",
+      "length": 19545
+    },
+    "src/storage/shared/projection.rs": {
+      "sha256": "6536bc683bc732538291cf1b3bdf778e4633c6f6172be8e06d0a3e14d96b9259",
+      "length": 22148
+    },
+    "src/storage/shared/tests.rs": {
+      "sha256": "32dbf17de19b1be6aa508ec9aea676c3a43152775178fcb48de95ac8ee6fdd8c",
+      "length": 16114
+    },
+    "src/storage/shared/text.rs": {
+      "sha256": "43eb86b622189cfe7e3a9faf59433e0ede5608608239adf40c7869292f5e57e1",
+      "length": 21830
+    },
+    "src/storage/shared/trees.rs": {
+      "sha256": "46df4c6fbfb45d0dda4673d4eaae2005b7fe89c67cdbdb0d5fe50c195be4931b",
+      "length": 35829
+    },
+    "src/storage.rs": {
+      "sha256": "655e43527781aabbf106ef41af2df29af4796d7484bfe606a3bb6ca5c11a17c4",
+      "length": 10560
+    },
+    "tests/experience_contract.rs": {
+      "sha256": "19d1dca6bb74228b37a589f7d5f6f04b0ffd0784b8b48280a4c50a6f7ab3b130",
+      "length": 18232
+    },
+    "tests/host_workflows.py": {
+      "sha256": "36b0d5a551c3e484d82c404db5c4e32ab402a70ee00c8ecce6678169f7b7e300",
+      "length": 15063
+    },
+    "tests/impact_oracle.rs": {
+      "sha256": "7c1239a5f6e039e8348c1c312733383c6c51bdecf10ef3d45d16e4cf795454ad",
+      "length": 2018
+    },
+    "tests/internal/shared_faults.rs": {
+      "sha256": "0b82eecb445695e509eecd179b344cc83e1d77fd6b54219033cda64b76b77f47",
+      "length": 21244
+    },
+    "tests/logical_design_contract.rs": {
+      "sha256": "ee274edd9ef572f8301fec9861fd352f611e004ad28a2180f292989eaa4c5224",
+      "length": 23438
+    },
+    "tests/model_authoring.rs": {
+      "sha256": "bb3169ed3330b28c45bf60ec23d28b0c0d332271db51d4b4ccfb3770ed502a43",
+      "length": 15732
+    },
+    "tests/model_impact.rs": {
+      "sha256": "eacc8bff56dd74f41e5ea07e9bd10139f00efe0e4f444c6a2576770187461d39",
+      "length": 15273
+    },
+    "tests/neighbour_oracle/mod.rs": {
+      "sha256": "11c07f531be5291feb49e8466ff12eb86ae3d0d4f955218b0a35c761cfa75381",
+      "length": 14720
+    },
+    "tests/neighbours.rs": {
+      "sha256": "144991cfb760f9f5db6d09523d3256b089c35854a530265f53813d0d5f8520cf",
+      "length": 25558
+    },
+    "tests/ontology_contract.rs": {
+      "sha256": "5fa12da095aca046e4608d6a9ab8a83fe388c27e9c17436e9c8614815132d8bd",
+      "length": 66534
+    },
+    "tests/public_contract.rs": {
+      "sha256": "67bf28d680dceeb525e00d7ea23ef794f609e86ea3a790f07e2a72f5bb6a74f6",
+      "length": 12791
+    },
+    "tests/rent_impact.rs": {
+      "sha256": "b9287208d8a5d8a006e3b3d77564a621bd0308942046508069a3df6718e9a17d",
+      "length": 10663
+    },
+    "tests/shared_storage.rs": {
+      "sha256": "1cf7caa4fe749d8d4bd88b8e9e5ece36f480fda77c83f3bd4730b663a9a4e1bf",
+      "length": 3479
+    },
+    "tests/support/mod.rs": {
+      "sha256": "7c7d86151e3c2e4d826d8b8ad1ac6b5b2b486fa5f49257b8bbcfd176b0bf24f4",
+      "length": 1287
+    }
+  },
+  "executables": {
+    "target/debug/deps/knowledgehub-df3600de2f538ce0": {
+      "sha256": "50fa7bcd0311985b5c5c013e80bca647b03680b0188a46aacd9f4248383c4c95",
+      "length": 34055984
+    },
+    "target/debug/deps/model_authoring-64e213b585ed217b": {
+      "sha256": "bee1ac65e82b624de7e7164dbf26133006690dd0f5422a9b0fef7c72b8418b0b",
+      "length": 1943872
+    },
+    "target/debug/deps/logical_design_contract-5fa79bcfeda27bab": {
+      "sha256": "a0b5e8e387be2109cee34af9fe0a280fc96f0db6b201642a9761ee3cb9f3c114",
+      "length": 26738296
+    },
+    "target/debug/deps/impact_oracle-77b1c96f419c6c7b": {
+      "sha256": "e76180bf0efc24102445854638273495e9b98a9d19b5b9d747b8d809729e99bd",
+      "length": 1029504
+    },
+    "target/debug/deps/experience_contract-40c77ff384e7dea8": {
+      "sha256": "329d253a8f2f97ab4a287975c76219ac5ed01f06e5013362f78026a25285842c",
+      "length": 26050680
+    },
+    "target/debug/knowledgehub-model": {
+      "sha256": "6f8e2aa864dd7360d84014872f1bd9e15d9828f5838362378049742326f74862",
+      "length": 28678352
+    },
+    "target/debug/deps/knowledgehub_model-9981eb0054f21c8e": {
+      "sha256": "b4e8308a88f5ef52d6bec77fd469ae4db3a22c163caaff4aee20d1d9ce7b22a1",
+      "length": 1029696
+    },
+    "target/debug/examples/storage_benchmark-87407f68d475891f": {
+      "sha256": "0be259e599f048e61137d4aeea7452d15810c24d44c6ffee932614d7eb8ca9aa",
+      "length": 1104352
+    },
+    "target/debug/examples/shared_storage-24cf451c634feacd": {
+      "sha256": "ca076b447d8006d80ceb0ed76577a17a72b0f6661af03ce897bbaccdfd187b83",
+      "length": 1029568
+    },
+    "target/debug/examples/rent_impact-123d1d726a43d0bd": {
+      "sha256": "9149eb29429a286456a24346502975070dbc3383b5e9b11e442545f8d313f919",
+      "length": 1029472
+    },
+    "target/debug/examples/neighbours-d43701a9273d7eb4": {
+      "sha256": "5cc7b2ad1c6730bf4c9d35adc77940d745dd1b1d745c7e6065cf8a747ae0e0ac",
+      "length": 1029448
+    },
+    "target/debug/examples/neighbour_benchmark-9b2cd5f2860e0ee1": {
+      "sha256": "9b9a0abfb1dea023ea106aefd9487a3b0cbeba2000f33ce5d2c72cd8254260b5",
+      "length": 1104792
+    },
+    "target/debug/examples/model_successor-71f83f4aca85ad6e": {
+      "sha256": "1183cdf3b0b67838f8093f7e222092fc3d647964808e8cff5bef8193629e0367",
+      "length": 1029616
+    },
+    "target/debug/examples/minimal_model-94fa2139881874a4": {
+      "sha256": "b8c46d3d77249269d0cac8e2e84e28ebe69804540eb1450b2571a43ea9f7dfc1",
+      "length": 1029520
+    },
+    "target/debug/examples/inspect_self_model-cedf250bc118457b": {
+      "sha256": "9adf363960b7bb16479cb3227c97f4e47113799fbac4ac42f32752edc5422018",
+      "length": 1638752
+    },
+    "target/debug/examples/impact_benchmark-b2c77205c6742d9e": {
+      "sha256": "f2810b1b87065bf6b91972eb89e6f39419ffd5cfc9a790b352c2d57addbdc802",
+      "length": 1029600
+    },
+    "target/debug/examples/full_self_description-f3efd815f283c80f": {
+      "sha256": "1b02503af111105b23afef49598212d092c9667712a4cc5f2814a387b6a9500a",
+      "length": 1639720
+    },
+    "target/debug/deps/shared_storage-e231739241fe8620": {
+      "sha256": "f2c61003a4a15f02e966963a04706431281904d4c7789f5263d577035da1933f",
+      "length": 26828736
+    },
+    "target/debug/examples/catalogue_conformance-99212c3b70012771": {
+      "sha256": "c749c40bd6f0e773dee263820c5b54f1077f727566ad45f3ae28985338a3e0d5",
+      "length": 1133272
+    },
+    "target/debug/deps/rent_impact-2aac3ef2f6b0ae1a": {
+      "sha256": "4bdb9f5f7f65a65053b2b53716103e001a7d462245603351713d2a3387696673",
+      "length": 26487360
+    },
+    "target/debug/deps/public_contract-ef81fff3792ea391": {
+      "sha256": "d5ece743a997aadec309d065ed35d30764a0b649fadf0d12de712defaeed8d0d",
+      "length": 25295520
+    },
+    "target/debug/deps/ontology_contract-042e38e23c4572cd": {
+      "sha256": "cc13cd0aa30d9f2561e196d3e7d0e1a1a7ccb62ed93430a8591469b61816f78e",
+      "length": 31320352
+    },
+    "target/debug/deps/neighbours-438846a8d3cc1b29": {
+      "sha256": "14da59f2a081aea5b654490925b83f353cc6a60a5367cd0a6e51198688a2d690",
+      "length": 27829448
+    },
+    "target/debug/deps/model_impact-d094ff4d6d8a0002": {
+      "sha256": "38ae875409992af7883b6fa400b9e27d779a85061c21018b12e51f33b330d7a5",
+      "length": 27343808
+    },
+    "target/release/examples/storage_benchmark": {
+      "sha256": "03cda24efce55a0d4f59f0171a60b4e6ef8f1592a7562d21bab3fc31ef25ebde",
+      "length": 7581056
+    },
+    "target/release/examples/shared_storage": {
+      "sha256": "f0e927839fd3c49c98fb833bc99c34e0a7850d6572fc2716b1d6332eabb4db7f",
+      "length": 8329488
+    },
+    "target/release/examples/neighbours": {
+      "sha256": "e2553a54c88ebd66cc72023c529bf52574c0ef7f1527777bbe13ed09fc1d29b8",
+      "length": 7542432
+    },
+    "target/release/examples/neighbour_benchmark": {
+      "sha256": "ce5576ce393c97c111283919bdecc92b8f8958f708dc626dcc8979d1d4623879",
+      "length": 7555840
+    },
+    "target/release/examples/model_successor": {
+      "sha256": "7432b4349b6dff0f637d2476e159d8e922dae0175bef358fef8cb8d15b75d2a8",
+      "length": 7552160
+    },
+    "target/release/examples/minimal_model": {
+      "sha256": "1f4b4d7074c79295950da4065b61c7ea7e3f806f599a9a7dba8b418a9f991786",
+      "length": 6767968
+    },
+    "target/release/examples/impact_benchmark": {
+      "sha256": "752086dbe09534d7e810f462c14f80f15450e0fa6f1953db7001d6acdc081d07",
+      "length": 7616992
+    },
+    "target/release/examples/catalogue_conformance": {
+      "sha256": "edb6e9e32bed122b868f96080663df1b6966889def4f9e30484f90d6e194da0a",
+      "length": 7402864
+    },
+    "target/release/examples/rent_impact": {
+      "sha256": "6df53ab3a8819f0a7f9015a3e3651ecb5e87b583a6a17cb4df23803eac2ff5e1",
+      "length": 7793520
+    },
+    "target/release/examples/inspect_self_model": {
+      "sha256": "9346ef6912f39c7191f00db200a875d627e5504bd6720f82ff61de30dddc3693",
+      "length": 8186688
+    },
+    "target/release/examples/full_self_description": {
+      "sha256": "08ddd321b63d4399fcd96e270d690567929a312e2fef2231e33365bf45b9d65b",
+      "length": 8670416
+    }
+  },
+  "commands": [
+    {
+      "command": [
+        "rustc",
+        "-Vv"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "fmt",
+        "--all",
+        "--",
+        "--check"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--doc"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "clippy",
+        "--offline",
+        "--all-targets",
+        "--",
+        "-D",
+        "warnings"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "/opt/homebrew/opt/python@3.14/bin/python3.14",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests",
+        "-p",
+        "host_workflows.py",
+        "-v"
+      ],
+      "exit_code": 0,
+      "environment": {
+        "RUST_TEST_THREADS": "4"
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "test",
+        "--offline",
+        "--all-targets",
+        "--no-run",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "b7f8d73243c0614bb81b239861b88852bd5b13c5c3eb3dd3a76b566287b3a63c",
+        "length": 53837
+      }
+    },
+    {
+      "command": [
+        "cargo",
+        "build",
+        "--offline",
+        "--release",
+        "--examples",
+        "--message-format=json"
+      ],
+      "exit_code": 0,
+      "log": {
+        "sha256": "f432e0f2bf6c2321d52043f2687082f4f5b73e6a95d6cc719a6c02a94819cded",
+        "length": 46008
+      }
+    }
+  ],
+  "log": {
+    "sha256": "6c0664dd7c52d2fa5ff4e7583e7b10a58cac1a009fee0bb02e366f5aa7e5eb20",
+    "length": 24064
+  },
+  "native_test_counts": [
+    38,
+    0,
+    2,
+    0,
+    4,
+    7,
+    6,
+    7,
+    25,
+    12,
+    3,
+    1,
+    2,
+    3,
+    0,
+    3,
+    0,
+    0,
+    1,
+    0,
+    0,
+    0,
+    1,
+    1,
+    2
+  ],
+  "platform": {
+    "system": "macOS",
+    "architecture": "arm64",
+    "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: aarch64-apple-darwin\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+    "os_version": "26.6.2",
+    "os_build": "25G83",
+    "profile": "macos-aarch64/local-apfs/single-host/1",
+    "volume": {
+      "AESHardware": true,
+      "APFSContainerFree": 109215354880,
+      "APFSContainerReference": "disk3",
+      "APFSContainerSize": 494384795648,
+      "APFSPhysicalStores": [
+        {
+          "APFSPhysicalStore": "disk0s2"
+        }
+      ],
+      "APFSSnapshot": false,
+      "APFSVolumeGroupID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+      "Bootable": true,
+      "BooterDeviceIdentifier": "disk3s2",
+      "BusProtocol": "Apple Fabric",
+      "CanBeMadeBootable": false,
+      "CanBeMadeBootableRequiresDestroy": false,
+      "CapacityInUse": 360648503296,
+      "Content": "41504653-0000-11AA-AA11-00306543ECAC",
+      "DeviceBlockSize": 4096,
+      "DeviceIdentifier": "disk3s5",
+      "DeviceNode": "/dev/disk3s5",
+      "DeviceTreePath": "IODeviceTree:/arm-io@10F00000/ans@9600000/iop-ans-nub/AppleANS3CGv2Controller",
+      "DiskUUID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+      "Ejectable": false,
+      "EjectableMediaAutomaticUnderSoftwareControl": false,
+      "EjectableOnly": false,
+      "Encryption": true,
+      "EncryptionThisVolumeProper": true,
+      "FileVault": true,
+      "FilesystemName": "APFS",
+      "FilesystemType": "apfs",
+      "FilesystemUserVisibleName": "APFS",
+      "FreeSpace": 0,
+      "GlobalPermissionsEnabled": true,
+      "IOKitSize": 494384795648,
+      "IORegistryEntryName": "Data",
+      "Internal": true,
+      "Locked": false,
+      "MediaName": "",
+      "MediaType": "Generic",
+      "MountPoint": "/System/Volumes/Data",
+      "OSInternalMedia": false,
+      "ParentWholeDisk": "disk3",
+      "PartitionMapPartition": false,
+      "RAIDMaster": false,
+      "RAIDSlice": false,
+      "RecoveryDeviceIdentifier": "disk3s3",
+      "Removable": false,
+      "RemovableMedia": false,
+      "RemovableMediaOrExternalDevice": false,
+      "SMARTDeviceSpecificKeysMayVaryNotGuaranteed": {
+        "AVAILABLE_SPARE": 100,
+        "AVAILABLE_SPARE_THRESHOLD": 99,
+        "CONTROLLER_BUSY_TIME_0": 0,
+        "CONTROLLER_BUSY_TIME_1": 0,
+        "DATA_UNITS_READ_0": 77241011,
+        "DATA_UNITS_READ_1": 0,
+        "DATA_UNITS_WRITTEN_0": 34785316,
+        "DATA_UNITS_WRITTEN_1": 0,
+        "HOST_READ_COMMANDS_0": 2667682270,
+        "HOST_READ_COMMANDS_1": 0,
+        "HOST_WRITE_COMMANDS_0": 1186307162,
+        "HOST_WRITE_COMMANDS_1": 0,
+        "MEDIA_ERRORS_0": 0,
+        "MEDIA_ERRORS_1": 0,
+        "NUM_ERROR_INFO_LOG_ENTRIES_0": 0,
+        "NUM_ERROR_INFO_LOG_ENTRIES_1": 0,
+        "PERCENTAGE_USED": 1,
+        "POWER_CYCLES_0": 508,
+        "POWER_CYCLES_1": 0,
+        "POWER_ON_HOURS_0": 728,
+        "POWER_ON_HOURS_1": 0,
+        "TEMPERATURE": 305,
+        "UNSAFE_SHUTDOWNS_0": 20,
+        "UNSAFE_SHUTDOWNS_1": 0
+      },
+      "SMARTStatus": "Verified",
+      "Sealed": "No",
+      "Size": 494384795648,
+      "SolidState": true,
+      "SupportsGlobalPermissionsDisable": true,
+      "SystemImage": false,
+      "TotalSize": 494384795648,
+      "VolumeAllocationBlockSize": 4096,
+      "VolumeName": "Data",
+      "VolumeSize": 0,
+      "VolumeUUID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+      "WholeDisk": false,
+      "Writable": true,
+      "WritableMedia": true,
+      "WritableVolume": true
+    },
+    "kernel": "Darwin M-CK04W156W4 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:17:26 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6041 arm64"
+  },
+  "guarantee_coverage": {
+    "format": "knowledgehub-current-safety-coverage/1",
+    "guarantees": {
+      "Canonical intent, authored bytes and actor-bound retry": [
+        "canonical_retries_bytes_actor_and_operation_order",
+        "canonical_rfc8785_subset_vectors",
+        "original_retry_absence_orphans_missing_receipts_and_point_read_work"
+      ],
+      "Current scope policy, default denial, revocation and policy failure": [
+        "default_denial_revocation_and_policy_failure",
+        "recheck_policy_inside_publication_lock",
+        "registration_is_atomic_recursive_guarded_and_currently_authorised"
+      ],
+      "One-head atomic publication and invalid candidate preservation": [
+        "invalid_current_changes_preserve_head_independently",
+        "registration_is_atomic_recursive_guarded_and_currently_authorised",
+        "every_declared_signature_rejects_wrong_direction_and_targets"
+      ],
+      "Exact/absence guards, same-base and graph/baseline conflicts": [
+        "explicit_revision_and_absence_guards",
+        "separately_opened_instances_race_and_later_stale_conflict",
+        "typed_same_base_root_and_baseline_race_has_one_winner",
+        "two_process_same_base_race_has_one_winner"
+      ],
+      "Exact source bytes, digests, anchors, binary ranges and ownership": [
+        "binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes",
+        "damaged_typed_binary_is_integrity_failure_and_never_operation_absence",
+        "invalid_baseline_closures_and_competing_ownership_are_rejected",
+        "nested_owner_paths_distinguish_literal_slashes_and_tildes",
+        "ranges_skip_unrelated_content_and_scrub_finds_retained_corruption"
+      ],
+      "Immutable successors, retained selection/baselines and original outcomes": [
+        "coherent_successors_baselines_and_replay_current_thread",
+        "coherent_successors_baselines_and_replay_multithreaded",
+        "baseline_comparison_reports_unicode_additions_removals_and_stable_order",
+        "selection_restores_exact_history_and_refuses_a_second_origin",
+        "original_retry_absence_orphans_missing_receipts_and_point_read_work"
+      ],
+      "Process interruption, lost response, pre/post-publication uncertainty": [
+        "sigkill_typed_artifact_and_baseline_at_every_boundary",
+        "injected_typed_publication_and_cancellation_on_both_runtimes"
+      ],
+      "Cancellation retains publication resources, capacity and drain": [
+        "injected_typed_publication_and_cancellation_on_both_runtimes",
+        "cancelled_wait_keeps_capacity_and_drain_waits"
+      ],
+      "Host runtime, scheduler configurations and exclusive creation": [
+        "public_walkthrough_current_thread",
+        "public_walkthrough_multithreaded",
+        "file_adapter_requires_the_host_runtime_and_creates_none",
+        "coordinated_exclusive_scope_creation",
+        "refuses_unsupported_declared_filesystem"
+      ],
+      "Current metadata refusal and damaged-state non-recreation": [
+        "superseded_formats_are_refused_without_mutation",
+        "incompatible_and_damaged_stores_are_not_recreated"
+      ],
+      "Current compaction, reconstruction and retained closure": [
+        "public_shared_walkthrough_pack_reindex_and_materialise",
+        "sigkill_pack_install_and_cleanup_at_every_boundary",
+        "injected_maintenance_errors_preserve_original_state",
+        "coordinated_reader_and_maintenance_on_both_host_runtimes",
+        "frames_are_strict_bounded_lossless_and_kind_separated"
+      ],
+      "Authority/intent/pin-bound finite cursors and shared capacity": [
+        "bounded_navigation_cursors_policy_and_selection_binding",
+        "finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query",
+        "composite_cursors_share_capacity_expire_and_recheck_disclosure",
+        "directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact"
+      ],
+      "Independent semantics, finite traversal, selective work and future links": [
+        "current_query_order_filters_and_paging_match_independent_oracle",
+        "current_query_follows_six_hops_without_a_format_switch",
+        "generic_registered_nested_native_and_parallel_facts_match_independent_oracle",
+        "late_links_exact_scopes_and_ready_point_reads",
+        "ready_lookup_ignores_unrelated_artifacts_and_reports_no_state_materialisation",
+        "mixed_seven_hop_plan_cycles_parallel_origins_and_nearer_targets",
+        "limits_count_filtered_and_duplicate_work_and_bound_every_response"
+      ],
+      "Full ontology properties, schemas, rules, gaps and evidence distinctions": [
+        "every_declared_property_has_independent_missing_and_invalid_evidence",
+        "closed_constraint_primitives_have_independent_positive_and_negative_cases",
+        "every_family_has_a_complete_connected_typed_specimen",
+        "each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity",
+        "native_decision_tables_remain_exact_and_definitions_do_not_become_observations"
+      ],
+      "Derived cache integrity, quotas, cold/warm metadata and immutability": [
+        "large_packed_index_is_bounded_selective_and_immutable",
+        "publication_faults_quota_and_sidecar_reconstruction_are_safe",
+        "corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity",
+        "readers_coordinate_cache_eviction_on_both_runtime_configurations",
+        "preparation_budgets_quota_and_view_eviction_preserve_knowledge"
+      ],
+      "Native declarations and injected device-profile refusal": [
+        "declarations_are_explicit_and_coordination_is_required",
+        "native_profile_refuses_wrong_host_and_symlink_layout_before_mutation"
+      ],
+      "Recognised creation provenance, exact history and metadata refusal": [
+        "native_creation_profiles_are_provenance_and_unknown_metadata_never_mutates"
+      ],
+      "Native sync/fence prior-or-complete-new recovery": [
+        "native_sync_failures_preserve_prior_or_recover_exact_original_receipt"
+      ],
+      "Native benchmark RSS units and unavailable values": [
+        "rss_units_missing_and_overflow_are_explicit"
+      ],
+      "Injected APFS nonlocal/readonly/filesystem refusal": [
+        "injected_apfs_observations_refuse_nonlocal_readonly_and_other_filesystems"
+      ]
+    },
+    "retired": [
+      "files/1 successful reopen and frozen cross-version hash matrix",
+      "seed-only required profile/types and adapter modes"
+    ],
+    "boundary": "Selective authoritative paths establish operation outcomes; required receipt/index corruption is integrity, unrelated artifact integrity is established by exact artifact reads and full scrub. No compatibility decoder is required."
+  },
+  "coverage_map": {
+    "sha256": "2dc9595330ad41b5a4bbbc3713b409b8c66240a4c11a209db9bbb86b28739134",
+    "length": 5682
+  },
+  "limits": [
+    "host-declared coordinated local profile; actual platform observations in log",
+    "no power-loss, remote-adapter, acceptance or authority-handover claim"
+  ]
+}

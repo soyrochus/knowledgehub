@@ -75,7 +75,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
     println!(
         "{}",
         serde_json::to_string(
-            &serde_json::json!({"store":path,"scope":"synthetic structural conformance; no project acceptance","types":145,"family_types":128,"signatures":38,"selected_records":after.selected.len(),"definition_digests":after.records.values().filter(|r|matches!(r.data,RecordData::Type(_)|RecordData::Relationship(_)|RecordData::Constraint(_))).map(|r|(&r.reference,&r.sha256)).collect::<Vec<_>>(),"kernel":kernel,"specimens":after.selected_records().filter(|r|r.reference.model=="specimen").collect::<Vec<_>>(),"reopen":"exact"})
+            &serde_json::json!({"store":path,"scope":"synthetic structural conformance; no project acceptance","types":146,"family_types":129,"signatures":40,"selected_records":after.selected.len(),"definition_digests":after.records.values().filter(|r|matches!(r.data,RecordData::Type(_)|RecordData::Relationship(_)|RecordData::Constraint(_))).map(|r|(&r.reference,&r.sha256)).collect::<Vec<_>>(),"kernel":kernel,"specimens":after.selected_records().filter(|r|r.reference.model=="specimen").collect::<Vec<_>>(),"reopen":"exact"})
         )?
     );
     reopened.drain().await;

@@ -35,10 +35,50 @@ with database backends. The repository is [soyrochus/knowledgehub](https://githu
   Retrying the same request can recover its original result.
 - **Explore relationships and change impact.** Use typed selection, batch neighbour
   queries, deterministic bounded traversal, literal text search and composite impact queries.
+- **Author a model from source material.** An analyst or external coding agent supplies
+  a source-bound typed plan; the standalone tools capture originals, assess and publish
+  the model, recover interrupted publication and independently verify source coverage.
 
-The built-in catalogue contains 17 kernel kinds, 128 family types, 32 catalogue
+The built-in catalogue contains 17 kernel kinds, 129 family types, 40 catalogue
 relationships and six explicit prose refinements. These share the same public
 `knowledgehub::KnowledgeHub` API and validation rules.
+
+The current contract uses catalogue-3 and record/request codecs /3. It supports
+multi-journey story maps and shared placements, direct lifecycle subjects, logical
+application types and governed subtype queries. See the
+[experience contract](design/experience-contract.md),
+[logical/design contract](design/logical-design-contract.md), and
+[standalone model authoring tool](design/model-authoring.md).
+The [import and verification skills](skills/INSTALL.md) use the same public API.
+Existing historical stores are preserved; this contract adds no compatibility reader.
+
+## Current delivered state
+
+The working standalone path is **source documents and UI definitions → analyst/agent
+interpretation → typed plan → native assessment and publication → independent
+verification**. The external analyst or agent owns interpretation and source authority.
+The Rust library owns schema, inheritance, relationship, ownership and change-integrity
+checks; the deterministic tool uses those same public APIs.
+
+The delivered contracts cover multi-journey maps, shared placements and cuts;
+exact types and governed inheritance; direct lifecycle subjects; logical data
+constructors; planned/implemented architecture; and explicit sourced draft gaps.
+The [authoring guide](design/model-authoring.md) describes the commands and report
+semantics, and the [skills package](skills/INSTALL.md) guides external agents.
+
+Fresh Memento and equipment-reservation Hubs demonstrate capture, named baseline A,
+ordinary successor B, reopening, exact original bytes and operation-receipt recovery.
+The [reference walkthrough](examples/fixtures/README.md) gives their locations and
+read commands. The Memento model is a valid draft with **1,504 structured omissions**:
+exact narrative/code/artifacts retain details that have not yet been fully decomposed
+into model fields and relationships. Passing its declared source inventory does not
+establish complete business meaning or human acceptance.
+
+The [3 November implementation evidence](delivery/evidence/mm-sl-01/20261103-apply/README.md)
+records 115 Rust target tests, three doctests, 19 host checks, Clippy, release examples
+and strict OpenSpec validation. Modelarium registration/in-app editing, canonical
+self-model refresh and human acceptance remain separate work. External host/platform
+gates retain their exact status in the change task files and evidence.
 
 ## Getting started
 
@@ -63,6 +103,17 @@ cargo run --release --example minimal_model -- "$PWD/target/first-hub"
 Use an unused absolute store path whose parent directory already exists. The example
 creates a Hub, registers the built-in ontology through an atomic change and prints the
 commit receipt. To run it again, choose another unused path.
+
+### Author from documents and UI sources
+
+Build `cargo build --offline --release --bin knowledgehub-model`, then follow the
+[source/plan/host input contract](design/model-authoring.md) or replay a maintained
+[reference fixture](examples/fixtures/README.md). The command sequence is
+`catalogue → capture → prepare → assess → create → resolve → verify`;
+`resume` continues an interrupted recorded run under current host authority.
+Every destination is fresh and verification reports draft gaps separately from
+native validity and declared source coverage. Imported scripts and business rules
+are retained data; this workflow executes no target application behavior.
 
 ### Add it to an application
 
@@ -136,21 +187,19 @@ separate facts with their own scope.
 | [shared_storage](examples/shared_storage.rs) | Commit sourced records, create baselines A/B, read historical content, retry an operation and reopen the store. |
 | [neighbours](examples/neighbours.rs) | Read typed connections through the batch neighbour API. |
 | [rent_impact](examples/rent_impact.rs) | Explore a fictional model through text and composite impact queries. |
-| [inspect_self_model](examples/inspect_self_model.rs) | Inspect KnowledgeHub's persisted self-description through the ordinary public API. |
+| [inspect_self_model](examples/inspect_self_model.rs) | Inspect a self-description created for the binary's matching codec contract; see the historical-store boundary below. |
 
-The [included self-description](hub/README.md) captures the library's own definitions,
-delivery slices, specifications and evidence. Its recorded checkpoint contains 9,578
-selected records, 9,584 retained revisions, eight generations and three baselines.
-Inspect it from the repository root:
+The [retained self-description](hub/README.md) captures an earlier checked library
+baseline. Its historical report records 9,578 selected records, 9,584 retained
+revisions, eight generations and three baselines. Its metadata still declares
+record/request codecs /2; the current library requires /3 even though both use
+the files/4 layout. The current inspector therefore cannot reopen that preserved
+instance. A canonical refresh requires its own scoped authorisation and verified
+run; the [self-model guide](design/self-model-consumer.md) explains this boundary.
 
-```sh
-cargo run --release --example inspect_self_model
-cargo run --release --example inspect_self_model -- --verify
-```
-
-The second command also checks actual neighbour, text and impact queries and performs
-a full storage scrub. This is a historical capture: editing repository files does not
-refresh its sources or transfer definition ownership from the repository to the Hub.
+Current /3 demonstrations live separately under `target/rich-design` and use the
+[standalone verification workflow](examples/fixtures/README.md). Repository edits
+do not refresh either historical captures or their definition ownership.
 
 ## Storage and platform support
 
@@ -179,6 +228,9 @@ FFI remain deferred.
 
 - [Current API contract](design/typed-ontology-api.md): exact revisions, changes,
   ownership, queries, budgets and policy checks.
+- [Standalone authoring](design/model-authoring.md), [agent skills](skills/INSTALL.md)
+  and [reference models](examples/fixtures/README.md): source interpretation,
+  typed planning, native publication, recovery and independent verification.
 - [File storage guide](design/files3-guide.md) and [native profiles](design/macos-file-backend.md):
   storage, maintenance, persistence and supported environments.
 - [Ontology proposal](source/system-definition-ontology-proposal.md): the source model
@@ -188,9 +240,10 @@ FFI remain deferred.
 - [Domain analysis](design/domain-analysis.md), [delivery plan](delivery/slice-plan.md)
   and [self-hosting plan](design/self-hosting-plan.md): project responsibilities,
   implementation sequence and definition ownership.
-- [Verification evidence](delivery/evidence/v010/README.md) and
-  [native macOS results](delivery/evidence/macos-file-backend/README.md): scoped,
-  inspectable execution results and remaining verification work.
+- [Current authoring evidence](delivery/evidence/mm-sl-01/20261103-apply/README.md),
+  [earlier cutover evidence](delivery/evidence/v010/README.md) and
+  [native platform results](delivery/evidence/macos-file-backend/README.md):
+  scoped execution results and remaining verification work.
 
 To build the local API documentation, run `cargo doc --no-deps --open`. Before submitting
 a code change, run the following on a supported local filesystem:

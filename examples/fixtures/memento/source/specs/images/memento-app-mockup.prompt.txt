@@ -1,0 +1,14 @@
+Use case: ui-mockup. Create a polished, very detailed screenshot-style graphic of Memento, a collaborative visual workspace for people and AI agents. EXACT 16:10 landscape aspect ratio, 1920 x 1200 pixels. Flat straight-on desktop app, edge to edge, no device or presentation border. Crisp readable English typography, warm ivory dot-grid canvas, thin borders, subtle shadows, pastel sticky notes, elegant routed arrow connectors, sophisticated functional UI.
+
+Top bar: "Memento", "Atlas Launch", tabs "Canvas / Memory / Activity", "Saved", Maya and Leo avatars, "2 people online", "Share". Narrow left sidebar: workspace and boards, sources, generic "Mail" and "Groupware" connections with green status; vertical drawing toolbar. Bottom minimap, zoom "85%".
+
+The main canvas dominates and contains a rich, complex composition of about 26 notes/cards and 30 branching labeled relationships in five subtly framed regions:
+1. "Incoming context": email source cards "Move briefing to 11:00", "Speaker availability", "Original launch plan", with sender, sync time, source badges.
+2. "Explore the impact": eight sticky notes: "Update the agenda", "Notify attendees", "Keep the launch date", "Room setup +30 min", "Recording required", "Follow-up owner?", "Protect rehearsal time", "Check availability". Tiny author initials, Maya and Leo live cursors.
+3. "Decision memory": old "Briefing at 10:00" marked Superseded, selected teal "Briefing at 11:00" marked Accepted, lavender AI proposals "Option A · shift one hour" and "Option B · change speaker", evidence chips.
+4. "Reasoning & dependencies": a connected memory graph with six nodes: launch objective, stakeholder request, speaker constraint, revised schedule, team agreement, follow-up owner.
+5. "Connected actions": "Update launch briefing / Owner: Leo / Groupware · Completed", "Reply to stakeholder / Awaiting approval / Review reply", "Update agenda / In progress", "Notify attendees / Ready".
+
+Connect frames and individual notes with clearly visible, carefully routed curves and elbow arrows, labeled "supports", "derived-from", "depends-on", "supersedes", "results-in". Teal evidence edges, lilac agent contributions, amber dependencies. Coherent flow from source to ideas to decision to action; many cross-links, legible hierarchy, no overlapping text.
+
+Compact right inspector: "Agent activity", "Facilitator", "Read 6 linked sources", "Added 2 proposals", "Linked supporting evidence"; selected decision "Briefing at 11:00", "Accepted", evidence links; "Action coordinator", "Task synced to groupware", "Reply awaiting approval". UI line icons, selection handles, timestamps, statuses, source links. Generic email/groupware only, no vendor logos. Extremely crafted rich collaborative knowledge canvas, not a sparse diagram or chat interface.

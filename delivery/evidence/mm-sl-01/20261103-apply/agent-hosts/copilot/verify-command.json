@@ -1,0 +1,14 @@
+[
+  "copilot",
+  "--prompt",
+  "Use the knowledgehub-verify skill discovered in this project. This is a fresh independent verification process of the retained native result. Read the skill, then execute ./knowledgehub-model resolve run host.json and ./knowledgehub-model verify run host.json. Inspect run/verification.json and return actual validity, completeness, coverage, baseline and pending human meaning review. Do not edit the source, plan, settings, skills or backend files. Do not delegate or spawn agents.",
+  "--trust-folder",
+  "--no-auto-update",
+  "--no-ask-user",
+  "--disable-builtin-mcps",
+  "--allow-tool=shell(./knowledgehub-model:*)",
+  "--max-ai-credits",
+  "30",
+  "--output-format",
+  "json"
+]

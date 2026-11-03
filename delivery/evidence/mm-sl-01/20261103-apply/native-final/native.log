@@ -1,0 +1,434 @@
+{
+  "system": "macOS",
+  "architecture": "arm64",
+  "compiler": "rustc 1.99.1 (58cf8f9c3 2026-10-13)\nbinary: rustc\ncommit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67\ncommit-date: 2026-10-13\nhost: aarch64-apple-darwin\nrelease: 1.99.1\nLLVM version: 23.1.1\n",
+  "os_version": "26.6.2",
+  "os_build": "25G83",
+  "profile": "macos-aarch64/local-apfs/single-host/1",
+  "volume": {
+    "AESHardware": true,
+    "APFSContainerFree": 109215354880,
+    "APFSContainerReference": "disk3",
+    "APFSContainerSize": 494384795648,
+    "APFSPhysicalStores": [
+      {
+        "APFSPhysicalStore": "disk0s2"
+      }
+    ],
+    "APFSSnapshot": false,
+    "APFSVolumeGroupID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+    "Bootable": true,
+    "BooterDeviceIdentifier": "disk3s2",
+    "BusProtocol": "Apple Fabric",
+    "CanBeMadeBootable": false,
+    "CanBeMadeBootableRequiresDestroy": false,
+    "CapacityInUse": 360648503296,
+    "Content": "41504653-0000-11AA-AA11-00306543ECAC",
+    "DeviceBlockSize": 4096,
+    "DeviceIdentifier": "disk3s5",
+    "DeviceNode": "/dev/disk3s5",
+    "DeviceTreePath": "IODeviceTree:/arm-io@10F00000/ans@9600000/iop-ans-nub/AppleANS3CGv2Controller",
+    "DiskUUID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+    "Ejectable": false,
+    "EjectableMediaAutomaticUnderSoftwareControl": false,
+    "EjectableOnly": false,
+    "Encryption": true,
+    "EncryptionThisVolumeProper": true,
+    "FileVault": true,
+    "FilesystemName": "APFS",
+    "FilesystemType": "apfs",
+    "FilesystemUserVisibleName": "APFS",
+    "FreeSpace": 0,
+    "GlobalPermissionsEnabled": true,
+    "IOKitSize": 494384795648,
+    "IORegistryEntryName": "Data",
+    "Internal": true,
+    "Locked": false,
+    "MediaName": "",
+    "MediaType": "Generic",
+    "MountPoint": "/System/Volumes/Data",
+    "OSInternalMedia": false,
+    "ParentWholeDisk": "disk3",
+    "PartitionMapPartition": false,
+    "RAIDMaster": false,
+    "RAIDSlice": false,
+    "RecoveryDeviceIdentifier": "disk3s3",
+    "Removable": false,
+    "RemovableMedia": false,
+    "RemovableMediaOrExternalDevice": false,
+    "SMARTDeviceSpecificKeysMayVaryNotGuaranteed": {
+      "AVAILABLE_SPARE": 100,
+      "AVAILABLE_SPARE_THRESHOLD": 99,
+      "CONTROLLER_BUSY_TIME_0": 0,
+      "CONTROLLER_BUSY_TIME_1": 0,
+      "DATA_UNITS_READ_0": 77241011,
+      "DATA_UNITS_READ_1": 0,
+      "DATA_UNITS_WRITTEN_0": 34785316,
+      "DATA_UNITS_WRITTEN_1": 0,
+      "HOST_READ_COMMANDS_0": 2667682270,
+      "HOST_READ_COMMANDS_1": 0,
+      "HOST_WRITE_COMMANDS_0": 1186307162,
+      "HOST_WRITE_COMMANDS_1": 0,
+      "MEDIA_ERRORS_0": 0,
+      "MEDIA_ERRORS_1": 0,
+      "NUM_ERROR_INFO_LOG_ENTRIES_0": 0,
+      "NUM_ERROR_INFO_LOG_ENTRIES_1": 0,
+      "PERCENTAGE_USED": 1,
+      "POWER_CYCLES_0": 508,
+      "POWER_CYCLES_1": 0,
+      "POWER_ON_HOURS_0": 728,
+      "POWER_ON_HOURS_1": 0,
+      "TEMPERATURE": 305,
+      "UNSAFE_SHUTDOWNS_0": 20,
+      "UNSAFE_SHUTDOWNS_1": 0
+    },
+    "SMARTStatus": "Verified",
+    "Sealed": "No",
+    "Size": 494384795648,
+    "SolidState": true,
+    "SupportsGlobalPermissionsDisable": true,
+    "SystemImage": false,
+    "TotalSize": 494384795648,
+    "VolumeAllocationBlockSize": 4096,
+    "VolumeName": "Data",
+    "VolumeSize": 0,
+    "VolumeUUID": "B658B1EC-C246-4282-84CA-29EF27EDC4CA",
+    "WholeDisk": false,
+    "Writable": true,
+    "WritableMedia": true,
+    "WritableVolume": true
+  },
+  "kernel": "Darwin M-CK04W156W4 25.6.0 Darwin Kernel Version 25.6.0: Fri Jul 31 19:17:26 PDT 2026; root:xnu-12377.161.14~5/RELEASE_ARM64_T6041 arm64"
+}
+
+$ rustc -Vv
+rustc 1.99.1 (58cf8f9c3 2026-10-13)
+binary: rustc
+commit-hash: 58cf8f9c35b355199727627d07ae34a4e2846d67
+commit-date: 2026-10-13
+host: aarch64-apple-darwin
+release: 1.99.1
+LLVM version: 23.1.1
+
+$ cargo fmt --all -- --check
+
+$ cargo test --offline --all-targets
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.99s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 38 tests
+test codec::tests::canonical_rfc8785_subset_vectors ... ok
+test ontology::api::tests::comparison_detects_nested_narratives_and_native_representation_changes ... ok
+test jobs::tests::cancelled_wait_keeps_capacity_and_drain_waits ... ok
+test ontology::validation::locator_tests::original_coordinates_are_typed_bounded_and_independent_of_derived_text ... ok
+test ontology::navigation::tests::controlled_clock_expires_at_thirty_idle_minutes ... ok
+test ontology::validation::tests::closed_constraint_primitives_have_independent_positive_and_negative_cases ... ok
+test ontology::impact::tests::limits_count_filtered_and_duplicate_work_and_bound_every_response ... ok
+test ontology::impact::tests::composite_cursors_share_capacity_expire_and_recheck_disclosure ... ok
+test shared_fault_tests::process_race_worker ... ok
+test shared_fault_tests::process_worker ... ok
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state has been running for over 60 seconds
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes has been running for over 60 seconds
+test shared_fault_tests::native_sync_failures_preserve_prior_or_recover_exact_original_receipt has been running for over 60 seconds
+test shared_fault_tests::native_sync_failures_preserve_prior_or_recover_exact_original_receipt ... ok
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary has been running for over 60 seconds
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary ... ok
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state ... ok
+test storage::native::tests::declarations_are_explicit_and_coordination_is_required ... ok
+test storage::native::tests::injected_apfs_observations_refuse_nonlocal_readonly_and_other_filesystems ... ok
+test storage::shared::content::tests::chunks_ranges_and_append_reuse_original_bytes ... ok
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary has been running for over 60 seconds
+test shared_fault_tests::two_process_same_base_race_has_one_winner ... ok
+test storage::shared::neighbours::tests::corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity ... ok
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome has been running for over 60 seconds
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome ... ok
+test storage::shared::neighbours::tests::finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query ... ok
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary ... ok
+test storage::shared::neighbours::tests::preparation_budgets_quota_and_view_eviction_preserve_knowledge ... ok
+test storage::shared::objects::tests::frames_are_strict_bounded_lossless_and_kind_separated ... ok
+test storage::shared::neighbours::tests::ready_lookup_ignores_unrelated_artifacts_and_reports_no_state_materialisation ... ok
+test storage::shared::packed_cache::tests::publication_faults_quota_and_sidecar_reconstruction_are_safe ... ok
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes ... ok
+test storage::shared::packed_cache::tests::large_packed_index_is_bounded_selective_and_immutable ... ok
+test storage::shared::projection::tests::original_kernel_digests_spans_order_nulls_and_cycles_round_trip ... ok
+test storage::shared::neighbours::tests::readers_coordinate_cache_eviction_on_both_runtime_configurations ... ok
+test storage::shared::tests::current_default_guards_policy_and_same_base_race ... ok
+test storage::shared::tests::native_profile_refuses_wrong_host_and_symlink_layout_before_mutation ... ok
+test storage::shared::tests::coordinated_reader_and_maintenance_on_both_host_runtimes ... ok
+test storage::shared::tests::native_creation_profiles_are_provenance_and_unknown_metadata_never_mutates ... ok
+test storage::shared::trees::tests::persistent_maps_share_paths_and_preserve_prior_roots ... ok
+test storage::shared::trees::tests::sequences_preserve_order_duplicates_and_share_edits ... ok
+test storage::shared::trees::tests::batched_maps_and_sequence_appends_emit_only_final_changed_nodes ... ok
+test storage::shared::tests::original_retry_absence_orphans_missing_receipts_and_point_read_work ... ok
+test storage::shared::tests::ranges_skip_unrelated_content_and_scrub_finds_retained_corruption ... ok
+
+test result: ok. 38 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 309.45s
+
+     Running unittests src/bin/knowledgehub-model.rs (target/debug/deps/knowledgehub_model-9981eb0054f21c8e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/experience_contract.rs (target/debug/deps/experience_contract-40c77ff384e7dea8)
+
+running 2 tests
+test equipment_map_shared_stories_cuts_and_all_structural_rejections ... ok
+test guarded_publication_navigation_baselines_reopen_and_recovery ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 35.25s
+
+     Running tests/impact_oracle.rs (target/debug/deps/impact_oracle-77b1c96f419c6c7b)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/logical_design_contract.rs (target/debug/deps/logical_design_contract-5fa79bcfeda27bab)
+
+running 4 tests
+test inherited_semantics_both_endpoints_and_local_constraints ... ok
+test exact_selectors_diamonds_conflicts_cycles_and_native_boundaries ... ok
+test extension_registration_paged_inclusive_reads_exact_baselines_and_receipts ... ok
+test logical_constructors_subjects_planned_realization_and_precise_gaps ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 57.83s
+
+     Running tests/model_authoring.rs (target/debug/deps/model_authoring-64e213b585ed217b)
+
+running 7 tests
+test cancelled_model_process_resumes_original_operation_without_duplicate_model ... ok
+test interrupted_dispatch_reconciles_original_intent_and_current_authority ... ok
+test inventory_limits_escape_and_changed_plan_fail_before_publication ... ok
+test finite_query_pages_and_truncation_never_claim_full_coverage ... ok
+test fresh_authoring_native_assessment_independent_verification_and_coverage_failure has been running for over 60 seconds
+test fresh_authoring_native_assessment_independent_verification_and_coverage_failure ... ok
+test verification_budgets_fail_explicitly_and_missing_dependency_stays_visible ... ok
+test original_model_dispatch_recovers_at_each_process_checkpoint has been running for over 60 seconds
+test original_model_dispatch_recovers_at_each_process_checkpoint ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 98.15s
+
+     Running tests/model_impact.rs (target/debug/deps/model_impact-d094ff4d6d8a0002)
+
+running 6 tests
+test finite_work_unknown_selectors_unresolved_starts_and_compact_large_targets ... ok
+test literal_modes_exact_fields_candidate_verification_and_incremental_successors ... ok
+test strict_owned_contracts_reject_unknown_modes_fields_and_unbounded_plans ... ok
+test mixed_seven_hop_plan_cycles_parallel_origins_and_nearer_targets ... ok
+test composite_ambiguity_grouping_paging_full_intent_and_pin ... ok
+test pinned_results_survive_reopen_rebuild_and_late_link_without_full_state_loads ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 56.55s
+
+     Running tests/neighbours.rs (target/debug/deps/neighbours-438846a8d3cc1b29)
+
+running 7 tests
+test current_query_follows_six_hops_without_a_format_switch ... ok
+test current_query_order_filters_and_paging_match_independent_oracle ... ok
+test strict_current_contract_bounds_and_readiness ... ok
+test late_links_exact_scopes_and_ready_point_reads ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle has been running for over 60 seconds
+test paging_is_bounded_and_survives_head_movement_and_cache_eviction ... ok
+test successors_selection_and_schema_versions_equal_clean_rebuilds ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 199.35s
+
+     Running tests/ontology_contract.rs (target/debug/deps/ontology_contract-042e38e23c4572cd)
+
+running 25 tests
+test binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes ... ok
+test all_families_and_kernel_relationships_commit_and_reopen ... ok
+test baseline_comparison_reports_unicode_additions_removals_and_stable_order ... ok
+test cycles_process_membership_transformation_kinds_and_contracts ... ok
+test damaged_typed_binary_is_integrity_failure_and_never_operation_absence ... ok
+test bounded_navigation_cursors_policy_and_selection_binding has been running for over 60 seconds
+test bounded_navigation_cursors_policy_and_selection_binding ... ok
+test coherent_successors_baselines_and_replay_current_thread has been running for over 60 seconds
+test each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity ... ok
+test coherent_successors_baselines_and_replay_multithreaded has been running for over 60 seconds
+test directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact ... ok
+test coherent_successors_baselines_and_replay_current_thread ... ok
+test every_declared_signature_rejects_wrong_direction_and_targets ... ok
+test every_family_has_a_complete_connected_typed_specimen ... ok
+test every_declared_property_has_independent_missing_and_invalid_evidence ... ok
+test kernel_codecs_are_closed_and_missing_catalogue_family_is_reported ... ok
+test native_decision_tables_remain_exact_and_definitions_do_not_become_observations ... ok
+test nested_owner_paths_distinguish_literal_slashes_and_tildes ... ok
+test full_catalogue_registration_reopen_and_original_receipt ... ok
+test retained_definitions_do_not_hide_a_missing_active_family ... ok
+test coherent_successors_baselines_and_replay_multithreaded ... ok
+test invalid_baseline_closures_and_competing_ownership_are_rejected ... ok
+test scalar_encodings_closed_requests_and_revision_tokens_are_lossless ... ok
+test superseded_formats_are_refused_without_mutation ... ok
+test registration_is_atomic_recursive_guarded_and_currently_authorised ... ok
+test selection_restores_exact_history_and_refuses_a_second_origin ... ok
+test specialised_integrity_draft_gaps_and_native_roles ... ok
+test typed_same_base_root_and_baseline_race_has_one_winner ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 164.87s
+
+     Running tests/public_contract.rs (target/debug/deps/public_contract-ef81fff3792ea391)
+
+running 12 tests
+test coordinated_exclusive_scope_creation ... ok
+test file_adapter_requires_the_host_runtime_and_creates_none ... ok
+test incompatible_and_damaged_stores_are_not_recreated ... ok
+test default_denial_revocation_and_policy_failure ... ok
+test canonical_retries_bytes_actor_and_operation_order ... ok
+test explicit_revision_and_absence_guards ... ok
+test public_walkthrough_current_thread ... ok
+test refuses_unsupported_declared_filesystem ... ok
+test recheck_policy_inside_publication_lock ... ok
+test invalid_current_changes_preserve_head_independently ... ok
+test public_walkthrough_multithreaded ... ok
+test separately_opened_instances_race_and_later_stale_conflict ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 49.15s
+
+     Running tests/rent_impact.rs (target/debug/deps/rent_impact-2aac3ef2f6b0ae1a)
+
+running 3 tests
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest has been running for over 60 seconds
+test narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl has been running for over 60 seconds
+test text_readiness_corruption_policy_and_source_successor_remain_explicit has been running for over 60 seconds
+test text_readiness_corruption_policy_and_source_successor_remain_explicit ... ok
+test narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl ... ok
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 134.57s
+
+     Running tests/shared_storage.rs (target/debug/deps/shared_storage-e231739241fe8620)
+
+running 1 test
+test public_shared_walkthrough_pack_reindex_and_materialise has been running for over 60 seconds
+test public_shared_walkthrough_pack_reindex_and_materialise ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 171.05s
+
+     Running unittests examples/catalogue_conformance.rs (target/debug/examples/catalogue_conformance-99212c3b70012771)
+
+running 2 tests
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/full_self_description.rs (target/debug/examples/full_self_description-f3efd815f283c80f)
+
+running 3 tests
+test host::archive_paths::capture_identity_survives_archive_and_main_specs_are_distinct ... ok
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/impact_benchmark.rs (target/debug/examples/impact_benchmark-b2c77205c6742d9e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/inspect_self_model.rs (target/debug/examples/inspect_self_model-cedf250bc118457b)
+
+running 3 tests
+test host::archive_paths::capture_identity_survives_archive_and_main_specs_are_distinct ... ok
+test file_format::tests::ordinary_commands_need_no_format_selection ... ok
+test file_format::tests::obsolete_format_flags_and_missing_values_are_refused ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/minimal_model.rs (target/debug/examples/minimal_model-94fa2139881874a4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/model_successor.rs (target/debug/examples/model_successor-71f83f4aca85ad6e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/neighbour_benchmark.rs (target/debug/examples/neighbour_benchmark-9b2cd5f2860e0ee1)
+
+running 1 test
+test resource_usage::tests::rss_units_missing_and_overflow_are_explicit ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/neighbours.rs (target/debug/examples/neighbours-d43701a9273d7eb4)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/rent_impact.rs (target/debug/examples/rent_impact-123d1d726a43d0bd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/shared_storage.rs (target/debug/examples/shared_storage-24cf451c634feacd)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests examples/storage_benchmark.rs (target/debug/examples/storage_benchmark-87407f68d475891f)
+
+running 1 test
+test resource_usage::tests::rss_units_missing_and_overflow_are_explicit ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+$ cargo test --offline --doc
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.32s
+   Doc-tests knowledgehub
+
+running 1 test
+test src/lib.rs - (line 100) - compile ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test src/lib.rs - (line 229) - compile fail ... ok
+test src/lib.rs - (line 232) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s
+
+all doctests ran in 1.09s; merged doctests compilation took 0.62s
+
+$ cargo clippy --offline --all-targets -- -D warnings
+    Checking knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `dev` profile [unoptimized + debuginfo] target(s) in 0.30s
+
+$ /opt/homebrew/opt/python@3.14/bin/python3.14 -m unittest discover -s tests -p host_workflows.py -v
+test_active_backend_writer_prevents_deletion (host_workflows.HostWorkflows.test_active_backend_writer_prevents_deletion) ... ok
+test_capture_output_refuses_retained_directory_names (host_workflows.HostWorkflows.test_capture_output_refuses_retained_directory_names) ... ok
+test_change_origin_survives_archive_and_refuses_ambiguity (host_workflows.HostWorkflows.test_change_origin_survives_archive_and_refuses_ambiguity) ... ok
+test_explicit_current_reset_removes_prior_content_and_preserves_external_evidence (host_workflows.HostWorkflows.test_explicit_current_reset_removes_prior_content_and_preserves_external_evidence) ... ok
+test_failed_dataset_verification_never_marks_the_new_store_verified (host_workflows.HostWorkflows.test_failed_dataset_verification_never_marks_the_new_store_verified) ... ok
+test_failed_preflight_preserves_current_store (host_workflows.HostWorkflows.test_failed_preflight_preserves_current_store) ... ok
+test_first_cutover_refuses_occupied_and_old_destinations_without_writes (host_workflows.HostWorkflows.test_first_cutover_refuses_occupied_and_old_destinations_without_writes) ... ok
+test_historical_native_evidence_is_not_overwritten (host_workflows.HostWorkflows.test_historical_native_evidence_is_not_overwritten) ... ok
+test_interrupted_population_is_failed_and_explicit_retry_is_fresh (host_workflows.HostWorkflows.test_interrupted_population_is_failed_and_explicit_retry_is_fresh) ... ok
+test_missing_platform_facts_produce_failure_log_without_success_manifest (host_workflows.HostWorkflows.test_missing_platform_facts_produce_failure_log_without_success_manifest) ... ok
+test_native_platform_branches_keep_actual_units_and_mount_facts (host_workflows.HostWorkflows.test_native_platform_branches_keep_actual_units_and_mount_facts) ... ok
+test_old_hub_inventory_is_unchanged_and_never_captured (host_workflows.HostWorkflows.test_old_hub_inventory_is_unchanged_and_never_captured) ... ok
+test_origins_refuse_duplicates_unknown_changes_and_stale_modules (host_workflows.HostWorkflows.test_origins_refuse_duplicates_unknown_changes_and_stale_modules) ... ok
+test_outputs_cache_and_evidence_cannot_recurse_into_capture (host_workflows.HostWorkflows.test_outputs_cache_and_evidence_cannot_recurse_into_capture) ... ok
+test_package_identity_requires_matching_unpublished_v010 (host_workflows.HostWorkflows.test_package_identity_requires_matching_unpublished_v010) ... ok
+test_stale_added_removed_source_and_log_or_build_bytes_are_refused (host_workflows.HostWorkflows.test_stale_added_removed_source_and_log_or_build_bytes_are_refused) ... ok
+test_subtree_symlinks_and_unexpected_scope_are_refused (host_workflows.HostWorkflows.test_subtree_symlinks_and_unexpected_scope_are_refused) ... ok
+test_unmarked_partial_directory_is_not_a_reset_target (host_workflows.HostWorkflows.test_unmarked_partial_directory_is_not_a_reset_target) ... ok
+test_unsafe_parent_repository_unrelated_and_symlink_targets (host_workflows.HostWorkflows.test_unsafe_parent_repository_unrelated_and_symlink_targets) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 0.224s
+
+OK

@@ -421,6 +421,21 @@ impl Builder {
   }
             }
         }
+        if kind == "DataType" {
+            let field = match values.get("value_kind").and_then(Value::as_text) {
+                Some("enumeration") => Some("enum_values"),
+                Some("record") => Some("record_schema"),
+                Some("list" | "set") => Some("item_type"),
+                Some("reference") => Some("reference_targets"),
+                _ => None,
+            };
+            if let Some(field) = field {
+                if !values.contains_key(field) {
+                    self.state.gaps.push(Gap { subject: reference.clone(), path: format!("/{field}"),
+                        reason: "The exact Rust source representation is retained; this logical constructor binding has not been resolved by the self-description authoring projection.".into(), provenance: vec![a.clone()] });
+                }
+            }
+        }
         self.add(
             Record::new(
                 reference.clone(),
@@ -569,7 +584,6 @@ fn signature_schema(
                     ])),
                 ),
                 ("constraints", list([])),
-                ("reference_targets", list([])),
             ]),
         )?);
     }
@@ -592,12 +606,12 @@ pub fn author(
             "source/system-definition-ontology-proposal.md" => Some(ExactRef::new(
                 "sdo",
                 "urn:source:ontology:capture",
-                "catalogue-1",
+                "catalogue-3",
             )),
             "source/system-definition-ontology-proposal.pdf" => Some(ExactRef::new(
                 "sdo",
                 "sdo:source:ontology-pdf:capture",
-                "catalogue-1",
+                "catalogue-3",
             )),
             _ => None,
         };
@@ -864,6 +878,7 @@ pub fn author(
         source.clone(),
         properties([
             ("value_kind", Value::enumeration("record")),
+            ("record_schema", Value::Ref(schema.clone())),
             ("value_constraints", list([])),
         ]),
     )?;
@@ -963,7 +978,6 @@ pub fn author(
                     ),
                     ("cardinality", cardinality),
                     ("constraints", list([])),
-                    ("reference_targets", list([])),
                 ]),
             )?;
             schema_fields.entry(s.clone()).or_default().push(f);
@@ -1950,7 +1964,7 @@ pub fn author(
             name,
             b.anchors["delivery/slice-plan.md"].clone(),
             properties([
-                ("journey", Value::Ref(journey.clone())),
+                ("journeys", Value::Set(vec![Value::Ref(journey.clone())])),
                 ("tasks", list([task])),
             ]),
         )?);
@@ -1962,7 +1976,14 @@ pub fn author(
         "Library source story map",
         b.anchors["delivery/slice-plan.md"].clone(),
         properties([
-            ("journey", Value::Ref(journey)),
+            ("journeys", Value::Set(vec![Value::Ref(journey)])),
+            (
+                "placements",
+                list([
+                    r("kh:placement:full-ontology"),
+                    r("kh:placement:self-description"),
+                ]),
+            ),
             ("activities", list(activities)),
             (
                 "cuts",
@@ -1974,6 +1995,22 @@ pub fn author(
         ("full-ontology", "KH-US-19"),
         ("self-description", "KH-US-23"),
     ] {
+        let placement = b.make(
+            "journeys",
+            "StoryPlacement",
+            &format!("kh:placement:{name}"),
+            name,
+            b.anchors["delivery/slice-plan.md"].clone(),
+            properties([
+                ("map", Value::Ref(map.clone())),
+                ("task", Value::Ref(r("kh:task:propose-and-commit"))),
+                ("story", Value::Ref(r(&format!("kh:story:{story}")))),
+                (
+                    "order",
+                    Value::Integer(if name == "full-ontology" { "0" } else { "1" }.into()),
+                ),
+            ]),
+        )?;
         b.make(
             "journeys",
             "OutcomeCut",
@@ -1982,7 +2019,7 @@ pub fn author(
             b.anchors["delivery/slice-plan.md"].clone(),
             properties([
                 ("map", Value::Ref(map.clone())),
-                ("stories", list([r(&format!("kh:story:{story}"))])),
+                ("placements", Value::Set(vec![Value::Ref(placement)])),
                 ("prerequisites", list([])),
                 ("exclusions", Value::List(vec![])),
             ]),

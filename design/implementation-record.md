@@ -1,5 +1,10 @@
 # KH-SL-001 implementation record
 
+Historical first-slice record. Its seed API, formats and platform observations
+belong to that original checkpoint. For the implemented catalogue-3/full API and
+standalone authoring boundary, see the [current overview](../README.md#current-delivered-state),
+[authoring guide](model-authoring.md) and [MM-SL-01 evidence](../delivery/evidence/mm-sl-01/20261103-apply/README.md).
+
 31 October 2026 · Implementation authorised; human acceptance pending.
 
 The user explicitly requested implementation of the first OpenSpec change,

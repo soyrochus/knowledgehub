@@ -1,0 +1,22 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.12s
+     Running tests/experience_contract.rs (target/debug/deps/experience_contract-40c77ff384e7dea8)
+
+running 2 tests
+test equipment_map_shared_stories_cuts_and_all_structural_rejections ... ok
+test guarded_publication_navigation_baselines_reopen_and_recovery ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 55.34s
+
+     Running tests/logical_design_contract.rs (target/debug/deps/logical_design_contract-5fa79bcfeda27bab)
+
+running 4 tests
+test inherited_semantics_both_endpoints_and_local_constraints ... ok
+test exact_selectors_diamonds_conflicts_cycles_and_native_boundaries ... ok
+test extension_registration_paged_inclusive_reads_exact_baselines_and_receipts has been running for over 60 seconds
+test logical_constructors_subjects_planned_realization_and_precise_gaps has been running for over 60 seconds
+test logical_constructors_subjects_planned_realization_and_precise_gaps ... ok
+test extension_registration_paged_inclusive_reads_exact_baselines_and_receipts ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 64.84s
+

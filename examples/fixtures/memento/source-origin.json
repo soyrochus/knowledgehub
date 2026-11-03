@@ -1,0 +1,205 @@
+{
+  "origin": "user-supplied modelarium/example package (read-only copy)",
+  "captured_date": "2026-11-03",
+  "files": [
+    {
+      "path": ".DS_Store",
+      "sha256": "6e4e0ac126fad06b9896ac132e105772761ecdeeba3ddef8f6a74fdd0af4dcb7",
+      "length": 6148,
+      "disposition": "excluded-metadata"
+    },
+    {
+      "path": "mockups/01-access.html",
+      "sha256": "484796869eab277a23d7c0a38d39ab6ba992ba5a0352ea02098c92767d3c5518",
+      "length": 5228,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/02-home.html",
+      "sha256": "ae5979347c6beee0104e6003eebb2b48a2509d64e86e9798aee1a3b99d549093",
+      "length": 2476,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/03-activity.html",
+      "sha256": "24dd0dc96fcbc502f998a2905b77dbf7d565244a8ef42b39a82b9e08a220045d",
+      "length": 2410,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/04-templates.html",
+      "sha256": "29a70afdccbe413fc0888d6776a9f194a61bb0a7057994d636991e29f9a5eaf1",
+      "length": 2412,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/05-board.html",
+      "sha256": "08916f7e9894fc2c0cc979563e1b52b5317a3abec130c7e0f8ac537b4920ece7",
+      "length": 2595,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/atlas-board.css",
+      "sha256": "a5e08a1f4446a81a21908d8e51a440d039fb60217a61f0c6613a11d42dd21271",
+      "length": 9008,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/atlas-board.js",
+      "sha256": "c5059303d99a84aefb0004d218e50978c249a1f33be283145d885b63f0cb3f73",
+      "length": 110823,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/board-demo.css",
+      "sha256": "d956487a0496c3600d2b3b90b829b0627c4336d115c1c9dfff5ecd2be7f67347",
+      "length": 1591,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/board-demo.js",
+      "sha256": "59ea4647086fbf0b0c57639c0fbeb8d45f8ea2a4e7ff31dd7e83d4bcf574df7f",
+      "length": 24628,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/index.html",
+      "sha256": "3ea9266bb42364f1e78c3f7b049a586967beec5d1a935cd33c0f5ef30e8f9349",
+      "length": 655,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/mockups.css",
+      "sha256": "0a63698a4ce6dd695517a92b42e7e3c6f3bbad74e03fe06be7d63c2c95457e09",
+      "length": 60360,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/mockups.js",
+      "sha256": "a3747b2668f34cc915957e628a55999bdce88e480a423f879b0e4f9e90b6dd13",
+      "length": 79054,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/tests/atlas-board.regression.js",
+      "sha256": "59e303225b8f248a6565910cafca9fbf49f5115fe30ba2302474ba2270738354",
+      "length": 25010,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/tests/board-demo.regression.js",
+      "sha256": "d69354db3535b3a4ef659a8d9b2912d3db2b5177f686a11e47745232328ec421",
+      "length": 8692,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/tests/flexible-board.regression.js",
+      "sha256": "8c90d945c97b26c830331c472096404d7cd3edaa1a0ca9955a6a06c94a43b4fc",
+      "length": 43878,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "mockups/themes.css",
+      "sha256": "cc3171b28547c9b4cde5db06bff2617ca3e0c53c695ddf88ad6661308c206246",
+      "length": 54221,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/.DS_Store",
+      "sha256": "3173527470399050b065869480a31690e079b7a5865b733ceae40026fccaf715",
+      "length": 6148,
+      "disposition": "excluded-metadata"
+    },
+    {
+      "path": "specs/images/memento-app-mockup.png",
+      "sha256": "cebe8764d2a4f79bb910fc9b71387ea09d2a31b891635149a570d23ac516630c",
+      "length": 1812751,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/images/memento-app-mockup.prompt.txt",
+      "sha256": "2679c0cfec5dba11cbe346adbc6bf2ab7453fd67c499a8660f5b1daa000fbd41",
+      "length": 2806,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-domain-spec.md",
+      "sha256": "6ffb05ff38291f81c98e5e52f945c2310649fc7a73699f1efb13dc28a869ed90",
+      "length": 35450,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-domain-spec.pdf",
+      "sha256": "2bc9f07ffabdf345a704f4125ecb569861049e908fd208538ba3a9d5fccf0350",
+      "length": 210779,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-experience-spec.md",
+      "sha256": "e96529ac481727376dbf99bda9ec5c5ef48c893f0f20e6fc26b62cfa8a86af68",
+      "length": 50575,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-experience-spec.pdf",
+      "sha256": "cea8a906ee3249614233f8549c17e31bd43e97deba68d3efce38d585633ff5d3",
+      "length": 89558,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-platform-spec.md",
+      "sha256": "425f4f68db51e5a6bebb0ac62bf85a1ba56933214a4fbf3a3611c1fff9e67954",
+      "length": 18988,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-platform-spec.pdf",
+      "sha256": "8db064327237d2fc9a07a7f459f6c2b9b2484603e6d6c6be74735050370320f1",
+      "length": 85676,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-spec.md",
+      "sha256": "e35289846156aef58263dc6da291d44477141d0dacfd0ef93a5bc1888c36b1fe",
+      "length": 21757,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-spec.pdf",
+      "sha256": "26349759181411e478c89f12f536ad6e98d107dbc684a0bd6e15190a2a2e245e",
+      "length": 290433,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-technical-spec.md",
+      "sha256": "d4dfe7d87fda6429ff78d36a17be176e12713ff088fec9c9ed2c011391d7f28d",
+      "length": 33975,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/memento-technical-spec.pdf",
+      "sha256": "c3a0cdf7b54267567db61a8fe92351fedfdfa0f4f825a000ec51075e55e129bb",
+      "length": 212763,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/research/comparison-mockup-versus-spec.md",
+      "sha256": "3227a620a844d11683150ac2ee3b55edae66e7d21b6dd40c16486fa03785f6af",
+      "length": 70630,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/research/open-source-board-libraries.md",
+      "sha256": "3d008ddb891fc7cb4426f57dd5413b9e3cc4adcfb2d191bbdb06f87efc4a4d71",
+      "length": 22798,
+      "disposition": "captured-source"
+    },
+    {
+      "path": "specs/research/spec-ui-spike.md",
+      "sha256": "9426f10c3969d657fe738f2ec28fd3a3cdac5d82dabccc1297b2ec0bd718f9d4",
+      "length": 8530,
+      "disposition": "captured-source"
+    }
+  ],
+  "source_revision": "exact per-file SHA-256; no application implementation or acceptance inferred"
+}

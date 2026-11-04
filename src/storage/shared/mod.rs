@@ -4,6 +4,7 @@ use std::sync::atomic::{AtomicU64, Ordering};
 
 mod content;
 mod generation;
+pub(super) mod history;
 mod maintenance;
 mod neighbours;
 mod objects;

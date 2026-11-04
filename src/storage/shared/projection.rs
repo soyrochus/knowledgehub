@@ -529,6 +529,29 @@ pub(super) fn decode_receipt(objects: &Objects<'_>, id: &str) -> Result<Receipt,
     serde_json::from_value(r.fields).map_err(|_| integrity("receipt projection"))
 }
 
+/// Read only scalar metadata and the sequence root/count; never expand affected items.
+pub(super) fn receipt_header(
+    objects: &Objects<'_>,
+    id: &str,
+) -> Result<(crate::PublicationHeader, String), Error> {
+    let r: StoredReceipt = objects.get_json(id, "receipt")?;
+    if r.schema != "knowledgehub-stored-receipt/2" || !model::hash(&r.affected_root) {
+        return Err(integrity("receipt header schema/root"));
+    }
+    let mut fields = r.fields;
+    let map = fields
+        .as_object_mut()
+        .ok_or_else(|| integrity("receipt fields"))?;
+    if map.contains_key("affected") || map.contains_key("affected_count") {
+        return Err(integrity("receipt scalar fields"));
+    }
+    let count = Tree { objects }.seq_count(&r.affected_root, "exact-refs/1")?;
+    map.insert("affected_count".into(), value!(count));
+    let header =
+        serde_json::from_value(fields).map_err(|_| integrity("receipt header projection"))?;
+    Ok((header, r.affected_root))
+}
+
 #[cfg(test)]
 mod tests {
     use super::*;

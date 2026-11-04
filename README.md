@@ -30,6 +30,9 @@ with database backends. The repository is [soyrochus/knowledgehub](https://githu
   and precise source anchors. Record interpretations, ownership and reviews separately.
 - **Preserve exact history.** Create successor revisions and named baselines, compare
   versions and read earlier definitions without silently substituting newer content.
+  Inspect original publications from other actors under current Read/ReadHistory
+  permission, with snapshot-pinned discovery and bounded affected-reference pages.
+  See [native publication history](design/native-model-history.md).
 - **Make coherent changes.** Commit related records, narrative and provenance together,
   with current authority checks, expected-head guards and recoverable operation receipts.
   Retrying the same request can recover its original result.
@@ -79,6 +82,12 @@ records 115 Rust target tests, three doctests, 19 host checks, Clippy, release e
 and strict OpenSpec validation. Modelarium registration/in-app editing, canonical
 self-model refresh and human acceptance remain separate work. External host/platform
 gates retain their exact status in the change task files and evidence.
+
+The native history reader adds separate current-authority publication disclosure while
+preserving actor-bound operation recovery. Its [guide](design/native-model-history.md)
+documents the source integration change (`Action::ReadHistory`), finite limits,
+process-local continuations and exact-receipt example. Modelarium and terminal
+integration remain separate work.
 
 ## Getting started
 

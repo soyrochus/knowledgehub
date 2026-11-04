@@ -1,0 +1,16 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.04s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 7 tests
+test storage::shared::history::budget::tests::checked_counter_overflow_is_explicit_and_guard_cleans_up ... ok
+test storage::shared::history::tests::header_count_is_selective_and_affected_ranges_preserve_repetitions ... ok
+test storage::shared::history::tests::accepted_anchors_exclude_staged_operations_and_foreign_snapshots ... ok
+test storage::shared::history::tests::inconsistent_receipt_and_ancestry_bindings_never_report_absence ... ok
+test storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget ... ok
+test storage::shared::history::tests::shared_cursor_capacity_idle_expiry_cross_scope_and_empty_affected ... ok
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds has been running for over 60 seconds
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 38 filtered out; finished in 98.39s
+

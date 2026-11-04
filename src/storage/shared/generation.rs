@@ -492,7 +492,7 @@ fn write_generation(
     )
 }
 
-fn ancestor(
+pub(super) fn ancestor(
     objects: &Objects<'_>,
     head_id: &str,
     head: &Generation,

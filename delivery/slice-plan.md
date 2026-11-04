@@ -367,3 +367,17 @@ The [local reference fixtures](../examples/fixtures/README.md) have actual A/B b
 [The exact-source batch](evidence/mm-sl-01/20261103-apply/README.md) passed 115 Rust target tests, three doctests, 19 host checks, formatting, Clippy and release examples. The task files retain pending external gates; platform closure remains with KH-SL-018. The root canonical Hub was preserved at its earlier codec-/2 checkpoint; the /3 reference Hubs are separate instances under target/rich-design.
 
 Review sequence: inspect source-to-model meaning and the explicit structured gaps, obtain human meaning review, then select further formalization as its own bounded change. MM-SL-02 registration/Modelarium editing, canonical self-model refresh, publication and authority handover remain later work.
+
+### MM-SL-02 C8 — Inspect original native publications under current authority
+
+The user authorised `expose-native-model-history` on 4 November 2026. A current reader
+can resolve another publisher's original operations, discover accepted publications in
+bounded pages at an exact anchor, reconstruct affected vectors and compose the results
+with existing exact source/predecessor/baseline reads. `ReadHistory` is explicit alongside
+ordinary `Read`; actor-bound operation recovery and mutation reuse remain unchanged.
+The [consumer guide](../design/native-model-history.md) records the delivered signatures,
+limits, continuations and failure outcomes. [Evidence](evidence/native-history/20261104-apply/README.md)
+separates public/runtime/reopen/packing checks from human acceptance and unavailable
+platform gates. No new storage/semantic codec, canonical refresh, Modelarium transport/UI
+or terminal implementation belongs to this cut. Later C9 and terminal work require their
+own bounded authorisation and must consume the delivered contract.

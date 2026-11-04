@@ -1,0 +1,18 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 1.13s
+   Doc-tests knowledgehub
+
+running 2 tests
+test src/lib.rs - (line 151) - compile ... ok
+test src/ontology/history/mod.rs - ontology::history (line 6) - compile ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+
+running 2 tests
+test src/lib.rs - (line 282) - compile fail ... ok
+test src/lib.rs - (line 285) - compile fail ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.22s
+
+all doctests ran in 1.00s; merged doctests compilation took 0.29s

@@ -1,0 +1,22 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.65s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 1 test
+test storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget ... FAILED
+
+failures:
+
+---- storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget stdout ----
+
+thread 'storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget' (505245) panicked at src/storage/shared/history/tests.rs:217:65:
+called `Result::unwrap()` on an `Err` value: HistoryLimit { resource: OutputBytes, limit: 1035, work: HistoryWork { visited_nodes: 13, encoded_bytes_read: 4569, decoded_bytes: 3200, storage_bytes: 7769, object_reads: 5, output_bytes: 0 } }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+
+failures:
+    storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget
+
+test result: FAILED. 0 passed; 1 failed; 0 ignored; 0 measured; 44 filtered out; finished in 7.35s
+
+error: test failed, to rerun pass `--lib`

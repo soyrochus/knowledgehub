@@ -100,6 +100,7 @@ impl KnowledgeHub {
                         touched: now,
                         neighbour: Some(NeighbourCursor { request, position }),
                         impact: None,
+                        history: None,
                     },
                 );
                 slice.page.continuation = Some(id);

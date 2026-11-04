@@ -175,6 +175,7 @@ impl KnowledgeHub {
                             touched: now,
                             neighbour: None,
                             impact: Some(c),
+                            history: None,
                         },
                     );
                     p.continuation = Some(id);

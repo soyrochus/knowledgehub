@@ -1,0 +1,3 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `release` profile [optimized] target(s) in 12.75s
+     Running `target/release/examples/native_history /Users/ivanderk/src/knowledgehub/target/native-history-20261104-final-budget`

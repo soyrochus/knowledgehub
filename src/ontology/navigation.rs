@@ -23,6 +23,7 @@ pub(crate) struct Cursor {
     pub(crate) touched: Duration,
     pub(crate) neighbour: Option<super::neighbours::NeighbourCursor>,
     pub(crate) impact: Option<super::impact::ImpactCursor>,
+    pub(crate) history: Option<super::history::HistoryCursor>,
 }
 impl Cursors {
     pub fn new() -> Self {
@@ -184,6 +185,7 @@ impl KnowledgeHub {
                     touched: now,
                     neighbour: None,
                     impact: None,
+                    history: None,
                 };
                 if cursor.items.len() <= cursor.query.page_size {
                     return Ok(page(&mut cursor, None));
@@ -247,6 +249,9 @@ impl KnowledgeHub {
                 {
                     return Err(Error::InvalidCursor);
                 }
+                if map.get(&continuation).is_some_and(|c| c.history.is_some()) {
+                    context.check(&h.scope, Action::ReadHistory)?;
+                }
                 map.remove(&continuation);
                 Ok(())
             })
@@ -281,6 +286,7 @@ mod tests {
                 touched: cursors.now(),
                 neighbour: None,
                 impact: None,
+                history: None,
             },
         );
         cursors

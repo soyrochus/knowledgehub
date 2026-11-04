@@ -138,6 +138,17 @@ impl FileBackend {
     }
 }
 pub(crate) trait Storage: Send + Sync {
+    fn publication(
+        &self,
+        scope: &ModelScope,
+        request: &Publication,
+    ) -> Result<PublicationResult, Error>;
+    fn history_page(
+        &self,
+        scope: &ModelScope,
+        request: &HistoryRequest,
+        position: &crate::ontology::history::Position,
+    ) -> Result<crate::ontology::history::Slice, Error>;
     fn allocate_id(&self) -> Result<SnapshotId, Error>;
     fn create(&self, initial: Snapshot) -> Result<(), Error>;
     fn acquire(&self, scope: &ModelScope) -> Result<Box<dyn BranchStorage + '_>, Error>;
@@ -309,6 +320,21 @@ impl FileStore {
     }
 }
 impl Storage for FileStore {
+    fn publication(
+        &self,
+        scope: &ModelScope,
+        request: &Publication,
+    ) -> Result<PublicationResult, Error> {
+        shared::history::publication(self, scope, request)
+    }
+    fn history_page(
+        &self,
+        scope: &ModelScope,
+        request: &HistoryRequest,
+        position: &crate::ontology::history::Position,
+    ) -> Result<crate::ontology::history::Slice, Error> {
+        shared::history::page(self, scope, request, position)
+    }
     fn allocate_id(&self) -> Result<SnapshotId, Error> {
         let mut bytes = [0u8; 32];
         File::open("/dev/urandom")

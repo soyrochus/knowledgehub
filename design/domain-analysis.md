@@ -54,6 +54,7 @@ Self-description stops at these useful levels. The first implementation needs a 
 | Definition authority | Declared representation that owns a field or relationship in a scope. | This is different from the caller's permission to change it. |
 | Snapshot | A consistent immutable readable state identified by an exact public snapshot reference. | Its records/content can share storage with other states; reading it does not imply approval. |
 | Commit / generation | An accepted transition and its immutable storage descriptor binding resulting roots, parent, sequence and original receipt. | Neither a complete model copy nor an ontology-level baseline; physical maintenance adds no model commit. |
+| Publication header / history anchor | A read projection of original receipt scalars and affected count, disclosed under current Read plus ReadHistory authority at one accepted snapshot. | Historical actor attribution grants no authority. NotPublishedAt establishes only anchor-relative non-membership; a header alone is not a complete receipt. |
 | Model branch / head | Scope whose current committed snapshot can advance under guards. | A head selects a state; it is not an ontology revision. |
 | Model baseline | Explicit selection of compatible element, relationship, ontology and artifact revisions. | A named baseline is not an implicit query for latest. |
 | Neighbour | An exact endpoint connected by one actual typed assertion or declared reference occurrence in a selected view. | Ontology compatibility permits a link but does not establish that it exists. |

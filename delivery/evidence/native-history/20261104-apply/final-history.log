@@ -1,0 +1,15 @@
+    Blocking waiting for file lock on build directory
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 3.71s
+     Running tests/native_history.rs (target/debug/deps/native_history-373e5bd4d9d9bcc9)
+
+running 4 tests
+test authority_cursors_and_all_intent_are_checked_before_disclosure ... ok
+test pinned_append_restart_and_anchor_relative_absence_are_explicit ... ok
+test finite_limits_account_for_envelope_and_oversized_values has been running for over 60 seconds
+test original_lookup_discovery_sources_baselines_and_recovery_survive_reopen_and_packing has been running for over 60 seconds
+test finite_limits_account_for_envelope_and_oversized_values ... ok
+test original_lookup_discovery_sources_baselines_and_recovery_survive_reopen_and_packing ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 218.64s
+

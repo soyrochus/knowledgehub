@@ -101,6 +101,7 @@ pub(super) fn encode(bytes: &[u8]) -> Result<(String, Vec<u8>), Error> {
 }
 
 pub(super) fn decode(codec: &str, bytes: &[u8], length: u64) -> Result<Vec<u8>, Error> {
+    super::history::budget::decoded(length)?;
     let length = usize::try_from(length).map_err(|_| Error::Capacity)?;
     if length > MAX_OBJECT + 256 || bytes.len() > MAX_OBJECT + 256 {
         return Err(Error::Capacity);
@@ -135,15 +136,25 @@ pub(super) fn decode(codec: &str, bytes: &[u8], length: u64) -> Result<Vec<u8>, 
 
 pub(super) fn bounded_file(path: &Path, max: u64) -> Result<Vec<u8>, Error> {
     let f = open_read(path)?;
-    if f.metadata().map_err(|_| integrity("file length"))?.len() > max {
+    let length = f.metadata().map_err(|_| integrity("file length"))?.len();
+    if length > max {
         return Err(Error::Capacity);
     }
+    super::history::budget::node()?;
+    super::history::budget::read(length)?;
     let mut out = Vec::new();
-    f.take(max + 1)
+    // Never read beyond the length reserved by a history budget, even if an
+    // externally damaged file grows between metadata and read.
+    (&f).take(length)
         .read_to_end(&mut out)
         .map_err(|_| integrity("object read"))?;
-    if out.len() as u64 > max {
-        return Err(Error::Capacity);
+    if out.len() as u64 != length
+        || f.metadata()
+            .map_err(|_| integrity("file length after read"))?
+            .len()
+            != length
+    {
+        return Err(integrity("file changed during bounded read"));
     }
     Ok(out)
 }
@@ -313,6 +324,7 @@ impl<'a> Objects<'a> {
         })
     }
     pub fn get(&self, id: &str) -> Result<Object, Error> {
+        super::history::budget::object()?;
         if let Some(v) = self.cache.borrow().get(id) {
             return Ok(v.clone());
         }
@@ -332,8 +344,12 @@ impl<'a> Objects<'a> {
             .try_exists()
             .map_err(|_| integrity("object metadata"))?
         {
-            self.read_loose(id)
-                .or_else(|original| self.read_packed(id).map_err(|_| original))
+            self.read_loose(id).or_else(|original| {
+                if super::history::budget::active() {
+                    return Err(original);
+                }
+                self.read_packed(id).map_err(|_| original)
+            })
         } else {
             self.read_packed(id)
         }?;
@@ -369,6 +385,7 @@ impl<'a> Objects<'a> {
         for entry in fs::read_dir(self.store.root.join("objects/packs"))
             .map_err(|_| integrity("pack inventory"))?
         {
+            super::history::budget::node()?;
             let e = entry.map_err(|_| integrity("pack inventory entry"))?;
             let name = e.file_name().to_string_lossy().into_owned();
             if name.ends_with(".idx") || name.ends_with(".khpack") {
@@ -431,7 +448,21 @@ impl<'a> Objects<'a> {
             .join("objects/packs")
             .join(format!("{id}.khpack"));
         let index = path.with_extension("idx");
-        if let Ok(bytes) = bounded_file(&index, MAX_OBJECT as u64) {
+        let indexed = bounded_file(&index, MAX_OBJECT as u64);
+        if super::history::budget::active() {
+            match &indexed {
+                Err(Error::HistoryLimit { .. }) => return indexed.map(|_| BTreeMap::new()),
+                Err(_) => {
+                    return Err(Error::IndexNotReady {
+                        reason:
+                            "history requires a valid bounded pack index; run explicit maintenance"
+                                .into(),
+                    });
+                }
+                _ => (),
+            }
+        }
+        if let Ok(bytes) = indexed {
             self.store
                 .work
                 .index_bytes
@@ -441,6 +472,11 @@ impl<'a> Objects<'a> {
                     return Ok(entries);
                 }
             }
+        }
+        if super::history::budget::active() {
+            return Err(Error::IndexNotReady {
+                reason: "invalid pack index; explicit maintenance required".into(),
+            });
         }
         self.scan_pack_entries(id)
     }
@@ -520,6 +556,8 @@ impl<'a> Objects<'a> {
     }
     fn block(&self, file: &mut File) -> Result<(BlockHeader, Vec<u8>, u64), Error> {
         let mut n = [0; 4];
+        super::history::budget::node()?;
+        super::history::budget::read(4)?;
         file.read_exact(&mut n)
             .map_err(|_| integrity("pack block length"))?;
         let n = u32::from_be_bytes(n) as usize;
@@ -527,6 +565,7 @@ impl<'a> Objects<'a> {
             return Err(Error::Capacity);
         }
         let mut bytes = vec![0; n];
+        super::history::budget::read(n as u64)?;
         file.read_exact(&mut bytes)
             .map_err(|_| integrity("pack block header"))?;
         let h: BlockHeader = parse(&bytes)?;
@@ -537,6 +576,7 @@ impl<'a> Objects<'a> {
         if len > (MAX_OBJECT + 256) as u64 {
             return Err(Error::Capacity);
         }
+        super::history::budget::read(len)?;
         let mut encoded = vec![0; len as usize];
         file.read_exact(&mut encoded)
             .map_err(|_| integrity("pack block payload"))?;
@@ -604,6 +644,7 @@ impl<'a> Objects<'a> {
         };
         match try_location() {
             Ok(v) => Ok(v),
+            Err(e) if super::history::budget::active() => Err(e),
             Err(e) if self.store.packed_cache => Err(e),
             Err(_) => {
                 // The index is derived. Rebuild from verified closed blocks before deciding absence.

@@ -44,6 +44,9 @@ pub enum Action {
     Create,
     Open,
     Read,
+    /// Publication metadata disclosure requires this action AND scoped `Read`.
+    /// Exhaustive host matches must handle it; all-allow policies grant it too.
+    ReadHistory,
     Validate,
     Commit,
     OperationResult,
@@ -146,6 +149,14 @@ pub enum Error {
     OperationReuse,
     NotFound,
     InvalidCursor,
+    HistoryAnchorUnavailable {
+        anchor: SnapshotId,
+    },
+    HistoryLimit {
+        resource: crate::HistoryResource,
+        limit: u64,
+        work: crate::HistoryWork,
+    },
     AlreadyExists,
     Integrity(String),
     Storage {

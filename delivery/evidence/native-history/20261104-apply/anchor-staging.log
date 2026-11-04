@@ -1,0 +1,9 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 4.66s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 1 test
+test storage::shared::history::tests::accepted_anchors_exclude_staged_operations_and_foreign_snapshots ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 43 filtered out; finished in 10.64s
+

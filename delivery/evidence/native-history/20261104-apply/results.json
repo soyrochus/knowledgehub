@@ -1,0 +1,20 @@
+{
+  "rust_target_cases_distinct": 126,
+  "full_target_batch": 124,
+  "final_storage_followup": 26,
+  "final_history_storage_followup": 7,
+  "final_public_history_followup": 4,
+  "doctests": 4,
+  "host_checks": 19,
+  "formats": {
+    "catalogue": "catalogue-3",
+    "record": "knowledgehub-record/3",
+    "request": "knowledgehub-request/3",
+    "files": "knowledgehub-files/4",
+    "history_projection": "knowledgehub-history/1"
+  },
+  "native_platform": "macos-aarch64/APFS",
+  "human_acceptance": "pending",
+  "linux_cross_host_and_external_host": "not executed",
+  "terminal_and_modelarium_implementation": "not started"
+}

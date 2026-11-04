@@ -1,0 +1,24 @@
+{
+  "hub": {
+    "files": 380,
+    "exists_at_final": true,
+    "byte_hash_inventory_equal": true,
+    "inventory_sha256": "4da40fc02fe4d3167d513a3a86e8e1cdab465b1e054c2ce2becc9a953cb4c140"
+  },
+  "old_hub": {
+    "files": 0,
+    "exists_at_final": false,
+    "byte_hash_inventory_equal": true,
+    "inventory_sha256": "44136fa355b3678a1146ad16f7e8649e94fb4fc21fe77e8310c060f61caaff8a"
+  },
+  "openspec/changes/add-terminal-model-client": {
+    "files": 9,
+    "exists_at_final": true,
+    "byte_hash_inventory_equal": true,
+    "inventory_sha256": "3f79d4d05059e4397a97f9891ba092519448fc47b1121d598611a89352ffe653"
+  },
+  "target/rich-design/apply-equipment-acceptance/hub": {
+    "files": 744,
+    "byte_hash_inventory_equal": true
+  }
+}

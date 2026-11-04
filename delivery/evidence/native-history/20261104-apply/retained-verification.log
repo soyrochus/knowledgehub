@@ -1,0 +1,3 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `release` profile [optimized] target(s) in 12.32s
+     Running `target/release/knowledgehub-model verify /Users/ivanderk/src/knowledgehub/target/native-history-equipment-20261104-run-copy /Users/ivanderk/src/knowledgehub/target/native-history-equipment-current-host.json`

@@ -1,0 +1,38 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 2.89s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 26 tests
+test storage::shared::history::budget::tests::checked_counter_overflow_is_explicit_and_guard_cleans_up ... ok
+test storage::shared::objects::tests::frames_are_strict_bounded_lossless_and_kind_separated ... ok
+test storage::shared::history::tests::header_count_is_selective_and_affected_ranges_preserve_repetitions ... ok
+test storage::shared::packed_cache::tests::publication_faults_quota_and_sidecar_reconstruction_are_safe ... ok
+test storage::shared::content::tests::chunks_ranges_and_append_reuse_original_bytes ... ok
+test storage::shared::packed_cache::tests::large_packed_index_is_bounded_selective_and_immutable ... ok
+test storage::shared::history::tests::accepted_anchors_exclude_staged_operations_and_foreign_snapshots ... ok
+test storage::shared::history::tests::inconsistent_receipt_and_ancestry_bindings_never_report_absence ... ok
+test storage::shared::history::tests::shared_cursor_capacity_idle_expiry_cross_scope_and_empty_affected ... ok
+test storage::shared::tests::current_default_guards_policy_and_same_base_race ... ok
+test storage::shared::neighbours::tests::finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query ... ok
+test storage::shared::projection::tests::original_kernel_digests_spans_order_nulls_and_cycles_round_trip ... ok
+test storage::shared::trees::tests::sequences_preserve_order_duplicates_and_share_edits ... ok
+test storage::shared::tests::native_creation_profiles_are_provenance_and_unknown_metadata_never_mutates ... ok
+test storage::shared::neighbours::tests::ready_lookup_ignores_unrelated_artifacts_and_reports_no_state_materialisation ... ok
+test storage::shared::trees::tests::persistent_maps_share_paths_and_preserve_prior_roots ... ok
+test storage::shared::neighbours::tests::corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity ... ok
+test storage::shared::neighbours::tests::preparation_budgets_quota_and_view_eviction_preserve_knowledge ... ok
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds has been running for over 60 seconds
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome has been running for over 60 seconds
+test storage::shared::neighbours::tests::readers_coordinate_cache_eviction_on_both_runtime_configurations has been running for over 60 seconds
+test storage::shared::tests::coordinated_reader_and_maintenance_on_both_host_runtimes has been running for over 60 seconds
+test storage::shared::trees::tests::batched_maps_and_sequence_appends_emit_only_final_changed_nodes ... ok
+test storage::shared::tests::native_profile_refuses_wrong_host_and_symlink_layout_before_mutation ... ok
+test storage::shared::tests::coordinated_reader_and_maintenance_on_both_host_runtimes ... ok
+test storage::shared::tests::original_retry_absence_orphans_missing_receipts_and_point_read_work ... ok
+test storage::shared::tests::ranges_skip_unrelated_content_and_scrub_finds_retained_corruption ... ok
+test storage::shared::neighbours::tests::readers_coordinate_cache_eviction_on_both_runtime_configurations ... ok
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome ... ok
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds ... ok
+
+test result: ok. 26 passed; 0 failed; 0 ignored; 0 measured; 18 filtered out; finished in 113.74s
+

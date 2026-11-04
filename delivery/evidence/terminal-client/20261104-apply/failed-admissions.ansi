@@ -1,0 +1,1293 @@
+[?25l[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 0 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 146 rows · end / coverage below · filter 
+> AcceptanceCriterion                                    │ exact registered types; expand lazily
+  AcceptanceRecord                                       │ 
+  AccessibilityRule                                      │ 
+  ActionBinding                                          │ 
+  Actor                                                  │ 
+  Adapter                                                │ 
+  AgentRole                                              │ 
+  AggregateDefinition                                    │ 
+  ApplicationSystem                                      │ 
+  Asset                                                  │ 
+  Assumption                                             │ 
+  AuditRequirement                                       │ 
+  AuthorizationPolicy                                    │ 
+  BoundedContext                                         │ 
+  BusinessCapability                                     │ 
+  BusinessFunction                                       │ 
+  BusinessGoal                                           │ 
+  BusinessPolicy                                         │ 
+  BusinessRole                                           │ 
+  BusinessRule                                           │ 
+  ChangeDefinition                                       │ 
+  CommandDefinition                                      │ 
+  Compensation                                           │ 
+  ComponentDefinition                                    │ 
+  ComponentPlacement                                     │ 
+  ConfigurationDefinition                                │ 
+  Constraint                                             │ 
+  ConstraintDefinition                                   │ 
+  ContextPolicy                                          │ 
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 146 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+> fruittrucks · FruitTrucks route-change design          │ {
+  equipment · Equipment reservation design               │   "default": "fruittrucks",
+  incompatible · Test incompatible                       │   "models": [
+  denied · Test denied                                   │     {
+                                                         │       "alias": "fruittrucks",
+                                                         │       "name": "FruitTrucks route-change design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+                                                         │         "model": "fixture:fruittrucks",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "equipment",
+                                                         │       "name": "Equipment reservation design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:equipment",
+                                                         │         "model": "fixture:equipment",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "incompatible",
+                                                         │       "name": "Test incompatible",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter:  (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: i (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: in (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: inc (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: inco (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incom (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incomp (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompa (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompat (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompati (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompatib (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompatibl (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: incompatible (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter incompatible
+> incompatible · Test incompatible                       │ {
+                                                         │   "default": "fruittrucks",
+                                                         │   "models": [
+                                                         │     {
+                                                         │       "alias": "fruittrucks",
+                                                         │       "name": "FruitTrucks route-change design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+                                                         │         "model": "fixture:fruittrucks",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "equipment",
+                                                         │       "name": "Equipment reservation design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:equipment",
+                                                         │         "model": "fixture:equipment",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "incompatible",
+                                                         │       "name": "Test incompatible",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter incompatible
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter incompatible
+> incompatible · Test incompatible                       │ {
+                                                         │   "code": "Incompatible",
+                                                         │   "message": "explicit shared backend format differs"
+                                                         │ }
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter incompatible
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 146 rows · end / coverage below · filter 
+> AcceptanceCriterion                                    │ exact registered types; expand lazily
+  AcceptanceRecord                                       │ 
+  AccessibilityRule                                      │ 
+  ActionBinding                                          │ 
+  Actor                                                  │ 
+  Adapter                                                │ 
+  AgentRole                                              │ 
+  AggregateDefinition                                    │ 
+  ApplicationSystem                                      │ 
+  Asset                                                  │ 
+  Assumption                                             │ 
+  AuditRequirement                                       │ 
+  AuthorizationPolicy                                    │ 
+  BoundedContext                                         │ 
+  BusinessCapability                                     │ 
+  BusinessFunction                                       │ 
+  BusinessGoal                                           │ 
+  BusinessPolicy                                         │ 
+  BusinessRole                                           │ 
+  BusinessRule                                           │ 
+  ChangeDefinition                                       │ 
+  CommandDefinition                                      │ 
+  Compensation                                           │ 
+  ComponentDefinition                                    │ 
+  ComponentPlacement                                     │ 
+  ConfigurationDefinition                                │ 
+  Constraint                                             │ 
+  ConstraintDefinition                                   │ 
+  ContextPolicy                                          │ 
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 146 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+> fruittrucks · FruitTrucks route-change design          │ {
+  equipment · Equipment reservation design               │   "default": "fruittrucks",
+  incompatible · Test incompatible                       │   "models": [
+  denied · Test denied                                   │     {
+                                                         │       "alias": "fruittrucks",
+                                                         │       "name": "FruitTrucks route-change design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+                                                         │         "model": "fixture:fruittrucks",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "equipment",
+                                                         │       "name": "Equipment reservation design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:equipment",
+                                                         │         "model": "fixture:equipment",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "incompatible",
+                                                         │       "name": "Test incompatible",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter:  (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: d (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: de (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: den (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: deni (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: denie (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter 
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Local display filter: denied (Esc cancels)
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter denied
+> denied · Test denied                                   │ {
+                                                         │   "default": "fruittrucks",
+                                                         │   "models": [
+                                                         │     {
+                                                         │       "alias": "fruittrucks",
+                                                         │       "name": "FruitTrucks route-change design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+                                                         │         "model": "fixture:fruittrucks",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "equipment",
+                                                         │       "name": "Equipment reservation design",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:equipment",
+                                                         │         "model": "fixture:equipment",
+                                                         │         "owner": "fixture:design-owner"
+                                                         │       }
+                                                         │     },
+                                                         │     {
+                                                         │       "alias": "incompatible",
+                                                         │       "name": "Test incompatible",
+                                                         │       "scope": {
+                                                         │         "branch": "main",
+                                                         │         "hub": "fixture:fruittrucks",
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 4 rows · end / coverage below · filter denied
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Incompatible: explicit shared backend format differs
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 0 rows · end / coverage below · filter denied
+                                                         │ {
+                                                         │   "action": "Open",
+                                                         │   "code": "Denied"
+                                                         │ }
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+                                                         │ 
+Denied: Open
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · working / Esc cancels · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+models · page 1 · 0 rows · end / coverage below · filter denied
+Checking current authority / reading pinned intent…
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Denied: Open
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[H[2JKnowledgeHub · fruittrucks · READ ONLY · connected · ReadHistory
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publications 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+groups / type · page 1 · 146 rows · end / coverage below · filter 
+> AcceptanceCriterion                                    │ exact registered types; expand lazily
+  AcceptanceRecord                                       │ 
+  AccessibilityRule                                      │ 
+  ActionBinding                                          │ 
+  Actor                                                  │ 
+  Adapter                                                │ 
+  AgentRole                                              │ 
+  AggregateDefinition                                    │ 
+  ApplicationSystem                                      │ 
+  Asset                                                  │ 
+  Assumption                                             │ 
+  AuditRequirement                                       │ 
+  AuthorizationPolicy                                    │ 
+  BoundedContext                                         │ 
+  BusinessCapability                                     │ 
+  BusinessFunction                                       │ 
+  BusinessGoal                                           │ 
+  BusinessPolicy                                         │ 
+  BusinessRole                                           │ 
+  BusinessRule                                           │ 
+  ChangeDefinition                                       │ 
+  CommandDefinition                                      │ 
+  Compensation                                           │ 
+  ComponentDefinition                                    │ 
+  ComponentPlacement                                     │ 
+  ConfigurationDefinition                                │ 
+  Constraint                                             │ 
+  ConstraintDefinition                                   │ 
+  ContextPolicy                                          │ 
+Denied: Open
+Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes[?25h[0m

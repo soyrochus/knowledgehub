@@ -1,0 +1,5629 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "catalogue": {
+    "model": "sdo",
+    "id": "sdo:ontology:system-definition",
+    "revision": "catalogue-3"
+  },
+  "profile": {
+    "model": "sdo",
+    "id": "sdo:profile:system-definition",
+    "revision": "catalogue-3"
+  },
+  "records": [
+    {
+      "key": "anchor-unit:36b6df04fc61c45d867c",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:design.md"
+          },
+          "label": "design.md bytes 0:496",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 496,
+            "quote": "# Equipment reservation design\nA borrower reserves an Asset, then returns to inspect a Booking. Booking retains one Asset reference, state Requested/Confirmed/Cancelled and the original booking reason. A planned notification adapter has no implementation artifact. Cancellation and a two-hour waiting policy are descriptions, never timers executed by KnowledgeHub. A shared story appears in two tasks and cumulative cuts. Reference-format and implementation choices remain explicitly unresolved.\n"
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "system",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SystemModel",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Model",
+        "data": {
+          "purpose": "Source-bound authored equipment design; no application execution claimed",
+          "owner": "fixture:design-owner",
+          "ontology": {
+            "model": "sdo",
+            "id": "sdo:ontology:system-definition",
+            "revision": "catalogue-3"
+          },
+          "profile": {
+            "model": "sdo",
+            "id": "sdo:profile:system-definition",
+            "revision": "catalogue-3"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "actor",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Actor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Authorized participant"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "actor_kind": {
+              "kind": "Enum",
+              "value": "human"
+            },
+            "system_model": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "system"
+              }
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/system_model",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "journey:reserve",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Journey",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Reserve equipment"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "actor": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "actor"
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "journey:return",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Journey",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Return to the booking"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "actor": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "actor"
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "story:book",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserStory",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Reserve an available Asset"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "actor": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "actor"
+              }
+            },
+            "need": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "benefit": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/need",
+              "owner": "Document"
+            },
+            {
+              "path": "/benefit",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:0",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Find equipment"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:reserve"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:return"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:0"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:0",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Find equipment"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:0"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "placement:0",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:StoryPlacement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Find equipment"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "map": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "map"
+              }
+            },
+            "task": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "task:0"
+              }
+            },
+            "story": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "story:book"
+              }
+            },
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/map",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Graph"
+            },
+            {
+              "path": "/story",
+              "owner": "Graph"
+            },
+            {
+              "path": "/order",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:1",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Review booking"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:reserve"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:return"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:1"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:1",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Review booking"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:1"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "placement:1",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:StoryPlacement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Review booking"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "map": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "map"
+              }
+            },
+            "task": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "task:1"
+              }
+            },
+            "story": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "story:book"
+              }
+            },
+            "order": {
+              "kind": "Integer",
+              "value": "0"
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/map",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Graph"
+            },
+            {
+              "path": "/story",
+              "owner": "Graph"
+            },
+            {
+              "path": "/order",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "map",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:StoryMap",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Reservation map"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:reserve"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:return"
+                  }
+                }
+              ]
+            },
+            "activities": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:0"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:1"
+                  }
+                }
+              ]
+            },
+            "placements": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "placement:0"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "placement:1"
+                  }
+                }
+              ]
+            },
+            "cuts": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "cut:first"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "cut:later"
+                  }
+                }
+              ]
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/cuts",
+              "owner": "Graph"
+            },
+            {
+              "path": "/cuts/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/cuts/1",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "cut:first",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:OutcomeCut",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "first"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "map": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "map"
+              }
+            },
+            "placements": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "placement:0"
+                  }
+                }
+              ]
+            },
+            "prerequisites": {
+              "kind": "List",
+              "value": []
+            },
+            "exclusions": {
+              "kind": "List",
+              "value": []
+            },
+            "outcome": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/map",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/prerequisites",
+              "owner": "Graph"
+            },
+            {
+              "path": "/exclusions",
+              "owner": "Graph"
+            },
+            {
+              "path": "/outcome",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "cut:later",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:OutcomeCut",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "later"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "map": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "map"
+              }
+            },
+            "placements": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "placement:0"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "placement:1"
+                  }
+                }
+              ]
+            },
+            "prerequisites": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "cut:first"
+                  }
+                }
+              ]
+            },
+            "exclusions": {
+              "kind": "List",
+              "value": []
+            },
+            "outcome": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/map",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/prerequisites",
+              "owner": "Graph"
+            },
+            {
+              "path": "/prerequisites/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/exclusions",
+              "owner": "Graph"
+            },
+            {
+              "path": "/outcome",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "entity:Asset",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:EntityType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Asset"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "entity:Booking",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:EntityType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Booking"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "schema:Booking",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:DataSchema",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Booking logical record"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "field:asset"
+                  }
+                }
+              ]
+            },
+            "identity_fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            },
+            {
+              "path": "/fields/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/identity_fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "datatype:AssetRef",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:DataType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Asset reference"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "value_kind": {
+              "kind": "Enum",
+              "value": "reference"
+            },
+            "reference_targets": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "entity:Asset"
+                  }
+                }
+              ]
+            },
+            "value_constraints": {
+              "kind": "List",
+              "value": []
+            },
+            "representation": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "description"
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "$ref": "capture:design.md"
+                    },
+                    "fragment": {
+                      "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/value_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/reference_targets",
+              "owner": "Graph"
+            },
+            {
+              "path": "/reference_targets/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/value_constraints",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/description",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "datatype:AssetRefs",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:DataType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Asset references"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "value_kind": {
+              "kind": "Enum",
+              "value": "list"
+            },
+            "item_type": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "datatype:AssetRef"
+              }
+            },
+            "value_constraints": {
+              "kind": "List",
+              "value": []
+            },
+            "representation": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "description"
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "$ref": "capture:design.md"
+                    },
+                    "fragment": {
+                      "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/value_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/item_type",
+              "owner": "Graph"
+            },
+            {
+              "path": "/value_constraints",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/description",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "datatype:BookingRecord",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:DataType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Booking record"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "value_kind": {
+              "kind": "Enum",
+              "value": "record"
+            },
+            "record_schema": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "schema:Booking"
+              }
+            },
+            "value_constraints": {
+              "kind": "List",
+              "value": []
+            },
+            "representation": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "description"
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "$ref": "capture:design.md"
+                    },
+                    "fragment": {
+                      "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/value_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/record_schema",
+              "owner": "Graph"
+            },
+            {
+              "path": "/value_constraints",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/description",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "datatype:BookingState",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:DataType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Booking states"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "value_kind": {
+              "kind": "Enum",
+              "value": "enumeration"
+            },
+            "enum_values": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Text",
+                  "value": "Cancelled"
+                },
+                {
+                  "kind": "Text",
+                  "value": "Confirmed"
+                },
+                {
+                  "kind": "Text",
+                  "value": "Requested"
+                }
+              ]
+            },
+            "value_constraints": {
+              "kind": "List",
+              "value": []
+            },
+            "representation": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "description"
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "$ref": "capture:design.md"
+                    },
+                    "fragment": {
+                      "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/value_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/enum_values",
+              "owner": "Graph"
+            },
+            {
+              "path": "/enum_values/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/enum_values/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/enum_values/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/value_constraints",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/representation/description",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "field:asset",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:FieldDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "asset"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "schema": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "schema:Booking"
+              }
+            },
+            "datatype": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "datatype:AssetRef"
+              }
+            },
+            "reference_targets": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "entity:Asset"
+                  }
+                }
+              ]
+            },
+            "nullable": {
+              "kind": "Bool",
+              "value": false
+            },
+            "constraints": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/schema",
+              "owner": "Graph"
+            },
+            {
+              "path": "/datatype",
+              "owner": "Graph"
+            },
+            {
+              "path": "/reference_targets",
+              "owner": "Graph"
+            },
+            {
+              "path": "/reference_targets/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/nullable",
+              "owner": "Graph"
+            },
+            {
+              "path": "/constraints",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Requested",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Requested"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:Booking"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": false
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Confirmed",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Confirmed"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:Booking"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": false
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Cancelled",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Cancelled"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:Booking"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": true
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "lifecycle:Booking",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:LifecycleDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Booking lifecycle"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "subject": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "entity:Booking"
+              }
+            },
+            "states": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Requested"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Confirmed"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Cancelled"
+                  }
+                }
+              ]
+            },
+            "initial_state": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Requested"
+              }
+            },
+            "terminal_states": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Cancelled"
+                  }
+                }
+              ]
+            },
+            "transitions": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/subject",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/initial_state",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "adapter:notification",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Adapter",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Planned notification adapter"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "implementation_status": {
+              "kind": "Enum",
+              "value": "planned"
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/implementation_status",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "anchor-unit:dba3492621bb425aa685",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:rule.js"
+          },
+          "label": "rule.js bytes 0:159",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 159,
+            "quote": "// Harmless retained sentinel; importing must never call this entrypoint.\nexport function bookingPolicy() { throw new Error('STORED_RULE_MUST_NOT_EXECUTE'); }\n"
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "rule:booking",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:BusinessRule",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Descriptive booking policy"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:rule.js"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:dba3492621bb425aa685"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "rule": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "native"
+                },
+                "artifact": {
+                  "kind": "Artifact",
+                  "value": {
+                    "$ref": "capture:rule.js"
+                  }
+                },
+                "language": {
+                  "kind": "Text",
+                  "value": "javascript"
+                },
+                "entrypoint": {
+                  "kind": "Text",
+                  "value": "bookingPolicy"
+                }
+              }
+            },
+            "applicability": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:rule.js"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:dba3492621bb425aa685"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rule",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rule/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rule/artifact",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rule/language",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rule/entrypoint",
+              "owner": "Graph"
+            },
+            {
+              "path": "/applicability",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:dba3492621bb425aa685"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:IdentifiedDefinition",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:ElementTypeDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Type",
+        "data": {
+          "name": "IdentifiedDefinition",
+          "family": "Generic extension fixture",
+          "coverage": "fixture:extension-base",
+          "native": false,
+          "parents": [
+            {
+              "model": "sdo",
+              "id": "sdo:type:EntityType",
+              "revision": "catalogue-3"
+            }
+          ],
+          "properties": {
+            "related_subject": {
+              "value": {
+                "kind": "Reference",
+                "schema": [
+                  {
+                    "kind": "Type",
+                    "selection": {
+                      "model": "sdo",
+                      "id": "sdo:type:EntityType",
+                      "revision": "catalogue-3"
+                    }
+                  }
+                ]
+              },
+              "required": true,
+              "nullable": false,
+              "owner": "Graph"
+            }
+          },
+          "constraints": [],
+          "citation": {
+            "original": {
+              "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+              "length": 496
+            },
+            "section": "Authored reusable extension fixture",
+            "source_status": "synthetic design",
+            "refinement": "General inherited reference/endpoint contract, not a built-in Booking type"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:SpecialDefinition",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:ElementTypeDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Type",
+        "data": {
+          "name": "SpecialDefinition",
+          "family": "Generic extension fixture",
+          "coverage": "fixture:extension-child",
+          "native": false,
+          "parents": [
+            {
+              "$ref": "extension:IdentifiedDefinition"
+            }
+          ],
+          "properties": {},
+          "constraints": [],
+          "citation": {
+            "original": {
+              "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+              "length": 496
+            },
+            "section": "Authored reusable extension fixture",
+            "source_status": "synthetic design",
+            "refinement": "General inherited reference/endpoint contract, not a built-in Booking type"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:associatedSubject",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipTypeDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Relationship",
+        "data": {
+          "name": "associatedSubject",
+          "coverage": "fixture:extension-signature",
+          "from": [
+            {
+              "kind": "Type",
+              "selection": {
+                "$ref": "extension:IdentifiedDefinition"
+              }
+            }
+          ],
+          "to": [
+            {
+              "kind": "Type",
+              "selection": {
+                "model": "sdo",
+                "id": "sdo:type:EntityType",
+                "revision": "catalogue-3"
+              }
+            }
+          ],
+          "min_complete": 0,
+          "max": null,
+          "acyclic": false,
+          "qualifiers": {},
+          "citation": {
+            "original": {
+              "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+              "length": 496
+            },
+            "section": "Authored reusable extension fixture",
+            "source_status": "synthetic design",
+            "refinement": "General inherited reference/endpoint contract, not a built-in Booking type"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:profile",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:ProfileDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Profile",
+        "data": {
+          "name": "generic-extension-fixture",
+          "ontology": {
+            "$ref": "extension:ontology"
+          },
+          "vocabulary": [
+            {
+              "model": "sdo",
+              "id": "sdo:type:Stakeholder",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessGoal",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesiredOutcome",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessCapability",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessFunction",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessRole",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Measure",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Requirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Assumption",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OpenQuestion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesignDecision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Rationale",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Constraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Actor",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Persona",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Journey",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:JourneyStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserActivity",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserTask",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserStory",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:StoryMap",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OutcomeCut",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Scenario",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Domain",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Subdomain",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BoundedContext",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ContextRelationship",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UbiquitousLanguageTerm",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PublishedLanguage",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AggregateDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EntityType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ValueObjectType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DomainService",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Invariant",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RepositoryPort",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UseCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:CommandDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:QueryDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FunctionDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Parameter",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Precondition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Postcondition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Effect",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ErrorDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventOccurrence",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventHandler",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessExecution",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:State",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Transition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Timer",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Compensation",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:CorrelationPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataSchema",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FieldDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FieldConstraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProjectionDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TransformationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TransformationRun",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MappingRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MigrationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataStoreDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ScreenDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ViewState",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ComponentDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ComponentPlacement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interaction",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:NavigationTransition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ActionBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:LayoutConstraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesignToken",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Asset",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AccessibilityRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ApplicationSystem",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SoftwareComponent",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Module",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interface",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Port",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Adapter",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Endpoint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MessageChannel",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ExternalSystem",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:IntegrationContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Dependency",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PrincipalType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Role",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Permission",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AuthorizationPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TrustBoundary",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataClassification",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RetentionPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Threat",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AuditRequirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:QualityScenario",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ServiceObjective",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Environment",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeploymentDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeploymentInstance",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Resource",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ConfigurationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ObservabilityRequirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RecoveryProcedure",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AgentRole",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ModelConfiguration",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PromptDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ToolContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ContextPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RetrievalPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RunLimit",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EvaluationCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:HumanReviewBoundary",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeliverySlice",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ChangeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ImplementationTask",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ReleaseWorkPackage",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Release",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AcceptanceCriterion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TestCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TestRun",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EvidenceArtifact",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AcceptanceRecord",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:KnowledgeHub",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SystemModel",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OntologyDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementTypeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RelationshipTypeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ConstraintDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProfileDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementIdentity",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementRevision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RelationshipAssertion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceArtifact",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceRevision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceAnchor",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interpretation",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ModelBaseline",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RepresentationBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ReviewDecision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:StoryPlacement",
+              "revision": "catalogue-3"
+            },
+            {
+              "$ref": "extension:IdentifiedDefinition"
+            },
+            {
+              "$ref": "extension:SpecialDefinition"
+            }
+          ],
+          "allow_gaps": true,
+          "required_types": [],
+          "inapplicable": {},
+          "citation": {
+            "original": {
+              "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+              "length": 496
+            },
+            "section": "Authored reusable extension fixture",
+            "source_status": "synthetic design",
+            "refinement": "General inherited reference/endpoint contract, not a built-in Booking type"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:ontology",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:OntologyDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Ontology",
+        "data": {
+          "name": "Generic extension fixture ontology",
+          "version": "fixture-extension/1",
+          "types": [
+            {
+              "model": "sdo",
+              "id": "sdo:type:Stakeholder",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessGoal",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesiredOutcome",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessCapability",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessFunction",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessRole",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Measure",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Requirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BusinessRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Assumption",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OpenQuestion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesignDecision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Rationale",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Constraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Actor",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Persona",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Journey",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:JourneyStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserActivity",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserTask",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UserStory",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:StoryMap",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OutcomeCut",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Scenario",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Domain",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Subdomain",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:BoundedContext",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ContextRelationship",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UbiquitousLanguageTerm",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PublishedLanguage",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AggregateDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EntityType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ValueObjectType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DomainService",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Invariant",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RepositoryPort",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:UseCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:CommandDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:QueryDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FunctionDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Parameter",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Precondition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Postcondition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Effect",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ErrorDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventOccurrence",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EventHandler",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProcessExecution",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:State",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Transition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Timer",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Compensation",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:CorrelationPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataSchema",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FieldDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:FieldConstraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProjectionDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TransformationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TransformationRun",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MappingRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MigrationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataStoreDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ScreenDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ViewState",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ComponentDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ComponentPlacement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interaction",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:NavigationTransition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ActionBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:LayoutConstraint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DesignToken",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Asset",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AccessibilityRule",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ApplicationSystem",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SoftwareComponent",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Module",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interface",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Port",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Adapter",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Endpoint",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:MessageChannel",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ExternalSystem",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:IntegrationContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Dependency",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PrincipalType",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Role",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Permission",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AuthorizationPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TrustBoundary",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DataClassification",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RetentionPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Threat",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AuditRequirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:QualityScenario",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ServiceObjective",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Environment",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeploymentDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeploymentInstance",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Resource",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ConfigurationDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ObservabilityRequirement",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RecoveryProcedure",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AgentRole",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ModelConfiguration",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:PromptDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ToolContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ContextPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RetrievalPolicy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RunLimit",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EvaluationCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:HumanReviewBoundary",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:DeliverySlice",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ChangeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ImplementationTask",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ReleaseWorkPackage",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Release",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AcceptanceCriterion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TestCase",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:TestRun",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:EvidenceArtifact",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:AcceptanceRecord",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:KnowledgeHub",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SystemModel",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:OntologyDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementTypeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RelationshipTypeDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ConstraintDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ProfileDefinition",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementIdentity",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ElementRevision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RelationshipAssertion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceArtifact",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceRevision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:SourceAnchor",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:Interpretation",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ModelBaseline",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:RepresentationBinding",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:ReviewDecision",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:type:StoryPlacement",
+              "revision": "catalogue-3"
+            },
+            {
+              "$ref": "extension:IdentifiedDefinition"
+            },
+            {
+              "$ref": "extension:SpecialDefinition"
+            }
+          ],
+          "relationships": [
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:BusinessCapability.contributesTo",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:BusinessFunction.realises",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:BusinessFunction.decomposesInto",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Journey.pursues",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Journey.containsStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:UserStory.supportsStep",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Requirement.formalises",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:UseCase.satisfies",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Interaction.issues",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:CommandDefinition.handledBy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:DataBinding.reads",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:UseCase.invokes",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:FunctionDefinition.operatesOn",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:AggregateDefinition.hasRoot",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:AggregateDefinition.protects",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ElementRevision.ownedIn",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:FunctionDefinition.declaresEvent",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:EventHandler.consumes",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ProcessStep.invokes",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Transition.triggeredBy",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:TransformationDefinition.hasInputContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:TransformationDefinition.hasOutputContract",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ProjectionDefinition.derivesFrom",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:SoftwareComponent.implements",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Adapter.translates",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:AuthorizationPolicy.governs",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:TestCase.checks",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:TestRun.executes",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:EvidenceArtifact.supportsCriterion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:RepresentationBinding.represents",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:SourceAnchor.supportsAssertion",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:RelationshipAssertion.contradicts",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ScreenDefinition.contains",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ComponentPlacement.contains",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ScreenDefinition.displays",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ComponentPlacement.edits",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ComponentPlacement.uses",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:ComponentPlacement.issues",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:Scenario.illustrates",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:relationship:UserStory.dependsOn",
+              "revision": "catalogue-3"
+            },
+            {
+              "$ref": "extension:associatedSubject"
+            }
+          ],
+          "constraints": [
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-01",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-02",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-03",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-04",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-05",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-06",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-07",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-08",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-09",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-10",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-11",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-12",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-13",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-14",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-15",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-16",
+              "revision": "catalogue-3"
+            },
+            {
+              "model": "sdo",
+              "id": "sdo:constraint:V-17",
+              "revision": "catalogue-3"
+            }
+          ],
+          "profiles": [
+            {
+              "$ref": "extension:profile"
+            }
+          ],
+          "structures": {
+            "Cardinality": {
+              "kind": "Record",
+              "schema": {
+                "min": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "max": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "unbounded": {
+                  "value": {
+                    "kind": "Bool"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Limits": {
+              "kind": "Record",
+              "schema": {
+                "applicability": {
+                  "value": {
+                    "kind": "Enum",
+                    "schema": [
+                      "bounded",
+                      "not-applicable"
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "reason": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "timeout_ms": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "active_jobs": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "waiting_jobs": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "max_results": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "max_depth": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "max_steps": {
+                  "value": {
+                    "kind": "Integer"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Selector": {
+              "kind": "Record",
+              "schema": {
+                "subject": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Role",
+                        "selection": "AnySubject"
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "path": {
+                  "value": {
+                    "kind": "Text"
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "BoundValue": {
+              "kind": "Record",
+              "schema": {
+                "parameter": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:FieldDefinition",
+                          "revision": "catalogue-3"
+                        }
+                      },
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:Parameter",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "value": {
+                  "value": {
+                    "kind": "Any"
+                  },
+                  "required": true,
+                  "nullable": true,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Compatibility": {
+              "kind": "Record",
+              "schema": {
+                "policy": {
+                  "value": {
+                    "kind": "Enum",
+                    "schema": [
+                      "exact",
+                      "mapped"
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "schemas": {
+                  "value": {
+                    "kind": "List",
+                    "schema": {
+                      "item": {
+                        "kind": "Reference",
+                        "schema": [
+                          {
+                            "kind": "Type",
+                            "selection": {
+                              "model": "sdo",
+                              "id": "sdo:type:DataSchema",
+                              "revision": "catalogue-3"
+                            }
+                          }
+                        ]
+                      },
+                      "min": 0
+                    }
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "mapping": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:TransformationDefinition",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": false,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Delivery": {
+              "kind": "Record",
+              "schema": {
+                "ordering": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "duplicates": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "retention": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "recovery": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "schema": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:DataSchema",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "producer": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Role",
+                        "selection": "ElementRevision"
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Handoff": {
+              "kind": "Record",
+              "schema": {
+                "from_actor": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:Actor",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "to_actor": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:Actor",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "information": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "completion": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "next_step": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:JourneyStep",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "StepExecution": {
+              "kind": "Record",
+              "schema": {
+                "step": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:ProcessStep",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "admitted_at": {
+                  "value": {
+                    "kind": "Timestamp"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "guards": {
+                  "value": {
+                    "kind": "Narrative"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Document"
+                },
+                "inputs": {
+                  "value": {
+                    "kind": "List",
+                    "schema": {
+                      "item": {
+                        "kind": "Reference",
+                        "schema": [
+                          {
+                            "kind": "Role",
+                            "selection": "AnySubject"
+                          }
+                        ]
+                      },
+                      "min": 0
+                    }
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "outputs": {
+                  "value": {
+                    "kind": "List",
+                    "schema": {
+                      "item": {
+                        "kind": "Reference",
+                        "schema": [
+                          {
+                            "kind": "Role",
+                            "selection": "AnySubject"
+                          }
+                        ]
+                      },
+                      "min": 0
+                    }
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "outcome": {
+                  "value": {
+                    "kind": "Enum",
+                    "schema": [
+                      "pending",
+                      "succeeded",
+                      "failed",
+                      "uncertain"
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "evidence": {
+                  "value": {
+                    "kind": "List",
+                    "schema": {
+                      "item": {
+                        "kind": "Artifact"
+                      },
+                      "min": 0
+                    }
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "TraceMapping": {
+              "kind": "Record",
+              "schema": {
+                "source": {
+                  "value": {
+                    "kind": "Structured",
+                    "schema": "Selector"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "target": {
+                  "value": {
+                    "kind": "Structured",
+                    "schema": "Selector"
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                },
+                "rule": {
+                  "value": {
+                    "kind": "Reference",
+                    "schema": [
+                      {
+                        "kind": "Type",
+                        "selection": {
+                          "model": "sdo",
+                          "id": "sdo:type:MappingRule",
+                          "revision": "catalogue-3"
+                        }
+                      }
+                    ]
+                  },
+                  "required": true,
+                  "nullable": false,
+                  "owner": "Graph"
+                }
+              }
+            },
+            "Body": {
+              "kind": "Union",
+              "schema": [
+                {
+                  "kind": "Record",
+                  "schema": {
+                    "form": {
+                      "value": {
+                        "kind": "Enum",
+                        "schema": [
+                          "description"
+                        ]
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "description": {
+                      "value": {
+                        "kind": "Narrative"
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Document"
+                    }
+                  }
+                },
+                {
+                  "kind": "Record",
+                  "schema": {
+                    "form": {
+                      "value": {
+                        "kind": "Enum",
+                        "schema": [
+                          "native"
+                        ]
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "artifact": {
+                      "value": {
+                        "kind": "Artifact"
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "language": {
+                      "value": {
+                        "kind": "Text"
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "entrypoint": {
+                      "value": {
+                        "kind": "Text"
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    }
+                  }
+                },
+                {
+                  "kind": "Record",
+                  "schema": {
+                    "form": {
+                      "value": {
+                        "kind": "Enum",
+                        "schema": [
+                          "decision-table"
+                        ]
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "artifact": {
+                      "value": {
+                        "kind": "Artifact"
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "input": {
+                      "value": {
+                        "kind": "Reference",
+                        "schema": [
+                          {
+                            "kind": "Type",
+                            "selection": {
+                              "model": "sdo",
+                              "id": "sdo:type:DataSchema",
+                              "revision": "catalogue-3"
+                            }
+                          }
+                        ]
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    },
+                    "output": {
+                      "value": {
+                        "kind": "Reference",
+                        "schema": [
+                          {
+                            "kind": "Type",
+                            "selection": {
+                              "model": "sdo",
+                              "id": "sdo:type:DataSchema",
+                              "revision": "catalogue-3"
+                            }
+                          }
+                        ]
+                      },
+                      "required": true,
+                      "nullable": false,
+                      "owner": "Graph"
+                    }
+                  }
+                }
+              ]
+            }
+          },
+          "citation": {
+            "original": {
+              "sha256": "23c35ab493a0651bca90eb6d98c55063e970bff9f9a5d6ce14524f8af620d0a0",
+              "length": 496
+            },
+            "section": "Authored reusable extension fixture",
+            "source_status": "synthetic design",
+            "refinement": "General inherited reference/endpoint contract, not a built-in Booking type"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:instance",
+      "type_ref": {
+        "$ref": "extension:SpecialDefinition"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Special identified subject"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            },
+            "related_subject": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "entity:Asset"
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            },
+            {
+              "path": "/related_subject",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "extension:edge",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "$ref": "extension:associatedSubject"
+          },
+          "from": {
+            "$ref": "extension:instance"
+          },
+          "to": {
+            "$ref": "entity:Asset"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "file-definition:design.md",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: design.md"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:36b6df04fc61c45d867c"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:36b6df04fc61c45d867c"
+      ],
+      "capture": null
+    },
+    {
+      "key": "file-definition:rule.js",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: rule.js"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:rule.js"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:dba3492621bb425aa685"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:rule.js"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:dba3492621bb425aa685"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:dba3492621bb425aa685",
+        "anchor-unit:220c178c7dff899b1944"
+      ],
+      "capture": null
+    },
+    {
+      "key": "anchor-unit:220c178c7dff899b1944",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:rule.js"
+          },
+          "label": "rule.js bytes 81:158",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 81,
+            "end": 158,
+            "quote": "function bookingPolicy() { throw new Error('STORED_RULE_MUST_NOT_EXECUTE'); }"
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    }
+  ],
+  "gaps": [
+    {
+      "subject": {
+        "$ref": "journey:reserve"
+      },
+      "path": "/alternatives",
+      "reason": "The exact source section is retained; structured Journey.alternatives has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "journey:reserve"
+      },
+      "path": "/interruptions",
+      "reason": "The exact source section is retained; structured Journey.interruptions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "journey:return"
+      },
+      "path": "/alternatives",
+      "reason": "The exact source section is retained; structured Journey.alternatives has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "journey:return"
+      },
+      "path": "/interruptions",
+      "reason": "The exact source section is retained; structured Journey.interruptions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "entity:Asset"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "entity:Booking"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "schema:Booking"
+      },
+      "path": "/compatibility",
+      "reason": "The exact source section is retained; structured DataSchema.compatibility has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "field:asset"
+      },
+      "path": "/cardinality",
+      "reason": "The exact source section is retained; structured FieldDefinition.cardinality has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "adapter:notification"
+      },
+      "path": "/port",
+      "reason": "The exact source section is retained; structured Adapter.port has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "extension:instance"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    }
+  ],
+  "baseline": "imported-A",
+  "selection": [
+    "extension:ontology",
+    "extension:profile"
+  ]
+}

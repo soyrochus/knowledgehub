@@ -1,0 +1,6 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "review": "agent inspection of retained source constructs; human meaning acceptance pending",
+  "observations": [],
+  "limit": "Exact artifacts retain branches, confirmations, failures, permissions, callbacks and styling beyond the bounded structured bindings. These source locators are not proof of graph-complete formalization or application execution."
+}

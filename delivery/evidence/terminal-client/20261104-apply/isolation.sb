@@ -1,0 +1,5 @@
+(version 1)
+(allow default)
+(deny network*)
+(deny file-read* (subpath "/Users/ivanderk/src"))
+(deny process-exec (regex #"/(bun|node|cargo|rustc)$"))

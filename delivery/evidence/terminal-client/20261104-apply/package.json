@@ -1,0 +1,17 @@
+{
+  "status": "pass",
+  "package": "/Users/ivanderk/src/knowledgehub/target/terminal-client/package-acceptance-final/extracted/package with spaces",
+  "cwd": "/Users/ivanderk/src/knowledgehub/target/terminal-client/package-acceptance-final/another cwd",
+  "tool_path": "/Users/ivanderk/src/knowledgehub/target/terminal-client/package-acceptance-final/empty-tool-path",
+  "commands": 57,
+  "checksums": 316,
+  "semantic_files": 10,
+  "semantic_before_after_equal": true,
+  "targets": {
+    "macOS": "arm64/APFS",
+    "linux": "not verified",
+    "signing": "not signed/not notarized",
+    "publication": "not published"
+  },
+  "human_acceptance": "pending"
+}

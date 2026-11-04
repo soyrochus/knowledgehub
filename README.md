@@ -86,8 +86,16 @@ gates retain their exact status in the change task files and evidence.
 The native history reader adds separate current-authority publication disclosure while
 preserving actor-bound operation recovery. Its [guide](design/native-model-history.md)
 documents the source integration change (`Action::ReadHistory`), finite limits,
-process-local continuations and exact-receipt example. Modelarium and terminal
-integration remain separate work.
+process-local continuations and exact-receipt example.
+
+The read-only terminal client adds `kh` CLI/TUI exploration, original publication
+inspection, exact sources, baseline comparison and offline derived diagrams.
+Its local macOS arm64 package includes a matching Rust host and two small draft
+models, with no end-user development tools. See the [client guide](design/terminal-client.md),
+[Session 4 quick start](examples/fixtures/terminal-client/QUICKSTART.md) and
+[technical evidence](delivery/evidence/terminal-client/20261104-apply/README.md).
+Human usability/meaning acceptance, Linux native execution, signing/publication
+and Modelarium integration remain separate work.
 
 ## Getting started
 

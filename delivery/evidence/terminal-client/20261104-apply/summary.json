@@ -1,0 +1,34 @@
+{
+  "format": "knowledgehub-terminal-evidence/1",
+  "target": "macOS arm64/APFS",
+  "archive": "/Users/ivanderk/src/knowledgehub/target/terminal-client/knowledgehub-terminal-macos-arm64-final.tar.gz",
+  "archive_sha256": "1f9c44afe78d193891c597054e237d136ca7319e08129b1ac06b7398db31bcc7",
+  "library": "0.10.0",
+  "host_sha256": "6578657841835cb3c7bb5be328efb7e8e5c0c829292fe31d6c4c211e857b617a",
+  "checks": {
+    "rust_target_tests": 121,
+    "doctests": 4,
+    "host_tests": 5,
+    "bun_tests": 10,
+    "compiled_commands": 57,
+    "real_pty": true,
+    "offline_browser": true,
+    "source_tools_network_denied": true,
+    "protected_stores_unchanged": {
+      "hub": 380,
+      "old_hub": 0
+    }
+  },
+  "limits": {
+    "fruittrucks_source_verification": "incomplete: retained unresolved authority conflict",
+    "native_completeness": "false in both fixture A baselines",
+    "human_acceptance": "pending",
+    "linux_native": "not verified",
+    "signing_publication": "not performed"
+  },
+  "openspec_tasks": {
+    "total": 40,
+    "complete": 40
+  },
+  "review_boundary": "delivered for human review; acceptance pending"
+}

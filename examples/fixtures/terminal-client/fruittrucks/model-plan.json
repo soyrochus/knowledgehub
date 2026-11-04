@@ -1,0 +1,4663 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "catalogue": {
+    "model": "sdo",
+    "id": "sdo:ontology:system-definition",
+    "revision": "catalogue-3"
+  },
+  "profile": {
+    "model": "sdo",
+    "id": "sdo:profile:system-definition",
+    "revision": "catalogue-3"
+  },
+  "records": [
+    {
+      "key": "anchor-unit:4c4fd27857bc2c8df7e3",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:design.md"
+          },
+          "label": "design.md bytes 0:1122",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 1122,
+            "quote": "# FruitTrucks process brief\n\n> Authored mockup summary of course/domain/fruittrucks.md and fruittrucks-process.md, not an original client document.\n\nFruitTrucks distributes fresh produce using its refrigerated fleet. Dispatchers need drivers to understand route changes and customer service to see the effective delivery plan.\n\n## Existing requirements\n\n**R8:** A route change after departure is valid only once the driver acknowledges it. **Q1:** The instruction reaches the driver’s phone within 60 seconds. This is a delivery target, not an acknowledgement deadline.\n\nThe operations manual requires acknowledgement; the dispatcher interview reports a different practice. Retain both sources rather than silently accepting that practice as policy.\n\n## Proposed FT-P01 subset\n\nReorder only unserved stops. Keep driver, vehicle, cargo, orders and completed deliveries unchanged. Dispatch owns the effective plan; Delivery Execution supplies exact responses and progress; Customer Communication tracks information about the established plan.\n\nLoom models these definitions. It does not dispatch vehicles or send messages."
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "system",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SystemModel",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Model",
+        "data": {
+          "purpose": "Source-bound authored fruittrucks design; no application execution claimed",
+          "owner": "fixture:design-owner",
+          "ontology": {
+            "model": "sdo",
+            "id": "sdo:ontology:system-definition",
+            "revision": "catalogue-3"
+          },
+          "profile": {
+            "model": "sdo",
+            "id": "sdo:profile:system-definition",
+            "revision": "catalogue-3"
+          }
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "actor",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Actor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Authorized participant"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "actor_kind": {
+              "kind": "Enum",
+              "value": "human"
+            },
+            "system_model": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "system"
+              }
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/system_model",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "context:Dispatch",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:BoundedContext",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Dispatch"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "model_owner": {
+              "kind": "Text",
+              "value": "fixture:design-owner"
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/model_owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "context:Delivery Execution",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:BoundedContext",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Delivery Execution"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "model_owner": {
+              "kind": "Text",
+              "value": "fixture:design-owner"
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/model_owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "context:Customer Communication",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:BoundedContext",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Customer Communication"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "model_owner": {
+              "kind": "Text",
+              "value": "fixture:design-owner"
+            },
+            "responsibility": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/model_owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/responsibility",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "requirement:ack",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "R8 — acknowledge an in-progress change"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "requirement:delivery",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Q1 — instruction delivery within sixty seconds"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "anchor-unit:0cd233872b9bde450e19",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:route-change-design-notes.md"
+          },
+          "label": "route-change-design-notes.md bytes 0:1637",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 1637,
+            "quote": "# Route-change design notes\n\n> Authored summary of proposed FT-P01 design, not an actual workshop or approved client policy.\n\n## Establish a changed stop order\n\n1. Understand the disruption and effective route.\n2. Prepare and check another order of the same unserved stops.\n3. Release one exact offer.\n4. The assigned driver acknowledges or declines.\n5. Before activation, recheck expiry, plan, assignment and relevant progress.\n6. Track communication about the established result.\n\n## Offer lifecycle subset\n\nDraft → Awaiting acknowledgement → Activated. Declined and Expired are alternative terminal outcomes. A draft can be revised; changed released content requires a fresh offer and acknowledgement. Withdrawal and supersession are left to the full reference case.\n\nExact-offer binding, stale-state refusal, retry recovery and an illustrative **five-minute expiry from release** are proposed design choices. The production expiry policy remains open; it is separate from Q1.\n\n## Retained history\n\nRetain both plans, exact offer, actor, reason, response and established result. A lost activation response requires resolving the original operation. Communication failure does not undo activation.\n\n## Illustrative reference fixture\n\nFT-ROUTE-EX01: Mercado Centro remains served. Move Frutería Plaza before Supermercado Norte; keep Supermercado Parque last. This is invented fixture data.\n\n## Open questions\n\nAuthority thresholds, production expiry, emergency/manual acknowledgement, notification recipients/channels and retention remain client decisions. The previous effective plan does not itself resolve a physical disruption."
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "requirement:expiry",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Proposed five-minute offer expiry; production policy open"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "design-decision"
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "usecase:ack",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UseCase",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Acknowledge exact released offer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "actor": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "actor"
+                  }
+                }
+              ]
+            },
+            "preconditions": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "guard:current"
+                  }
+                }
+              ]
+            },
+            "errors": {
+              "kind": "List",
+              "value": []
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "outcome": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/actor/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/preconditions",
+              "owner": "Graph"
+            },
+            {
+              "path": "/preconditions/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/errors",
+              "owner": "Graph"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            },
+            {
+              "path": "/outcome",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "command:release",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UseCase",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Release changed stop-order offer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "actor": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "actor"
+                  }
+                }
+              ]
+            },
+            "preconditions": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "guard:current"
+                  }
+                }
+              ]
+            },
+            "errors": {
+              "kind": "List",
+              "value": []
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "outcome": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/actor/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/preconditions",
+              "owner": "Graph"
+            },
+            {
+              "path": "/preconditions/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/errors",
+              "owner": "Graph"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            },
+            {
+              "path": "/outcome",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "command:acknowledge",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:CommandDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Acknowledge exact offer command (proposed design)"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "guards": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "guard:current"
+                  }
+                }
+              ]
+            },
+            "errors": {
+              "kind": "List",
+              "value": []
+            },
+            "operation_identity": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "concurrency": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/guards",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/errors",
+              "owner": "Graph"
+            },
+            {
+              "path": "/operation_identity",
+              "owner": "Document"
+            },
+            {
+              "path": "/concurrency",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "scenario:accepted",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Scenario",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Exact acknowledgement activates the current offer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:scenario:accepted",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:Scenario.illustrates",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "scenario:accepted"
+          },
+          "to": {
+            "$ref": "requirement:ack"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "scenario:stale",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Scenario",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Changed plan or progress refuses activation"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:scenario:stale",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:Scenario.illustrates",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "scenario:stale"
+          },
+          "to": {
+            "$ref": "requirement:ack"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "scenario:expired",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Scenario",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Proposed expiry refuses late activation"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:scenario:expired",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:Scenario.illustrates",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "scenario:expired"
+          },
+          "to": {
+            "$ref": "requirement:ack"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:satisfies",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:UseCase.satisfies",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "usecase:ack"
+          },
+          "to": {
+            "$ref": "requirement:ack"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:satisfies:parallel",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:UseCase.satisfies",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "usecase:ack"
+          },
+          "to": {
+            "$ref": "requirement:ack"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:ack:context",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:ElementRevision.ownedIn",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "usecase:ack"
+          },
+          "to": {
+            "$ref": "context:Dispatch"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "edge:offer:context",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:RelationshipAssertion",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Assertion",
+        "data": {
+          "signature": {
+            "model": "sdo",
+            "id": "sdo:relationship:ElementRevision.ownedIn",
+            "revision": "catalogue-3"
+          },
+          "from": {
+            "$ref": "entity:ChangeOffer"
+          },
+          "to": {
+            "$ref": "context:Dispatch"
+          },
+          "qualifiers": {}
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "question:authority",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Open acknowledgement policy"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "hypothesis"
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "question:emergency",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Open acknowledgement policy"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "hypothesis"
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "journey:change",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Journey",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Establish a changed stop order"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "actor": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "actor"
+              }
+            },
+            "trigger": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/actor",
+              "owner": "Graph"
+            },
+            {
+              "path": "/trigger",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:0",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Understand disruption"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:0"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:0",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Understand disruption"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:0"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:1",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Prepare and check"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:1"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:1",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Prepare and check"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:1"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:2",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Release exact offer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:2"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:2",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Release exact offer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:2"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:3",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Acknowledge or decline"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:3"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:3",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Acknowledge or decline"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:3"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:4",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Recheck and activate"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:4"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:4",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Recheck and activate"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:4"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "activity:5",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserActivity",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Track communication"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "tasks": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "task:5"
+                  }
+                }
+              ]
+            },
+            "objective": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks",
+              "owner": "Graph"
+            },
+            {
+              "path": "/tasks/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/objective",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "task:5",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:UserTask",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Track communication"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "activity": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "activity:5"
+              }
+            },
+            "task": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "completion": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/activity",
+              "owner": "Graph"
+            },
+            {
+              "path": "/task",
+              "owner": "Document"
+            },
+            {
+              "path": "/completion",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "storymap:change",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:StoryMap",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Proposed route-change activities"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "journeys": {
+              "kind": "Set",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "journey:change"
+                  }
+                }
+              ]
+            },
+            "activities": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:0"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:1"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:2"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:3"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:4"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "activity:5"
+                  }
+                }
+              ]
+            },
+            "placements": {
+              "kind": "List",
+              "value": []
+            },
+            "cuts": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/journeys",
+              "owner": "Graph"
+            },
+            {
+              "path": "/journeys/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/3",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/4",
+              "owner": "Graph"
+            },
+            {
+              "path": "/activities/5",
+              "owner": "Graph"
+            },
+            {
+              "path": "/placements",
+              "owner": "Graph"
+            },
+            {
+              "path": "/cuts",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "anchor-unit:ee55417ba2e07a165bd4",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:route-change-information.md"
+          },
+          "label": "route-change-information.md bytes 0:1044",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 1044,
+            "quote": "# Route-change information\n\n> Authored FT-P01 logical schema projections, not database tables or a validated native KnowledgeHub model.\n\n## Route\n\n| Field | Meaning |\n| --- | --- |\n| id | Stable route identity |\n| driver_id / vehicle_id | Unchanged assignment in this slice |\n| plan_revision | Effective operational plan revision |\n| stop_ids | Ordered stops, with served progress retained |\n| progress_revision | Relevant execution-state guard |\n\n## Change offer\n\nContains id, route_id, expected_plan_revision, candidate_stop_ids, expires_at and status. An exact offer revision also captures the relevant assignment and progress. Released content cannot be silently edited.\n\n## Acknowledgement\n\nContains id, offer_id, offer_revision, driver_id, responded_at and response. The offer reference and revision identify the exact instruction; response distinguishes acknowledgement from decline.\n\nThe three cards are concise projections, not the full record set. Operational revisions are distinct from revisions of these design definitions in Loom."
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "entity:Route",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:EntityType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Route"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-information.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:ee55417ba2e07a165bd4"
+      ],
+      "capture": null
+    },
+    {
+      "key": "entity:ChangeOffer",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:EntityType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "ChangeOffer"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-information.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:ee55417ba2e07a165bd4"
+      ],
+      "capture": null
+    },
+    {
+      "key": "entity:Acknowledgement",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:EntityType",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Acknowledgement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-information.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+                }
+              }
+            },
+            "fields": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/fields",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:ee55417ba2e07a165bd4"
+      ],
+      "capture": null
+    },
+    {
+      "key": "guard:current",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Precondition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Exact offer, unexpired, current plan, assignment and progress"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "condition": {
+              "kind": "Record",
+              "value": {
+                "form": {
+                  "kind": "Enum",
+                  "value": "description"
+                },
+                "description": {
+                  "kind": "Narrative",
+                  "value": {
+                    "document": {
+                      "$ref": "capture:route-change-design-notes.md"
+                    },
+                    "fragment": {
+                      "$ref": "anchor-unit:0cd233872b9bde450e19"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/condition",
+              "owner": "Graph"
+            },
+            {
+              "path": "/condition/form",
+              "owner": "Graph"
+            },
+            {
+              "path": "/condition/description",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Draft",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Draft"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": false
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Awaiting acknowledgement",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Awaiting acknowledgement"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": false
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Activated",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Activated"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": true
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Declined",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Declined"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": true
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "state:Expired",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:State",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Expired"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "terminal": {
+              "kind": "Bool",
+              "value": true
+            },
+            "meaning": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal",
+              "owner": "Graph"
+            },
+            {
+              "path": "/meaning",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "transition:release",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Transition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "release"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "from": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Draft"
+              }
+            },
+            "to": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Awaiting acknowledgement"
+              }
+            },
+            "guards": {
+              "kind": "List",
+              "value": []
+            },
+            "effects": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/from",
+              "owner": "Graph"
+            },
+            {
+              "path": "/to",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards",
+              "owner": "Graph"
+            },
+            {
+              "path": "/effects",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "transition:acknowledge",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Transition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "acknowledge"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "from": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Awaiting acknowledgement"
+              }
+            },
+            "to": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Activated"
+              }
+            },
+            "guards": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "guard:current"
+                  }
+                }
+              ]
+            },
+            "effects": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/from",
+              "owner": "Graph"
+            },
+            {
+              "path": "/to",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/effects",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "transition:decline",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Transition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "decline"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "from": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Awaiting acknowledgement"
+              }
+            },
+            "to": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Declined"
+              }
+            },
+            "guards": {
+              "kind": "List",
+              "value": []
+            },
+            "effects": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/from",
+              "owner": "Graph"
+            },
+            {
+              "path": "/to",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards",
+              "owner": "Graph"
+            },
+            {
+              "path": "/effects",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "transition:proposed-expiry",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Transition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "proposed-expiry"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "owner": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "lifecycle:offer"
+              }
+            },
+            "from": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Awaiting acknowledgement"
+              }
+            },
+            "to": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Expired"
+              }
+            },
+            "guards": {
+              "kind": "List",
+              "value": []
+            },
+            "effects": {
+              "kind": "List",
+              "value": []
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/owner",
+              "owner": "Graph"
+            },
+            {
+              "path": "/from",
+              "owner": "Graph"
+            },
+            {
+              "path": "/to",
+              "owner": "Graph"
+            },
+            {
+              "path": "/guards",
+              "owner": "Graph"
+            },
+            {
+              "path": "/effects",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "lifecycle:offer",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:LifecycleDefinition",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Proposed offer lifecycle subset"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "subject": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "entity:ChangeOffer"
+              }
+            },
+            "states": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Draft"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Awaiting acknowledgement"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Activated"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Declined"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Expired"
+                  }
+                }
+              ]
+            },
+            "initial_state": {
+              "kind": "Ref",
+              "value": {
+                "$ref": "state:Draft"
+              }
+            },
+            "terminal_states": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Activated"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Declined"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "state:Expired"
+                  }
+                }
+              ]
+            },
+            "transitions": {
+              "kind": "List",
+              "value": [
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "transition:release"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "transition:acknowledge"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "transition:decline"
+                  }
+                },
+                {
+                  "kind": "Ref",
+                  "value": {
+                    "$ref": "transition:proposed-expiry"
+                  }
+                }
+              ]
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/subject",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/3",
+              "owner": "Graph"
+            },
+            {
+              "path": "/states/4",
+              "owner": "Graph"
+            },
+            {
+              "path": "/initial_state",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/terminal_states/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions/0",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions/1",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions/2",
+              "owner": "Graph"
+            },
+            {
+              "path": "/transitions/3",
+              "owner": "Graph"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "file-definition:design.md",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: design.md"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "authored-requirement"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:design.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:4c4fd27857bc2c8df7e3"
+      ],
+      "capture": null
+    },
+    {
+      "key": "anchor-unit:e3309f0c9f2c51e4a90e",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:SourceAnchor",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Anchor",
+        "data": {
+          "source": {
+            "$ref": "capture:fruittrucks-process.md"
+          },
+          "label": "fruittrucks-process.md bytes 0:25225",
+          "locator": {
+            "kind": "ByteRange",
+            "start": 0,
+            "end": 25225,
+            "quote": "# FT-P01 — Controlled changes to a delivery route in progress\n\n**Status:** Proposed reference process for the hypothetical FruitTrucks client.\n\n**Date:** 3 November 2026.\n\n**Purpose:** A coherent case to model, inspect and evolve in finalized Loom, and to introduce progressively through the campus.\n\nThis document owns the proposed process design. Existing company facts remain owned by the [FruitTrucks fact sheet](fruittrucks.md). New policies below are identified as proposals or illustrative fixture choices; they do not silently settle the fact sheet's open questions. This is a system-definition reference, not an implemented DDC process, a generated KnowledgeHub instance or evidence of client acceptance.\n\n## 1. Business purpose and initial boundary\n\nA dispatcher needs to respond to a disruption after a delivery vehicle has left its depot. Another order of the remaining stops could reduce disruption, but drivers must not act on missed, obsolete or ambiguous instructions. Customer service also needs an understandable effective plan.\n\n**Desired outcome:** the dispatcher and assigned driver share one established delivery plan, with an attributable reason for its change, acknowledgement of the exact instruction, and visible communication status.\n\nThe first scope changes only the order of **unserved stops** and the resulting delivery estimates. Driver, vehicle, cargo, customer orders and completed deliveries remain unchanged. Vehicle replacement, transferring goods, adding orders and assigning another driver are later extensions.\n\nThe application being designed is FruitTrucks' **Dispatch & Delivery Coordination (DDC)** system. Loom represents that design. Workbench helps people develop it. KnowledgeHub stores governed definitions and evidence; it does not dispatch vehicles or execute the business process.\n\n## 2. Sources and decision status\n\n| Basis | Status and use |\n| --- | --- |\n| Fact sheet §8: missed route-change instructions and poor delivery visibility | Existing problem and intended capability. |\n| Fact sheet R8 and [operations manual](../../sessions/session-03/data/operations-manual.md) | Existing requirement: a route change after departure is valid only once the driver acknowledges it. |\n| [Dispatcher interview](../../sessions/session-03/data/dispatcher-interview.md) | Reported practice without prior acknowledgement. Preserve its disagreement with prescribed behaviour; it is not an approved replacement policy. |\n| Fact sheet R6 and [customer agreement](../../sessions/session-03/data/customer-agreement.md) | Existing delivery commitments. Contradictory ERP window values remain a clarification case. |\n| Fact sheet Q1 | Existing target: a route change reaches the driver's phone within 60 seconds. This measures instruction delivery, not driver acknowledgement. |\n| Fact sheet Q3 | Existing offline concern. This does not define an offline route-change acceptance protocol. |\n| Exact offer binding, stale guards, expiry and retry rules below | Proposed design decisions for this reference process. |\n| Five-minute offer validity | Proposed teaching-fixture value, not an established FruitTrucks policy. |\n\nUse source status and provenance to distinguish client requirements, reported practice, design decisions, assumptions and open questions. Exact quotations can establish what a source says; interpretation and policy resolution still need review.\n\n## 3. Actors and responsibility boundaries\n\n| Participant | Responsibility |\n| --- | --- |\n| Dispatcher | Prepare and release an ordinary change within current authority; manage unresolved exceptions. |\n| Assigned driver | Examine and acknowledge or decline the exact instruction addressed to them. |\n| Operations manager | Decide exceptional cases outside ordinary dispatcher authority; thresholds remain a client decision. |\n| Customer service | Inspect the effective plan, revised estimates and outstanding communication problems. |\n| DDC application | Check changes, preserve versions, coordinate acknowledgement and activation, and report outcomes honestly. |\n| Existing systems | Supply customer/location information, operational observations, routing estimates and message delivery through defined integration boundaries. |\n\nCandidate context responsibilities are **Dispatch** for the change process and effective plan, **Delivery Execution** for driver interaction and execution progress, and **Customer Communication** for delivery information and notification outcomes. Route Planning supplies the original plan; Fleet & Cold Chain and the existing ERP supply relevant information. These are modelling responsibilities, not an instruction to deploy separate services.\n\nOrdinary dispatcher authority over this limited stop-order change is a proposed baseline. It does not settle G1, the wider question of reassignment authority, or permit bypassing driver acknowledgement.\n\n## 4. Ubiquitous language\n\n| Term | Meaning within this process |\n| --- | --- |\n| Route | One vehicle's ordered delivery stops for an operating day. It does not mean a road segment or recurring sales territory here. |\n| Effective plan revision | The established stop sequence used by execution and customer-facing information. |\n| Served stop | A stop whose completion is established in route execution. It cannot be reintroduced as unserved by this process. |\n| Route change request | The identified case for considering a change, retaining its reason and proposal history. |\n| Candidate plan | A proposed order of unserved stops and associated estimates, based on identified inputs. |\n| Change offer | The exact candidate revision released to the assigned driver, with an expiry and captured starting state. |\n| Driver acknowledgement | An attributable response to that specific offer, distinct from transport delivery or a dispatcher reading a message. |\n| Activation | Establishing the candidate as the new effective plan after all applicable checks. Acknowledgement is necessary but not sufficient. |\n| Communication job | A separately tracked request to communicate information about an established change. Creating a job is not proof of delivery. |\n\n## 5. Main journey\n\nThe dispatcher learns that a forthcoming stop cannot proceed at its planned time. They inspect the current route and propose a different order for its remaining stops. DDC shows the original and candidate plans, their inputs and estimated impact.\n\nAfter the ordinary checks pass, the dispatcher releases the exact offer. The assigned driver receives it, examines the change and acknowledges or declines. DDC rechecks that the offer remains current and admissible before activating a new plan revision. Customer service sees the established result and any outstanding communications.\n\n```mermaid\nflowchart TD\n    A[Identify disruption and current route] --> B[Draft revised order of remaining stops]\n    B --> C{Constraints and authority satisfied?}\n    C -- No --> D[Clarify, revise or escalate]\n    D --> B\n    C -- Yes --> E[Release an exact change offer]\n    E --> F[Await driver acknowledgement]\n    F -- Declined, expired or withdrawn --> G[Close offer without activation]\n    F -- Acknowledged --> H{Still current and valid?}\n    H -- No --> D\n    H -- Yes --> I[Activate a new plan revision]\n    I --> J[Update delivery information and track notifications]\n```\n\n| Step | Behaviour and observable result |\n| --- | --- |\n| FT-STEP-01 — Understand | Open the effective plan, remaining stops and execution progress. Retain the disruption reason and supporting information. |\n| FT-STEP-02 — Prepare | Propose a new sequence of the same unserved stops. Show the original/candidate sequences, estimated arrivals and affected commitments. |\n| FT-STEP-03 — Check | Check current authority, unchanged assignment, served-stop protection, stop completeness and applicable delivery constraints. Expose contradictory or insufficient information. |\n| FT-STEP-04 — Release | Retain the candidate, starting plan, dispatcher, reason and expiry. Send that specific offer to the assigned driver. |\n| FT-STEP-05 — Acknowledge | Receive acknowledgement or decline of the exact offer. Keep sent, delivered and acknowledged states distinguishable. |\n| FT-STEP-06 — Activate | Recheck the offer, current plan, assignment and relevant execution progress. Record one activation and a new effective plan revision, or preserve the candidate with an explicit refusal. |\n| FT-STEP-07 — Communicate | Publish the established plan to execution and customer service. Create traceable communication jobs where required, with visible pending/failure states. |\n\nOperational success means that activation is established, the effective plan is available to its consumers, and required communication work is durably registered and inspectable. It does not mean every recipient has received a message. Notification delivery is tracked separately.\n\n### Worked example\n\nThe following names, identifiers, times and estimates are **invented fixture data**, not additional company facts. All times are local to the route's operating day.\n\nRoute `FT-ROUTE-EX01` carries fresh produce and is already under way. Mercado Centro has received its delivery. The next supermarket reports a temporary unloading delay, so the dispatcher proposes serving Frutería Plaza first. The same driver and vehicle retain the same orders and cargo.\n\n| Stop | Effective plan revision 7 | Candidate sequence | Candidate arrival | Fixture delivery window |\n| --- | --- | --- | --- | --- |\n| Mercado Centro | 1 — served at 08:55 | Preserved as served | Already completed | Not relevant to the remaining plan |\n| Supermercado Norte | 2 | 3 | 10:00 | 09:45–10:15 |\n| Frutería Plaza | 3 | 2 | 09:25 | 09:15–09:45 |\n| Supermercado Parque | 4 | 4 | 10:25 | 10:15–10:45 |\n\nAt 09:05, the dispatcher releases offer `FT-OFFER-EX01`, revision 1, against effective plan revision 7. Its illustrative expiry is 09:10. The assigned driver receives it at 09:05:30 and acknowledges that exact offer at 09:07. With the plan, assignment and relevant progress still matching, DDC establishes plan revision 8 and records the resulting communication work.\n\nThe 30-second instruction delivery satisfies the example's 60-second delivery target; the two-minute acknowledgement is a separate observation. A repeat of the same activation operation returns the original revision-8 result. If Norte had instead become served before activation, DDC would refuse this candidate and require replanning. These are separate scenario branches, not events that all occur in one run.\n\n## 6. Business rules and proposed invariants\n\n| ID | Rule | Basis |\n| --- | --- | --- |\n| FT-REQ-ACK | No activation before the assigned driver acknowledges. | Existing R8, refined by the exact-offer design below. |\n| FT-INV-EXACT | Acknowledgement names one exact offer revision. Changed content requires fresh acknowledgement. | Proposed design. |\n| FT-INV-REMAINING | The candidate contains each unserved stop exactly once, introduces no new stops, and preserves completed deliveries. | First-process scope and proposed integrity rule. |\n| FT-INV-CURRENT | The expected effective plan, assignment and relevant served-stop state still match at activation. | Proposed consistency rule. |\n| FT-INV-AUTHORITY | Current dispatcher authority governs release; only the currently assigned driver may acknowledge. | Proposed authority rule. |\n| FT-INV-SINGLE-OFFER | At most one released, actionable offer exists for a route. Replacing it explicitly withdraws or supersedes the earlier offer. | Proposed simplification. |\n| FT-INV-EXPIRY | An expired, declined, withdrawn or superseded offer cannot activate. Expiry is never acceptance. | Proposed temporal rule. |\n| FT-INV-RETRY | Repeating the same logical operation recovers its original outcome; it does not activate another plan revision or create another logical communication job. | Proposed reliability rule. |\n| FT-REQ-COMMITMENTS | Applicable delivery commitments remain visible; a known violation or unresolved conflict leaves the ordinary path for clarification or exception handling. | Existing delivery concern; proposed admission behaviour. |\n| FT-REQ-HISTORY | Retain the prior and replacement plans, exact offer, actors, acknowledgement, reason and established result. | Proposed audit and explanation contract. |\n\nEstimates are not delivery guarantees. An ETA calculation passing a check does not prove that the real delivery will meet its window. Missing or conflicting constraints must remain explicit.\n\n## 7. Time, interruption and alternative paths\n\nFor the authored teaching fixture, propose an offer expiry **five minutes after dispatcher release**. Retries do not extend that deadline. The production duration remains a client policy decision. The existing 60-second instruction-delivery target is a different measure.\n\n| Situation | Required response |\n| --- | --- |\n| Driver offline or message undelivered | Keep delivery/acknowledgement pending and visible. Do not activate merely because an offer was sent. |\n| Driver declines | Close that offer without activation and return the case for dispatcher attention. |\n| Offer expires | Record expiry, alert the dispatcher and reject late acknowledgement. |\n| Relevant plan/progress changes | Refuse the old candidate. Retain it for explanation and prepare a fresh offer where appropriate. A GPS observation alone does not necessarily invalidate the offer. |\n| Candidate content changes | Withdraw/supersede the released offer and obtain acknowledgement of its replacement. |\n| Activation response is lost | Show an unresolved outcome until the original operation result can be established. Do not infer failure or submit different intent blindly. |\n| Customer communication fails | Preserve the effective plan; retain a visible retry or attention state for communication. |\n| Delivery-window sources disagree | Show the conflicting sources and obtain a traceable clarification before using an unresolved constraint in the ordinary path. |\n\nThe application retaining the previous effective plan does not resolve the physical disruption. The dispatcher still manages the situation. Manual telephone acknowledgement, emergency overrides and alternative authority are not implicitly added to this reference process.\n\n## 8. Domain structure, lifecycle and information\n\nA candidate **Route aggregate** protects the effective plan, relevant execution progress and current actionable offer. Its root is a Route entity. RouteChangeRequest and RouteChangeOffer have explicit identities; an immutable candidate describes the proposed sequence. The request retains the case identity across reconsideration while released offers remain attributable and distinguishable.\n\nThe lifecycle below belongs to an individual offer:\n\n> Draft → Awaiting acknowledgement → Activated\n\nAlternative terminal outcomes are Declined, Expired, Withdrawn and Superseded. A revised offer is a fresh candidate revision; it does not erase the earlier content or inherit its acknowledgement. The encompassing process can loop back to planning without rewriting closed offer history.\n\n| Logical record | Information to retain |\n| --- | --- |\n| Route/effective plan | Route identity, operating day, assignment, effective plan revision, ordered stops and relevant execution progress. |\n| Change request | Case identity, route reference, disruption reason, actor and proposal history. |\n| Offer | Offer identity/revision, request reference, candidate plan, expected plan/progress, released actor/time, expiry and outcome. |\n| Acknowledgement | Response identity, assigned driver, exact offer reference, response/time and attributable source. |\n| Activation result | Original operation identity, established outcome, resulting plan revision and history references. |\n| Communication job | Identity, activated plan reference, intended recipient/purpose, channel decision where configured, attempts and outcome. |\n\nThese are logical definitions rather than SQL table instructions. DDC's operational plan/offer revisions and KnowledgeHub's revisions of these definitions are separate versioning domains.\n\nCandidate commands include prepare/revise a candidate, release an offer, acknowledge, decline, withdraw and resolve an operation outcome. Queries include the effective plan, offer comparison, outstanding responses and communication status. Reuse the existing event names RouteChangeAcknowledged and RouteChanged; offer-released, declined, expired and communication-outcome events are proposed additions to the DDC design, not new ontology built-ins.\n\n## 9. Interaction and integrations\n\n| Surface | What the person can understand and do |\n| --- | --- |\n| Dispatcher route view | Inspect the effective plan, progress, disruption and sources. |\n| Change comparison | Compare original/candidate sequences, estimated impact, constraint issues and exact release scope. |\n| Driver instruction | Read one identified offer, its changes and validity; acknowledge or decline it. |\n| Change outcome view | Distinguish pending delivery, pending acknowledgement, refusal, established activation and unresolved operation outcome. |\n| Customer-service view | Read the effective version and estimates, with outstanding communication problems clearly separated. |\n\nERP/customer records, operational observations, routing estimates and messaging each need declared authority, freshness, failure and translation contracts. Existing systems remain in place; the process does not introduce direct ERP modification or equate messaging delivery with driver acceptance.\n\nAfter activation, customer information and communication jobs refer to the activated plan revision. Jobs have stable logical identities across retries. External delivery guarantees depend on the chosen provider contract; one logical job is not a promise of exactly-once physical message delivery.\n\n## 10. KnowledgeHub ontology mapping\n\nThe mapping uses the [current catalogue vocabulary](../../../knowledgehub/src/ontology/catalogue.json). FruitTrucks concepts are system definitions expressed through generic types; they are not additions to the built-in ontology.\n\n| Reference-case concern | Ontology representation |\n| --- | --- |\n| Purpose and value | BusinessGoal, DesiredOutcome, BusinessCapability. |\n| People and responsibility | Actor, BusinessRole, BoundedContext. |\n| Human progression and useful increments | Journey, JourneyStep, UserStory, StoryMap, StoryPlacement, OutcomeCut. |\n| Coordinated business process | ProcessDefinition, ProcessStep, Timer and explicit guarded branches/loops. |\n| Route, request, offer and acknowledgement definitions | AggregateDefinition, EntityType, ValueObjectType. |\n| Offer states and transitions | LifecycleDefinition whose subject is the particular offer EntityType definition, plus State and Transition. |\n| Requests, reads and published facts | UseCase, CommandDefinition, QueryDefinition, EventDefinition. |\n| Information | DataSchema, FieldDefinition, DataType, including appropriate reference, enumeration, timestamp and duration definitions. |\n| Visible behaviour | ScreenDefinition, ViewState, Interaction, ActionBinding, DataBinding. |\n| Promises, design choices and uncertainty | Requirement, BusinessRule, Invariant, DesignDecision, OpenQuestion. |\n| Examples and future verification | Scenario, AcceptanceCriterion, TestCase; TestRun and observed evidence only after actual execution. |\n| Source grounding and exact history | Source/provenance kernel, original artifacts, anchors, interpretation records, exact revisions and model baselines. |\n\nOne representative trace is:\n\n1. A driver-screen Interaction **issues** an acknowledgement CommandDefinition.\n2. The command is **handledBy** a UseCase that **satisfies** FT-REQ-ACK.\n3. A Scenario **illustrates** that Requirement; a future TestCase **checks** it and the applicable Invariant.\n4. The Route AggregateDefinition **protects** its Invariants and **hasRoot** its Route EntityType.\n5. A UserStory **supportsStep** a JourneyStep; a Requirement **formalises** the applicable story or desired outcome.\n\nEvery relationship must use its declared endpoints and exact references. Modelled rule text and timers are definitions; storing or validating them does not execute them. This source-level mapping has not yet been instantiated and validated as a complete native model.\n\n## 11. Acceptance scenarios\n\nThese are authored examples, not records of successful execution.\n\n| ID | Given / When | Expected result and preserved state |\n| --- | --- | --- |\n| FT-S01 — Normal | A permitted dispatcher releases a feasible offer; the assigned driver acknowledges it before expiry, and guards still match. | One new effective plan revision is established, history is retained and communication work is registered. |\n| FT-S02 — No acknowledgement | An offer is delivered but the driver does not acknowledge before expiry. | No activation; delivery and expiry are distinguishable, and dispatcher attention is visible. |\n| FT-S03 — Completed stop | A relevant stop becomes served after the candidate was prepared. | The obsolete offer cannot reintroduce it; refusal preserves the candidate and requires revised planning. |\n| FT-S04 — Old offer | A driver acknowledges an expired, withdrawn or superseded offer. | No activation; the old response remains attributable and the current offer is not implicitly accepted. |\n| FT-S05 — Lost result/retry | The activation response is lost and the same logical operation is retried or queried. | Recover the original outcome; do not create a second activation or logical communication job. |\n| FT-S06 — Wrong authority | A different driver acknowledges, or dispatcher authority no longer permits release. | Refuse the operation and preserve the effective plan and candidate history. |\n| FT-S07 — Communication failure | Activation is established but a notification attempt fails. | Keep the plan established and the communication outcome visible, with a defined retry/attention path. |\n| FT-S08 — Conflicting window | Relevant customer-agreement and ERP values disagree. | Preserve both references and the unresolved constraint; no invented consensus or misleading feasibility result. |\n| FT-S09 — Changed candidate | The dispatcher changes a released stop sequence. | The earlier offer/acknowledgement cannot authorize the replacement; fresh acknowledgement is required. |\n\nAt modelling time, the manual/interview disagreement supplies a further interpretation exercise: preserve prescribed behaviour and reported practice separately and identify the source and authority of any resolution.\n\n## 12. Presentation in finalized Loom\n\n| Loom view | Reference-case content |\n| --- | --- |\n| Context map | Dispatch, Delivery Execution and Customer Communication, with relevant external information dependencies. |\n| Model graph | Requirements, route/offer definitions, commands, use cases, invariants and explicit traces. |\n| Journey | Dispatcher/driver progression from disruption to established outcome. |\n| Lifecycle | Offer states and guarded transitions. |\n| Schemas | Logical route, request, offer, acknowledgement and communication records. |\n| Hierarchy | Declared ownership and composition of these definitions. |\n| Documents | Existing FruitTrucks sources, proposed policies and unresolved questions with their status. |\n| History | Revisions and baselines of the design model. Operational examples are separately labelled fixtures or evidence, not fabricated runtime history. |\n\nLoom's engineer may inspect, propose and review a change to the acknowledgement requirement. That changes a system definition; it does not acknowledge a delivery instruction or activate a real route. The engineer's Loom membership and the DDC driver's operational authority remain separate.\n\n## 13. Progressive teaching and unresolved client decisions\n\nSession 4 needs only the actors/outcome, a small journey, the acknowledgement rule and a few scenarios. Later sessions elaborate sourced interpretation, reviewed model evolution, semantic rules, architecture, contracts and controlled change. Workbench onboarding remains inside session 4's first hour; KnowledgeHub installation and its eventual Node.js/command-console access are separate later preparation.\n\nThe full reference keeps these questions explicit:\n\n- Ordinary/exceptional dispatcher authority and Operations Manager thresholds.\n- The production offer-validity policy and handling of emergencies or manual acknowledgement.\n- Customer communication recipients, channels and contact preferences.\n- Resolution authority for conflicting contractual and operational window information.\n- Acceptable estimate freshness and risk rules when assessing feasible alternatives.\n- Identity, trace and retention policies for operational requests and acknowledgements.\n\nDo not turn an open question into a source fact or an authored scenario into observed execution. The eventual reference-model completion evidence should establish source coverage, valid typed traces, coherent baseline/revision inspection and separately recorded human review. Executing the DDC process requires its own implementation and operational verification.\n"
+          }
+        }
+      },
+      "provenance": [],
+      "capture": null
+    },
+    {
+      "key": "file-definition:fruittrucks-process.md",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: fruittrucks-process.md"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:fruittrucks-process.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:e3309f0c9f2c51e4a90e"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "design-decision"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:fruittrucks-process.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:e3309f0c9f2c51e4a90e"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:e3309f0c9f2c51e4a90e"
+      ],
+      "capture": null
+    },
+    {
+      "key": "file-definition:route-change-design-notes.md",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: route-change-design-notes.md"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "design-decision"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-design-notes.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:0cd233872b9bde450e19"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:0cd233872b9bde450e19"
+      ],
+      "capture": null
+    },
+    {
+      "key": "file-definition:route-change-information.md",
+      "type_ref": {
+        "model": "sdo",
+        "id": "sdo:type:Requirement",
+        "revision": "catalogue-3"
+      },
+      "data": {
+        "kind": "Element",
+        "data": {
+          "properties": {
+            "name": {
+              "kind": "Text",
+              "value": "Retained source definition: route-change-information.md"
+            },
+            "description": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-information.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+                }
+              }
+            },
+            "claim_kind": {
+              "kind": "Enum",
+              "value": "design-decision"
+            },
+            "rationale": {
+              "kind": "List",
+              "value": []
+            },
+            "statement": {
+              "kind": "Narrative",
+              "value": {
+                "document": {
+                  "$ref": "capture:route-change-information.md"
+                },
+                "fragment": {
+                  "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+                }
+              }
+            }
+          },
+          "owners": [
+            {
+              "path": "/name",
+              "owner": "Graph"
+            },
+            {
+              "path": "/description",
+              "owner": "Document"
+            },
+            {
+              "path": "/claim_kind",
+              "owner": "Graph"
+            },
+            {
+              "path": "/rationale",
+              "owner": "Graph"
+            },
+            {
+              "path": "/statement",
+              "owner": "Document"
+            }
+          ]
+        }
+      },
+      "provenance": [
+        "anchor-unit:ee55417ba2e07a165bd4"
+      ],
+      "capture": null
+    }
+  ],
+  "gaps": [
+    {
+      "subject": {
+        "$ref": "context:Dispatch"
+      },
+      "path": "/language",
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "context:Dispatch"
+      },
+      "path": "/hypotheses",
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "context:Delivery Execution"
+      },
+      "path": "/language",
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "context:Delivery Execution"
+      },
+      "path": "/hypotheses",
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "context:Customer Communication"
+      },
+      "path": "/language",
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "context:Customer Communication"
+      },
+      "path": "/hypotheses",
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "command:acknowledge"
+      },
+      "path": "/input",
+      "reason": "The exact source section is retained; structured CommandDefinition.input has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "command:acknowledge"
+      },
+      "path": "/result",
+      "reason": "The exact source section is retained; structured CommandDefinition.result has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "command:acknowledge"
+      },
+      "path": "/handledBy",
+      "reason": "Logical handler binding is not established by these proposed teaching notes; no executing handler is inferred.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:accepted"
+      },
+      "path": "/preconditions",
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:accepted"
+      },
+      "path": "/expected",
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:accepted"
+      },
+      "path": "/preserved_on_failure",
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:stale"
+      },
+      "path": "/preconditions",
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:stale"
+      },
+      "path": "/expected",
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:stale"
+      },
+      "path": "/preserved_on_failure",
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:expired"
+      },
+      "path": "/preconditions",
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:expired"
+      },
+      "path": "/expected",
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "scenario:expired"
+      },
+      "path": "/preserved_on_failure",
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "journey:change"
+      },
+      "path": "/alternatives",
+      "reason": "The exact source section is retained; structured Journey.alternatives has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "journey:change"
+      },
+      "path": "/interruptions",
+      "reason": "The exact source section is retained; structured Journey.interruptions has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "entity:Route"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "entity:ChangeOffer"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "entity:Acknowledgement"
+      },
+      "path": "/identity_contract",
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:ee55417ba2e07a165bd4"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "transition:release"
+      },
+      "path": "/triggeredBy",
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "transition:acknowledge"
+      },
+      "path": "/triggeredBy",
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "transition:decline"
+      },
+      "path": "/triggeredBy",
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "subject": {
+        "$ref": "transition:proposed-expiry"
+      },
+      "path": "/triggeredBy",
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "provenance": [
+        {
+          "$ref": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    }
+  ],
+  "baseline": "imported-A",
+  "selection": null
+}

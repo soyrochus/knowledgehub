@@ -1,0 +1,305 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "items": [
+    {
+      "id": "map",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "map",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "entity:Asset",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "entity:Asset",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "entity:Booking",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "entity:Booking",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle:Booking",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "lifecycle:Booking",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "field:asset",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "field:asset",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "datatype:AssetRef",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "datatype:AssetRef",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "adapter:notification",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "adapter:notification",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "file:design.md",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:design.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:36b6df04fc61c45d867c"
+        }
+      ]
+    },
+    {
+      "id": "file:rule.js",
+      "source": "rule.js",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:rule.js",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:dba3492621bb425aa685"
+        }
+      ]
+    },
+    {
+      "id": "ui-artifact:rule.js:function:81",
+      "source": "rule.js",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:rule.js",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:220c178c7dff899b1944"
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "name": "Derived inverse lifecycle subject",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "entity:Booking"
+          }
+        ],
+        "direction": "Incoming",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            "path": "/subject"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:Booking"
+      ]
+    },
+    {
+      "name": "booking-lifecycle",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:Booking"
+      ]
+    },
+    {
+      "name": "exact application definitions",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:EntityType",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:entity:Asset",
+        "model:entity:Booking"
+      ]
+    },
+    {
+      "name": "inclusive application definitions",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:EntityType",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:entity:Asset",
+        "model:entity:Booking",
+        "model:extension:instance"
+      ]
+    }
+  ],
+  "interpretation_review": "agent-reviewed exact source identities, authority and construct locators; human meaning acceptance pending",
+  "source_gaps": [
+    "No application implementation, provider execution or acceptance is established. Structured fields left unresolved have exact native gaps; original narrative/artifacts remain authoritative.",
+    "Auxiliary research and prototype simulations are captured with their original status.",
+    "Visible interaction details beyond the declared typed bindings remain exact source artifacts with individual construct locators; source accounting does not claim graph-complete behavior formalization."
+  ]
+}

@@ -381,3 +381,22 @@ separates public/runtime/reopen/packing checks from human acceptance and unavail
 platform gates. No new storage/semantic codec, canonical refresh, Modelarium transport/UI
 or terminal implementation belongs to this cut. Later C9 and terminal work require their
 own bounded authorisation and must consume the delivered contract.
+
+### TC-SL-01 — Explore a small native model from a terminal
+
+The user authorised `add-terminal-model-client` on 4 November 2026, following C8.
+The slice supplies a binary-local read-only host, shared CLI/TUI exploration,
+native publication/affected-reference reads, exact source inspection, A/B baseline
+comparison and offline derived diagrams. FruitTrucks and unrelated equipment
+fixtures retain exact sources, draft omissions, original publisher-A receipts,
+reader-B authority and superseded baseline coverage. No model execution or human
+meaning acceptance is inferred from authoring validity or source accounting.
+
+The [consumer guide](../design/terminal-client.md), [quick start](../examples/fixtures/terminal-client/QUICKSTART.md)
+and [evidence](evidence/terminal-client/20261104-apply/README.md) own commands and
+observed checks. Delivery is a local macOS arm64/APFS package with paired native
+executables and relative workspaces. Human review/acceptance, Linux native
+execution, signing/notarization/publication, Modelarium C9, canonical refresh and
+authority transfer remain separate. Review the bounded consumer before selecting
+another implementation slice; do not close earlier external authoring/host gates
+from this terminal evidence.

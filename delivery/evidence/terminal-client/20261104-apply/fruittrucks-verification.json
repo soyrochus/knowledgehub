@@ -1,0 +1,2268 @@
+{
+  "application_execution": "not performed",
+  "baseline": {
+    "id": "model:baseline:imported-A",
+    "model": "fixture:fruittrucks",
+    "revision": "1"
+  },
+  "catalogue": {
+    "id": "sdo:ontology:system-definition",
+    "model": "sdo",
+    "revision": "catalogue-3"
+  },
+  "coverage_digest": {
+    "length": 6826,
+    "sha256": "27bced13ce6e3eac39cf8706448272ef1591dd09cac07d902a355dd3844252c5"
+  },
+  "current_head": "1168989726ecf408b9b461b6aa3f4400d772449cb186cd974e4af4e23240e2de",
+  "destination": "/Users/ivanderk/src/knowledgehub/target/terminal-client/knowledgehub-terminal-macos-arm64-final/models/fruittrucks/hub",
+  "failures": [
+    "unresolved authority conflict: R8 retained; manual/interview wording conflict remains unresolved. Five minutes is a proposed teaching choice, not approved production policy. Q1 measures instruction delivery, not acknowledgement."
+  ],
+  "format": "knowledgehub-authoring/1",
+  "head": "1168989726ecf408b9b461b6aa3f4400d772449cb186cd974e4af4e23240e2de",
+  "human_acceptance": "pending",
+  "implementation_evidence": "not established by import",
+  "interpretation_review": "agent-reviewed exact source identities, authority and construct locators; human meaning acceptance pending",
+  "known_receipts": [
+    {
+      "actor": "host:publisher-A",
+      "affected": [
+        {
+          "id": "urn:source:ontology",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "urn:source:ontology:capture",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:ontology-pdf",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:ontology-pdf:capture",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:anchor:catalogue",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:experience-contract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:experience-contract:capture",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:anchor:experience-contract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:logical-design-contract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:source:logical-design-contract:capture",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:anchor:logical-design-contract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Stakeholder",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessGoal",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DesiredOutcome",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessCapability",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessFunction",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessRole",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Measure",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Requirement",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BusinessRule",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Assumption",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:OpenQuestion",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DesignDecision",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Rationale",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Constraint",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Actor",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Persona",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Journey",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:JourneyStep",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:UserTask",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:UserStory",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:OutcomeCut",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Scenario",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Domain",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Subdomain",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:BoundedContext",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ContextRelationship",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:UbiquitousLanguageTerm",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:PublishedLanguage",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AggregateDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EntityType",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ValueObjectType",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DomainService",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Invariant",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RepositoryPort",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:LifecycleDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:UseCase",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:CommandDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:QueryDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:FunctionDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Parameter",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Precondition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Postcondition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Effect",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ErrorDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EventDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EventOccurrence",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EventHandler",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ProcessDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ProcessStep",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ProcessExecution",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:State",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Transition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Timer",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Compensation",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:CorrelationPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DataSchema",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:FieldDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DataType",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:FieldConstraint",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ProjectionDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:TransformationDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:TransformationRun",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:MappingRule",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:MigrationDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DataStoreDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ScreenDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ViewState",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ComponentDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ComponentPlacement",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Interaction",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:NavigationTransition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DataBinding",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ActionBinding",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:LayoutConstraint",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DesignToken",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Asset",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AccessibilityRule",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ApplicationSystem",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:SoftwareComponent",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Module",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Interface",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Port",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Adapter",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Endpoint",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:MessageChannel",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ExternalSystem",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:IntegrationContract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Dependency",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:PrincipalType",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Role",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Permission",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AuthorizationPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:TrustBoundary",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DataClassification",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RetentionPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Threat",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AuditRequirement",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:QualityScenario",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ServiceObjective",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Environment",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DeploymentDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DeploymentInstance",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Resource",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ConfigurationDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ObservabilityRequirement",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RecoveryProcedure",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AgentRole",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ModelConfiguration",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:PromptDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ToolContract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ContextPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RetrievalPolicy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RunLimit",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EvaluationCase",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:HumanReviewBoundary",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:DeliverySlice",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ChangeDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ImplementationTask",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ReleaseWorkPackage",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Release",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AcceptanceCriterion",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:TestCase",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:TestRun",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:EvidenceArtifact",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:AcceptanceRecord",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:KnowledgeHub",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:SystemModel",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:OntologyDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ElementTypeDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RelationshipTypeDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ConstraintDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ProfileDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ElementIdentity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ElementRevision",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RelationshipAssertion",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:SourceArtifact",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:SourceRevision",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:SourceAnchor",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:Interpretation",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ModelBaseline",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:RepresentationBinding",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:ReviewDecision",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:type:StoryPlacement",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:BusinessCapability.contributesTo",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:BusinessFunction.realises",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:BusinessFunction.decomposesInto",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Journey.pursues",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Journey.containsStep",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:UserStory.supportsStep",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Requirement.formalises",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:UseCase.satisfies",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Interaction.issues",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:CommandDefinition.handledBy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:DataBinding.reads",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:UseCase.invokes",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:FunctionDefinition.operatesOn",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:AggregateDefinition.hasRoot",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:AggregateDefinition.protects",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ElementRevision.ownedIn",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:FunctionDefinition.declaresEvent",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:EventHandler.consumes",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ProcessStep.invokes",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Transition.triggeredBy",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:TransformationDefinition.hasInputContract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:TransformationDefinition.hasOutputContract",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ProjectionDefinition.derivesFrom",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:SoftwareComponent.implements",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Adapter.translates",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:AuthorizationPolicy.governs",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:TestCase.checks",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:TestRun.executes",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:EvidenceArtifact.supportsCriterion",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:RepresentationBinding.represents",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:SourceAnchor.supportsAssertion",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:RelationshipAssertion.contradicts",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ScreenDefinition.contains",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ComponentPlacement.contains",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ScreenDefinition.displays",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ComponentPlacement.edits",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ComponentPlacement.uses",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:ComponentPlacement.issues",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:Scenario.illustrates",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:relationship:UserStory.dependsOn",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-01",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-02",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-03",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-04",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-05",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-06",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-07",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-08",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-09",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-10",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-11",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-12",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-13",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-14",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-15",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-16",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:constraint:V-17",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:profile:system-definition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:profile:knowledgehub-self-description",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        {
+          "id": "sdo:ontology:system-definition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      ],
+      "fingerprint": "7b00369129ad815aee60abdbb402e08b205f741e1c3465af4593dc2db58b244a",
+      "fingerprint_version": "knowledgehub-request/3",
+      "head": "cf0ce748582a6d1df57c552cfee240439597282f72d7bf5963c950caefc5b0b0",
+      "operation_id": "authoring:register",
+      "previous_head": "0520ab353863b79f2c1c89a0980a154cb213eac19f2467f6dd8fdf195ee9923c",
+      "scope": {
+        "branch": "main",
+        "hub": "fixture:fruittrucks",
+        "model": "fixture:fruittrucks",
+        "owner": "fixture:design-owner"
+      },
+      "sequence": 1
+    },
+    {
+      "actor": "host:publisher-A",
+      "affected": [
+        {
+          "id": "model:source:design.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:capture:design.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor:design.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:source:fruittrucks-process.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:capture:fruittrucks-process.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor:fruittrucks-process.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:source:route-change-design-notes.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:capture:route-change-design-notes.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor:route-change-design-notes.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:source:route-change-information.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:capture:route-change-information.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor:route-change-information.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:system",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:actor",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:context:Dispatch",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:context:Delivery Execution",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:context:Customer Communication",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:requirement:ack",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:requirement:delivery",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:requirement:expiry",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:usecase:ack",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:command:release",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:command:acknowledge",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:scenario:accepted",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:scenario:accepted",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:scenario:stale",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:scenario:stale",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:scenario:expired",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:scenario:expired",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:satisfies",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:satisfies:parallel",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:ack:context",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:edge:offer:context",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:question:authority",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:question:emergency",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:journey:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:0",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:0",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:1",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:1",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:2",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:2",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:activity:5",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:task:5",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor-unit:ee55417ba2e07a165bd4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:entity:Route",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:entity:ChangeOffer",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:entity:Acknowledgement",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:guard:current",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:state:Draft",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:state:Awaiting acknowledgement",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:state:Activated",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:state:Declined",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:state:Expired",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:transition:release",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:transition:acknowledge",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:transition:decline",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:transition:proposed-expiry",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:lifecycle:offer",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:file-definition:design.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:anchor-unit:e3309f0c9f2c51e4a90e",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:file-definition:fruittrucks-process.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:file-definition:route-change-design-notes.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:file-definition:route-change-information.md",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:plan:source",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:plan:capture",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:coverage:source",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:coverage:capture",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:sources:source",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:sources:capture",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:authority:source",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:handover:authority:capture",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        {
+          "id": "model:baseline:imported-A",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "fingerprint": "45a45bdad217cbab19a73a41d7e3ce0f5e3acb04d1d9104202542116854a20b7",
+      "fingerprint_version": "knowledgehub-request/3",
+      "head": "1168989726ecf408b9b461b6aa3f4400d772449cb186cd974e4af4e23240e2de",
+      "operation_id": "authoring:model",
+      "previous_head": "cf0ce748582a6d1df57c552cfee240439597282f72d7bf5963c950caefc5b0b0",
+      "scope": {
+        "branch": "main",
+        "hub": "fixture:fruittrucks",
+        "model": "fixture:fruittrucks",
+        "owner": "fixture:design-owner"
+      },
+      "sequence": 2
+    }
+  ],
+  "limits": {
+    "depth": 32,
+    "file_bytes": 33554432,
+    "files": 10000,
+    "page_size": 1000,
+    "pages": 1000,
+    "records": 100000,
+    "subjects": 10000,
+    "total_bytes": 268435456,
+    "visited": 100000
+  },
+  "native_completeness": false,
+  "native_gaps": [
+    {
+      "path": "/input",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured CommandDefinition.input has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:command:acknowledge",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/result",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured CommandDefinition.result has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:command:acknowledge",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/hypotheses",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Customer Communication",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/language",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Customer Communication",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/hypotheses",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Delivery Execution",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/language",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Delivery Execution",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/hypotheses",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.hypotheses has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Dispatch",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/language",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:4c4fd27857bc2c8df7e3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured BoundedContext.language has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:context:Dispatch",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/identity_contract",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:ee55417ba2e07a165bd4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:entity:Acknowledgement",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/identity_contract",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:ee55417ba2e07a165bd4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:entity:ChangeOffer",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/identity_contract",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:ee55417ba2e07a165bd4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured EntityType.identity_contract has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:entity:Route",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/alternatives",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Journey.alternatives has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:journey:change",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/interruptions",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Journey.interruptions has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:journey:change",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/expected",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:accepted",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preconditions",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:accepted",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preserved_on_failure",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:accepted",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/expected",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:expired",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preconditions",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:expired",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preserved_on_failure",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:expired",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/expected",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.expected has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:stale",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preconditions",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preconditions has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:stale",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/preserved_on_failure",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "The exact source section is retained; structured Scenario.preserved_on_failure has not been established. Human meaning review and further formalization remain pending.",
+      "subject": {
+        "id": "model:scenario:stale",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/handledBy",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "Logical handler binding is not established by these proposed teaching notes; no executing handler is inferred.",
+      "subject": {
+        "id": "model:command:acknowledge",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/triggeredBy",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "subject": {
+        "id": "model:transition:acknowledge",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/triggeredBy",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "subject": {
+        "id": "model:transition:decline",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/triggeredBy",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "subject": {
+        "id": "model:transition:proposed-expiry",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    },
+    {
+      "path": "/triggeredBy",
+      "provenance": [
+        {
+          "id": "model:anchor-unit:0cd233872b9bde450e19",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        }
+      ],
+      "reason": "Trigger binding remains an explicit structured omission; the proposed transition description does not establish an executable trigger.",
+      "subject": {
+        "id": "model:transition:release",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      }
+    }
+  ],
+  "native_validity": true,
+  "obligations": [
+    {
+      "disposition": "mapped",
+      "id": "requirement:ack",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "requirement:expiry",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "usecase:ack",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "lifecycle:offer",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "file:design.md",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "file:fruittrucks-process.md",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "file:route-change-design-notes.md",
+      "passed": true,
+      "reason": null
+    },
+    {
+      "disposition": "mapped",
+      "id": "file:route-change-information.md",
+      "passed": true,
+      "reason": null
+    }
+  ],
+  "ontology": {
+    "id": "sdo:ontology:system-definition",
+    "model": "sdo",
+    "revision": "catalogue-3"
+  },
+  "original_bytes": 29028,
+  "plan_digest": {
+    "length": 149082,
+    "sha256": "6a47d2ed72f14813c7084e721cbed86241f91a33a0b4d49f1c053e5f04997a7c"
+  },
+  "profile": {
+    "id": "sdo:profile:system-definition",
+    "model": "sdo",
+    "revision": "catalogue-3"
+  },
+  "queries": [
+    {
+      "exhausted": true,
+      "ids": [
+        "model:command:release",
+        "model:usecase:ack"
+      ],
+      "intent": {
+        "depth": 1,
+        "direction": "Forward",
+        "edge_limit": 10000,
+        "ids": [],
+        "include_subtypes": false,
+        "page_size": 1000,
+        "preparation": {
+          "allow_rebuild": true,
+          "byte_limit": 67108864,
+          "fact_limit": 100000,
+          "owner_limit": 10000
+        },
+        "selection": {
+          "reference": {
+            "id": "model:baseline:imported-A",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "selection": "Baseline"
+        },
+        "signatures": [],
+        "starts": [],
+        "subject_limit": 10000,
+        "type_ref": {
+          "id": "sdo:type:UseCase",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "kind": "query",
+      "name": "Acknowledgement requirement",
+      "pages": 1,
+      "truncated": null
+    },
+    {
+      "exhausted": true,
+      "ids": [
+        "model:lifecycle:offer"
+      ],
+      "intent": {
+        "byte_limit": 262144,
+        "categories": [
+          "Property"
+        ],
+        "direction": "Incoming",
+        "examined_limit": 10000,
+        "fact_scope": "Selected",
+        "include_subtypes": true,
+        "opposite_type": {
+          "id": "sdo:type:LifecycleDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "page_size": 100,
+        "preparation": {
+          "allow_rebuild": true,
+          "byte_limit": 67108864,
+          "fact_limit": 100000,
+          "owner_limit": 10000
+        },
+        "projection": "Records",
+        "selection": {
+          "reference": {
+            "id": "model:baseline:imported-A",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "selection": "Baseline"
+        },
+        "selectors": [
+          {
+            "definition": {
+              "id": "sdo:type:LifecycleDefinition",
+              "model": "sdo",
+              "revision": "catalogue-3"
+            },
+            "kind": "Property",
+            "path": "/subject"
+          }
+        ],
+        "starts": [
+          {
+            "id": "model:entity:ChangeOffer",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ]
+      },
+      "kind": "neighbours",
+      "name": "Derived inverse lifecycle subject",
+      "pages": 1,
+      "reached": null
+    }
+  ],
+  "read_records": 81,
+  "record_bytes": 235794,
+  "scope": {
+    "branch": "main",
+    "hub": "fixture:fruittrucks",
+    "model": "fixture:fruittrucks",
+    "owner": "fixture:design-owner"
+  },
+  "source_coverage": false,
+  "source_gaps": [
+    "No application implementation, provider execution or acceptance is established. Structured fields left unresolved have exact native gaps; original narrative/artifacts remain authoritative.",
+    "Auxiliary research and prototype simulations are captured with their original status.",
+    "Visible interaction details beyond the declared typed bindings remain exact source artifacts with individual construct locators; source accounting does not claim graph-complete behavior formalization.",
+    "fruittrucks-process.md -> ../../../knowledgehub/src/ontology/catalogue.json: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/customer-agreement.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/dispatcher-interview.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/operations-manual.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> fruittrucks.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred"
+  ],
+  "sources": [
+    {
+      "input": {
+        "authority": "authored-design",
+        "dependencies": [],
+        "exclude_reason": null,
+        "expected": {
+          "length": 1122,
+          "sha256": "1922cbfd38b4f745afd45928f4a7ab06758e85d6e96d800ac96f0b5642847119"
+        },
+        "key": "design.md",
+        "media_type": "text/markdown",
+        "path": "design.md",
+        "rendition_group": "design",
+        "status": "authored-requirement"
+      },
+      "missing_dependencies": [],
+      "original": {
+        "length": 1122,
+        "sha256": "1922cbfd38b4f745afd45928f4a7ab06758e85d6e96d800ac96f0b5642847119"
+      }
+    },
+    {
+      "input": {
+        "authority": "authored-design",
+        "dependencies": [],
+        "exclude_reason": null,
+        "expected": {
+          "length": 25225,
+          "sha256": "1e8f4ae900840d6ddcda46123ae1d84613207cfd831513d43e9ba8597c0f68c1"
+        },
+        "key": "fruittrucks-process.md",
+        "media_type": "text/markdown",
+        "path": "fruittrucks-process.md",
+        "rendition_group": "fruittrucks-process",
+        "status": "hypothesis"
+      },
+      "missing_dependencies": [],
+      "original": {
+        "length": 25225,
+        "sha256": "1e8f4ae900840d6ddcda46123ae1d84613207cfd831513d43e9ba8597c0f68c1"
+      }
+    },
+    {
+      "input": {
+        "authority": "authored-design",
+        "dependencies": [],
+        "exclude_reason": null,
+        "expected": {
+          "length": 1637,
+          "sha256": "5948b98dfc1f68024f8c0fb014355e1afd6ff974ce6a074e0bd45d254534e624"
+        },
+        "key": "route-change-design-notes.md",
+        "media_type": "text/markdown",
+        "path": "route-change-design-notes.md",
+        "rendition_group": "route-change-design-notes",
+        "status": "hypothesis"
+      },
+      "missing_dependencies": [],
+      "original": {
+        "length": 1637,
+        "sha256": "5948b98dfc1f68024f8c0fb014355e1afd6ff974ce6a074e0bd45d254534e624"
+      }
+    },
+    {
+      "input": {
+        "authority": "authored-design",
+        "dependencies": [],
+        "exclude_reason": null,
+        "expected": {
+          "length": 1044,
+          "sha256": "1000cf50c6d78ee6de0d427011669f1d7f35b58f447167ed0c4f2323bce2110f"
+        },
+        "key": "route-change-information.md",
+        "media_type": "text/markdown",
+        "path": "route-change-information.md",
+        "rendition_group": "route-change-information",
+        "status": "hypothesis"
+      },
+      "missing_dependencies": [],
+      "original": {
+        "length": 1044,
+        "sha256": "1000cf50c6d78ee6de0d427011669f1d7f35b58f447167ed0c4f2323bce2110f"
+      }
+    }
+  ],
+  "status": "incomplete"
+}

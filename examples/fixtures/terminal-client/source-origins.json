@@ -1,0 +1,38 @@
+{
+  "captured": "2026-11-04",
+  "files": [
+    {
+      "file": "design.md",
+      "origin_repository": "aisolutioneng",
+      "origin_path": "sessions/session-04/data/fruittrucks/process-brief.md",
+      "sha256": "1922cbfd38b4f745afd45928f4a7ab06758e85d6e96d800ac96f0b5642847119",
+      "length": 1122,
+      "status": "proposed teaching process/design; retained requirements and open questions remain distinct"
+    },
+    {
+      "file": "route-change-design-notes.md",
+      "origin_repository": "aisolutioneng",
+      "origin_path": "sessions/session-04/data/fruittrucks/route-change-design-notes.md",
+      "sha256": "5948b98dfc1f68024f8c0fb014355e1afd6ff974ce6a074e0bd45d254534e624",
+      "length": 1637,
+      "status": "proposed teaching process/design; retained requirements and open questions remain distinct"
+    },
+    {
+      "file": "route-change-information.md",
+      "origin_repository": "aisolutioneng",
+      "origin_path": "sessions/session-04/data/fruittrucks/route-change-information.md",
+      "sha256": "1000cf50c6d78ee6de0d427011669f1d7f35b58f447167ed0c4f2323bce2110f",
+      "length": 1044,
+      "status": "proposed teaching process/design; retained requirements and open questions remain distinct"
+    },
+    {
+      "file": "fruittrucks-process.md",
+      "origin_repository": "aisolutioneng",
+      "origin_path": "course/domain/fruittrucks-process.md",
+      "sha256": "1e8f4ae900840d6ddcda46123ae1d84613207cfd831513d43e9ba8597c0f68c1",
+      "length": 25225,
+      "status": "proposed teaching process/design; retained requirements and open questions remain distinct"
+    }
+  ],
+  "excluded": "Instructor-only FruitTrucks fact sheet is not included."
+}

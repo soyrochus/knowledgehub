@@ -1,0 +1,21 @@
+{
+  "name": "@knowledgehub/terminal",
+  "private": true,
+  "version": "0.10.0",
+  "type": "module",
+  "scripts": {
+    "check": "tsc --noEmit",
+    "assets": "bun scripts/assets.ts",
+    "test": "bun test tests",
+    "kh": "bun src/kh.ts"
+  },
+  "dependencies": {
+    "mermaid": "12.3.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1",
+    "@types/bun": "1.4.4",
+    "prettier": "3.9.10",
+    "typescript": "7.0.2"
+  }
+}

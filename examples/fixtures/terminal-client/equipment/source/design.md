@@ -1,0 +1,2 @@
+# Equipment reservation design
+A borrower reserves an Asset, then returns to inspect a Booking. Booking retains one Asset reference, state Requested/Confirmed/Cancelled and the original booking reason. A planned notification adapter has no implementation artifact. Cancellation and a two-hour waiting policy are descriptions, never timers executed by KnowledgeHub. A shared story appears in two tasks and cumulative cuts. Reference-format and implementation choices remain explicitly unresolved.

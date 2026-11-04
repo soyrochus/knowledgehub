@@ -111,3 +111,8 @@ Regenerate authored fixture plans only deliberately:
 requires inventory and interpretation review; never silently reuse earlier run
 evidence. Installation/discovery and actual agent-host evidence are described in
 [the skills package](../../skills/INSTALL.md).
+
+The separate [terminal teaching fixtures](terminal-client/README.md) contain a
+small FruitTrucks interpretation and a portable equipment reference, with their
+own neutral plans, coverage, exact source inventories and disposable A/B native
+preparation. They do not refresh the root Hub or the larger reference runs.

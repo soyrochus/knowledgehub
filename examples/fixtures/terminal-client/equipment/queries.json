@@ -1,0 +1,157 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "queries": [
+    {
+      "name": "Derived inverse lifecycle subject",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "entity:Booking"
+          }
+        ],
+        "direction": "Incoming",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            "path": "/subject"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:Booking"
+      ]
+    },
+    {
+      "name": "booking-lifecycle",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:Booking"
+      ]
+    },
+    {
+      "name": "exact application definitions",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:EntityType",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:entity:Asset",
+        "model:entity:Booking"
+      ]
+    },
+    {
+      "name": "inclusive application definitions",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:EntityType",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:entity:Asset",
+        "model:entity:Booking",
+        "model:extension:instance"
+      ]
+    }
+  ]
+}

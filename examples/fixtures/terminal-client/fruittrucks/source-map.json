@@ -1,0 +1,117 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "items": [
+    {
+      "id": "requirement:ack",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "requirement:ack",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "id": "requirement:expiry",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "requirement:expiry",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "usecase:ack",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "usecase:ack",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle:offer",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "lifecycle:offer",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "file:design.md",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:design.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "id": "file:fruittrucks-process.md",
+      "source": "fruittrucks-process.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:fruittrucks-process.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:e3309f0c9f2c51e4a90e"
+        }
+      ]
+    },
+    {
+      "id": "file:route-change-design-notes.md",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:route-change-design-notes.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "file:route-change-information.md",
+      "source": "route-change-information.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:route-change-information.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:ee55417ba2e07a165bd4"
+        }
+      ]
+    }
+  ]
+}

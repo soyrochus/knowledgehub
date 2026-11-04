@@ -1,0 +1,24 @@
+bun test v1.4.0 (34cbb9a40)
+
+tests/native.test.ts:
+(pass) native reader B: schema, occurrences, sources, original receipt, retained baseline and limits [58438.51ms]
+(pass) no history grants, live revocation and safe outputs [1637.78ms]
+
+tests/exploration.test.ts:
+(pass) 64 history calls, zero progress and bounded cleanup preserve exact restart intent [0.34ms]
+(pass) duplicate type/display names require exact identity; programmatic budgets cannot disable bounds [0.20ms]
+(pass) binary preview is explicitly unsupported and never invents text [0.23ms]
+
+tests/transport.test.ts:
+(pass) fragmented frames, precision, malformed/oversize/truncated payloads [0.13ms]
+(pass) finite admitted work, cancellation drains, host reuse and lost response [548.21ms]
+(pass) cursor lifetime simulation keeps full pinned intent for an explicit restart [0.14ms]
+
+tests/visual.test.ts:
+(pass) terminal, JSON-script and Mermaid controls remain text with exact DTO identity [5.63ms]
+(pass) unresolved/limited coverage survives all formats; store and symlink escapes are refused [16.10ms]
+
+ 10 pass
+ 0 fail
+ 152 expect() calls
+Ran 10 tests across 4 files. [60.68s]

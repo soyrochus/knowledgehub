@@ -1,0 +1,229 @@
+   Compiling knowledgehub v0.10.0 (/Users/ivanderk/src/knowledgehub)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 5.49s
+     Running unittests src/lib.rs (target/debug/deps/knowledgehub-df3600de2f538ce0)
+
+running 45 tests
+test shared_fault_tests::process_worker ... ok
+test shared_fault_tests::process_race_worker ... ok
+test ontology::validation::locator_tests::original_coordinates_are_typed_bounded_and_independent_of_derived_text ... ok
+test storage::native::tests::declarations_are_explicit_and_coordination_is_required ... ok
+test storage::native::tests::injected_apfs_observations_refuse_nonlocal_readonly_and_other_filesystems ... ok
+test codec::tests::canonical_rfc8785_subset_vectors ... ok
+test ontology::navigation::tests::controlled_clock_expires_at_thirty_idle_minutes ... ok
+test storage::shared::history::budget::tests::checked_counter_overflow_is_explicit_and_guard_cleans_up ... ok
+test ontology::validation::tests::closed_constraint_primitives_have_independent_positive_and_negative_cases ... ok
+test ontology::api::tests::comparison_detects_nested_narratives_and_native_representation_changes ... ok
+test jobs::tests::cancelled_wait_keeps_capacity_and_drain_waits ... ok
+test storage::shared::history::tests::header_count_is_selective_and_affected_ranges_preserve_repetitions ... ok
+test storage::shared::content::tests::chunks_ranges_and_append_reuse_original_bytes ... ok
+test storage::shared::history::tests::accepted_anchors_exclude_staged_operations_and_foreign_snapshots ... ok
+test storage::shared::history::tests::inconsistent_receipt_and_ancestry_bindings_never_report_absence ... ok
+test storage::shared::history::tests::complete_responses_fit_their_exact_encoded_budget ... ok
+test storage::shared::history::tests::shared_cursor_capacity_idle_expiry_cross_scope_and_empty_affected ... ok
+test shared_fault_tests::two_process_same_base_race_has_one_winner ... ok
+test ontology::impact::tests::composite_cursors_share_capacity_expire_and_recheck_disclosure has been running for over 60 seconds
+test ontology::impact::tests::limits_count_filtered_and_duplicate_work_and_bound_every_response has been running for over 60 seconds
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state has been running for over 60 seconds
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes has been running for over 60 seconds
+test shared_fault_tests::native_sync_failures_preserve_prior_or_recover_exact_original_receipt has been running for over 60 seconds
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary has been running for over 60 seconds
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary has been running for over 60 seconds
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds has been running for over 60 seconds
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome has been running for over 60 seconds
+test ontology::impact::tests::limits_count_filtered_and_duplicate_work_and_bound_every_response ... ok
+test storage::shared::objects::tests::frames_are_strict_bounded_lossless_and_kind_separated ... ok
+test storage::shared::neighbours::tests::finite_cursor_pool_full_intent_and_idle_expiry_are_shared_with_query ... ok
+test storage::shared::packed_cache::tests::publication_faults_quota_and_sidecar_reconstruction_are_safe ... ok
+test storage::shared::packed_cache::tests::large_packed_index_is_bounded_selective_and_immutable ... ok
+test storage::shared::neighbours::tests::corrupt_derived_data_rebuilds_but_authoritative_corruption_is_integrity ... ok
+test ontology::impact::tests::composite_cursors_share_capacity_expire_and_recheck_disclosure ... ok
+test storage::shared::neighbours::tests::preparation_budgets_quota_and_view_eviction_preserve_knowledge ... ok
+test storage::shared::neighbours::tests::ready_lookup_ignores_unrelated_artifacts_and_reports_no_state_materialisation ... ok
+test storage::shared::neighbours::tests::cache_installation_faults_never_replace_the_committed_outcome ... ok
+test storage::shared::neighbours::tests::readers_coordinate_cache_eviction_on_both_runtime_configurations has been running for over 60 seconds
+test storage::shared::projection::tests::original_kernel_digests_spans_order_nulls_and_cycles_round_trip ... ok
+test storage::shared::tests::current_default_guards_policy_and_same_base_race ... ok
+test storage::shared::tests::native_creation_profiles_are_provenance_and_unknown_metadata_never_mutates ... ok
+test storage::shared::trees::tests::sequences_preserve_order_duplicates_and_share_edits ... ok
+test storage::shared::tests::native_profile_refuses_wrong_host_and_symlink_layout_before_mutation ... ok
+test storage::shared::trees::tests::persistent_maps_share_paths_and_preserve_prior_roots ... ok
+test storage::shared::history::tests::loose_and_cold_packed_history_work_is_measured_and_never_rebuilds ... ok
+test storage::shared::trees::tests::batched_maps_and_sequence_appends_emit_only_final_changed_nodes ... ok
+test storage::shared::tests::original_retry_absence_orphans_missing_receipts_and_point_read_work ... ok
+test storage::shared::neighbours::tests::readers_coordinate_cache_eviction_on_both_runtime_configurations ... ok
+test storage::shared::tests::coordinated_reader_and_maintenance_on_both_host_runtimes ... ok
+test storage::shared::tests::ranges_skip_unrelated_content_and_scrub_finds_retained_corruption ... ok
+test shared_fault_tests::native_sync_failures_preserve_prior_or_recover_exact_original_receipt ... ok
+test shared_fault_tests::sigkill_pack_install_and_cleanup_at_every_boundary ... ok
+test shared_fault_tests::sigkill_typed_artifact_and_baseline_at_every_boundary ... ok
+test shared_fault_tests::injected_maintenance_errors_preserve_original_state ... ok
+test shared_fault_tests::injected_typed_publication_and_cancellation_on_both_runtimes ... ok
+
+test result: ok. 45 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 298.52s
+
+     Running unittests src/bin/knowledgehub-client-host.rs (target/debug/deps/knowledgehub_client_host-b9cdfdff7b59f9c7)
+
+running 5 tests
+test host::wire::tests::frames_precision_and_exact_numbers ... ok
+test host::tests::workspace_paths_wrong_scope_baselines_and_wire_overhead ... ok
+test host::tests::scoped_grants_revocation_and_authority_overrides_fail_closed ... ok
+test host::tests::open_exact_scope_history_and_original_sources_without_mutation ... ok
+test host::tests::history_absence_unavailable_limits_intent_and_cursor_capacity ... ok
+
+test result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 42.80s
+
+     Running unittests src/bin/knowledgehub-model.rs (target/debug/deps/knowledgehub_model-9981eb0054f21c8e)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/experience_contract.rs (target/debug/deps/experience_contract-73e3e93bf97d1d2e)
+
+running 2 tests
+test equipment_map_shared_stories_cuts_and_all_structural_rejections ... ok
+test guarded_publication_navigation_baselines_reopen_and_recovery ... ok
+
+test result: ok. 2 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 36.95s
+
+     Running tests/impact_oracle.rs (target/debug/deps/impact_oracle-45deed7ab0f71198)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests/logical_design_contract.rs (target/debug/deps/logical_design_contract-3e978b358ba93174)
+
+running 4 tests
+test inherited_semantics_both_endpoints_and_local_constraints ... ok
+test exact_selectors_diamonds_conflicts_cycles_and_native_boundaries ... ok
+test extension_registration_paged_inclusive_reads_exact_baselines_and_receipts ... ok
+test logical_constructors_subjects_planned_realization_and_precise_gaps ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 59.93s
+
+     Running tests/model_authoring.rs (target/debug/deps/model_authoring-924f1327d022c4e7)
+
+running 7 tests
+test inventory_limits_escape_and_changed_plan_fail_before_publication ... ok
+test cancelled_model_process_resumes_original_operation_without_duplicate_model ... ok
+test interrupted_dispatch_reconciles_original_intent_and_current_authority ... ok
+test verification_budgets_fail_explicitly_and_missing_dependency_stays_visible ... ok
+test finite_query_pages_and_truncation_never_claim_full_coverage ... ok
+test fresh_authoring_native_assessment_independent_verification_and_coverage_failure has been running for over 60 seconds
+test original_model_dispatch_recovers_at_each_process_checkpoint has been running for over 60 seconds
+test fresh_authoring_native_assessment_independent_verification_and_coverage_failure ... ok
+test original_model_dispatch_recovers_at_each_process_checkpoint ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 78.91s
+
+     Running tests/model_impact.rs (target/debug/deps/model_impact-0f86ccea4d765c09)
+
+running 6 tests
+test strict_owned_contracts_reject_unknown_modes_fields_and_unbounded_plans ... ok
+test finite_work_unknown_selectors_unresolved_starts_and_compact_large_targets ... ok
+test literal_modes_exact_fields_candidate_verification_and_incremental_successors ... ok
+test mixed_seven_hop_plan_cycles_parallel_origins_and_nearer_targets ... ok
+test composite_ambiguity_grouping_paging_full_intent_and_pin ... ok
+test pinned_results_survive_reopen_rebuild_and_late_link_without_full_state_loads ... ok
+
+test result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 42.78s
+
+     Running tests/native_history.rs (target/debug/deps/native_history-23f7bbcdff5da92d)
+
+running 4 tests
+test authority_cursors_and_all_intent_are_checked_before_disclosure ... ok
+test pinned_append_restart_and_anchor_relative_absence_are_explicit ... ok
+test finite_limits_account_for_envelope_and_oversized_values has been running for over 60 seconds
+test original_lookup_discovery_sources_baselines_and_recovery_survive_reopen_and_packing has been running for over 60 seconds
+test finite_limits_account_for_envelope_and_oversized_values ... ok
+test original_lookup_discovery_sources_baselines_and_recovery_survive_reopen_and_packing ... ok
+
+test result: ok. 4 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 207.20s
+
+     Running tests/neighbours.rs (target/debug/deps/neighbours-65dff88b09c0318d)
+
+running 7 tests
+test strict_current_contract_bounds_and_readiness ... ok
+test current_query_follows_six_hops_without_a_format_switch ... ok
+test current_query_order_filters_and_paging_match_independent_oracle ... ok
+test paging_is_bounded_and_survives_head_movement_and_cache_eviction ... ok
+test late_links_exact_scopes_and_ready_point_reads ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle has been running for over 60 seconds
+test successors_selection_and_schema_versions_equal_clean_rebuilds has been running for over 60 seconds
+test successors_selection_and_schema_versions_equal_clean_rebuilds ... ok
+test generic_registered_nested_native_and_parallel_facts_match_independent_oracle ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 205.78s
+
+     Running tests/ontology_contract.rs (target/debug/deps/ontology_contract-ea49544e630f0969)
+
+running 25 tests
+test every_declared_signature_rejects_wrong_direction_and_targets ... ok
+test every_family_has_a_complete_connected_typed_specimen ... ok
+test kernel_codecs_are_closed_and_missing_catalogue_family_is_reported ... ok
+test every_declared_property_has_independent_missing_and_invalid_evidence ... ok
+test nested_owner_paths_distinguish_literal_slashes_and_tildes ... ok
+test native_decision_tables_remain_exact_and_definitions_do_not_become_observations ... ok
+test retained_definitions_do_not_hide_a_missing_active_family ... ok
+test invalid_baseline_closures_and_competing_ownership_are_rejected ... ok
+test cycles_process_membership_transformation_kinds_and_contracts ... ok
+test scalar_encodings_closed_requests_and_revision_tokens_are_lossless ... ok
+test superseded_formats_are_refused_without_mutation ... ok
+test full_catalogue_registration_reopen_and_original_receipt ... ok
+test damaged_typed_binary_is_integrity_failure_and_never_operation_absence ... ok
+test binary_originals_and_every_locator_kind_resolve_and_reject_bad_quotes ... ok
+test specialised_integrity_draft_gaps_and_native_roles ... ok
+test registration_is_atomic_recursive_guarded_and_currently_authorised ... ok
+test selection_restores_exact_history_and_refuses_a_second_origin ... ok
+test baseline_comparison_reports_unicode_additions_removals_and_stable_order ... ok
+test all_families_and_kernel_relationships_commit_and_reopen ... ok
+test each_family_retains_an_explicit_valid_draft_and_gaps_never_waive_integrity ... ok
+test bounded_navigation_cursors_policy_and_selection_binding has been running for over 60 seconds
+test coherent_successors_baselines_and_replay_current_thread has been running for over 60 seconds
+test coherent_successors_baselines_and_replay_multithreaded has been running for over 60 seconds
+test directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact has been running for over 60 seconds
+test directional_kernel_traversal_keeps_cycles_budgets_and_old_pages_exact ... ok
+test bounded_navigation_cursors_policy_and_selection_binding ... ok
+test typed_same_base_root_and_baseline_race_has_one_winner ... ok
+test coherent_successors_baselines_and_replay_multithreaded ... ok
+test coherent_successors_baselines_and_replay_current_thread ... ok
+
+test result: ok. 25 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 93.26s
+
+     Running tests/public_contract.rs (target/debug/deps/public_contract-828bc3e17ef376e3)
+
+running 12 tests
+test file_adapter_requires_the_host_runtime_and_creates_none ... ok
+test refuses_unsupported_declared_filesystem ... ok
+test coordinated_exclusive_scope_creation ... ok
+test default_denial_revocation_and_policy_failure ... ok
+test incompatible_and_damaged_stores_are_not_recreated ... ok
+test recheck_policy_inside_publication_lock ... ok
+test canonical_retries_bytes_actor_and_operation_order ... ok
+test public_walkthrough_current_thread ... ok
+test public_walkthrough_multithreaded ... ok
+test separately_opened_instances_race_and_later_stale_conflict ... ok
+test explicit_revision_and_absence_guards ... ok
+test invalid_current_changes_preserve_head_independently ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 34.90s
+
+     Running tests/rent_impact.rs (target/debug/deps/rent_impact-06746730f7b49fe9)
+
+running 3 tests
+test text_readiness_corruption_policy_and_source_successor_remain_explicit ... ok
+test narrative_rent_route_has_exact_original_bytes_seven_origins_and_ddl ... ok
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest has been running for over 60 seconds
+test missing_mapping_gaps_wording_successor_and_late_alternate_mapping_are_honest ... ok
+
+test result: ok. 3 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 79.91s
+
+     Running tests/shared_storage.rs (target/debug/deps/shared_storage-8ea6f7bd06cf128b)
+
+running 1 test
+test public_shared_walkthrough_pack_reindex_and_materialise has been running for over 60 seconds
+test public_shared_walkthrough_pack_reindex_and_materialise ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 177.88s
+

@@ -1,0 +1,214 @@
+{
+  "format": "knowledgehub-authoring/1",
+  "items": [
+    {
+      "id": "requirement:ack",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "requirement:ack",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "id": "requirement:expiry",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "requirement:expiry",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "usecase:ack",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "usecase:ack",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "lifecycle:offer",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "lifecycle:offer",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "file:design.md",
+      "source": "design.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:design.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:4c4fd27857bc2c8df7e3"
+        }
+      ]
+    },
+    {
+      "id": "file:fruittrucks-process.md",
+      "source": "fruittrucks-process.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:fruittrucks-process.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:e3309f0c9f2c51e4a90e"
+        }
+      ]
+    },
+    {
+      "id": "file:route-change-design-notes.md",
+      "source": "route-change-design-notes.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:route-change-design-notes.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:0cd233872b9bde450e19"
+        }
+      ]
+    },
+    {
+      "id": "file:route-change-information.md",
+      "source": "route-change-information.md",
+      "disposition": "mapped",
+      "reason": null,
+      "targets": [
+        {
+          "key": "file-definition:route-change-information.md",
+          "path": "/data/data/properties/description",
+          "expected": null,
+          "anchor": "anchor-unit:ee55417ba2e07a165bd4"
+        }
+      ]
+    }
+  ],
+  "queries": [
+    {
+      "name": "Acknowledgement requirement",
+      "kind": "query",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "prepared-selection-replaced-by-verifier"
+        },
+        "type_ref": {
+          "model": "sdo",
+          "id": "sdo:type:UseCase",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": false,
+        "ids": [],
+        "starts": [],
+        "signatures": [],
+        "direction": "Forward",
+        "depth": 1,
+        "page_size": 1000,
+        "subject_limit": 10000,
+        "edge_limit": 10000,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:command:release",
+        "model:usecase:ack"
+      ]
+    },
+    {
+      "name": "Derived inverse lifecycle subject",
+      "kind": "neighbours",
+      "query": {
+        "selection": {
+          "selection": "Snapshot",
+          "reference": "replaced-by-verifier"
+        },
+        "starts": [
+          {
+            "$ref": "entity:ChangeOffer"
+          }
+        ],
+        "direction": "Incoming",
+        "selectors": [
+          {
+            "kind": "Property",
+            "definition": {
+              "model": "sdo",
+              "id": "sdo:type:LifecycleDefinition",
+              "revision": "catalogue-3"
+            },
+            "path": "/subject"
+          }
+        ],
+        "categories": [
+          "Property"
+        ],
+        "opposite_type": {
+          "model": "sdo",
+          "id": "sdo:type:LifecycleDefinition",
+          "revision": "catalogue-3"
+        },
+        "include_subtypes": true,
+        "fact_scope": "Selected",
+        "projection": "Records",
+        "page_size": 100,
+        "examined_limit": 10000,
+        "byte_limit": 262144,
+        "preparation": {
+          "allow_rebuild": true,
+          "owner_limit": 10000,
+          "fact_limit": 100000,
+          "byte_limit": 67108864
+        }
+      },
+      "expected_ids": [
+        "model:lifecycle:offer"
+      ]
+    }
+  ],
+  "interpretation_review": "agent-reviewed exact source identities, authority and construct locators; human meaning acceptance pending",
+  "source_gaps": [
+    "No application implementation, provider execution or acceptance is established. Structured fields left unresolved have exact native gaps; original narrative/artifacts remain authoritative.",
+    "Auxiliary research and prototype simulations are captured with their original status.",
+    "Visible interaction details beyond the declared typed bindings remain exact source artifacts with individual construct locators; source accounting does not claim graph-complete behavior formalization.",
+    "fruittrucks-process.md -> ../../../knowledgehub/src/ontology/catalogue.json: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/customer-agreement.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/dispatcher-interview.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> ../../sessions/session-03/data/operations-manual.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred",
+    "fruittrucks-process.md -> fruittrucks.md: linked context not supplied in this package; no implementation, evidence or additional definition inferred"
+  ]
+}

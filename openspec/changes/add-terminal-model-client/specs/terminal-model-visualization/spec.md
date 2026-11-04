@@ -13,6 +13,10 @@ Diagram requests SHALL identify exact model selection, starting subjects, view k
 - **WHEN** the model advances after diagram extraction starts
 - **THEN** every exported subject, edge and source remains bound to the originally selected snapshot or baseline
 
+#### Scenario: Export a definition reached through an original publication
+- **WHEN** the reader explicitly exports an affected definition from A's publication after successor B exists
+- **THEN** the export identifies A's original resulting snapshot and exact definition/source inputs, without silently combining them with B's content selection or treating a baseline identity as a publication anchor
+
 ### Requirement: Faithful graph identity and edges
 Graph export SHALL preserve exact subject references, relationship directions, selector identity, assertion/property origins and parallel occurrences. Virtual groups and layout SHALL be distinguished from semantic facts. A diagram edge SHALL have an inspectable model origin or be explicitly marked as presentation-only.
 
@@ -54,6 +58,13 @@ Visuals SHALL preserve stored proposal, interpretation, review and gap qualifica
 #### Scenario: Show the FruitTrucks expiry choice
 - **WHEN** the offer lifecycle includes a proposed five-minute validity choice
 - **THEN** the preview retains its proposed teaching status rather than presenting it as established client policy
+
+### Requirement: Publication metadata remains provenance
+Publication metadata included in an inspection artifact SHALL remain distinct from modelled business relationships, record predecessors, baseline parents and navigation history. Native sequence SHALL NOT supply an inferred timestamp, process transition, review decision, execution result or acceptance claim.
+
+#### Scenario: Publication order differs from business order
+- **WHEN** definitions were published in a sequence that is not a modelled journey or lifecycle order
+- **THEN** the renderer retains publication provenance without adding business edges or ordering from that sequence
 
 ### Requirement: Safe derived artifact writing
 Export SHALL write only explicitly selected output locations, refuse overwriting existing files without explicit replacement, and keep artifacts outside native stores. Text embedded in Mermaid/HTML SHALL be escaped and treated as data. Generation SHALL execute no stored model scripts or source application behaviour.

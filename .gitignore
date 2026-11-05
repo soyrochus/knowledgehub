@@ -11,3 +11,6 @@ hub/
 
 
 /old_hub/
+
+# Large generated evidence retained locally.
+/delivery/evidence/mm-sl-01/20261103-apply/memento-generation-manifest.json

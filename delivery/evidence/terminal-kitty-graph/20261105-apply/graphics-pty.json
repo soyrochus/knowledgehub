@@ -1,0 +1,187 @@
+{
+  "status": "pass",
+  "compiled": true,
+  "terminal": "synthetic PTY protocol responder; no native image display claim",
+  "package": "/private/tmp/knowledgehub-kitty-validated-20261105/package with spaces",
+  "semantic_files": 32,
+  "semantic_before_after_equal": true,
+  "no_history_required": true,
+  "isolated": true,
+  "cases": [
+    {
+      "name": "fruittrucks-relationships",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 19,
+      "owned_cleanup": true
+    },
+    {
+      "name": "fruittrucks-journey",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 19,
+      "owned_cleanup": true
+    },
+    {
+      "name": "fruittrucks-lifecycle",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 19,
+      "owned_cleanup": true
+    },
+    {
+      "name": "equipment-relationships",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 19,
+      "owned_cleanup": true
+    },
+    {
+      "name": "browser-return",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "revocation-+",
+      "exit": 0,
+      "probes": 2,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "revocation-?",
+      "exit": 0,
+      "probes": 2,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "revocation-s",
+      "exit": 0,
+      "probes": 2,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "revocation-resize",
+      "exit": 0,
+      "probes": 2,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "unsupported",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "no-response",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "device-only",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "truncated",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "geometry-missing",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "ack-negative",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    },
+    {
+      "name": "ack-missing",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    },
+    {
+      "name": "ctrl-c",
+      "exit": 130,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    },
+    {
+      "name": "escape",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    },
+    {
+      "name": "early-cancel",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "truncated-ctrl-c",
+      "exit": 130,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "sigterm",
+      "exit": 130,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    },
+    {
+      "name": "suspend-resume",
+      "exit": 0,
+      "probes": 1,
+      "rendered_frames": 2,
+      "owned_cleanup": true
+    },
+    {
+      "name": "root-missing",
+      "exit": 5,
+      "probes": 0,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "root-ambiguous",
+      "exit": 5,
+      "probes": 0,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    },
+    {
+      "name": "partial",
+      "exit": 3,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true
+    }
+  ]
+}

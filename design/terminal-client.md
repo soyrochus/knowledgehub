@@ -209,3 +209,126 @@ canonical Hub refresh, archive and authority transfer remain outside this scope.
 
 Maintainer references: [Bun executable bundling](https://bun.com/docs/bundler/executables)
 and [Mermaid configuration](https://mermaid.js.org/config/usage).
+
+## Optional terminal graph view · TC-SL-02
+
+`kh view REF` and the browser's separately labelled uppercase `V` action open
+View graph (Kitty). Lowercase `v` still exports. Normal browsing and ordinary
+CLI/JSON/Mermaid/HTML paths send no graphics queries and start no render worker.
+The command requires terminal stdin/stdout and human output. Usage validation
+(including `--json` rejection) and model-free help happen before host admission.
+A missing or ambiguous exact root fails before probing. No files or apps open
+automatically. Direct tmux/screen sessions are refused; use a direct terminal.
+
+```sh
+./kh view model:requirement:ack
+./kh view model:journey:change --projection journey
+./kh view model:lifecycle:offer --projection lifecycle
+./kh --model equipment view model:entity:Booking
+```
+
+The browser asks for projection and finite bounds, suspends its own key/render
+handling, then restores model, exact content selection, independent publication
+anchor, navigation stacks, page, filter, row and scroll without refreshing.
+The restored browser rechecks current authority. The viewer's `R` explicitly
+retries its retained exact root/selection/anchor; it never substitutes latest.
+The ordinary workspace's Open/Read grants suffice; ReadHistory is not requested.
+
+Controls: `Esc`/`q` close, Ctrl-C cancels, `?` toggles help, Tab changes focus,
+`n`/`p` select the next/previous exact node or edge, `e` switches node/edge mode,
+Enter inspects the native origin owner, `s` lists source bindings, then `n`/`p`
+choose a source and Enter explicitly reads up to 4096 original bytes. `j`/`k`
+and PageUp/PageDown scroll the inspector; arrows pan, `+`/`-` zoom and `0` fits.
+These controls need no mouse. The inspector retains full safe properties,
+selectors, endpoints, origin occurrences and source revisions/anchors; original
+byte export remains the separate existing source workflow. Model text and stored
+code are inert. Missing glyphs are displayed as `[U+CODEPOINT]`; no font coverage
+is inferred. Missing order/fields/ownership remains missing.
+
+A terminal must answer the Kitty graphics query and cell/pixel geometry queries
+within one second per phase. `TERM`/`TERM_PROGRAM` cannot establish support. The
+minimal subset is direct PNG/base64 (`t=d`, `f=100`), query, upload, explicit
+placement and owned-ID deletion. Frames use at most 4096 base64 bytes per chunk,
+serialized writes, matched acknowledgements, two owned images, one visible
+placement, and a two-second output-stall deadline. One input demultiplexer owns
+raw bytes and filters fragmented, malformed and late recognized APC/CSI replies
+even after returning to text browsing. It retains at most 64 KiB response bytes.
+It preserves ordinary UTF-8 and keyboard sequences. No global image deletion is
+sent. Output failures are reported; unwritten cleanup is never certified.
+Text redraw uses home plus ED0 (`ESC[H ESC[0J`), preserving uploaded/unrelated
+images. ED2/ED3 erase graphics too and must not occur between upload and placement
+or during viewer/browser redraw. Placement failures include the sanitized terminal
+reason. The [Ghostty placement correction](../delivery/evidence/terminal-kitty-graph/20261105-placement-fix/README.md)
+records the original failure and stateful terminal regression.
+Unterminated control fragments have a one-second deadline; expired recognized
+response bytes are discarded, and Ctrl-C remains available inside a broken APC.
+
+Every viewer interaction (including help, source selection and resize) hides the
+old image/details, checks current host authority, then reveals only the current
+epoch/frame after another check. Denial/disconnection drops graph and inspector
+caches. There is no instantaneous out-of-band revocation claim for an idle
+terminal. Close, cancellation, handled SIGINT/SIGTERM/SIGHUP and suspend/resume
+release owned images, worker and listeners and restore raw/cursor state where
+output remains writable. Uncatchable process termination cannot guarantee cleanup.
+
+The default extraction is depth 1, 60 vertices and 120 edges; explicit hard maxima
+are depth 8, 200 vertices and 500 edges. Existing lower native work/byte bounds
+still apply. Display labels are visibly shortened (160 code points at most,
+three drawing lines); the inspector preserves full safe text. Worker input and
+SVG each have a 2 MiB cap; viewport dimensions are at most 4096 each and 4,194,304
+pixels total (16 MiB RGBA). PNG is at most 8 MiB and the encoded frame at most
+12 MiB. One worker request and one latest coalesced intent are retained, with
+a five-second layout/raster deadline and epoch cancellation. Windows smaller
+than 90 columns × 24 rows clear graphics and show a size notice, retaining the
+exact selection. Viewport clipping is presentation, separately labelled from
+partial extraction, unresolved endpoints, unsupported projections and warnings.
+
+Complete requested extraction does not establish model completeness, execution
+or acceptance. FruitTrucks retains its 27 gaps, source/authority conflict and
+proposed expiry. The Route/ChangeOffer/Acknowledgement structured fields remain
+empty; narrative `route_id` and similar text generate no schema edges. Context
+grouping uses recorded membership only. Journey edges use declared StoryMap list
+occurrences; lifecycle edges use declared transition endpoints, preserving guards
+and proposed-design qualifications in the full inspector/source bindings.
+
+Exit meanings remain 0 normal complete close, 3 partial/render bound, 2 usage,
+4 denied, 5 missing/ambiguous, 6 graphics unavailable or asset/protocol/render/
+output failure, and 130 cancellation. Unsupported terminals receive text/HTML
+alternatives, such as `kh browse` or an explicit `kh diagram REF --format html
+--output NEW.html`. Browser launches return to a currently permitted text state.
+
+### Renderer maintenance and packaged checkpoint
+
+Pinned inputs are Dagre 3.1.3 (graphlib 4.0.6), resvg-WASM 2.6.2 and unmodified
+DejaVu Sans 2.37. `clients/terminal/assets/graphics/inventory.json` records exact
+versions, upstream revisions, npm integrity and SHA-256 asset hashes. That folder
+retains full licenses, font authors and corresponding source locations; the
+package copies it as `graphics-notices/`. `bun.lock` fixes installation inputs.
+`bun clients/terminal/scripts/graphics-assets.ts` verifies asset/package identity.
+No Rust/toolchain, host method, DTO version, ontology or fixture change is needed.
+
+The worker is an explicit additional compile entry, with file imports for WASM
+and font bytes. Bun 1.4.0 requires the fixed compile root below; compiled worker
+resolution uses `src/graph-render-worker.js` within the embedded filesystem.
+Initialization is lazy and asset/worker failures are typed `GraphicsAsset`,
+confined to explicit graphics use. No system fonts or external resource resolvers
+are used. SVG contains generated primitives and escaped text only.
+
+```sh
+bun build --compile --root clients/terminal \
+  clients/terminal/scripts/graphics-checkpoint.ts \
+  clients/terminal/src/graph-render-worker.ts --outfile '/tmp/kh checkpoint'
+'/tmp/kh checkpoint' /tmp/checkpoint.png
+bun clients/terminal/scripts/package.ts NEW-DESTINATION --models QUIESCENT-MODELS-DIR
+```
+
+The labelled-PNG/cancellation checkpoint ran on installed Bun 1.4.0 from a
+relocated path with spaces, empty tool PATH, denied source-checkout reads and
+denied network. This proves that build mechanism, separately from terminal pixel
+display. `--models` copies already quiescent current-contract teaching fixtures;
+it does not reauthor plans or source definitions. The package still has two
+executables, with the worker/font/WASM embedded in `kh`. Build inputs, dependency
+notices, exact fixture handovers and checksums remain inspectable. Actual Kitty
+and Ghostty observations and human meaning/usability review retain separate gates.
+See the dated [TC-SL-02 implementation evidence](../delivery/evidence/terminal-kitty-graph/20261105-apply/README.md)
+for exact inputs, automated checks and the remaining native-terminal observations.

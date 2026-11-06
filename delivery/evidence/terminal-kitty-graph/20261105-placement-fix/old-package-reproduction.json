@@ -1,0 +1,22 @@
+{
+  "status": "reproduced",
+  "package": "/Users/ivanderk/src/knowledgehub/target/terminal-graphics/knowledgehub-terminal-kitty-macos-arm64-final-04",
+  "terminal_model": "Kitty ED2 clears image storage; placement requires a retained image",
+  "cases": [
+    {
+      "name": "clear-after-upload-reproduction",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 1,
+      "owned_cleanup": true,
+      "foreign_image_preserved": false,
+      "erased_uploaded_images": 1,
+      "placement_failures": [
+        {
+          "image_id": 497483780,
+          "reply": "ENOENT: image not found"
+        }
+      ]
+    }
+  ]
+}

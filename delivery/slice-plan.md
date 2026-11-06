@@ -400,3 +400,28 @@ execution, signing/notarization/publication, Modelarium C9, canonical refresh an
 authority transfer remain separate. Review the bounded consumer before selecting
 another implementation slice; do not close earlier external authoring/host gates
 from this terminal evidence.
+
+### TC-SL-02 — Inspect an exact model graph inside the terminal
+
+The user authorized `add-kitty-terminal-graph-view` on 5 November 2026, consuming
+the delivered TC-SL-01 Explorer/visualization and C8 native-history foundation.
+`kh view REF` and uppercase browser `V` provide an explicitly optional graph view
+with bounded embedded rendering, keyboard node/edge/source inspection, current
+authority checks, exact pinned recovery and a reversible return to browsing.
+The existing JSON/Mermaid/HTML exports and lowercase `v` retain their contracts.
+
+The implementation and automated verification are recorded in the change tasks
+and [dated TC-SL-02 evidence](evidence/terminal-kitty-graph/20261105-apply/README.md).
+Actual directly connected Kitty and Ghostty observations remain independent open
+gates; synthetic PTY success does not establish either terminal's image display.
+Review the bounded instructor path on available native terminals and obtain
+separate human meaning/usability review before selecting another consumer slice.
+No new library/host contract, fixture enrichment, Modelarium C9 work, canonical
+Hub refresh, archive or definition-authority transfer follows from this delivery.
+
+A subsequent user attempt in Ghostty exposed a placement failure: full-screen
+erase reclaimed the just-uploaded image. The [placement correction](evidence/terminal-kitty-graph/20261105-placement-fix/README.md)
+uses text-only erase and tests actual image-storage state in the protocol
+responder. Package `final-05` supersedes `final-04`. Successful native observation
+remains a separate gate; passing a responder that accepts every placement was
+insufficient evidence. Retain this case in the consumer verification sequence.

@@ -1,0 +1,43 @@
+bun test v1.4.0 (34cbb9a40)
+
+tests/kitty-graphics.test.ts:
+(pass) bounded demux preserves UTF-8, arrows and ordinary keys, filters fragmented/late/malformed replies [7.57ms]
+(pass) unterminated response fragments expire, late whole replies stay filtered and Ctrl-C is never trapped [21.35ms]
+(pass) direct support/geometry, bounded chunks, serialized text, acknowledgements and owned cleanup [13.92ms]
+(pass) negative/missing/device-only replies, multiplexer and cancellation fail finitely [32.86ms]
+(pass) partial upload, stale reveal and negative ack clean only owned resources; output stalls never certify deletion [7.07ms]
+
+tests/native.test.ts:
+(pass) native reader B: schema, occurrences, sources, original receipt, retained baseline and limits [58117.02ms]
+(pass) no history grants, live revocation and safe outputs [1596.26ms]
+
+tests/graph-render.test.ts:
+(pass) wide ordered graphs rasterize clipped pan/zoom viewports without allocating the full graph [178.43ms]
+(pass) layout preserves exact multigraph occurrences, cycles, self edges and duplicate labels [3.86ms]
+(pass) only generated SVG primitives survive hostile text; missing glyphs and truncation are visible [1.07ms]
+(pass) real worker rasterizes with bundled assets, coalesces intents, rejects obsolete work and cancels [96.79ms]
+
+tests/graph-view.test.ts:
+(pass) viewer controls preserve exact selection; no history permission; explicit exact sources and small-window recovery [750.73ms]
+(pass) Read revocation hides images and drops every cached detail; only explicit permitted pinned recovery reveals again [393.26ms]
+(pass) cancellation invalidates an in-flight frame; invalid viewer options are rejected before terminal/host access [1.61ms]
+(pass) revocation during worker rendering cannot reveal a finished frame or inspector [78.91ms]
+
+tests/exploration.test.ts:
+(pass) 64 history calls, zero progress and bounded cleanup preserve exact restart intent [0.32ms]
+(pass) duplicate type/display names require exact identity; programmatic budgets cannot disable bounds [0.18ms]
+(pass) binary preview is explicitly unsupported and never invents text [0.19ms]
+
+tests/transport.test.ts:
+(pass) fragmented frames, precision, malformed/oversize/truncated payloads [0.08ms]
+(pass) finite admitted work, cancellation drains, host reuse and lost response [441.38ms]
+(pass) cursor lifetime simulation keeps full pinned intent for an explicit restart [0.05ms]
+
+tests/visual.test.ts:
+(pass) terminal, JSON-script and Mermaid controls remain text with exact DTO identity [5.04ms]
+(pass) unresolved/limited coverage survives all formats; store and symlink escapes are refused [15.54ms]
+
+ 23 pass
+ 0 fail
+ 530 expect() calls
+Ran 23 tests across 7 files. [61.80s]

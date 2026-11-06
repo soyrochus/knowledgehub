@@ -16,7 +16,7 @@ class Session:
   if select.select([self.master],[],[],.05)[0]:
    try:self.log+=os.read(self.master,262144).decode('utf8','replace')
    except OSError:pass
- def screen(self):return self.log.split('\x1b[H\x1b[2J')[-1]
+ def screen(self):return re.split(r'\x1b\[H\x1b\[(?:0|2)J',self.log)[-1]
  def wait(self,text=None,timeout=25):
   deadline=time.monotonic()+timeout
   while time.monotonic()<deadline:

@@ -1,0 +1,20 @@
+{
+  "compiled": true,
+  "real_pty": true,
+  "empty_tool_path": "/private/tmp/knowledgehub-kitty-placementfix-legacy-evidence/empty-tool-path",
+  "cwd": "/private/tmp/knowledgehub-kitty-placementfix-legacy-evidence",
+  "package": "/private/tmp/knowledgehub-kitty-placementfix-legacy",
+  "keyboard_source_history_export": true,
+  "keyboard_cli_graph_equal": true,
+  "empty_and_failed_admissions": true,
+  "unknown_operation_unavailable_anchor": true,
+  "search_cancel_restores_view": true,
+  "original_snapshot": "1168989726ecf408b9b461b6aa3f4400d772449cb186cd974e4af4e23240e2de",
+  "back_forward_refresh": true,
+  "lost_host_reconnect": true,
+  "resize": true,
+  "no_color": true,
+  "history_denied_ordinary_available": true,
+  "live_history_revocation_clears_cached_rows": true,
+  "human_usability_acceptance": "pending"
+}

@@ -1,0 +1,132 @@
+{
+  "status": "pass",
+  "ordinary_json_equivalent": true,
+  "viewer_dto_unchanged": true,
+  "cases": [
+    {
+      "model": "fruittrucks",
+      "root": "model:requirement:ack",
+      "projection": "relationships",
+      "selection": {
+        "selection": "Snapshot",
+        "reference": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"
+      },
+      "publication_anchor": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463",
+      "coverage": {
+        "complete": true,
+        "warnings": [],
+        "vertices": "5",
+        "edges": "5"
+      },
+      "graph_sha256": "c7e942215fdde761753064c4402172d2f0d7459a612296157b0e2e2851ff36ab",
+      "png_bytes": 82255,
+      "nodes": [
+        "n364a957e0cf21f60b001",
+        "n628b1058452d910b837b",
+        "n887612943e4b02340024",
+        "necb8ebbb5a6d78fa92e0",
+        "nffd51f0afe87fbc9c769"
+      ],
+      "edges": [
+        "e1d7504c7b1473be1af70",
+        "e289d70265033b1d6e325",
+        "e99254b0d67bed38ca96f",
+        "eb785d740c05367eb6a71",
+        "ed36a0455375402192867"
+      ]
+    },
+    {
+      "model": "fruittrucks",
+      "root": "model:journey:change",
+      "projection": "journey",
+      "selection": {
+        "selection": "Snapshot",
+        "reference": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"
+      },
+      "publication_anchor": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463",
+      "coverage": {
+        "complete": true,
+        "warnings": [],
+        "vertices": "7",
+        "edges": "5"
+      },
+      "graph_sha256": "8585661aea07a29f3ebed3813a94d0eb8b24c4aac0f8937ef1149c79af0e21cc",
+      "png_bytes": 25809,
+      "nodes": [
+        "n9d5e81e975424a590914",
+        "na2de04b97f1ceb09d305",
+        "na3bc0e07e2e42810ec94",
+        "nc8b205f0174e5cb14ba9",
+        "nde01b02c1c53ca76bf8b",
+        "ne3fe79085fff2dfdbb59",
+        "nf5b023cabc5428ab4fbd"
+      ],
+      "edges": [
+        "e4242b36b43f36277720a",
+        "e550e3eb8f43508459e3e",
+        "ecf3a24d9254a3d95dd72",
+        "ee1baf008892b03a3f83a",
+        "ef82677b13a32510bae40"
+      ]
+    },
+    {
+      "model": "fruittrucks",
+      "root": "model:lifecycle:offer",
+      "projection": "lifecycle",
+      "selection": {
+        "selection": "Snapshot",
+        "reference": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"
+      },
+      "publication_anchor": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463",
+      "coverage": {
+        "complete": true,
+        "warnings": [
+          "Only declared transitions; expiry is descriptive proposed design, no running timer."
+        ],
+        "vertices": "6",
+        "edges": "4"
+      },
+      "graph_sha256": "894bc2701eebfa33d26213f430d47c2d25e8bdeaf2379b320bfa4e9e2efced10",
+      "png_bytes": 51010,
+      "nodes": [
+        "n106e85310b69e3793f07",
+        "n123c8e54d1c48d1a752f",
+        "n1c851e4d8dcd43b27d48",
+        "n3c3d8ef59e7a7cf9e8c5",
+        "n62ed59aae3124578ae92",
+        "n8c2cc1fa93b0a2a22347"
+      ],
+      "edges": [
+        "e02d288bc429d29804a6c",
+        "e0f9748eb9f329246cb74",
+        "e46e52d303ee69bb772c6",
+        "e525ca8ac8eb56776600b"
+      ]
+    },
+    {
+      "model": "equipment",
+      "root": "model:entity:Booking",
+      "projection": "relationships",
+      "selection": {
+        "selection": "Snapshot",
+        "reference": "89cebaf6618d59df958dbbf4aee68f1ce34d06ec3b4d4cf490c4168aef6bee3c"
+      },
+      "publication_anchor": "89cebaf6618d59df958dbbf4aee68f1ce34d06ec3b4d4cf490c4168aef6bee3c",
+      "coverage": {
+        "complete": true,
+        "warnings": [],
+        "vertices": "2",
+        "edges": "1"
+      },
+      "graph_sha256": "964ec630b4dcdcd9e16d0c9ce75ffba81cb4e6cf59d3d6c54dcbfe1875459532",
+      "png_bytes": 26035,
+      "nodes": [
+        "n03bf3533d2d1a2906664",
+        "n7dac516324322b641f35"
+      ],
+      "edges": [
+        "e497461e79e9cf1b2b6cc"
+      ]
+    }
+  ]
+}

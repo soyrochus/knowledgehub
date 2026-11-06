@@ -10,6 +10,8 @@
     "kh": "bun src/kh.ts"
   },
   "dependencies": {
+    "@dagrejs/dagre": "3.1.3",
+    "@resvg/resvg-wasm": "2.6.2",
     "mermaid": "12.3.0"
   },
   "devDependencies": {

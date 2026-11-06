@@ -33,6 +33,8 @@ Preserve hub/ and old_hub/ byte-for-byte. Never decode old_hub through a compati
 
 Inspect current reference runs through the documented knowledgehub-model verify workflow using their retained run and current host inputs. Within a current instance preserve accepted history and exact captured sources, changing definitions through public APIs. Repository edits do not refresh a stored model or transfer authority. Modelarium registration/in-app editing, archive, crate publication and remote adapters remain outside this delivered scope.
 
+The user authorized TC-SL-02 `add-kitty-terminal-graph-view` on 5 November 2026. Its optional `kh view REF`/browser `V` consumer adds bounded embedded Kitty presentation without library, host RPC, codec or fixture changes. See `design/terminal-client.md`, the change tasks and `delivery/evidence/terminal-kitty-graph/20261105-apply`. Automated protocol/PTY/package evidence is separate from actual Kitty/Ghostty display; both native-terminal gates remain open, as does human meaning/usability acceptance. This does not authorize canonical refresh, Modelarium C9, archive or authority transfer.
+
 ## Scope and design constraints
 
 - Start with one Rust crate named `knowledgehub`, with clear internal responsibility boundaries.

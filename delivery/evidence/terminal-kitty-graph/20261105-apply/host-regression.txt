@@ -1,0 +1,5 @@
+Observed tool result, 5 November 2026
+Command: cargo test --bin knowledgehub-client-host
+Rust 1.99.1; library/host sources unchanged by TC-SL-02.
+5 passed; 0 failed; finished in 39.30s.
+Tests: frames_precision_and_exact_numbers; workspace_paths_wrong_scope_baselines_and_wire_overhead; scoped_grants_revocation_and_authority_overrides_fail_closed; open_exact_scope_history_and_original_sources_without_mutation; history_absence_unavailable_limits_intent_and_cursor_capacity.

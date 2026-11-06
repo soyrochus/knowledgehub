@@ -2,7 +2,7 @@
 
 ## Context
 
-See [proposal.md](proposal.md) for TC-SL-02's outcome, exclusions and source traceability, and [the capability specification](specs/terminal-kitty-graph-view/spec.md) for observable behaviour. This design is proposed, not implemented or accepted.
+See [proposal.md](proposal.md) for TC-SL-02's outcome, exclusions and source traceability, and [the capability specification](specs/terminal-kitty-graph-view/spec.md) for observable behaviour. This is the design baseline for the user-authorized 5 November 2026 apply; tasks and dated evidence own implementation/verification status. Human acceptance remains separate.
 
 The inspected implementation already has `Explorer` in `clients/terminal/src/explorer.ts`, exact graph extraction in `visual.ts`, browser keyboard/state handling in `tui.ts`, and CLI dispatch in `kh.ts`. `extract` supports relationships, journey and lifecycle, produces `knowledgehub-view/1`, and preserves references/origins/source bindings/coverage. `renderer.ts` uses Mermaid's browser DOM to render SVG in self-contained HTML; it is not an in-process terminal rasterizer. The browser's existing `v` action exports a diagram and must retain that meaning.
 
@@ -75,6 +75,13 @@ Acquire viewport cell/pixel geometry using bounded terminal queries. A terminal 
 A single input demultiplexer must intercept relevant APC graphics replies and expected CSI geometry/device replies before `emitKeypressEvents`. It handles fragmented/coalesced frames, bounded buffers/deadlines and stale query IDs. Browser key dispatch is suspended during graphics. The demultiplexer continues filtering recognized late replies when the browser resumes; arbitrary user input is not discarded or reinterpreted as a terminal response. Cancellation ends the pending query and invalidates its epoch. Typed input during negotiation is retained for the owning UI, not replayed as a graphics approval.
 
 One serialized output writer owns text and graphics, respects stream backpressure and never interleaves another graphics command inside image chunks. Send base64 chunks of at most 4096 bytes. Use explicit application-owned image and placement IDs, match acknowledgements and bound response time. Retain at most current and replacement image resources; a replacement becomes visible only while its epoch, selection and authority gate are valid. Delete only those IDs, with data-freeing variants on final cleanup, never a global delete-all command.
+
+All viewer/browser text redraws use home plus ED0. ED2/ED3 also erase graphics,
+including unplaced uploaded data in Ghostty, and therefore cannot appear in the
+upload/reveal path or substitute for owned-ID deletion. The terminal responder
+must model this eviction and reject missing-image placements. Negative placement
+results retain a bounded sanitized terminal reason. See the user-reported
+[placement correction](../../../delivery/evidence/terminal-kitty-graph/20261105-placement-fix/README.md).
 
 ### 5. Keep controls and exact inspection in text
 
@@ -164,7 +171,7 @@ No model, ontology, storage, host protocol or source migration is needed. After 
 
 ## Open Questions
 
-Only non-contract choices remain: final renderer package versions/font artifact revision and recorded hashes, and the terminal versions used for native evidence. Pin these during apply without changing the chosen rendering/packaging approach. Whether practitioners find the bounded view useful remains a separate human review outcome, not an implementation decision or inferred acceptance.
+Apply pinned Dagre 3.1.3/graphlib 4.0.6, resvg-WASM 2.6.2 and unmodified DejaVu Sans 2.37; `clients/terminal/assets/graphics/inventory.json` owns exact upstream identities, integrity and hashes. Actual Kitty/Ghostty execution remains separately gated. Whether practitioners find the bounded view useful remains a separate human review outcome, not an implementation decision or inferred acceptance.
 
 ## Primary technical references
 

@@ -1,0 +1,25 @@
+bun test v1.4.0 (34cbb9a40)
+
+tests/kitty-graphics.test.ts:
+(pass) bounded demux preserves UTF-8, arrows and ordinary keys, filters fragmented/late/malformed replies [7.28ms]
+(pass) unterminated response fragments expire, late whole replies stay filtered and Ctrl-C is never trapped [21.22ms]
+(pass) direct support/geometry, bounded chunks, serialized text, acknowledgements and owned cleanup [13.70ms]
+(pass) negative/missing/device-only replies, multiplexer and cancellation fail finitely [33.09ms]
+(pass) partial upload, stale reveal and negative ack clean only owned resources; output stalls never certify deletion [7.19ms]
+
+tests/graph-render.test.ts:
+(pass) wide ordered graphs rasterize clipped pan/zoom viewports without allocating the full graph [176.62ms]
+(pass) layout preserves exact multigraph occurrences, cycles, self edges and duplicate labels [3.92ms]
+(pass) only generated SVG primitives survive hostile text; missing glyphs and truncation are visible [1.16ms]
+(pass) real worker rasterizes with bundled assets, coalesces intents, rejects obsolete work and cancels [95.30ms]
+
+tests/graph-view.test.ts:
+(pass) viewer controls preserve exact selection; no history permission; explicit exact sources and small-window recovery [771.29ms]
+(pass) Read revocation hides images and drops every cached detail; only explicit permitted pinned recovery reveals again [407.19ms]
+(pass) cancellation invalidates an in-flight frame; invalid viewer options are rejected before terminal/host access [1.51ms]
+(pass) revocation during worker rendering cannot reveal a finished frame or inspector [87.44ms]
+
+ 13 pass
+ 0 fail
+ 378 expect() calls
+Ran 13 tests across 3 files. [1.66s]

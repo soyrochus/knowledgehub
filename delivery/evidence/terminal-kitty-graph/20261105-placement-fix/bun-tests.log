@@ -1,0 +1,45 @@
+bun test v1.4.0 (34cbb9a40)
+
+tests/kitty-graphics.test.ts:
+(pass) bounded demux preserves UTF-8, arrows and ordinary keys, filters fragmented/late/malformed replies [20.57ms]
+(pass) unterminated response fragments expire, late whole replies stay filtered and Ctrl-C is never trapped [21.38ms]
+(pass) direct support/geometry, bounded chunks, serialized text, acknowledgements and owned cleanup [17.20ms]
+(pass) negative/missing/device-only replies, multiplexer and cancellation fail finitely [33.64ms]
+(pass) placement rejection retains the terminal reason and owned image identity [4.53ms]
+(pass) partial upload, stale reveal and negative ack clean only owned resources; output stalls never certify deletion [7.45ms]
+
+tests/native.test.ts:
+(pass) native reader B: schema, occurrences, sources, original receipt, retained baseline and limits [66024.06ms]
+(pass) no history grants, live revocation and safe outputs [1979.87ms]
+
+tests/graph-render.test.ts:
+(pass) wide ordered graphs rasterize clipped pan/zoom viewports without allocating the full graph [180.57ms]
+(pass) layout preserves exact multigraph occurrences, cycles, self edges and duplicate labels [4.31ms]
+(pass) only generated SVG primitives survive hostile text; missing glyphs and truncation are visible [1.32ms]
+(pass) real worker rasterizes with bundled assets, coalesces intents, rejects obsolete work and cancels [94.93ms]
+
+tests/graph-view.test.ts:
+(pass) redraw retains uploaded images and never erases unrelated terminal graphics [118.97ms]
+(pass) viewer controls preserve exact selection; no history permission; explicit exact sources and small-window recovery [748.60ms]
+(pass) Read revocation hides images and drops every cached detail; only explicit permitted pinned recovery reveals again [389.88ms]
+(pass) cancellation invalidates an in-flight frame; invalid viewer options are rejected before terminal/host access [1.62ms]
+(pass) revocation during worker rendering cannot reveal a finished frame or inspector [80.08ms]
+
+tests/exploration.test.ts:
+(pass) 64 history calls, zero progress and bounded cleanup preserve exact restart intent [0.38ms]
+(pass) duplicate type/display names require exact identity; programmatic budgets cannot disable bounds [0.20ms]
+(pass) binary preview is explicitly unsupported and never invents text [0.20ms]
+
+tests/transport.test.ts:
+(pass) fragmented frames, precision, malformed/oversize/truncated payloads [0.10ms]
+(pass) finite admitted work, cancellation drains, host reuse and lost response [557.72ms]
+(pass) cursor lifetime simulation keeps full pinned intent for an explicit restart [0.08ms]
+
+tests/visual.test.ts:
+(pass) terminal, JSON-script and Mermaid controls remain text with exact DTO identity [9.15ms]
+(pass) unresolved/limited coverage survives all formats; store and symlink escapes are refused [19.69ms]
+
+ 25 pass
+ 0 fail
+ 562 expect() calls
+Ran 25 tests across 7 files. [70.37s]

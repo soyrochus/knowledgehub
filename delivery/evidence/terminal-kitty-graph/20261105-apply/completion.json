@@ -1,0 +1,22 @@
+{
+  "format": "knowledgehub-kitty-delivery/1",
+  "package": "target/terminal-graphics/knowledgehub-terminal-kitty-macos-arm64-final-04",
+  "archive": "target/terminal-graphics/knowledgehub-terminal-kitty-macos-arm64-final-04.tar.gz",
+  "archive_sha256": "9ef7e35341624f9021728da93d1d5ba1363c2881ba554be6cab44c0c858d3fc6",
+  "client_sha256": "d3f826d823b0ca4d2b4169023e3e53830d8906a17b18270b8a60baecba754e60",
+  "host_sha256": "6578657841835cb3c7bb5be328efb7e8e5c0c829292fe31d6c4c211e857b617a",
+  "runtime_identical_to_isolated_graphics_build": true,
+  "current_build_inputs_match": true,
+  "checksums_verified": 330,
+  "graphics_cases": 25,
+  "all_graphics_cases_passed": true,
+  "semantic_source_reference_receipt_files_unchanged": 32,
+  "legacy_browser_pty": "passed with source/network/tool isolation",
+  "existing_archive_commands": 57,
+  "full_terminal_tests": 23,
+  "full_terminal_assertions": 530,
+  "host_tests": 5,
+  "actual_kitty": "open: unavailable",
+  "actual_ghostty": "open: computer-use app restriction",
+  "human_acceptance": "pending"
+}

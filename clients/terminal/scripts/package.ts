@@ -8,14 +8,23 @@ import {
   statSync,
   writeFileSync,
   chmodSync,
+  realpathSync,
 } from "node:fs";
 import { resolve, join, relative } from "node:path";
 import { createHash } from "node:crypto";
 const root = resolve(import.meta.dir, "../../.."),
   destination = resolve(process.argv[2] ?? "");
-if (process.argv.length !== 3 || existsSync(destination))
+const retainedModels =
+  process.argv[3] === "--models" && process.argv[4]
+    ? realpathSync(resolve(process.argv[4]))
+    : undefined;
+if (
+  ![3, 5].includes(process.argv.length) ||
+  (process.argv.length === 5 && !retainedModels) ||
+  existsSync(destination)
+)
   throw Error(
-    "usage: bun scripts/package.ts NEW-DESTINATION (occupied paths refused)",
+    "usage: bun scripts/package.ts NEW-DESTINATION [--models QUIESCENT-MODELS-DIR] (occupied paths refused)",
   );
 if (process.platform !== "darwin" || process.arch !== "arm64")
   throw Error("This build recipe currently verifies macOS arm64 only.");
@@ -38,12 +47,16 @@ await run([
   "terminal_fixture_handover",
 ]);
 await run(["bun", "run", "assets"], join(root, "clients/terminal"));
+await run(["bun", "clients/terminal/scripts/graphics-assets.ts"]);
 await run([
   "bun",
   "build",
   "--compile",
   "--target=bun-darwin-arm64",
+  "--root",
+  "clients/terminal",
   "clients/terminal/src/kh.ts",
+  "clients/terminal/src/graph-render-worker.ts",
   "--outfile",
   join(destination, "kh"),
 ]);
@@ -52,12 +65,41 @@ cpSync(
   join(destination, "knowledgehub-client-host"),
 );
 chmodSync(join(destination, "knowledgehub-client-host"), 0o755);
-await run([
-  "python3",
-  "scripts/prepare-terminal-models.py",
-  join(destination, "models"),
-  "--release",
-]);
+if (retainedModels) {
+  if (
+    ["hub", "old_hub"].some(
+      (name) =>
+        retainedModels === join(root, name) ||
+        retainedModels.startsWith(join(root, name) + "/"),
+    ) ||
+    destination.startsWith(retainedModels + "/")
+  )
+    throw Error("protected or recursive model copy refused");
+  if (
+    !existsSync(join(retainedModels, "workspace.json")) ||
+    !existsSync(join(retainedModels, "workspace-no-history.json"))
+  )
+    throw Error("both retained workspace files required");
+  const ordinary = (dir: string) => {
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isSymbolicLink()) throw Error("retained model symlink refused");
+      if (entry.isDirectory()) ordinary(join(dir, entry.name));
+      else if (!entry.isFile())
+        throw Error("retained model special file refused");
+    }
+  };
+  ordinary(retainedModels);
+  cpSync(retainedModels, join(destination, "models"), {
+    recursive: true,
+    errorOnExist: true,
+  });
+} else
+  await run([
+    "python3",
+    "scripts/prepare-terminal-models.py",
+    join(destination, "models"),
+    "--release",
+  ]);
 // Publication and source evidence is portable. Preparation journals retain local
 // build paths, so ship only the source-bound reference inputs and exact handover.
 for (const name of ["fruittrucks", "equipment"]) {
@@ -97,7 +139,12 @@ cpSync(
 );
 writeFileSync(
   join(destination, "THIRD-PARTY.md"),
-  "Offline Mermaid 12.3.0 and transitive dependencies are bundled under their licenses. Bun 1.4.0 is embedded in kh. See build-manifest.json and dependency-licenses/ for retained notices.\n",
+  "Offline Mermaid 12.3.0, Dagre 3.1.3/graphlib 4.0.6 (MIT), resvg-WASM 2.6.2 (MPL-2.0), unmodified DejaVu Sans 2.37 and transitive dependencies are bundled under their licenses. Bun 1.4.0 is embedded in kh. See build-manifest.json, dependency-licenses/ and graphics-notices/ for retained notices, exact hashes and corresponding source locations.\n",
+);
+cpSync(
+  join(root, "clients/terminal/assets/graphics"),
+  join(destination, "graphics-notices"),
+  { recursive: true },
 );
 mkdirSync(join(destination, "dependency-licenses"));
 function notices(dir: string) {
@@ -145,6 +192,7 @@ for (const folder of [
   "src",
   "clients/terminal/src",
   "clients/terminal/scripts",
+  "clients/terminal/assets/graphics",
   "examples/fixtures/build_plans.py",
   "examples/fixtures/terminal-client",
   "scripts/prepare-terminal-models.py",
@@ -164,6 +212,7 @@ for (const p of [
   "clients/terminal/bun.lock",
   "examples/model_successor.rs",
   "examples/terminal_fixture_handover.rs",
+  "clients/terminal/node_modules/@resvg/resvg-wasm/index_bg.wasm",
 ])
   inputs[p] = sha(join(root, p));
 const host = join(destination, "knowledgehub-client-host"),
@@ -188,6 +237,18 @@ writeFileSync(
       protocol: "knowledgehub.client/1",
       host: info.data.capabilities,
       inputs,
+      graphics: {
+        worker: "src/graph-render-worker.js",
+        input_inventory: "graphics-notices/inventory.json",
+        lazy: true,
+        actual_kitty: "pending",
+        actual_ghostty: "pending",
+      },
+      fixtures: {
+        mode: retainedModels
+          ? "quiescent retained fixture copy; no reauthoring"
+          : "fresh source-bound authoring",
+      },
       checks: {
         end_user_development_tools: false,
         linux_native: "not verified",

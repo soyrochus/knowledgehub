@@ -1,0 +1,14 @@
+{
+  "status": "pass",
+  "typed_graphics_failure": true,
+  "help_text_json_html_available": true,
+  "cases": [
+    {
+      "name": "missing-worker",
+      "exit": 6,
+      "probes": 1,
+      "rendered_frames": 0,
+      "owned_cleanup": true
+    }
+  ]
+}

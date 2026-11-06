@@ -1,0 +1,23 @@
+{
+  "format": "knowledgehub-kitty-placement-fix/1",
+  "package": "target/terminal-graphics/knowledgehub-terminal-kitty-macos-arm64-final-05",
+  "archive": "target/terminal-graphics/knowledgehub-terminal-kitty-macos-arm64-final-05.tar.gz",
+  "archive_sha256": "fd480bd03a04faa97925b75a91c7bf6909e06d7f6bc57f509921d3fae41a0a49",
+  "client_sha256": "5a3c2c2135c0ad503de9e832f963b2453d65a1681db4480d45cb1613115088cf",
+  "host_sha256": "6578657841835cb3c7bb5be328efb7e8e5c0c829292fe31d6c4c211e857b617a",
+  "old_final_04_failure_reproduced": true,
+  "full_terminal_tests": 25,
+  "assertions": 562,
+  "stateful_graphics_pty_cases": 25,
+  "foreign_graphics_preserved_in_all_cases": true,
+  "uploaded_images_erased_by_redraw": 0,
+  "missing_image_placements": 0,
+  "semantic_source_reference_receipt_files_unchanged": 32,
+  "legacy_browser_pty": "pass",
+  "package_commands": 57,
+  "package_checksums": 330,
+  "current_build_inputs_match": true,
+  "native_ghostty_successful_retest": "pending user observation of final-05",
+  "native_kitty": "open",
+  "human_acceptance": "pending"
+}

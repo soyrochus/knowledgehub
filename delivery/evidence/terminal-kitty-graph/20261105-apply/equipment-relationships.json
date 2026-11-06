@@ -1,0 +1,394 @@
+{
+  "format": "knowledgehub-view/1",
+  "model": {
+    "alias": "equipment",
+    "scope": {
+      "branch": "main",
+      "hub": "fixture:equipment",
+      "model": "fixture:equipment",
+      "owner": "fixture:design-owner"
+    }
+  },
+  "selection": {
+    "selection": "Snapshot",
+    "reference": "89cebaf6618d59df958dbbf4aee68f1ce34d06ec3b4d4cf490c4168aef6bee3c"
+  },
+  "publication_anchor": "89cebaf6618d59df958dbbf4aee68f1ce34d06ec3b4d4cf490c4168aef6bee3c",
+  "intent": {
+    "root": {
+      "id": "model:entity:Booking",
+      "model": "fixture:equipment",
+      "revision": "native-successor-2"
+    },
+    "projection": "relationships",
+    "depth": 1,
+    "max_vertices": 60,
+    "max_edges": 120
+  },
+  "nodes": [
+    {
+      "id": "n03bf3533d2d1a2906664",
+      "reference": {
+        "id": "model:entity:Booking",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      },
+      "type_ref": {
+        "id": "sdo:type:EntityType",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Booking — authored native successor",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/fields"
+              },
+              {
+                "owner": "Graph",
+                "path": "/name"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:design.md",
+                    "model": "fixture:equipment",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:36b6df04fc61c45d867c",
+                    "model": "fixture:equipment",
+                    "revision": "1"
+                  }
+                }
+              },
+              "fields": {
+                "kind": "List",
+                "value": []
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Booking — authored native successor"
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": {
+          "id": "model:entity:Booking",
+          "model": "fixture:equipment",
+          "revision": "1"
+        },
+        "provenance": [
+          {
+            "id": "model:anchor-unit:36b6df04fc61c45d867c",
+            "model": "fixture:equipment",
+            "revision": "1"
+          },
+          {
+            "id": "model:interpretation:ordinary-native-successor",
+            "model": "fixture:equipment",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:entity:Booking",
+          "model": "fixture:equipment",
+          "revision": "native-successor-2"
+        },
+        "sha256": "a050a4967f9b7f25a6f0196434f296f110a16cb544a37f65e6a10d3eafcd42b1",
+        "type_ref": {
+          "id": "sdo:type:EntityType",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "selected",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:36b6df04fc61c45d867c",
+            "model": "fixture:equipment",
+            "revision": "1"
+          },
+          {
+            "id": "model:interpretation:ordinary-native-successor",
+            "model": "fixture:equipment",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:design.md",
+              "model": "fixture:equipment",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:36b6df04fc61c45d867c",
+              "model": "fixture:equipment",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "n7dac516324322b641f35",
+      "reference": {
+        "id": "model:lifecycle:Booking",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      },
+      "type_ref": {
+        "id": "sdo:type:LifecycleDefinition",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Booking lifecycle",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/initial_state"
+              },
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Graph",
+                "path": "/states"
+              },
+              {
+                "owner": "Graph",
+                "path": "/states/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/states/1"
+              },
+              {
+                "owner": "Graph",
+                "path": "/states/2"
+              },
+              {
+                "owner": "Graph",
+                "path": "/subject"
+              },
+              {
+                "owner": "Graph",
+                "path": "/terminal_states"
+              },
+              {
+                "owner": "Graph",
+                "path": "/terminal_states/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/transitions"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:design.md",
+                    "model": "fixture:equipment",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:36b6df04fc61c45d867c",
+                    "model": "fixture:equipment",
+                    "revision": "1"
+                  }
+                }
+              },
+              "initial_state": {
+                "kind": "Ref",
+                "value": {
+                  "id": "model:state:Requested",
+                  "model": "fixture:equipment",
+                  "revision": "native-successor-2"
+                }
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Booking lifecycle"
+              },
+              "states": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:state:Requested",
+                      "model": "fixture:equipment",
+                      "revision": "native-successor-2"
+                    }
+                  },
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:state:Confirmed",
+                      "model": "fixture:equipment",
+                      "revision": "native-successor-2"
+                    }
+                  },
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:state:Cancelled",
+                      "model": "fixture:equipment",
+                      "revision": "native-successor-2"
+                    }
+                  }
+                ]
+              },
+              "subject": {
+                "kind": "Ref",
+                "value": {
+                  "id": "model:entity:Booking",
+                  "model": "fixture:equipment",
+                  "revision": "native-successor-2"
+                }
+              },
+              "terminal_states": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:state:Cancelled",
+                      "model": "fixture:equipment",
+                      "revision": "native-successor-2"
+                    }
+                  }
+                ]
+              },
+              "transitions": {
+                "kind": "List",
+                "value": []
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": {
+          "id": "model:lifecycle:Booking",
+          "model": "fixture:equipment",
+          "revision": "1"
+        },
+        "provenance": [
+          {
+            "id": "model:anchor-unit:36b6df04fc61c45d867c",
+            "model": "fixture:equipment",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:lifecycle:Booking",
+          "model": "fixture:equipment",
+          "revision": "native-successor-2"
+        },
+        "sha256": "4ab02b9039d5efe4795678916b81039fae2587a4ad8b65fd1add29acacbc735d",
+        "type_ref": {
+          "id": "sdo:type:LifecycleDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "selected",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:36b6df04fc61c45d867c",
+            "model": "fixture:equipment",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:design.md",
+              "model": "fixture:equipment",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:36b6df04fc61c45d867c",
+              "model": "fixture:equipment",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e497461e79e9cf1b2b6cc",
+      "from": {
+        "id": "model:lifecycle:Booking",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      },
+      "to": {
+        "id": "model:entity:Booking",
+        "model": "fixture:equipment",
+        "revision": "native-successor-2"
+      },
+      "origin": {
+        "occurrence": "/subject",
+        "owner": {
+          "id": "model:lifecycle:Booking",
+          "model": "fixture:equipment",
+          "revision": "native-successor-2"
+        },
+        "owner_type": {
+          "id": "sdo:type:LifecycleDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "definition": {
+          "id": "sdo:type:LifecycleDefinition",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "kind": "Property",
+        "path": "/subject"
+      },
+      "category": "Property",
+      "directions": [
+        "Incoming"
+      ]
+    }
+  ],
+  "coverage": {
+    "complete": true,
+    "warnings": [],
+    "vertices": "2",
+    "edges": "1"
+  },
+  "status": "derived inspection artifact; no native import, backup, execution or acceptance"
+}

@@ -1,0 +1,36 @@
+[?25l[H[2JChecking current authority…_Ga=q,t=d,f=32,s=1,v=1,i=497483778;<base64 omitted>\[c[14t[18t_Ga=d,d=I,i=497483778,q=2;\_Ga=t,t=d,f=100,i=497483780,q=0,m=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=1;<base64 omitted>\_Gm=0;<base64 omitted>\[H[2JView graph (Kitty) · fruittrucks · relationships · derived READ ONLY
+Content {"selection":"Snapshot","reference":"697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"}
+Publication anchor 697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463
+COMPLETE requested extraction · 5 nodes / 5 edges · viewport clipped · model draft / review unrecorded
+                                                                                      │ {
+                                                                                      │   "selected": {
+                                                                                      │     "id": "n887612943e4b02340024",
+                                                                                      │     "reference": {
+                                                                                      │       "id": "model:requirement:ack",
+                                                                                      │       "model": "fixture:fruittrucks",
+                                                                                      │       "revision": "native-successor-2"
+                                                                                      │     },
+                                                                                      │     "type_ref": {
+                                                                                      │       "id": "sdo:type:Requirement",
+                                                                                      │       "model": "sdo",
+                                                                                      │       "revision": "catalogue-3"
+                                                                                      │     },
+                                                                                      │     "label": "R8 — acknowledge an in-progress change — author
+                                                                                      │ d native successor",
+                                                                                      │     "record": {
+                                                                                      │       "data": {
+                                                                                      │         "data": {
+                                                                                      │           "owners": [
+                                                                                      │             {
+                                                                                      │               "owner": "Graph",
+                                                                                      │               "path": "/claim_kind"
+                                                                                      │             },
+                                                                                      │             {
+                                                                                      │               "owner": "Document",
+                                                                                      │               "path": "/description"
+                                                                                      │             },
+Focus graph · nodes 3/5 · n887612943e4b02340024 · no semantic writes
+Esc/q close · ? help · Ctrl-C cancel · Tab focus · n/p next/previous · e nodes/edges · Enter inspect/preview · s sources · arrows pan · +/- zoom · 0 
+fit · j/k/PgUp/PgDn inspector · R pinned retry
+Requested graph coverage only; no acceptance or execution inferred.[5;1H_Ga=p,i=497483780,p=497483779,c=85,r=27,C=1,q=0;\_Ga=d,d=I,i=497483780,q=2;\[H[2JGraphicsTransport: terminal rejected placement
+R explicitly retries the pinned selection · Esc/q close. Alternatives: kh browse; kh diagram REF --format html --output NEW.html[?25h[0m

@@ -94,8 +94,22 @@ Its local macOS arm64 package includes a matching Rust host and two small draft
 models, with no end-user development tools. See the [client guide](design/terminal-client.md),
 [Session 4 quick start](examples/fixtures/terminal-client/QUICKSTART.md) and
 [technical evidence](delivery/evidence/terminal-client/20261104-apply/README.md).
+The optional `kh view REF` command and uppercase `V` browser action provide
+View graph (Kitty) for relationships, journeys and lifecycles in a directly
+connected compatible terminal. It includes bundled renderer/font assets; ordinary
+text browsing and exports remain available when graphics are unavailable. See the
+[viewer controls and bounds](design/terminal-client.md#optional-terminal-graph-view--tc-sl-02).
+The [TC-SL-02 evidence](delivery/evidence/terminal-kitty-graph/20261105-apply/README.md)
+separates automated graphics/package checks from pending actual Kitty/Ghostty
+observations and human review.
+Use the replacement package in the [Ghostty placement fix](delivery/evidence/terminal-kitty-graph/20261105-placement-fix/README.md);
+the earlier `final-04` build erased uploaded graphics during redraw.
 Human usability/meaning acceptance, Linux native execution, signing/publication
 and Modelarium integration remain separate work.
+
+![KnowledgeHub terminal client showing the FruitTrucks relationship graph with Kitty graphics and the selected requirement's details](images/knowledgehub-client.png)
+
+*The terminal client showing FruitTrucks relationships through the Kitty graphics protocol, alongside the selected requirement's details.*
 
 ## Getting started
 

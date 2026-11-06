@@ -2,6 +2,9 @@ import { emitKeypressEvents } from "node:readline";
 import { Explorer } from "./explorer.ts";
 import { Transport } from "./transport.ts";
 import { execute, ref, linkOptions } from "./commands.ts";
+import { TerminalInput } from "./terminal-input.ts";
+import { TerminalWriter, textScreen } from "./kitty-graphics.ts";
+import { viewOptions } from "./view-options.ts";
 import {
   Failure,
   clean,
@@ -47,7 +50,7 @@ B baseline JSON · S snapshot · A publication anchor · C compare A/B · m mode
 / literal search · f local display filter (=NAME is exact)
 n next native page · h back / H forward · Alt←/Alt→ same navigation
 r explicit head refresh · R reconnect at retained selection/anchor
-v diagram export (format, path, projection, depth) · ? help · Esc cancel/back
+v diagram export · V View graph (Kitty) · ? help · Esc cancel/back
 q quit · Ctrl-C cancel/quit · --no-color / NO_COLOR
 Navigation, predecessor lineage, baseline parents and publications are separate.
 Exact selections/anchors survive back/forward; restored pages query afresh.
@@ -58,6 +61,9 @@ export async function browse(
   initial: Explorer,
   noColor = false,
 ): Promise<void> {
+  const input = new TerminalInput(process.stdin),
+    writer = new TerminalWriter(process.stdout);
+  let graphActive = false;
   let e = initial,
     t = initial.transport,
     state: State = {
@@ -110,7 +116,7 @@ export async function browse(
   const reference = () =>
     visible()[state.row]?.reference ?? state.intent.reference;
   function render() {
-    if (done) return;
+    if (done || graphActive) return;
     const width = process.stdout.columns ?? 100,
       height = process.stdout.rows ?? 30;
     const out: string[] = [];
@@ -157,14 +163,14 @@ export async function browse(
       prompt
         ? `${prompt.text}: ${clean(prompt.value)} (Esc cancels)`
         : message ||
-            "Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · ? help · q quit",
+            "Tab panes · Space expand · Enter inspect · l links · s sources · p publications · v export · V View graph (Kitty) · ? help · q quit",
     );
     line(
       width < 70 || height < 15
         ? "Compact view · ↑↓ · Enter · Esc · ? help · q quit"
         : "Arrow/jk · h/H history · r explicit head refresh · R reconnect · no semantic writes",
     );
-    process.stdout.write("\x1b[H\x1b[2J" + out.join("\n"));
+    process.stdout.write(textScreen + out.join("\n"));
   }
   const ask = (text: string) =>
     new Promise<string>((resolve, reject) => {
@@ -424,6 +430,7 @@ export async function browse(
     }
   }
   async function keypress(str: string, k: Json) {
+    if (graphActive) return;
     if (prompt) {
       if (k.name === "escape") {
         const p = prompt;
@@ -707,6 +714,24 @@ export async function browse(
         message = "Reconnected; fresh query at retained exact selection/anchor";
         await fresh();
         await load();
+      } else if (str === "V" && reference()) {
+        const selected = structuredClone(reference()!);
+        const projection =
+          (await ask("View graph (Kitty): relationships/journey/lifecycle")) ||
+          "relationships";
+        const depth = (await ask("Graph depth 1..8 (blank 1)")) || "1";
+        const vertices =
+          (await ask("Graph vertices 1..200 (blank 60)")) || "60";
+        const edges = (await ask("Graph edges 1..500 (blank 120)")) || "120";
+        const opts = viewOptions({ projection, depth, vertices, edges });
+        const { viewGraph } = await import("./graph-view.ts");
+        graphActive = true;
+        try {
+          const code = await viewGraph(e, selected, opts, { input, writer });
+          message = `View graph closed (exit ${code}); retained exact browser selection, page and position`;
+        } finally {
+          graphActive = false;
+        }
       } else if (str === "v" && reference()) {
         const format =
             (await ask("Diagram format html/json/mermaid")) || "html",
@@ -730,14 +755,14 @@ export async function browse(
       }
     });
   }
-  emitKeypressEvents(process.stdin);
+  emitKeypressEvents(input.keys);
   process.stdin.setRawMode(true);
   process.stdin.resume();
   process.stdout.write("\x1b[?25l");
   const onKey = (s: string, k: Json) => {
     void keypress(s, k);
   };
-  process.stdin.on("keypress", onKey);
+  input.keys.on("keypress", onKey);
   const onResize = () => {
     void job(async () => {});
   };
@@ -749,7 +774,8 @@ export async function browse(
     await finished;
   } finally {
     done = true;
-    process.stdin.off("keypress", onKey);
+    input.keys.off("keypress", onKey);
+    input.close();
     process.stdout.off("resize", onResize);
     process.stdin.setRawMode(false);
     process.stdin.pause();

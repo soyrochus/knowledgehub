@@ -1,0 +1,14 @@
+{
+  "kitty": {
+    "status": "open",
+    "reason": "No Kitty application in /Applications and command -v kitty returned no executable; no terminal installed for this task."
+  },
+  "ghostty": {
+    "status": "open",
+    "installed_version": "1.4.0",
+    "observation": "CLI version only; no image-display claim",
+    "reason": "Computer-use getApp(Ghostty) refused: Computer Use is not allowed to use the app com.mitchellh.ghostty for safety reasons. No alternate UI automation attempted."
+  },
+  "actual_unsupported_terminal": "open with Ghostty/native-terminal observation",
+  "human_meaning_usability_acceptance": "pending"
+}

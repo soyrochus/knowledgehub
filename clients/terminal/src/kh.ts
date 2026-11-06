@@ -6,6 +6,7 @@ import { Explorer, type Options } from "./explorer.ts";
 import { execute, ref, type Command } from "./commands.ts";
 import { Failure, clean, exitFor, uint, type Json } from "./types.ts";
 import { browse } from "./tui.ts";
+import { viewOptions } from "./view-options.ts";
 
 export const help = `kh 0.10.0 — read-only native KnowledgeHub explorer
 Usage: kh [OPTIONS] COMMAND [ARGUMENTS] [OPTIONS]
@@ -24,6 +25,10 @@ Usage: kh [OPTIONS] COMMAND [ARGUMENTS] [OPTIONS]
     [--projection relationships|journey|lifecycle --depth 1..8]
     [--vertices 1..1000 --edges 1..10000 --replace]
   browse                              keyboard TUI; ? opens help
+  view REF [--projection relationships|journey|lifecycle]
+    [--depth 1..8 --vertices 1..200 --edges 1..500]
+    Interactive View graph (Kitty); direct terminal, input/output TTY, human mode.
+    Default graph bounds: depth 1, 60 vertices, 120 edges; ? keyboard help.
 
 Context: --workspace FILE --model ALIAS --snapshot HASH
          --baseline '{"model":"...","id":"...","revision":"..."}'
@@ -104,6 +109,7 @@ const allowed: Record<string, string[]> = {
     "replace",
   ],
   browse: [],
+  view: ["projection", "depth", "vertices", "edges"],
 };
 export function parse(argv: string[]): Command {
   const flags: Record<string, string | boolean> = {},
@@ -188,6 +194,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
   const json = argv.includes("--json");
   let error: Json, data: Json;
   let tuiFinished = false;
+  let viewerExit: number | undefined;
   try {
     command = parse(argv);
     if (command.flags.help) {
@@ -220,6 +227,20 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
         message:
           "browse requires a TTY and human output; kh --help lists scripting commands",
       });
+    if (command.name === "view") {
+      viewOptions(command.flags);
+      if (
+        command.positionals.length !== 1 ||
+        command.flags.json ||
+        !process.stdin.isTTY ||
+        !process.stdout.isTTY
+      )
+        throw new Failure({
+          code: "Usage",
+          message:
+            "view requires one REF, terminal stdin/stdout and human output; use diagram for JSON/HTML exports",
+        });
+    }
     const arity: Record<string, number> = {
       models: 0,
       info: 0,
@@ -240,6 +261,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
       gaps: 0,
       diagram: 1,
       browse: 0,
+      view: 1,
     };
     if (command.positionals.length > arity[command.name])
       throw new Failure({
@@ -261,6 +283,13 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
           !!command.flags["no-color"] || process.env.NO_COLOR !== undefined,
         );
         tuiFinished = true;
+      } else if (command.name === "view") {
+        const { viewGraph } = await import("./graph-view.ts");
+        viewerExit = await viewGraph(
+          e,
+          command.positionals[0],
+          viewOptions(command.flags),
+        );
       } else data = await execute(e, command);
     }
   } catch (err) {
@@ -281,6 +310,7 @@ export async function main(argv = process.argv.slice(2)): Promise<number> {
       }
   }
   if (tuiFinished && !error) return 0;
+  if (viewerExit !== undefined && !error) return viewerExit;
   let result: Json = e
     ? e.envelope(command ?? { argv }, data, error)
     : {

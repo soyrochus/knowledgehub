@@ -101,3 +101,36 @@ native execution and other filesystem profiles remain unverified; this package
 does not close existing cross-host or external analyst/host acceptance gates.
 Automated PTY/browser checks are technical evidence; instructor observation is
 separate from human usability or meaning acceptance, which remains pending.
+
+## Optional graph inside the terminal
+
+In a directly connected compatible terminal, explicitly open one of these:
+
+```sh
+./kh view model:requirement:ack
+./kh view model:journey:change --projection journey
+./kh view model:lifecycle:offer --projection lifecycle
+./kh --model equipment view model:entity:Booking
+```
+
+In `browse`, uppercase `V` is **View graph (Kitty)** and asks for projection and
+bounds; lowercase `v` still exports. Closing restores the same browser selection,
+page, filter and position. Ordinary browsing requires no graphics support.
+
+`n`/`p` select nodes/edges, `e` switches mode, Enter inspects, `s` lists sources;
+choose one with `n`/`p` and Enter explicitly previews its exact bytes. Tab changes
+focus; `j`/`k` or PageUp/PageDown scroll. Arrows pan, `+`/`-` zoom, `0` fits,
+`?` shows help and Esc/`q` closes. Ctrl-C cancels. Resize needs at least 90×24
+cells. The image and text inspector use bundled assets, with no renderer program,
+browser process, development tools, downloads or system fonts.
+
+Support and pixel geometry are queried with a finite deadline. tmux/screen is
+outside this direct-terminal viewer. Unavailable graphics reports a reason and
+leaves `browse` and explicit HTML exports available; it opens no app or file.
+The command requires human output and terminal stdin/stdout; `--json` exits 2.
+The default is depth 1, 60 vertices/120 edges; maxima are 8/200/500. Reached bounds
+remain PARTIAL (exit 3); unavailable/protocol/assets/output failures exit 6.
+Denial clears images/details; `R` explicitly retries the pinned selection.
+Model drafts, source conflicts and proposed expiry retain their qualifications.
+Technical PTY simulations, actual terminal observations and human acceptance
+are separately recorded in the implementation evidence.

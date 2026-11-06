@@ -1,0 +1,1603 @@
+{
+  "format": "knowledgehub-view/1",
+  "model": {
+    "alias": "fruittrucks",
+    "scope": {
+      "branch": "main",
+      "hub": "fixture:fruittrucks",
+      "model": "fixture:fruittrucks",
+      "owner": "fixture:design-owner"
+    }
+  },
+  "selection": {
+    "selection": "Snapshot",
+    "reference": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463"
+  },
+  "publication_anchor": "697245f70c80cf0a1deed87d103c71c445c2264645d8c9565af1ed41af341463",
+  "intent": {
+    "root": {
+      "id": "model:journey:change",
+      "model": "fixture:fruittrucks",
+      "revision": "1"
+    },
+    "projection": "journey",
+    "depth": 1,
+    "max_vertices": 60,
+    "max_edges": 120
+  },
+  "nodes": [
+    {
+      "id": "n9d5e81e975424a590914",
+      "reference": {
+        "id": "model:activity:4",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Recheck and activate",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Recheck and activate"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:4",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:4",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "4c9c8116590e5ea7754941f406545dee1e51d1336f4cd3c647cec87c0fd5399b",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "na2de04b97f1ceb09d305",
+      "reference": {
+        "id": "model:activity:5",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Track communication",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Track communication"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:5",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:5",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "e4fc22bfb03623a50e7048bc34668620b99a5d263aca812eeddd694731afafda",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "na3bc0e07e2e42810ec94",
+      "reference": {
+        "id": "model:activity:0",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Understand disruption",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Understand disruption"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:0",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:0",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "a30f78f8e4b1055ce145f80b3a758e67cfae5c1f69c1b737fed992eede7520ec",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nc8b205f0174e5cb14ba9",
+      "reference": {
+        "id": "model:activity:2",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Release exact offer",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Release exact offer"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:2",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:2",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "0ba9c6c449476b5d99174e795cd1c7ec5353994c5d7fd26126c795c78628061d",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nde01b02c1c53ca76bf8b",
+      "reference": {
+        "id": "model:activity:3",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Acknowledge or decline",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Acknowledge or decline"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:3",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:3",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "109c7de6ce7caead73ce208bfa740db011281dbcd57aeb3e13ecc9abe775c7cf",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "ne3fe79085fff2dfdbb59",
+      "reference": {
+        "id": "model:journey:change",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:Journey",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Establish a changed stop order",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/actor"
+              },
+              {
+                "owner": "Document",
+                "path": "/trigger"
+              },
+              {
+                "owner": "Document",
+                "path": "/completion"
+              }
+            ],
+            "properties": {
+              "actor": {
+                "kind": "Ref",
+                "value": {
+                  "id": "model:actor",
+                  "model": "fixture:fruittrucks",
+                  "revision": "1"
+                }
+              },
+              "completion": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Establish a changed stop order"
+              },
+              "trigger": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:journey:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "c9d1239180d45bafa154715044d70ca7595ce415084b8a56f396fa5cbc71b884",
+        "type_ref": {
+          "id": "sdo:type:Journey",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "selected",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "id": "nf5b023cabc5428ab4fbd",
+      "reference": {
+        "id": "model:activity:1",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "type_ref": {
+        "id": "sdo:type:UserActivity",
+        "model": "sdo",
+        "revision": "catalogue-3"
+      },
+      "label": "Prepare and check",
+      "record": {
+        "data": {
+          "data": {
+            "owners": [
+              {
+                "owner": "Graph",
+                "path": "/name"
+              },
+              {
+                "owner": "Document",
+                "path": "/description"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys"
+              },
+              {
+                "owner": "Graph",
+                "path": "/journeys/0"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks"
+              },
+              {
+                "owner": "Graph",
+                "path": "/tasks/0"
+              },
+              {
+                "owner": "Document",
+                "path": "/objective"
+              }
+            ],
+            "properties": {
+              "description": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "journeys": {
+                "kind": "Set",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:journey:change",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              },
+              "name": {
+                "kind": "Text",
+                "value": "Prepare and check"
+              },
+              "objective": {
+                "kind": "Narrative",
+                "value": {
+                  "document": {
+                    "id": "model:capture:route-change-design-notes.md",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  },
+                  "fragment": {
+                    "id": "model:anchor-unit:0cd233872b9bde450e19",
+                    "model": "fixture:fruittrucks",
+                    "revision": "1"
+                  }
+                }
+              },
+              "tasks": {
+                "kind": "List",
+                "value": [
+                  {
+                    "kind": "Ref",
+                    "value": {
+                      "id": "model:task:1",
+                      "model": "fixture:fruittrucks",
+                      "revision": "1"
+                    }
+                  }
+                ]
+              }
+            }
+          },
+          "kind": "Element"
+        },
+        "predecessor": null,
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "reference": {
+          "id": "model:activity:1",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "sha256": "0d85809712018521b46df4c37bd269c641046002c78b7d6fa415fcdd4d3c025c",
+        "type_ref": {
+          "id": "sdo:type:UserActivity",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "available": true,
+      "membership": "declared ordered StoryMap activity",
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          },
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "e4242b36b43f36277720a",
+      "from": {
+        "id": "model:activity:4",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "to": {
+        "id": "model:activity:5",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "origin": {
+        "occurrence": "/activities/4",
+        "owner": {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "owner_type": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "kind": "DeclaredListOrder",
+        "definition": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "path": "/activities"
+      },
+      "category": "declared-order",
+      "label": "recorded list order",
+      "supporting_origins": [
+        {
+          "occurrence": "/activities/5",
+          "owner": {
+            "id": "model:storymap:change",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "owner_type": {
+            "id": "sdo:type:StoryMap",
+            "model": "sdo",
+            "revision": "catalogue-3"
+          }
+        }
+      ],
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      },
+      "projection_rule": "Adjacent occurrences in the declared ordered StoryMap.activities list; no order inferred from names."
+    },
+    {
+      "id": "e550e3eb8f43508459e3e",
+      "from": {
+        "id": "model:activity:1",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "to": {
+        "id": "model:activity:2",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "origin": {
+        "occurrence": "/activities/1",
+        "owner": {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "owner_type": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "kind": "DeclaredListOrder",
+        "definition": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "path": "/activities"
+      },
+      "category": "declared-order",
+      "label": "recorded list order",
+      "supporting_origins": [
+        {
+          "occurrence": "/activities/2",
+          "owner": {
+            "id": "model:storymap:change",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "owner_type": {
+            "id": "sdo:type:StoryMap",
+            "model": "sdo",
+            "revision": "catalogue-3"
+          }
+        }
+      ],
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      },
+      "projection_rule": "Adjacent occurrences in the declared ordered StoryMap.activities list; no order inferred from names."
+    },
+    {
+      "id": "ecf3a24d9254a3d95dd72",
+      "from": {
+        "id": "model:activity:3",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "to": {
+        "id": "model:activity:4",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "origin": {
+        "occurrence": "/activities/3",
+        "owner": {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "owner_type": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "kind": "DeclaredListOrder",
+        "definition": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "path": "/activities"
+      },
+      "category": "declared-order",
+      "label": "recorded list order",
+      "supporting_origins": [
+        {
+          "occurrence": "/activities/4",
+          "owner": {
+            "id": "model:storymap:change",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "owner_type": {
+            "id": "sdo:type:StoryMap",
+            "model": "sdo",
+            "revision": "catalogue-3"
+          }
+        }
+      ],
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      },
+      "projection_rule": "Adjacent occurrences in the declared ordered StoryMap.activities list; no order inferred from names."
+    },
+    {
+      "id": "ee1baf008892b03a3f83a",
+      "from": {
+        "id": "model:activity:2",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "to": {
+        "id": "model:activity:3",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "origin": {
+        "occurrence": "/activities/2",
+        "owner": {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "owner_type": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "kind": "DeclaredListOrder",
+        "definition": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "path": "/activities"
+      },
+      "category": "declared-order",
+      "label": "recorded list order",
+      "supporting_origins": [
+        {
+          "occurrence": "/activities/3",
+          "owner": {
+            "id": "model:storymap:change",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "owner_type": {
+            "id": "sdo:type:StoryMap",
+            "model": "sdo",
+            "revision": "catalogue-3"
+          }
+        }
+      ],
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      },
+      "projection_rule": "Adjacent occurrences in the declared ordered StoryMap.activities list; no order inferred from names."
+    },
+    {
+      "id": "ef82677b13a32510bae40",
+      "from": {
+        "id": "model:activity:0",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "to": {
+        "id": "model:activity:1",
+        "model": "fixture:fruittrucks",
+        "revision": "1"
+      },
+      "origin": {
+        "occurrence": "/activities/0",
+        "owner": {
+          "id": "model:storymap:change",
+          "model": "fixture:fruittrucks",
+          "revision": "1"
+        },
+        "owner_type": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        }
+      },
+      "selector": {
+        "kind": "DeclaredListOrder",
+        "definition": {
+          "id": "sdo:type:StoryMap",
+          "model": "sdo",
+          "revision": "catalogue-3"
+        },
+        "path": "/activities"
+      },
+      "category": "declared-order",
+      "label": "recorded list order",
+      "supporting_origins": [
+        {
+          "occurrence": "/activities/1",
+          "owner": {
+            "id": "model:storymap:change",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          },
+          "owner_type": {
+            "id": "sdo:type:StoryMap",
+            "model": "sdo",
+            "revision": "catalogue-3"
+          }
+        }
+      ],
+      "source_bindings": {
+        "provenance": [
+          {
+            "id": "model:anchor-unit:0cd233872b9bde450e19",
+            "model": "fixture:fruittrucks",
+            "revision": "1"
+          }
+        ],
+        "narratives": [
+          {
+            "document": {
+              "id": "model:capture:route-change-design-notes.md",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            },
+            "fragment": {
+              "id": "model:anchor-unit:0cd233872b9bde450e19",
+              "model": "fixture:fruittrucks",
+              "revision": "1"
+            }
+          }
+        ]
+      },
+      "projection_rule": "Adjacent occurrences in the declared ordered StoryMap.activities list; no order inferred from names."
+    }
+  ],
+  "coverage": {
+    "complete": true,
+    "warnings": [],
+    "vertices": "7",
+    "edges": "5"
+  },
+  "status": "derived inspection artifact; no native import, backup, execution or acceptance"
+}
